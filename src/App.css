@@ -151,6 +151,17 @@
   animation-delay: -4s;
 }
 
+.hero-orb-3 {
+  width: 200px;
+  height: 200px;
+  top: 40%;
+  right: 20%;
+  background: radial-gradient(circle, 
+    hsl(36, 95%, 55%, 0.08),
+    transparent 70%);
+  animation-delay: -2s;
+}
+
 @keyframes orbFloat {
   0%, 100% {
     transform: scale(1) translate(0, 0);
@@ -167,6 +178,7 @@
    ========================= */
 
 .feature-card {
+  position: relative;
   padding: 2rem;
   border-radius: 1rem;
   background: linear-gradient(180deg,
@@ -175,10 +187,28 @@
   border: 1px solid hsl(220, 12%, 16%);
   backdrop-filter: blur(10px);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    hsl(36, 95%, 55%, 0) 0%,
+    hsl(36, 95%, 55%, 0.03) 50%,
+    hsl(36, 95%, 55%, 0) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.feature-card:hover::before {
+  opacity: 1;
 }
 
 .feature-card:hover {
-  transform: translateY(-8px);
   border-color: hsl(36, 95%, 55%, 0.3);
   box-shadow:
     0 20px 60px -20px hsl(36 95% 55% / 0.25),
