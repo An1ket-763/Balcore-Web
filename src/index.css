@@ -113,4 +113,19 @@
   .glow-teal {
     box-shadow: 0 0 40px -10px hsl(174 65% 45% / 0.3);
   }
+
+  /* Text glow */
+  .text-glow {
+    text-shadow: 0 0 20px hsl(36 95% 55% / 0.5);
+  }
+
+  /* Hover lift */
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -20px hsl(36 95% 55% / 0.3);
+  }
 }

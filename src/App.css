@@ -281,6 +281,8 @@
   color: hsl(220, 15%, 6%);
   transition: all 0.3s ease;
   box-shadow: 0 4px 20px -4px hsl(36 95% 55% / 0.5);
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-primary:hover {
@@ -381,6 +383,34 @@
   }
 }
 
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse border */
+@keyframes pulseBorder {
+  0%, 100% {
+    border-color: hsl(36, 95%, 55%, 0.2);
+  }
+  50% {
+    border-color: hsl(36, 95%, 55%, 0.5);
+  }
+}
+
+.animate-pulse-border {
+  animation: pulseBorder 3s ease-in-out infinite;
+}
+
 /* =========================
    NAVBAR
    ========================= */
@@ -435,4 +465,56 @@
   background: linear-gradient(180deg,
     transparent,
     hsl(220, 15%, 4%));
+}
+
+/* =========================
+   SCROLL BAR
+   ========================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(220, 15%, 6%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(220, 12%, 20%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(36, 95%, 55%, 0.5);
+}
+
+/* =========================
+   SELECTION
+   ========================= */
+
+::selection {
+  background: hsl(36, 95%, 55%, 0.3);
+  color: hsl(40, 10%, 92%);
+}
+
+/* =========================
+   GLASS EFFECT
+   ========================= */
+
+.glass {
+  background: hsl(220, 14%, 9%, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid hsl(220, 12%, 16%);
+}
+
+/* =========================
+   GRADIENT BORDER
+   ========================= */
+
+.gradient-border {
+  position: relative;
+  background: linear-gradient(hsl(220, 14%, 9%), hsl(220, 14%, 9%)) padding-box,
+              linear-gradient(135deg, hsl(36, 95%, 55%), hsl(174, 65%, 45%)) border-box;
+  border: 1px solid transparent;
+  border-radius: 1rem;
 }
