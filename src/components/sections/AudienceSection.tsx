@@ -1,141 +1,103 @@
 import { motion } from "framer-motion";
-import { Users, Layers, Lightbulb, ArrowUpRight } from "lucide-react";
+import { Users, Building2, Code2 } from "lucide-react";
 
 const audiences = [
   {
     icon: <Users className="w-6 h-6" />,
     title: "Liquidity Providers",
-    desc: "For participants who want yield without unnecessary exposure — capital that works with markets, not against them.",
-    stats: { label: "Avg. Returns", value: "+12%" },
+    description:
+      "Who want to participate in DeFi without relying solely on incentives or accepting unmanaged risk.",
   },
   {
-    icon: <Layers className="w-6 h-6" />,
-    title: "AMM Protocols",
-    desc: "For teams rethinking solvent, sustainable liquidity, offering deeper utility without sacrificing stability.",
-    stats: { label: "Integrations", value: "15+" },
+    icon: <Building2 className="w-6 h-6" />,
+    title: "Protocols & DAOs",
+    description:
+      "Looking for healthier liquidity behavior that aligns with long-term protocol sustainability.",
   },
   {
-    icon: <Lightbulb className="w-6 h-6" />,
+    icon: <Code2 className="w-6 h-6" />,
     title: "Builders & Researchers",
-    desc: "For innovators focused on foundational DeFi infrastructure, purpose-built systems that align incentives.",
-    stats: { label: "Open Source", value: "100%" },
+    description:
+      "Exploring new models for liquidity management and risk-aware DeFi infrastructure.",
   },
 ];
 
 const AudienceSection = () => {
   return (
-    <section
-      id="audience"
-      className="max-w-7xl mx-auto px-6 py-24 border-t border-border relative"
-    >
-      {/* Background decoration */}
-      <motion.div
-        className="absolute -right-20 top-20 w-80 h-80 rounded-full opacity-5 blur-3xl pointer-events-none"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.03, 0.06, 0.03],
-        }}
-        transition={{ duration: 10, repeat: Infinity }}
-        style={{
-          background:
-            "radial-gradient(circle, hsl(174 65% 45%), transparent 70%)",
-        }}
-      />
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
-        className="text-center"
-      >
-        <motion.span
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-6"
-          whileHover={{ scale: 1.05 }}
+    <section id="audience" className="py-24 border-t border-border">
+      <div className="max-w-7xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          <span className="text-xs font-semibold text-accent tracking-wider">
-            WHO IT'S FOR
-          </span>
-        </motion.span>
+          <p className="section-subtitle">WHO WE'RE BUILDING FOR</p>
+          <h2 className="section-title text-3xl md:text-4xl mt-4">
+            Designed For the Next Phase of DeFi
+          </h2>
+        </motion.div>
 
-        <h2 className="section-title text-3xl md:text-4xl">
-          Built for Long-Term Participation
-        </h2>
-
-        <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-          Infrastructure that serves the entire DeFi ecosystem
-        </p>
-      </motion.div>
-
-      <div className="grid md:grid-cols-3 gap-8 mt-16">
-        {audiences.map((item, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 50, rotateX: -10 }}
-            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.7, delay: i * 0.15 }}
-            whileHover={{
-              y: -8,
-              transition: { duration: 0.3 },
-            }}
-            className="feature-card group relative overflow-hidden"
-          >
-            {/* Animated border gradient */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {audiences.map((item, i) => (
             <motion.div
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              style={{
-                background:
-                  "linear-gradient(135deg, hsl(36 95% 55% / 0.15), transparent, hsl(174 65% 45% / 0.1))",
-              }}
-            />
-
-            <div className="flex items-start justify-between">
-              <motion.div
-                className="feature-icon relative z-10"
-                animate={{
-                  boxShadow: [
-                    "0 8px 24px -8px hsl(36 95% 55% / 0.5)",
-                    "0 12px 32px -8px hsl(36 95% 55% / 0.7)",
-                    "0 8px 24px -8px hsl(36 95% 55% / 0.5)",
-                  ],
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                {item.icon}
-              </motion.div>
-
-              <motion.div
-                className="opacity-0 group-hover:opacity-100 transition-opacity"
-                animate={{ x: [0, 3, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                <ArrowUpRight className="w-5 h-5 text-primary" />
-              </motion.div>
-            </div>
-
-            <h3 className="text-xl font-semibold text-foreground mt-5 relative z-10 group-hover:text-primary transition-colors">
-              {item.title}
-            </h3>
-
-            <p className="text-muted-foreground text-sm mt-3 leading-relaxed relative z-10">
-              {item.desc}
-            </p>
-
-            {/* Stats badge */}
-            <motion.div
-              className="mt-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20"
-              whileHover={{ scale: 1.05 }}
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              className="group relative"
             >
-              <span className="text-xs text-muted-foreground">
-                {item.stats.label}:
-              </span>
-              <span className="text-sm font-semibold text-primary">
-                {item.stats.value}
-              </span>
+              <div className="h-full p-8 rounded-2xl bg-gradient-to-br from-card via-secondary/20 to-card border border-border hover:border-primary/40 transition-all duration-500 relative overflow-hidden">
+                {/* Animated gradient overlay */}
+                <motion.div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background:
+                      "radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), hsl(36 95% 55% / 0.06), transparent 40%)",
+                  }}
+                />
+
+                {/* Icon container */}
+                <motion.div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center mb-6 relative z-10 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                  <div className="text-primary">{item.icon}</div>
+
+                  {/* Pulsing ring */}
+                  <motion.div
+                    className="absolute inset-0 rounded-xl border border-primary/30"
+                    animate={{
+                      scale: [1, 1.15, 1],
+                      opacity: [0.5, 0, 0.5],
+                    }}
+                    transition={{
+                      duration: 2.5,
+                      repeat: Infinity,
+                      delay: i * 0.3,
+                    }}
+                  />
+                </motion.div>
+
+                <h3 className="text-xl font-semibold text-foreground mb-4 relative z-10 group-hover:text-primary transition-colors duration-300">
+                  {item.title}
+                </h3>
+
+                <p className="text-muted-foreground leading-relaxed relative z-10">
+                  {item.description}
+                </p>
+
+                {/* Corner accent */}
+                <motion.div
+                  className="absolute top-0 right-0 w-20 h-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background:
+                      "radial-gradient(circle at top right, hsl(36 95% 55% / 0.1), transparent 70%)",
+                  }}
+                />
+              </div>
             </motion.div>
-          </motion.div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

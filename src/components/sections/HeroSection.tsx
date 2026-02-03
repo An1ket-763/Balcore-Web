@@ -1,5 +1,5 @@
-import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
-import { Activity, ArrowRight, ChevronDown } from "lucide-react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import { Activity, ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const HeroSection = () => {
@@ -9,9 +9,6 @@ const HeroSection = () => {
 
   const smoothX = useSpring(mouseX, { damping: 50, stiffness: 400 });
   const smoothY = useSpring(mouseY, { damping: 50, stiffness: 400 });
-
-  const gradientX = useTransform(smoothX, [0, window.innerWidth], [0, 100]);
-  const gradientY = useTransform(smoothY, [0, window.innerHeight], [0, 100]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -152,13 +149,13 @@ const HeroSection = () => {
             }}
             transition={{ duration: 5, repeat: Infinity }}
           >
-            Revolutionizing
+            Liquidity,
           </motion.span>
           <br />
           <span className="text-foreground">
-            Liquidity with{" "}
+            Designed for{" "}
             <span className="relative">
-              Balance
+              Real Markets
               <motion.span
                 className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent rounded-full"
                 initial={{ scaleX: 0 }}
@@ -175,16 +172,25 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
         >
-          Balcore is building continuous balance and yield infrastructure for
-          AMM DEXs, with impermanent loss reduction at the core. Next-gen DeFi
-          made simple.
+          Balcore is building next-generation liquidity infrastructure for DeFi,
+          focused on sustainability, resilience, and reducing structural
+          inefficiencies in AMM-based markets.
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-4 text-base text-muted-foreground/80 max-w-2xl"
+        >
+          Built for evolving market conditions. Designed with risk in mind.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.45 }}
-          className="mt-10 flex flex-wrap gap-4"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-10"
         >
           <motion.a
             href="#learn-more"
@@ -193,13 +199,7 @@ const HeroSection = () => {
             whileTap={{ scale: 0.98 }}
           >
             <span className="relative z-10 flex items-center gap-2">
-              Get Started Now
-              <motion.span
-                animate={{ x: [0, 4, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                <ArrowRight className="w-4 h-4" />
-              </motion.span>
+              Learn More
             </span>
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
@@ -207,50 +207,6 @@ const HeroSection = () => {
               transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
             />
           </motion.a>
-
-          <motion.a
-            href="#features"
-            className="btn-secondary"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Explore Features
-          </motion.a>
-        </motion.div>
-
-        {/* Stats row */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-20 flex flex-wrap gap-8 md:gap-16"
-        >
-          {[
-            { value: "$2.5B+", label: "Total Value Locked" },
-            { value: "150K+", label: "Active Users" },
-            { value: "99.9%", label: "Uptime" },
-            { value: "40%", label: "Avg IL Reduction" },
-          ].map((stat, i) => (
-            <motion.div
-              key={i}
-              className="text-center group"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.7 + i * 0.1 }}
-              whileHover={{ y: -5 }}
-            >
-              <motion.p
-                className="text-3xl md:text-4xl font-bold gradient-text"
-                animate={{ opacity: [0.8, 1, 0.8] }}
-                transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}
-              >
-                {stat.value}
-              </motion.p>
-              <p className="text-sm text-muted-foreground mt-1 group-hover:text-foreground/80 transition-colors">
-                {stat.label}
-              </p>
-            </motion.div>
-          ))}
         </motion.div>
       </div>
 

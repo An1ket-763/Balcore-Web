@@ -1,172 +1,84 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, MessageCircle } from "lucide-react";
 
 const FooterSection = () => {
-  const footerLinks = [
-    { label: "Home", href: "#" },
-    { label: "Features", href: "#features" },
-    { label: "About", href: "#learn-more" },
-    { label: "FAQ", href: "#faq" },
-  ];
-
-  const socialLinks = [
-    {
-      icon: <ExternalLink className="w-4 h-4" />,
-      label: "Twitter",
-      href: "https://x.com/Balcore",
-    },
-    {
-      icon: <MessageCircle className="w-4 h-4" />,
-      label: "Discord",
-      href: "#",
-    },
-    { icon: <Github className="w-4 h-4" />, label: "GitHub", href: "#" },
-  ];
-
   return (
-    <footer className="footer-gradient border-t border-border py-20 relative overflow-hidden">
-      {/* Animated background */}
-      <motion.div
-        className="absolute inset-0 opacity-20"
-        animate={{
-          background: [
-            "radial-gradient(circle at 20% 80%, hsl(36 95% 55% / 0.05), transparent 50%)",
-            "radial-gradient(circle at 80% 20%, hsl(36 95% 55% / 0.08), transparent 50%)",
-            "radial-gradient(circle at 20% 80%, hsl(36 95% 55% / 0.05), transparent 50%)",
-          ],
-        }}
-        transition={{ duration: 8, repeat: Infinity }}
-      />
-
-      {/* Floating particles */}
-      {[...Array(5)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-1 h-1 rounded-full bg-primary/30"
-          style={{
-            left: `${20 + i * 15}%`,
-            top: `${30 + (i % 3) * 20}%`,
-          }}
-          animate={{
-            y: [0, -20, 0],
-            opacity: [0.2, 0.5, 0.2],
-          }}
-          transition={{
-            duration: 4 + i,
-            repeat: Infinity,
-            delay: i * 0.5,
-          }}
-        />
-      ))}
+    <footer className="border-t border-border py-16 relative overflow-hidden">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
-          {/* Brand */}
-          <div className="md:col-span-2">
-            <motion.div
-              className="flex items-center gap-3 mb-6"
-              whileHover={{ scale: 1.02 }}
-            >
-              <motion.div
-                className="logo-icon"
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.6 }}
-              >
-                <span className="text-lg">B</span>
-              </motion.div>
-              <span className="text-2xl font-semibold tracking-wide">
-                Balcore
-              </span>
-            </motion.div>
+        <div className="flex flex-col items-center text-center">
+          {/* Logo */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-6"
+          >
+            <span className="text-3xl font-bold gradient-text">Balcore</span>
+          </motion.div>
 
-            <p className="text-muted-foreground max-w-sm leading-relaxed">
-              Balcore remains in research and development with a long-term
-              horizon toward meaningful impact in DeFi liquidity infrastructure.
-            </p>
+          {/* Tagline */}
+          <motion.p
+            className="text-muted-foreground max-w-md mb-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+          >
+            Next-generation DeFi liquidity infrastructure
+          </motion.p>
 
-            {/* Social links */}
-            <div className="flex gap-3 mt-6">
-              {socialLinks.map((social, i) => (
-                <motion.a
-                  key={i}
-                  href={social.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-10 h-10 rounded-lg bg-secondary/50 border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {social.icon}
-                </motion.a>
-              ))}
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold text-foreground mb-4">Quick Links</h4>
-            <ul className="space-y-3">
-              {footerLinks.map((link, i) => (
-                <motion.li
-                  key={i}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <a
-                    href={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group"
-                  >
-                    {link.label}
-                    <motion.span className="opacity-0 group-hover:opacity-100 transition-opacity">
-                      →
-                    </motion.span>
-                  </a>
-                </motion.li>
-              ))}
-            </ul>
-          </div>
-
-          {/* CTA */}
-          <div>
-            <h4 className="font-semibold text-foreground mb-4">Stay Updated</h4>
-            <p className="text-muted-foreground text-sm mb-4">
-              Follow our journey and be the first to know about updates.
-            </p>
+          {/* Social Link */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mb-8"
+          >
             <motion.a
-              href="https://x.com/Balcore"
+              href="https://x.com/Balcore_ai"
               target="_blank"
               rel="noreferrer"
-              className="btn-primary inline-flex text-sm"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-secondary/50 border border-border hover:border-primary/50 hover:bg-secondary transition-all duration-300"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
-              Follow @Balcore
-              <ExternalLink className="w-4 h-4 ml-2" />
+              <svg
+                className="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+              <span className="text-foreground/80 hover:text-foreground transition-colors">
+                @Balcore_ai
+              </span>
             </motion.a>
-          </div>
-        </div>
+          </motion.div>
 
-        {/* Bottom bar */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4"
-        >
-          <p className="text-sm text-muted-foreground">
-            © Balcore. All rights reserved.
-          </p>
-          <div className="flex gap-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-foreground transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-foreground transition-colors">
-              Terms of Service
-            </a>
-          </div>
-        </motion.div>
+          {/* Divider */}
+          <motion.div
+            className="w-full max-w-xs h-px bg-gradient-to-r from-transparent via-border to-transparent mb-8"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          />
+
+          {/* Copyright */}
+          <motion.p
+            className="text-sm text-muted-foreground"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+          >
+            © 2026 Balcore. All rights reserved.
+          </motion.p>
+        </div>
       </div>
     </footer>
   );

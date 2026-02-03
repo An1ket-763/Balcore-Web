@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 const CTASection = () => {
   return (
@@ -33,22 +33,20 @@ const CTASection = () => {
           >
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-primary">
-              Join the DeFi Revolution
+              Stay Updated
             </span>
           </motion.div>
 
           <motion.h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+            className="text-4xl md:text-5xl font-bold leading-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <span className="gradient-text shimmer-text">
-              Ready to Transform
-            </span>
+            <span className="gradient-text shimmer-text">Building</span>
             <br />
-            Your Liquidity Strategy?
+            <span className="text-foreground">the Future of Liquidity</span>
           </motion.h2>
 
           <motion.p
@@ -58,8 +56,8 @@ const CTASection = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            Experience the next generation of DeFi liquidity infrastructure.
-            Reduce impermanent loss, maximize yields.
+            Follow our journey as we develop next-generation DeFi liquidity
+            infrastructure.
           </motion.p>
 
           <motion.div
@@ -70,19 +68,23 @@ const CTASection = () => {
             transition={{ delay: 0.3 }}
           >
             <motion.a
-              href="#learn-more"
+              href="https://x.com/Balcore_ai"
+              target="_blank"
+              rel="noreferrer"
               className="btn-primary group relative overflow-hidden"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
               <span className="relative z-10 flex items-center gap-2">
-                Get Started Now
-                <motion.span
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
-                  <ArrowRight className="w-4 h-4" />
-                </motion.span>
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+                Follow @Balcore_ai
               </span>
 
               {/* Button shine effect */}
@@ -95,17 +97,6 @@ const CTASection = () => {
                   repeatDelay: 3,
                 }}
               />
-            </motion.a>
-
-            <motion.a
-              href="https://x.com/Balcore"
-              target="_blank"
-              rel="noreferrer"
-              className="btn-secondary"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Learn More
             </motion.a>
           </motion.div>
         </motion.div>
