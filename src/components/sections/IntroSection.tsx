@@ -1,5 +1,20 @@
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import { Sparkles, TrendingDown, AlertTriangle, LogOut } from "lucide-react";
+
+const issues = [
+  {
+    icon: <TrendingDown className="w-5 h-5" />,
+    text: "Impermanent loss that outweighs fees",
+  },
+  {
+    icon: <AlertTriangle className="w-5 h-5" />,
+    text: "Yield that fluctuates unpredictably",
+  },
+  {
+    icon: <LogOut className="w-5 h-5" />,
+    text: "Liquidity that exits precisely when it's needed most",
+  },
+];
 
 const IntroSection = () => {
   return (
@@ -34,7 +49,7 @@ const IntroSection = () => {
         >
           <Sparkles className="w-4 h-4 text-accent" />
           <span className="text-xs font-semibold text-accent tracking-wider">
-            ABOUT BALCORE
+            CONTEXT
           </span>
         </motion.div>
 
@@ -45,7 +60,9 @@ const IntroSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          The Missing Layer in DeFi Liquidity
+          DeFi Has Grown Fast.
+          <br />
+          <span className="text-muted-foreground">Its Foundations Haven't.</span>
         </motion.h2>
 
         <motion.p
@@ -55,10 +72,9 @@ const IntroSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Automated market makers unlocked open liquidity for decentralized
-          finance, but introduced structural challenges for liquidity providers.
-          Liquidity can be inefficient, yields can vary wildly, and impermanent
-          loss remains a deterrent for long-term participation.
+          Over the last few years, DeFi has unlocked global access to liquidity,
+          yield, and financial primitives that were once limited to institutions.
+          But as markets mature, cracks begin to show.
         </motion.p>
 
         <motion.p
@@ -68,35 +84,59 @@ const IntroSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          Balcore is tackling these challenges at their foundation with
-          infrastructure designed for tomorrow's AMMs and LP ecosystems.
+          Liquidity systems that perform well during expansion struggle during
+          volatility. Incentives attract capital quickly — but often fail to
+          retain it. Risk is pushed to users instead of being managed at the
+          system level.
         </motion.p>
 
-        {/* Stats preview */}
-        <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12"
+        <motion.p
+          className="section-text mt-4 text-lg font-medium text-foreground"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          {[
-            { label: "Protocols", value: "15+" },
-            { label: "Chains", value: "5" },
-            { label: "TVL Protected", value: "$500M+" },
-            { label: "IL Saved", value: "$2M+" },
-          ].map((stat, i) => (
-            <motion.div
-              key={i}
-              className="p-4 rounded-xl bg-secondary/30 border border-border hover:border-primary/30 transition-colors"
-              whileHover={{ y: -3 }}
-            >
-              <p className="text-2xl font-bold gradient-text">{stat.value}</p>
-              <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
-            </motion.div>
-          ))}
-        </motion.div>
+          Balcore exists to rethink these foundations.
+        </motion.p>
       </motion.div>
+
+      {/* Outcome cards */}
+      <motion.div
+        className="grid md:grid-cols-3 gap-4 mt-16"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.5 }}
+      >
+        {issues.map((issue, i) => (
+          <motion.div
+            key={i}
+            className="p-5 rounded-xl bg-secondary/30 border border-border hover:border-destructive/30 transition-all duration-300 group"
+            whileHover={{ y: -3, scale: 1.02 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6 + i * 0.1 }}
+          >
+            <div className="w-10 h-10 rounded-lg bg-destructive/10 flex items-center justify-center text-destructive mb-3 group-hover:bg-destructive/20 transition-colors">
+              {issue.icon}
+            </div>
+            <p className="text-foreground/80 text-sm">{issue.text}</p>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      <motion.p
+        className="text-sm text-muted-foreground mt-8 italic"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.9 }}
+      >
+        These outcomes are not anomalies. They are structural consequences of
+        current liquidity design.
+      </motion.p>
     </section>
   );
 };

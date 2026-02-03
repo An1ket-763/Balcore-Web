@@ -1,116 +1,113 @@
 import { motion } from "framer-motion";
-import { Eye, Quote } from "lucide-react";
+import { Layers, Zap, Shield, BarChart3 } from "lucide-react";
+
+const buildingPoints = [
+  {
+    icon: <Zap className="w-5 h-5" />,
+    title: "Volatility Response",
+    desc: "Mechanisms designed to respond to volatility rather than ignore it",
+  },
+  {
+    icon: <Shield className="w-5 h-5" />,
+    title: "Risk Reduction",
+    desc: "Structures that reduce unnecessary exposure to structural risk",
+  },
+  {
+    icon: <BarChart3 className="w-5 h-5" />,
+    title: "Sustainable Yield",
+    desc: "A system-level approach to balancing yield and sustainability",
+  },
+];
 
 const VisionSection = () => {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-24 border-t border-border relative overflow-hidden">
-      {/* Background glow */}
-      <motion.div
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-5 blur-3xl pointer-events-none"
-        animate={{
-          scale: [1, 1.2, 1],
-        }}
-        transition={{ duration: 10, repeat: Infinity }}
-        style={{
-          background:
-            "radial-gradient(circle, hsl(36 95% 55%), transparent 70%)",
-        }}
-      />
-
-      <div className="grid md:grid-cols-2 gap-16 items-center relative z-10">
+    <section
+      id="vision"
+      className="py-24 relative overflow-hidden bg-gradient-to-b from-transparent via-secondary/10 to-transparent"
+    >
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
         >
           <motion.div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
             whileHover={{ scale: 1.05 }}
           >
-            <Eye className="w-4 h-4 text-primary" />
+            <Layers className="w-4 h-4 text-primary" />
             <span className="text-xs font-semibold text-primary tracking-wider">
-              OUR VISION
+              WHAT WE'RE BUILDING
             </span>
           </motion.div>
 
-          <motion.h2
-            className="section-title text-3xl md:text-4xl"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            A New Way to Think About Liquidity
-          </motion.h2>
+          <h2 className="section-title text-3xl md:text-4xl lg:text-5xl">
+            Continuous Liquidity Infrastructure
+          </h2>
 
           <motion.p
-            className="section-text mt-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="text-muted-foreground mt-6 max-w-3xl mx-auto text-lg"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ delay: 0.2 }}
           >
-            Balcore embraces a perspective where capital isn't parked — it
-            adapts. This means thinking beyond one-time placement toward
-            infrastructure that understands balance, duration, and long-term
-            participation.
+            Balcore is developing infrastructure focused on improving how
+            liquidity behaves across changing market conditions.
           </motion.p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="relative"
-        >
-          {/* Quote card */}
-          <motion.div
-            className="relative p-8 rounded-2xl bg-gradient-to-br from-card via-secondary/30 to-card border border-border"
-            whileHover={{ y: -5 }}
-          >
-            {/* Quote icon */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {buildingPoints.map((point, i) => (
             <motion.div
-              className="absolute -top-4 -left-4 w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-orange-dark flex items-center justify-center"
-              animate={{
-                rotate: [0, 5, 0, -5, 0],
-              }}
-              transition={{ duration: 5, repeat: Infinity }}
-            >
-              <Quote className="w-6 h-6 text-primary-foreground" />
-            </motion.div>
-
-            <motion.div
-              className="absolute left-0 top-8 bottom-8 w-1 bg-gradient-to-b from-primary via-accent to-primary rounded-full"
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              style={{ originY: 0 }}
-            />
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              className="group"
+            >
+              <div className="h-full p-8 rounded-2xl bg-gradient-to-br from-card to-secondary/30 border border-border hover:border-primary/40 transition-all duration-500 relative overflow-hidden">
+                {/* Hover glow */}
+                <motion.div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-            <p className="text-foreground/90 italic text-xl md:text-2xl leading-relaxed pl-6">
-              "Markets move continuously. Liquidity should too."
-            </p>
+                <motion.div
+                  className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-6 relative z-10 group-hover:scale-110 transition-transform duration-300"
+                  whileHover={{ rotate: 5 }}
+                >
+                  <div className="text-primary">{point.icon}</div>
+                </motion.div>
 
-            <div className="flex items-center gap-4 mt-6 pl-6">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold">
-                B
+                <h3 className="text-xl font-semibold text-foreground mb-3 relative z-10 group-hover:text-primary transition-colors">
+                  {point.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed relative z-10">
+                  {point.desc}
+                </p>
               </div>
-              <div>
-                <p className="font-semibold text-foreground">Balcore Team</p>
-                <p className="text-sm text-muted-foreground">Core Philosophy</p>
-              </div>
-            </div>
+            </motion.div>
+          ))}
+        </div>
 
-            {/* Decorative elements */}
-            <motion.div
-              className="absolute -bottom-3 -right-3 w-20 h-20 rounded-xl border border-dashed border-primary/20"
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            />
-          </motion.div>
+        <motion.div
+          className="mt-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+        >
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            This is not a yield optimization platform. It is{" "}
+            <span className="text-foreground font-medium">
+              liquidity infrastructure built for longevity
+            </span>
+            .
+          </p>
+          <p className="text-sm text-muted-foreground/70 mt-4 italic">
+            More details will be shared as development progresses.
+          </p>
         </motion.div>
       </div>
     </section>
