@@ -3,7 +3,7 @@ import { Sparkles } from "lucide-react";
 
 const CTASection = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <footer className="py-24 relative overflow-hidden border-t border-border">
       {/* Animated background orbs */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-20 blur-3xl pointer-events-none"
@@ -17,6 +17,9 @@ const CTASection = () => {
         }}
         transition={{ duration: 8, repeat: Infinity }}
       />
+
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
         <motion.div
@@ -118,8 +121,28 @@ const CTASection = () => {
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
         />
+
+        {/* Divider */}
+        <motion.div
+          className="w-full max-w-xs mx-auto h-px bg-gradient-to-r from-transparent via-border to-transparent mt-16 mb-8"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        />
+
+        {/* Copyright */}
+        <motion.p
+          className="text-sm text-muted-foreground"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+        >
+          © 2026 Balcore. All rights reserved.
+        </motion.p>
       </div>
-    </section>
+    </footer>
   );
 };
 

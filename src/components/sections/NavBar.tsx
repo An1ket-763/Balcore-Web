@@ -1,10 +1,18 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ChevronDown, ExternalLink, Menu, X } from "lucide-react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { ChevronDown, ExternalLink, Menu, X, Rocket } from "lucide-react";
 import { useState, useEffect } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { scrollY } = useScroll();
 
   const navBackground = useTransform(
@@ -86,7 +94,7 @@ const NavBar = () => {
               </motion.a>
             ))}
             <motion.a
-              href="https://x.com/Balcore"
+              href="https://x.com/Balcore_ai"
               target="_blank"
               rel="noreferrer"
               className="nav-link flex items-center gap-1"
@@ -97,21 +105,24 @@ const NavBar = () => {
             </motion.a>
           </nav>
 
-          <motion.a
-            href="#learn-more"
-            className="nav-btn hidden md:flex items-center gap-2 relative overflow-hidden group"
-            whileHover={{
-              scale: 1.05,
-              borderColor: "hsl(36, 95%, 55%)",
-              color: "hsl(36, 95%, 55%)",
-            }}
+          <motion.button
+            onClick={() => setIsModalOpen(true)}
+            className="btn-primary hidden md:flex items-center gap-2 relative overflow-hidden group"
+            whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
-            <span className="relative z-10">Get Started</span>
+            <Rocket className="w-4 h-4" />
+            <span className="relative z-10">Launch App</span>
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
+              animate={{ translateX: ["-100%", "200%"] }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatDelay: 3,
+              }}
             />
-          </motion.a>
+          </motion.button>
 
           {/* Mobile menu button */}
           <motion.button
@@ -152,11 +163,21 @@ const NavBar = () => {
                 {item.label}
               </motion.a>
             ))}
+            <motion.button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsModalOpen(true);
+              }}
+              className="flex items-center gap-2 text-primary py-2 font-medium"
+            >
+              <Rocket className="w-4 h-4" />
+              Launch App
+            </motion.button>
             <motion.a
-              href="https://x.com/Balcore"
+              href="https://x.com/Balcore_ai"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 text-primary py-2"
+              className="flex items-center gap-2 text-muted-foreground py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Follow on X
@@ -165,6 +186,67 @@ const NavBar = () => {
           </nav>
         </motion.div>
       </motion.header>
+
+      {/* Coming Soon Modal */}
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="bg-background/95 backdrop-blur-xl border-border sm:max-w-md">
+          <DialogHeader className="text-center sm:text-center">
+            <motion.div
+              className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center"
+              initial={{ scale: 0, rotate: -180 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ type: "spring", stiffness: 200, damping: 15 }}
+            >
+              <motion.div
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <Rocket className="w-8 h-8 text-primary" />
+              </motion.div>
+            </motion.div>
+            <DialogTitle className="text-2xl font-bold">
+              <span className="gradient-text">Coming Soon</span>
+            </DialogTitle>
+            <DialogDescription className="text-muted-foreground mt-2">
+              We're working hard to bring you the next generation of DeFi liquidity infrastructure. Stay tuned!
+            </DialogDescription>
+          </DialogHeader>
+          
+          <motion.div 
+            className="mt-6 flex flex-col gap-3"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <motion.a
+              href="https://x.com/Balcore_ai"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary w-full justify-center flex items-center gap-2"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <svg
+                className="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+              Follow for Updates
+            </motion.a>
+            <motion.button
+              onClick={() => setIsModalOpen(false)}
+              className="w-full py-2.5 px-4 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all duration-300"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Close
+            </motion.button>
+          </motion.div>
+        </DialogContent>
+      </Dialog>
 
       {/* Spacer for fixed navbar */}
       <div className="h-0" />

@@ -10,7 +10,6 @@ import AudienceSection from "@/components/sections/AudienceSection";
 import FutureSection from "@/components/sections/FutureSection";
 import StatusSection from "@/components/sections/StatusSection";
 import CTASection from "@/components/sections/CTASection";
-import FooterSection from "@/components/sections/FooterSection";
 
 const Index = () => {
   return (
@@ -26,7 +25,6 @@ const Index = () => {
       <FutureSection />
       <StatusSection />
       <CTASection />
-      <FooterSection />
     </div>
   );
 };
