@@ -3,7 +3,7 @@ import { Sparkles } from "lucide-react";
 
 const CTASection = () => {
   return (
-    <footer className="py-24 relative overflow-hidden border-t border-border">
+    <footer id="footer" className="py-24 relative overflow-hidden border-t border-border">
       {/* Animated background orbs */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-20 blur-3xl pointer-events-none"
