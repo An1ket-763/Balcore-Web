@@ -37,9 +37,9 @@ const NavBar = () => {
 
   const navItems = [
     { href: "#learn-more", label: "Home" },
-    { href: "#features", label: "Features" },
     { href: "#philosophy", label: "About", hasDropdown: true },
     { href: "#audience", label: "Protocol", hasDropdown: true },
+    { href: "#footer", label: "Contact" },
   ];
 
   return (
@@ -93,16 +93,6 @@ const NavBar = () => {
                 />
               </motion.a>
             ))}
-            <motion.a
-              href="https://x.com/Balcore_ai"
-              target="_blank"
-              rel="noreferrer"
-              className="nav-link flex items-center gap-1"
-              whileHover={{ y: -2 }}
-            >
-              Contact
-              <ExternalLink className="w-3 h-3" />
-            </motion.a>
           </nav>
 
           <motion.button
