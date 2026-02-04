@@ -35,11 +35,21 @@ const NavBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      // Update URL without hash
+      window.history.replaceState(null, "", `/${sectionId === "learn-more" ? "" : sectionId}`);
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   const navItems = [
-    { href: "#learn-more", label: "Home" },
-    { href: "#philosophy", label: "About", hasDropdown: true },
-    { href: "#audience", label: "Protocol", hasDropdown: true },
-    { href: "#footer", label: "Contact" },
+    { sectionId: "learn-more", label: "Home" },
+    { sectionId: "philosophy", label: "About", hasDropdown: true },
+    { sectionId: "audience", label: "Protocol", hasDropdown: true },
+    { sectionId: "footer", label: "Contact" },
   ];
 
   return (
@@ -79,10 +89,10 @@ const NavBar = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item, i) => (
-              <motion.a
+              <motion.button
                 key={i}
-                href={item.href}
-                className="nav-link flex items-center gap-1 relative group"
+                onClick={() => scrollToSection(item.sectionId)}
+                className="nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer"
                 whileHover={{ y: -2 }}
                 transition={{ duration: 0.2 }}
               >
@@ -91,7 +101,7 @@ const NavBar = () => {
                 <motion.span
                   className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-accent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
                 />
-              </motion.a>
+              </motion.button>
             ))}
           </nav>
 
@@ -141,17 +151,16 @@ const NavBar = () => {
         >
           <nav className="px-6 py-4 space-y-4">
             {navItems.map((item, i) => (
-              <motion.a
+              <motion.button
                 key={i}
-                href={item.href}
-                className="block text-foreground/80 hover:text-primary transition-colors py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => scrollToSection(item.sectionId)}
+                className="block text-foreground/80 hover:text-primary transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full"
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: i * 0.1 }}
               >
                 {item.label}
-              </motion.a>
+              </motion.button>
             ))}
             <motion.button
               onClick={() => {
