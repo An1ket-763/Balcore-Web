@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { ChevronDown, ExternalLink, Menu, X, Rocket } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ExternalLink, Menu, X, Rocket } from "lucide-react";
 import { useState, useEffect } from "react";
 import {
   Dialog,
@@ -39,17 +39,21 @@ const NavBar = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      // Update URL without hash
-      window.history.replaceState(null, "", `/${sectionId === "learn-more" ? "" : sectionId}`);
     }
     setIsMobileMenuOpen(false);
   };
 
+  const handleNavClick = (sectionId: string, urlPath: string) => {
+    scrollToSection(sectionId);
+    // Update URL to match nav label
+    window.history.replaceState(null, "", urlPath);
+  };
+
   const navItems = [
-    { sectionId: "learn-more", label: "Home" },
-    { sectionId: "philosophy", label: "About", hasDropdown: true },
-    { sectionId: "audience", label: "Protocol", hasDropdown: true },
-    { sectionId: "footer", label: "Contact" },
+    { sectionId: "learn-more", label: "Home", urlPath: "/" },
+    { sectionId: "philosophy", label: "About", urlPath: "/about" },
+    { sectionId: "audience", label: "Protocol", urlPath: "/protocol" },
+    { sectionId: "footer", label: "Contact", urlPath: "/contact" },
   ];
 
   return (
@@ -91,13 +95,12 @@ const NavBar = () => {
             {navItems.map((item, i) => (
               <motion.button
                 key={i}
-                onClick={() => scrollToSection(item.sectionId)}
+                onClick={() => handleNavClick(item.sectionId, item.urlPath)}
                 className="nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer"
                 whileHover={{ y: -2 }}
                 transition={{ duration: 0.2 }}
               >
                 {item.label}
-                {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
                 <motion.span
                   className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-accent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
                 />
@@ -153,7 +156,7 @@ const NavBar = () => {
             {navItems.map((item, i) => (
               <motion.button
                 key={i}
-                onClick={() => scrollToSection(item.sectionId)}
+                onClick={() => handleNavClick(item.sectionId, item.urlPath)}
                 className="block text-foreground/80 hover:text-primary transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full"
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
