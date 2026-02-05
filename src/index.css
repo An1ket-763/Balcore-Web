@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* =========================
-   DESIGN SYSTEM - Orange Crypto Theme
+   DESIGN SYSTEM - Lime/Chartreuse Crypto Theme
    Inspired by professional blockchain aesthetics
    ========================= */
 
@@ -20,8 +20,8 @@
     --popover: 220 14% 9%;
     --popover-foreground: 40 10% 92%;
 
-    /* Orange/Amber primary accent */
-    --primary: 36 95% 55%;
+    /* Lime/Chartreuse primary accent (Zenith-inspired) */
+    --primary: 75 85% 55%;
     --primary-foreground: 220 15% 6%;
 
     /* Darker secondary surfaces */
@@ -32,8 +32,8 @@
     --muted: 220 12% 16%;
     --muted-foreground: 220 10% 55%;
 
-    /* Teal accent for subtle highlights */
-    --accent: 174 65% 45%;
+    /* Slightly different lime for accent */
+    --accent: 80 75% 50%;
     --accent-foreground: 220 15% 6%;
 
     /* Destructive states */
@@ -43,23 +43,23 @@
     /* Borders and inputs */
     --border: 220 12% 14%;
     --input: 220 12% 14%;
-    --ring: 36 95% 55%;
+    --ring: 75 85% 55%;
 
     --radius: 0.75rem;
 
     /* Custom gradient colors */
-    --orange-start: 36 95% 55%;
-    --orange-end: 28 90% 48%;
-    --teal-glow: 174 65% 45%;
+    --lime-start: 75 85% 55%;
+    --lime-end: 85 80% 45%;
+    --lime-glow: 80 75% 50%;
 
     --sidebar-background: 220 14% 8%;
     --sidebar-foreground: 40 10% 92%;
-    --sidebar-primary: 36 95% 55%;
+    --sidebar-primary: 75 85% 55%;
     --sidebar-primary-foreground: 220 15% 6%;
     --sidebar-accent: 220 12% 14%;
     --sidebar-accent-foreground: 40 10% 92%;
     --sidebar-border: 220 12% 14%;
-    --sidebar-ring: 36 95% 55%;
+    --sidebar-ring: 75 85% 55%;
   }
 
   * {
@@ -78,14 +78,14 @@
 }
 
 @layer utilities {
-  /* Gradient text with orange theme */
+  /* Gradient text with lime theme */
   .gradient-text {
     background-size: 200% 200%;
     background-image: linear-gradient(
       135deg,
-      hsl(36, 95%, 55%),
-      hsl(28, 90%, 58%),
-      hsl(36, 95%, 55%)
+      hsl(75, 85%, 55%),
+      hsl(85, 80%, 50%),
+      hsl(75, 85%, 55%)
     );
     animation: gradientMove 6s ease infinite;
     -webkit-background-clip: text;
@@ -106,17 +106,17 @@
   }
 
   /* Glow effects */
-  .glow-orange {
-    box-shadow: 0 0 60px -15px hsl(36 95% 55% / 0.4);
+  .glow-lime {
+    box-shadow: 0 0 60px -15px hsl(75 85% 55% / 0.4);
   }
 
-  .glow-teal {
-    box-shadow: 0 0 40px -10px hsl(174 65% 45% / 0.3);
+  .glow-accent {
+    box-shadow: 0 0 40px -10px hsl(80 75% 50% / 0.3);
   }
 
   /* Text glow */
   .text-glow {
-    text-shadow: 0 0 20px hsl(36 95% 55% / 0.5);
+    text-shadow: 0 0 20px hsl(75 85% 55% / 0.5);
   }
 
   /* Hover lift */
@@ -126,6 +126,6 @@
 
   .hover-lift:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 40px -20px hsl(36 95% 55% / 0.3);
+    box-shadow: 0 20px 40px -20px hsl(75 85% 55% / 0.3);
   }
 }
