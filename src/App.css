@@ -7,8 +7,8 @@
   font-size: 2rem;
   background: linear-gradient(
     135deg,
-    hsl(36, 95%, 55%),
-    hsl(28, 90%, 48%)
+    hsl(75, 85%, 55%),
+    hsl(85, 80%, 45%)
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -20,7 +20,7 @@
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: hsl(36, 95%, 55%);
+  color: hsl(75, 85%, 55%);
 }
 
 .section-text {
@@ -38,17 +38,17 @@
   overflow: hidden;
 }
 
-/* Ambient teal glow in background */
+/* Ambient lime glow in background */
 .hero-section::before {
   content: "";
   position: absolute;
   inset: 0;
   background:
     radial-gradient(900px 500px at 5% 50%,
-      hsl(174 65% 45% / 0.12),
+      hsl(80 75% 50% / 0.12),
       transparent 60%),
     radial-gradient(600px 400px at 95% 30%,
-      hsl(174 65% 45% / 0.08),
+      hsl(80 75% 50% / 0.08),
       transparent 50%);
   pointer-events: none;
   z-index: 0;
@@ -59,24 +59,24 @@
   position: absolute;
   inset: 0;
   background-image: 
-    radial-gradient(1px 1px at 10% 20%, hsl(36 95% 55% / 0.4), transparent),
-    radial-gradient(1px 1px at 20% 80%, hsl(174 65% 45% / 0.3), transparent),
-    radial-gradient(1.5px 1.5px at 30% 40%, hsl(36 95% 55% / 0.3), transparent),
-    radial-gradient(1px 1px at 40% 60%, hsl(174 65% 45% / 0.25), transparent),
-    radial-gradient(1.2px 1.2px at 50% 30%, hsl(36 95% 55% / 0.35), transparent),
-    radial-gradient(1px 1px at 60% 70%, hsl(174 65% 45% / 0.3), transparent),
-    radial-gradient(1.5px 1.5px at 70% 20%, hsl(36 95% 55% / 0.25), transparent),
-    radial-gradient(1px 1px at 80% 50%, hsl(174 65% 45% / 0.35), transparent),
-    radial-gradient(1.2px 1.2px at 90% 80%, hsl(36 95% 55% / 0.3), transparent),
-    radial-gradient(1px 1px at 15% 55%, hsl(174 65% 45% / 0.25), transparent),
-    radial-gradient(1.5px 1.5px at 25% 90%, hsl(36 95% 55% / 0.4), transparent),
-    radial-gradient(1px 1px at 35% 15%, hsl(174 65% 45% / 0.3), transparent),
-    radial-gradient(1.2px 1.2px at 45% 75%, hsl(36 95% 55% / 0.35), transparent),
-    radial-gradient(1px 1px at 55% 45%, hsl(174 65% 45% / 0.25), transparent),
-    radial-gradient(1.5px 1.5px at 65% 85%, hsl(36 95% 55% / 0.3), transparent),
-    radial-gradient(1px 1px at 75% 35%, hsl(174 65% 45% / 0.35), transparent),
-    radial-gradient(1.2px 1.2px at 85% 65%, hsl(36 95% 55% / 0.25), transparent),
-    radial-gradient(1px 1px at 95% 25%, hsl(174 65% 45% / 0.3), transparent);
+    radial-gradient(1px 1px at 10% 20%, hsl(75 85% 55% / 0.4), transparent),
+    radial-gradient(1px 1px at 20% 80%, hsl(80 75% 50% / 0.3), transparent),
+    radial-gradient(1.5px 1.5px at 30% 40%, hsl(75 85% 55% / 0.3), transparent),
+    radial-gradient(1px 1px at 40% 60%, hsl(80 75% 50% / 0.25), transparent),
+    radial-gradient(1.2px 1.2px at 50% 30%, hsl(75 85% 55% / 0.35), transparent),
+    radial-gradient(1px 1px at 60% 70%, hsl(80 75% 50% / 0.3), transparent),
+    radial-gradient(1.5px 1.5px at 70% 20%, hsl(75 85% 55% / 0.25), transparent),
+    radial-gradient(1px 1px at 80% 50%, hsl(80 75% 50% / 0.35), transparent),
+    radial-gradient(1.2px 1.2px at 90% 80%, hsl(75 85% 55% / 0.3), transparent),
+    radial-gradient(1px 1px at 15% 55%, hsl(80 75% 50% / 0.25), transparent),
+    radial-gradient(1.5px 1.5px at 25% 90%, hsl(75 85% 55% / 0.4), transparent),
+    radial-gradient(1px 1px at 35% 15%, hsl(80 75% 50% / 0.3), transparent),
+    radial-gradient(1.2px 1.2px at 45% 75%, hsl(75 85% 55% / 0.35), transparent),
+    radial-gradient(1px 1px at 55% 45%, hsl(80 75% 50% / 0.25), transparent),
+    radial-gradient(1.5px 1.5px at 65% 85%, hsl(75 85% 55% / 0.3), transparent),
+    radial-gradient(1px 1px at 75% 35%, hsl(80 75% 50% / 0.35), transparent),
+    radial-gradient(1.2px 1.2px at 85% 65%, hsl(75 85% 55% / 0.25), transparent),
+    radial-gradient(1px 1px at 95% 25%, hsl(80 75% 50% / 0.3), transparent);
   animation: particleFloat 20s ease-in-out infinite;
   pointer-events: none;
   z-index: 0;
@@ -107,11 +107,11 @@
   background: 
     linear-gradient(135deg, 
       transparent 45%,
-      hsl(174 65% 45% / 0.03) 50%,
+      hsl(80 75% 50% / 0.03) 50%,
       transparent 55%),
     linear-gradient(45deg, 
       transparent 45%,
-      hsl(36 95% 55% / 0.02) 50%,
+      hsl(75 85% 55% / 0.02) 50%,
       transparent 55%);
   background-size: 60px 60px;
   mask-image: linear-gradient(to top, black 0%, transparent 100%);
@@ -136,7 +136,7 @@
   top: -100px;
   left: -100px;
   background: radial-gradient(circle, 
-    hsl(174, 65%, 45%, 0.15),
+    hsl(80, 75%, 50%, 0.15),
     transparent 70%);
 }
 
@@ -146,7 +146,7 @@
   bottom: -50px;
   right: -50px;
   background: radial-gradient(circle, 
-    hsl(36, 95%, 55%, 0.1),
+    hsl(75, 85%, 55%, 0.1),
     transparent 70%);
   animation-delay: -4s;
 }
@@ -157,7 +157,7 @@
   top: 40%;
   right: 20%;
   background: radial-gradient(circle, 
-    hsl(36, 95%, 55%, 0.08),
+    hsl(75, 85%, 55%, 0.08),
     transparent 70%);
   animation-delay: -2s;
 }
@@ -196,9 +196,9 @@
   inset: 0;
   background: linear-gradient(
     135deg,
-    hsl(36, 95%, 55%, 0) 0%,
-    hsl(36, 95%, 55%, 0.03) 50%,
-    hsl(36, 95%, 55%, 0) 100%
+    hsl(75, 85%, 55%, 0) 0%,
+    hsl(75, 85%, 55%, 0.03) 50%,
+    hsl(75, 85%, 55%, 0) 100%
   );
   opacity: 0;
   transition: opacity 0.4s ease;
@@ -209,10 +209,10 @@
 }
 
 .feature-card:hover {
-  border-color: hsl(36, 95%, 55%, 0.3);
+  border-color: hsl(75, 85%, 55%, 0.3);
   box-shadow:
-    0 20px 60px -20px hsl(36 95% 55% / 0.25),
-    0 0 0 1px hsl(36 95% 55% / 0.1);
+    0 20px 60px -20px hsl(75 85% 55% / 0.25),
+    0 0 0 1px hsl(75 85% 55% / 0.1);
 }
 
 .feature-icon {
@@ -224,9 +224,9 @@
   justify-content: center;
   color: hsl(220, 15%, 6%);
   background: linear-gradient(135deg,
-    hsl(36, 95%, 55%),
-    hsl(28, 90%, 48%));
-  box-shadow: 0 8px 24px -8px hsl(36 95% 55% / 0.5);
+    hsl(75, 85%, 55%),
+    hsl(85, 80%, 45%));
+  box-shadow: 0 8px 24px -8px hsl(75 85% 55% / 0.5);
 }
 
 /* =========================
@@ -247,7 +247,7 @@
 }
 
 .philosophy-item:hover {
-  border-color: hsl(36, 95%, 55%, 0.2);
+  border-color: hsl(75, 85%, 55%, 0.2);
   background: linear-gradient(135deg,
     hsl(220, 14%, 11%),
     hsl(220, 14%, 9%));
@@ -259,9 +259,9 @@
   border-radius: 9999px;
   flex-shrink: 0;
   background: linear-gradient(135deg,
-    hsl(36, 95%, 55%),
-    hsl(28, 90%, 48%));
-  box-shadow: 0 0 12px hsl(36 95% 55% / 0.5);
+    hsl(75, 85%, 55%),
+    hsl(85, 80%, 45%));
+  box-shadow: 0 0 12px hsl(75 85% 55% / 0.5);
 }
 
 /* =========================
@@ -276,18 +276,18 @@
   border-radius: 0.5rem;
   font-weight: 600;
   background: linear-gradient(135deg,
-    hsl(36, 95%, 55%),
-    hsl(28, 90%, 48%));
+    hsl(75, 85%, 55%),
+    hsl(85, 80%, 45%));
   color: hsl(220, 15%, 6%);
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px -4px hsl(36 95% 55% / 0.5);
+  box-shadow: 0 4px 20px -4px hsl(75 85% 55% / 0.5);
   position: relative;
   overflow: hidden;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px -4px hsl(36 95% 55% / 0.6);
+  box-shadow: 0 8px 30px -4px hsl(75 85% 55% / 0.6);
 }
 
 .btn-secondary {
@@ -304,8 +304,8 @@
 }
 
 .btn-secondary:hover {
-  border-color: hsl(36, 95%, 55%, 0.5);
-  background: hsl(36, 95%, 55%, 0.05);
+  border-color: hsl(75, 85%, 55%, 0.5);
+  background: hsl(75, 85%, 55%, 0.05);
 }
 
 /* Play button circle */
@@ -317,20 +317,20 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg,
-    hsl(36, 95%, 55%),
-    hsl(28, 90%, 48%));
+    hsl(75, 85%, 55%),
+    hsl(85, 80%, 45%));
   color: hsl(220, 15%, 6%);
   transition: all 0.3s ease;
   box-shadow: 
-    0 0 0 8px hsl(36 95% 55% / 0.15),
-    0 0 0 16px hsl(36 95% 55% / 0.08);
+    0 0 0 8px hsl(75 85% 55% / 0.15),
+    0 0 0 16px hsl(75 85% 55% / 0.08);
 }
 
 .play-btn:hover {
   transform: scale(1.1);
   box-shadow: 
-    0 0 0 10px hsl(36 95% 55% / 0.2),
-    0 0 0 20px hsl(36 95% 55% / 0.1);
+    0 0 0 10px hsl(75 85% 55% / 0.2),
+    0 0 0 20px hsl(75 85% 55% / 0.1);
 }
 
 /* =========================
@@ -400,10 +400,10 @@
 /* Pulse border */
 @keyframes pulseBorder {
   0%, 100% {
-    border-color: hsl(36, 95%, 55%, 0.2);
+    border-color: hsl(75, 85%, 55%, 0.2);
   }
   50% {
-    border-color: hsl(36, 95%, 55%, 0.5);
+    border-color: hsl(75, 85%, 55%, 0.5);
   }
 }
 
@@ -435,8 +435,8 @@
 }
 
 .nav-btn:hover {
-  border-color: hsl(36, 95%, 55%);
-  color: hsl(36, 95%, 55%);
+  border-color: hsl(75, 85%, 55%);
+  color: hsl(75, 85%, 55%);
 }
 
 /* =========================
@@ -451,8 +451,8 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg,
-    hsl(36, 95%, 55%),
-    hsl(28, 90%, 48%));
+    hsl(75, 85%, 55%),
+    hsl(85, 80%, 45%));
   color: hsl(220, 15%, 6%);
   font-weight: 700;
 }
@@ -485,7 +485,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(36, 95%, 55%, 0.5);
+  background: hsl(75, 85%, 55%, 0.5);
 }
 
 /* =========================
@@ -493,7 +493,7 @@
    ========================= */
 
 ::selection {
-  background: hsl(36, 95%, 55%, 0.3);
+  background: hsl(75, 85%, 55%, 0.3);
   color: hsl(40, 10%, 92%);
 }
 
@@ -514,7 +514,7 @@
 .gradient-border {
   position: relative;
   background: linear-gradient(hsl(220, 14%, 9%), hsl(220, 14%, 9%)) padding-box,
-              linear-gradient(135deg, hsl(36, 95%, 55%), hsl(174, 65%, 45%)) border-box;
+              linear-gradient(135deg, hsl(75, 85%, 55%), hsl(80, 75%, 50%)) border-box;
   border: 1px solid transparent;
   border-radius: 1rem;
 }
