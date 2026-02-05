@@ -70,9 +70,10 @@ const NavBar = () => {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <motion.a
-            href="#"
-            className="flex items-center gap-3"
+            onClick={() => handleNavClick("learn-more", "/")}
+            className="flex items-center gap-3 cursor-pointer"
             whileHover={{ scale: 1.02 }}
+            role="button"
           >
             <motion.div
               className="logo-icon relative"
