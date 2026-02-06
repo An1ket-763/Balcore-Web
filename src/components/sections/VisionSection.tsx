@@ -23,9 +23,55 @@ const VisionSection = () => {
   return (
     <section
       id="vision"
-      className="py-24 relative overflow-hidden bg-gradient-to-b from-transparent via-secondary/10 to-transparent"
+      className="py-24 relative section-animated-bg overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      {/* Enhanced background decorations */}
+      <div className="section-grid-pattern" />
+      <div className="section-orb section-orb-1" style={{ top: '10%', right: '-120px', width: '250px', height: '250px' }} />
+      <div className="section-orb section-orb-2" style={{ bottom: '20%', left: '-100px', width: '200px', height: '200px' }} />
+      
+      {/* Center glow effect */}
+      <motion.div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, hsl(75 85% 55% / 0.03), transparent 60%)',
+        }}
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.5, 0.8, 0.5],
+        }}
+        transition={{ duration: 8, repeat: Infinity }}
+      />
+
+      {/* Floating particles */}
+      <motion.div
+        className="absolute top-1/4 left-[20%] w-2 h-2 rounded-full bg-primary/40 hidden lg:block"
+        animate={{
+          y: [0, -30, 0],
+          x: [0, 15, 0],
+          opacity: [0.4, 0.8, 0.4],
+        }}
+        transition={{ duration: 6, repeat: Infinity }}
+      />
+      <motion.div
+        className="absolute top-[60%] right-[25%] w-3 h-3 rounded-full bg-accent/30 hidden lg:block"
+        animate={{
+          y: [0, 25, 0],
+          x: [0, -10, 0],
+          opacity: [0.3, 0.6, 0.3],
+        }}
+        transition={{ duration: 7, repeat: Infinity, delay: 2 }}
+      />
+      <motion.div
+        className="absolute bottom-[30%] left-[15%] w-1.5 h-1.5 rounded-full bg-primary/50 hidden lg:block"
+        animate={{
+          y: [0, -20, 0],
+          opacity: [0.5, 1, 0.5],
+        }}
+        transition={{ duration: 4, repeat: Infinity, delay: 1 }}
+      />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -66,15 +112,16 @@ const VisionSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className="group"
             >
-              <div className="h-full p-8 rounded-2xl bg-gradient-to-br from-card to-secondary/30 border border-border hover:border-primary/40 transition-all duration-500 relative overflow-hidden">
-                {/* Hover glow */}
-                <motion.div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
+              <div className="h-full p-8 rounded-2xl content-card relative overflow-hidden">
+                {/* Animated corner accent */}
                 <motion.div
-                  className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-6 relative z-10 group-hover:scale-110 transition-transform duration-300"
+                  className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-gradient-to-br from-primary/20 to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                />
+                
+                <motion.div
+                  className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-6 relative z-10 group-hover:scale-110 transition-transform duration-300 icon-pulse"
                   whileHover={{ rotate: 5 }}
                 >
                   <div className="text-primary">{point.icon}</div>
@@ -86,6 +133,11 @@ const VisionSection = () => {
                 <p className="text-muted-foreground leading-relaxed relative z-10">
                   {point.desc}
                 </p>
+
+                {/* Bottom accent line */}
+                <motion.div
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
+                />
               </div>
             </motion.div>
           ))}
