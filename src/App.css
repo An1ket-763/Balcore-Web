@@ -5,11 +5,9 @@
 .section-title {
   font-weight: 700;
   font-size: 2rem;
-  background: linear-gradient(
-    135deg,
-    hsl(36, 95%, 55%),
-    hsl(28, 90%, 48%)
-  );
+  background: linear-gradient(135deg,
+      hsl(36, 95%, 55%),
+      hsl(28, 90%, 48%));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -58,7 +56,7 @@
 .particle-field {
   position: absolute;
   inset: 0;
-  background-image: 
+  background-image:
     radial-gradient(1px 1px at 10% 20%, hsl(36 95% 55% / 0.4), transparent),
     radial-gradient(1px 1px at 20% 80%, hsl(174 65% 45% / 0.3), transparent),
     radial-gradient(1.5px 1.5px at 30% 40%, hsl(36 95% 55% / 0.3), transparent),
@@ -83,15 +81,20 @@
 }
 
 @keyframes particleFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0, 0);
   }
+
   25% {
     transform: translate(10px, -15px);
   }
+
   50% {
     transform: translate(-5px, 10px);
   }
+
   75% {
     transform: translate(15px, 5px);
   }
@@ -104,12 +107,12 @@
   left: 0;
   right: 0;
   height: 40%;
-  background: 
-    linear-gradient(135deg, 
+  background:
+    linear-gradient(135deg,
       transparent 45%,
       hsl(174 65% 45% / 0.03) 50%,
       transparent 55%),
-    linear-gradient(45deg, 
+    linear-gradient(45deg,
       transparent 45%,
       hsl(36 95% 55% / 0.02) 50%,
       transparent 55%);
@@ -135,9 +138,9 @@
   height: 400px;
   top: -100px;
   left: -100px;
-  background: radial-gradient(circle, 
-    hsl(174, 65%, 45%, 0.15),
-    transparent 70%);
+  background: radial-gradient(circle,
+      hsl(174, 65%, 45%, 0.15),
+      transparent 70%);
 }
 
 .hero-orb-2 {
@@ -145,9 +148,9 @@
   height: 300px;
   bottom: -50px;
   right: -50px;
-  background: radial-gradient(circle, 
-    hsl(36, 95%, 55%, 0.1),
-    transparent 70%);
+  background: radial-gradient(circle,
+      hsl(36, 95%, 55%, 0.1),
+      transparent 70%);
   animation-delay: -4s;
 }
 
@@ -156,17 +159,20 @@
   height: 200px;
   top: 40%;
   right: 20%;
-  background: radial-gradient(circle, 
-    hsl(36, 95%, 55%, 0.08),
-    transparent 70%);
+  background: radial-gradient(circle,
+      hsl(36, 95%, 55%, 0.08),
+      transparent 70%);
   animation-delay: -2s;
 }
 
 @keyframes orbFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1) translate(0, 0);
     opacity: 0.6;
   }
+
   50% {
     transform: scale(1.1) translate(20px, -10px);
     opacity: 0.8;
@@ -197,7 +203,7 @@
 .section-grid-pattern {
   position: absolute;
   inset: 0;
-  background-image: 
+  background-image:
     linear-gradient(hsl(75 85% 55% / 0.02) 1px, transparent 1px),
     linear-gradient(90deg, hsl(75 85% 55% / 0.02) 1px, transparent 1px);
   background-size: 60px 60px;
@@ -212,6 +218,7 @@
   0% {
     background-position: 0 0;
   }
+
   100% {
     background-position: 60px 60px;
   }
@@ -245,15 +252,150 @@
 }
 
 @keyframes sectionOrbFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1) translate(0, 0);
     opacity: 0.5;
   }
+
   50% {
     transform: scale(1.15) translate(15px, -8px);
     opacity: 0.7;
   }
 }
+
+/* About section ambient animation */
+.about-aurora-layer {
+  position: absolute;
+  inset: -15% -10%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+  background:
+    radial-gradient(55% 45% at 15% 20%, hsl(174 65% 45% / 0.16), transparent 70%),
+    radial-gradient(45% 35% at 75% 25%, hsl(36 95% 55% / 0.12), transparent 75%),
+    radial-gradient(35% 35% at 50% 85%, hsl(174 65% 45% / 0.08), transparent 70%);
+  animation: aboutAuroraDrift 18s ease-in-out infinite;
+}
+
+.about-trace-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.22;
+  background:
+    repeating-linear-gradient(115deg,
+      transparent 0,
+      transparent 48px,
+      hsl(174 65% 45% / 0.08) 49px,
+      transparent 50px);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+  animation: aboutTraceShift 22s linear infinite;
+}
+
+@keyframes aboutAuroraDrift {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  35% {
+    transform: translate3d(-1.5%, 2.5%, 0) scale(1.04);
+  }
+
+  70% {
+    transform: translate3d(2.5%, -2%, 0) scale(0.98);
+  }
+}
+
+@keyframes aboutTraceShift {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(40px);
+  }
+}
+
+/* Protocol section animated bands */
+.protocol-wave-field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.protocol-wave {
+  position: absolute;
+  width: 140%;
+  height: 240px;
+  left: -20%;
+  border-radius: 50%;
+  filter: blur(10px);
+  opacity: 0.3;
+}
+
+.protocol-wave-1 {
+  top: 10%;
+  background: radial-gradient(ellipse at center, hsl(174 65% 45% / 0.16), transparent 70%);
+  animation: protocolWaveFloat 16s ease-in-out infinite;
+}
+
+.protocol-wave-2 {
+  top: 46%;
+  background: radial-gradient(ellipse at center, hsl(36 95% 55% / 0.12), transparent 68%);
+  animation: protocolWaveFloat 19s ease-in-out infinite reverse;
+}
+
+.protocol-wave-3 {
+  top: 72%;
+  background: radial-gradient(ellipse at center, hsl(174 65% 45% / 0.11), transparent 72%);
+  animation: protocolWaveFloat 21s ease-in-out infinite;
+}
+
+.protocol-dot-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.2;
+  background-image: radial-gradient(hsl(36 95% 55% / 0.2) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse at center, black 35%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 35%, transparent 75%);
+  animation: protocolDotPulse 7s ease-in-out infinite;
+}
+
+@keyframes protocolWaveFloat {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(2.5%, -12px, 0) scale(1.03);
+  }
+}
+
+@keyframes protocolDotPulse {
+
+  0%,
+  100% {
+    opacity: 0.14;
+  }
+
+  50% {
+    opacity: 0.28;
+  }
+}
+
 
 /* =========================
    FEATURE CARDS
@@ -264,8 +406,8 @@
   padding: 2rem;
   border-radius: 1rem;
   background: linear-gradient(180deg,
-    hsl(220, 14%, 10%),
-    hsl(220, 14%, 8%));
+      hsl(220, 14%, 10%),
+      hsl(220, 14%, 8%));
   border: 1px solid hsl(220, 12%, 16%);
   backdrop-filter: blur(10px);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -276,12 +418,10 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    hsl(75, 85%, 55%, 0) 0%,
-    hsl(75, 85%, 55%, 0.03) 50%,
-    hsl(75, 85%, 55%, 0) 100%
-  );
+  background: linear-gradient(135deg,
+      hsl(75, 85%, 55%, 0) 0%,
+      hsl(75, 85%, 55%, 0.03) 50%,
+      hsl(75, 85%, 55%, 0) 100%);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -306,8 +446,8 @@
   justify-content: center;
   color: hsl(220, 15%, 6%);
   background: linear-gradient(135deg,
-    hsl(75, 85%, 55%),
-    hsl(80, 75%, 50%));
+      hsl(75, 85%, 55%),
+      hsl(80, 75%, 50%));
   box-shadow: 0 8px 24px -8px hsl(75 85% 55% / 0.5);
 }
 
@@ -320,8 +460,8 @@
   padding: 1.25rem 1.5rem;
   border-radius: 1rem;
   background: linear-gradient(135deg,
-    hsl(220, 14%, 10%) 0%,
-    hsl(220, 14%, 8%) 100%);
+      hsl(220, 14%, 10%) 0%,
+      hsl(220, 14%, 8%) 100%);
   border: 1px solid hsl(220, 12%, 14%);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
@@ -334,17 +474,15 @@
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(
-    135deg,
-    hsl(75, 85%, 55%, 0.3),
-    hsl(80, 75%, 50%, 0.1),
-    hsl(75, 85%, 55%, 0.3)
-  );
-  -webkit-mask: 
-    linear-gradient(white 0 0) content-box, 
+  background: linear-gradient(135deg,
+      hsl(75, 85%, 55%, 0.3),
+      hsl(80, 75%, 50%, 0.1),
+      hsl(75, 85%, 55%, 0.3));
+  -webkit-mask:
+    linear-gradient(white 0 0) content-box,
     linear-gradient(white 0 0);
-  mask: 
-    linear-gradient(white 0 0) content-box, 
+  mask:
+    linear-gradient(white 0 0) content-box,
     linear-gradient(white 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -364,11 +502,9 @@
   left: 0;
   right: 0;
   height: 100%;
-  background: linear-gradient(
-    180deg,
-    hsl(75, 85%, 55%, 0.05) 0%,
-    transparent 50%
-  );
+  background: linear-gradient(180deg,
+      hsl(75, 85%, 55%, 0.05) 0%,
+      transparent 50%);
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
@@ -386,22 +522,29 @@
     0 0 30px -10px hsl(75 85% 55% / 0.1);
 }
 
+.content-card-border-shine-only::after,
+.content-card-border-shine-only:hover::after {
+  opacity: 0;
+}
+
+.content-card-border-shine-only:hover {
+  transform: none;
+  border-color: hsl(220, 12%, 14%);
+  box-shadow: none;
+}
+
 /* Destructive variant for problem cards */
 .content-card-destructive::before {
-  background: linear-gradient(
-    135deg,
-    hsl(0, 84%, 60%, 0.3),
-    hsl(0, 84%, 60%, 0.1),
-    hsl(0, 84%, 60%, 0.3)
-  );
+  background: linear-gradient(135deg,
+      hsl(0, 84%, 60%, 0.3),
+      hsl(0, 84%, 60%, 0.1),
+      hsl(0, 84%, 60%, 0.3));
 }
 
 .content-card-destructive::after {
-  background: linear-gradient(
-    180deg,
-    hsl(0, 84%, 60%, 0.05) 0%,
-    transparent 50%
-  );
+  background: linear-gradient(180deg,
+      hsl(0, 84%, 60%, 0.05) 0%,
+      transparent 50%);
 }
 
 .content-card-destructive:hover {
@@ -417,9 +560,12 @@
 }
 
 @keyframes iconPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 0 0 hsl(75 85% 55% / 0.4);
   }
+
   50% {
     box-shadow: 0 0 0 8px hsl(75 85% 55% / 0);
   }
@@ -433,12 +579,10 @@
   left: -100%;
   width: 100%;
   height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    hsl(75 85% 55% / 0.5),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      hsl(75 85% 55% / 0.5),
+      transparent);
   transition: left 0.6s ease;
 }
 
@@ -457,8 +601,8 @@
   padding: 1.25rem 1.5rem;
   border-radius: 0.75rem;
   background: linear-gradient(135deg,
-    hsl(220, 14%, 10%),
-    hsl(220, 14%, 8%));
+      hsl(220, 14%, 10%),
+      hsl(220, 14%, 8%));
   border: 1px solid hsl(220, 12%, 14%);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -469,12 +613,10 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    hsl(75 85% 55% / 0.03),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      hsl(75 85% 55% / 0.03),
+      transparent);
   transform: translateX(-100%);
   transition: transform 0.6s ease;
 }
@@ -497,8 +639,8 @@
   border-radius: 9999px;
   flex-shrink: 0;
   background: linear-gradient(135deg,
-    hsl(75, 85%, 55%),
-    hsl(80, 75%, 50%));
+      hsl(75, 85%, 55%),
+      hsl(80, 75%, 50%));
   box-shadow: 0 0 12px hsl(75 85% 55% / 0.5);
 }
 
@@ -514,8 +656,8 @@
   border-radius: 0.5rem;
   font-weight: 600;
   background: linear-gradient(135deg,
-    hsl(36, 95%, 55%),
-    hsl(28, 90%, 48%));
+      hsl(36, 95%, 55%),
+      hsl(28, 90%, 48%));
   color: hsl(220, 15%, 6%);
   transition: all 0.3s ease;
   box-shadow: 0 4px 20px -4px hsl(36 95% 55% / 0.5);
@@ -555,18 +697,18 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg,
-    hsl(36, 95%, 55%),
-    hsl(28, 90%, 48%));
+      hsl(36, 95%, 55%),
+      hsl(28, 90%, 48%));
   color: hsl(220, 15%, 6%);
   transition: all 0.3s ease;
-  box-shadow: 
+  box-shadow:
     0 0 0 8px hsl(36 95% 55% / 0.15),
     0 0 0 16px hsl(36 95% 55% / 0.08);
 }
 
 .play-btn:hover {
   transform: scale(1.1);
-  box-shadow: 
+  box-shadow:
     0 0 0 10px hsl(36 95% 55% / 0.2),
     0 0 0 20px hsl(36 95% 55% / 0.1);
 }
@@ -580,6 +722,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -613,9 +756,11 @@
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -623,9 +768,12 @@
 
 /* Floating animation */
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
   }
+
   50% {
     transform: translateY(-10px) rotate(2deg);
   }
@@ -637,9 +785,12 @@
 
 /* Pulse border */
 @keyframes pulseBorder {
-  0%, 100% {
+
+  0%,
+  100% {
     border-color: hsl(36, 95%, 55%, 0.2);
   }
+
   50% {
     border-color: hsl(36, 95%, 55%, 0.5);
   }
@@ -648,10 +799,6 @@
 .animate-pulse-border {
   animation: pulseBorder 3s ease-in-out infinite;
 }
-
-/* =========================
-   NAVBAR
-   ========================= */
 
 .nav-link {
   color: hsl(220, 10%, 55%);
@@ -677,10 +824,6 @@
   color: hsl(36, 95%, 55%);
 }
 
-/* =========================
-   LOGO
-   ========================= */
-
 .logo-icon {
   width: 2.5rem;
   height: 2.5rem;
@@ -689,25 +832,17 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg,
-    hsl(36, 95%, 55%),
-    hsl(28, 90%, 48%));
+      hsl(36, 95%, 55%),
+      hsl(28, 90%, 48%));
   color: hsl(220, 15%, 6%);
   font-weight: 700;
 }
 
-/* =========================
-   FOOTER
-   ========================= */
-
 .footer-gradient {
   background: linear-gradient(180deg,
-    transparent,
-    hsl(220, 15%, 4%));
+      transparent,
+      hsl(220, 15%, 4%));
 }
-
-/* =========================
-   SCROLL BAR
-   ========================= */
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -726,18 +861,10 @@
   background: hsl(36, 95%, 55%, 0.5);
 }
 
-/* =========================
-   SELECTION
-   ========================= */
-
 ::selection {
   background: hsl(36, 95%, 55%, 0.3);
   color: hsl(40, 10%, 92%);
 }
-
-/* =========================
-   GLASS EFFECT
-   ========================= */
 
 .glass {
   background: hsl(220, 14%, 9%, 0.8);
@@ -745,14 +872,17 @@
   border: 1px solid hsl(220, 12%, 16%);
 }
 
-/* =========================
-   GRADIENT BORDER
-   ========================= */
-
 .gradient-border {
   position: relative;
   background: linear-gradient(hsl(220, 14%, 9%), hsl(220, 14%, 9%)) padding-box,
-              linear-gradient(135deg, hsl(36, 95%, 55%), hsl(174, 65%, 45%)) border-box;
+    linear-gradient(135deg, hsl(36, 95%, 55%), hsl(174, 65%, 45%)) border-box;
   border: 1px solid transparent;
   border-radius: 1rem;
+}
+
+.future-highlight-card:hover {
+  border-color: hsl(75, 85%, 55%, 0.25);
+  box-shadow:
+    0 16px 36px -20px hsl(75 85% 55% / 0.2),
+    0 0 24px -12px hsl(75 85% 55% / 0.14);
 }

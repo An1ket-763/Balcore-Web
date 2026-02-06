@@ -24,6 +24,8 @@ const PhilosophySection = () => {
     >
       {/* Background decorations */}
       <div className="section-grid-pattern" />
+      <div className="about-aurora-layer" />
+      <div className="about-trace-lines" />
       <div className="section-orb section-orb-1" style={{ top: '30%', right: '-80px' }} />
       <div className="section-orb section-orb-2" style={{ bottom: '10%', left: '-60px' }} />
 

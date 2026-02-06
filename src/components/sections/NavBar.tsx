@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ExternalLink, Menu, X, Rocket } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   Dialog,
   DialogContent,
@@ -14,6 +15,8 @@ const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { scrollY } = useScroll();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navBackground = useTransform(
     scrollY,
@@ -43,17 +46,40 @@ const NavBar = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const handleNavClick = (sectionId: string, urlPath: string) => {
+  const handleNavClick = (sectionId: string, path: string) => {
     scrollToSection(sectionId);
-    // Update URL to match nav label
-    window.history.replaceState(null, "", urlPath);
+
+    if (location.pathname !== path) {
+      navigate(path);
+    }
   };
 
+  useEffect(() => {
+    const pathToSection: Record<string, string> = {
+      "/": "learn-more",
+      "/about": "philosophy",
+      "/protocol": "audience",
+      "/contact": "footer",
+    };
+
+    const sectionId = pathToSection[location.pathname];
+    if (!sectionId) return;
+
+    const timeout = window.setTimeout(() => {
+      const target = document.getElementById(sectionId);
+      if (target) {
+        target.scrollIntoView({ behavior: "auto" });
+      }
+    }, 0);
+
+    return () => window.clearTimeout(timeout);
+  }, [location.pathname]);
+
   const navItems = [
-    { sectionId: "learn-more", label: "Home", urlPath: "/" },
-    { sectionId: "philosophy", label: "About", urlPath: "/about" },
-    { sectionId: "audience", label: "Protocol", urlPath: "/protocol" },
-    { sectionId: "footer", label: "Contact", urlPath: "/contact" },
+    { sectionId: "learn-more", label: "Home", path: "/" },
+    { sectionId: "philosophy", label: "About", path: "/about" },
+    { sectionId: "audience", label: "Protocol", path: "/protocol" },
+    { sectionId: "footer", label: "Contact", path: "/contact" },
   ];
 
   return (
@@ -70,7 +96,7 @@ const NavBar = () => {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <motion.a
-            onClick={() => handleNavClick("learn-more", "/")}
+            onClick={() => handleNavClick("learn-more", "")}
             className="flex items-center gap-3 cursor-pointer"
             whileHover={{ scale: 1.02 }}
             role="button"
@@ -96,7 +122,7 @@ const NavBar = () => {
             {navItems.map((item, i) => (
               <motion.button
                 key={i}
-                onClick={() => handleNavClick(item.sectionId, item.urlPath)}
+                onClick={() => handleNavClick(item.sectionId, item.path)}
                 className="nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer"
                 whileHover={{ y: -2 }}
                 transition={{ duration: 0.2 }}
@@ -157,7 +183,7 @@ const NavBar = () => {
             {navItems.map((item, i) => (
               <motion.button
                 key={i}
-                onClick={() => handleNavClick(item.sectionId, item.urlPath)}
+                onClick={() => handleNavClick(item.sectionId, item.path)}
                 className="block text-foreground/80 hover:text-primary transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full"
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -214,8 +240,8 @@ const NavBar = () => {
               We're working hard to bring you the next generation of DeFi liquidity infrastructure. Stay tuned!
             </DialogDescription>
           </DialogHeader>
-          
-          <motion.div 
+
+          <motion.div
             className="mt-6 flex flex-col gap-3"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

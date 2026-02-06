@@ -29,7 +29,7 @@ const VisionSection = () => {
       <div className="section-grid-pattern" />
       <div className="section-orb section-orb-1" style={{ top: '10%', right: '-120px', width: '250px', height: '250px' }} />
       <div className="section-orb section-orb-2" style={{ bottom: '20%', left: '-100px', width: '200px', height: '200px' }} />
-      
+
       {/* Center glow effect */}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
@@ -112,19 +112,42 @@ const VisionSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="group"
+              className="group relative"
             >
               <div className="h-full p-8 rounded-2xl content-card relative overflow-hidden">
+                {/* Animated gradient overlay */}
+                <motion.div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background:
+                      "radial-gradient(400px circle at 50% 0%, hsl(75 85% 55% / 0.08), transparent 60%)",
+                  }}
+                />
+
                 {/* Animated corner accent */}
                 <motion.div
                   className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-gradient-to-br from-primary/20 to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 />
-                
+
                 <motion.div
-                  className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-6 relative z-10 group-hover:scale-110 transition-transform duration-300 icon-pulse"
+                  className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center mb-6 relative z-10 group-hover:scale-110 transition-all duration-300"
                   whileHover={{ rotate: 5 }}
                 >
                   <div className="text-primary">{point.icon}</div>
+
+                  {/* Pulsing ring */}
+                  <motion.div
+                    className="absolute inset-0 rounded-xl border border-primary/30"
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      opacity: [0.5, 0, 0.5],
+                    }}
+                    transition={{
+                      duration: 2.5,
+                      repeat: Infinity,
+                      delay: i * 0.3,
+                    }}
+                  />
                 </motion.div>
 
                 <h3 className="text-xl font-semibold text-foreground mb-3 relative z-10 group-hover:text-primary transition-colors">
@@ -137,6 +160,11 @@ const VisionSection = () => {
                 {/* Bottom accent line */}
                 <motion.div
                   className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
+                />
+
+                {/* Corner glow */}
+                <motion.div
+                  className="absolute -top-12 -right-12 w-24 h-24 rounded-full bg-primary/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 />
               </div>
             </motion.div>

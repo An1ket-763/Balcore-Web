@@ -27,6 +27,12 @@ const AudienceSection = () => {
     <section id="audience" className="py-24 border-t border-border relative section-animated-bg overflow-hidden">
       {/* Enhanced background decorations */}
       <div className="section-grid-pattern" />
+      <div className="protocol-wave-field">
+        <div className="protocol-wave protocol-wave-1" />
+        <div className="protocol-wave protocol-wave-2" />
+        <div className="protocol-wave protocol-wave-3" />
+      </div>
+      <div className="protocol-dot-grid" />
       <div className="section-orb section-orb-1" style={{ top: '15%', right: '-80px' }} />
       <div className="section-orb section-orb-2" style={{ bottom: '25%', left: '-60px' }} />
 
@@ -99,7 +105,7 @@ const AudienceSection = () => {
                 />
 
                 {/* Icon container with enhanced animation */}
-                <motion.div 
+                <motion.div
                   className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center mb-6 relative z-10 group-hover:scale-110 transition-all duration-300"
                   whileHover={{ rotate: 5 }}
                 >
