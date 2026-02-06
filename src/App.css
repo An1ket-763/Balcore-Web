@@ -265,6 +265,138 @@
   }
 }
 
+/* About section ambient animation */
+.about-aurora-layer {
+  position: absolute;
+  inset: -15% -10%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+  background:
+    radial-gradient(55% 45% at 15% 20%, hsl(174 65% 45% / 0.16), transparent 70%),
+    radial-gradient(45% 35% at 75% 25%, hsl(36 95% 55% / 0.12), transparent 75%),
+    radial-gradient(35% 35% at 50% 85%, hsl(174 65% 45% / 0.08), transparent 70%);
+  animation: aboutAuroraDrift 18s ease-in-out infinite;
+}
+
+.about-trace-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.22;
+  background:
+    repeating-linear-gradient(115deg,
+      transparent 0,
+      transparent 48px,
+      hsl(174 65% 45% / 0.08) 49px,
+      transparent 50px);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+  animation: aboutTraceShift 22s linear infinite;
+}
+
+@keyframes aboutAuroraDrift {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  35% {
+    transform: translate3d(-1.5%, 2.5%, 0) scale(1.04);
+  }
+
+  70% {
+    transform: translate3d(2.5%, -2%, 0) scale(0.98);
+  }
+}
+
+@keyframes aboutTraceShift {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(40px);
+  }
+}
+
+/* Protocol section animated bands */
+.protocol-wave-field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.protocol-wave {
+  position: absolute;
+  width: 140%;
+  height: 240px;
+  left: -20%;
+  border-radius: 50%;
+  filter: blur(10px);
+  opacity: 0.3;
+}
+
+.protocol-wave-1 {
+  top: 10%;
+  background: radial-gradient(ellipse at center, hsl(174 65% 45% / 0.16), transparent 70%);
+  animation: protocolWaveFloat 16s ease-in-out infinite;
+}
+
+.protocol-wave-2 {
+  top: 46%;
+  background: radial-gradient(ellipse at center, hsl(36 95% 55% / 0.12), transparent 68%);
+  animation: protocolWaveFloat 19s ease-in-out infinite reverse;
+}
+
+.protocol-wave-3 {
+  top: 72%;
+  background: radial-gradient(ellipse at center, hsl(174 65% 45% / 0.11), transparent 72%);
+  animation: protocolWaveFloat 21s ease-in-out infinite;
+}
+
+.protocol-dot-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.2;
+  background-image: radial-gradient(hsl(36 95% 55% / 0.2) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse at center, black 35%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 35%, transparent 75%);
+  animation: protocolDotPulse 7s ease-in-out infinite;
+}
+
+@keyframes protocolWaveFloat {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(2.5%, -12px, 0) scale(1.03);
+  }
+}
+
+@keyframes protocolDotPulse {
+
+  0%,
+  100% {
+    opacity: 0.14;
+  }
+
+  50% {
+    opacity: 0.28;
+  }
+}
+
+
 /* =========================
    FEATURE CARDS
    ========================= */

@@ -43,17 +43,36 @@ const NavBar = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const handleNavClick = (sectionId: string, urlPath: string) => {
+  const handleNavClick = (sectionId: string, hash: string) => {
     scrollToSection(sectionId);
-    // Update URL to match nav label
-    window.history.replaceState(null, "", urlPath);
+
+    if (hash) {
+      window.history.replaceState(null, "", hash);
+    } else {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
   };
 
+  useEffect(() => {
+    const sectionId = window.location.hash.replace("#", "");
+
+    if (!sectionId) return;
+
+    const timeout = window.setTimeout(() => {
+      const target = document.getElementById(sectionId);
+      if (target) {
+        target.scrollIntoView({ behavior: "auto" });
+      }
+    }, 0);
+
+    return () => window.clearTimeout(timeout);
+  }, []);
+
   const navItems = [
-    { sectionId: "learn-more", label: "Home", urlPath: "/" },
-    { sectionId: "philosophy", label: "About", urlPath: "/about" },
-    { sectionId: "audience", label: "Protocol", urlPath: "/protocol" },
-    { sectionId: "footer", label: "Contact", urlPath: "/contact" },
+    { sectionId: "learn-more", label: "Home", hash: "" },
+    { sectionId: "philosophy", label: "About", hash: "#philosophy" },
+    { sectionId: "audience", label: "Protocol", hash: "#audience" },
+    { sectionId: "footer", label: "Contact", hash: "#footer" },
   ];
 
   return (
@@ -70,7 +89,7 @@ const NavBar = () => {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <motion.a
-            onClick={() => handleNavClick("learn-more", "/")}
+            onClick={() => handleNavClick("learn-more", "")}
             className="flex items-center gap-3 cursor-pointer"
             whileHover={{ scale: 1.02 }}
             role="button"
@@ -96,7 +115,7 @@ const NavBar = () => {
             {navItems.map((item, i) => (
               <motion.button
                 key={i}
-                onClick={() => handleNavClick(item.sectionId, item.urlPath)}
+                onClick={() => handleNavClick(item.sectionId, item.hash)}
                 className="nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer"
                 whileHover={{ y: -2 }}
                 transition={{ duration: 0.2 }}
@@ -157,7 +176,7 @@ const NavBar = () => {
             {navItems.map((item, i) => (
               <motion.button
                 key={i}
-                onClick={() => handleNavClick(item.sectionId, item.urlPath)}
+                onClick={() => handleNavClick(item.sectionId, item.hash)}
                 className="block text-foreground/80 hover:text-primary transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full"
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -214,8 +233,8 @@ const NavBar = () => {
               We're working hard to bring you the next generation of DeFi liquidity infrastructure. Stay tuned!
             </DialogDescription>
           </DialogHeader>
-          
-          <motion.div 
+
+          <motion.div
             className="mt-6 flex flex-col gap-3"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
