@@ -18,11 +18,49 @@ const futurePoints = [
 
 const FutureSection = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.02] to-transparent pointer-events-none" />
+    <section className="py-24 relative section-animated-bg overflow-hidden">
+      {/* Enhanced background decorations */}
+      <div className="section-grid-pattern" />
+      <div className="section-orb section-orb-1" style={{ top: '20%', right: '-100px' }} />
+      <div className="section-orb section-orb-2" style={{ bottom: '30%', left: '-80px' }} />
+      
+      {/* Animated horizontal accent lines */}
+      <motion.div
+        className="absolute top-1/3 left-0 h-px w-32 bg-gradient-to-r from-transparent via-primary/40 to-transparent"
+        animate={{ 
+          x: [0, 100, 0],
+          opacity: [0.3, 0.6, 0.3]
+        }}
+        transition={{ duration: 6, repeat: Infinity }}
+      />
+      <motion.div
+        className="absolute bottom-1/4 right-0 h-px w-48 bg-gradient-to-l from-transparent via-accent/30 to-transparent"
+        animate={{ 
+          x: [0, -80, 0],
+          opacity: [0.2, 0.5, 0.2]
+        }}
+        transition={{ duration: 8, repeat: Infinity, delay: 2 }}
+      />
 
-      <div className="max-w-7xl mx-auto px-6">
+      {/* Floating geometric shapes */}
+      <motion.div
+        className="absolute top-20 right-[15%] w-16 h-16 border border-primary/20 rounded-lg hidden lg:block"
+        animate={{
+          rotate: [0, 90, 180, 270, 360],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+      />
+      <motion.div
+        className="absolute bottom-32 left-[10%] w-8 h-8 border border-accent/20 rounded-full hidden lg:block"
+        animate={{
+          y: [0, -20, 0],
+          opacity: [0.3, 0.6, 0.3],
+        }}
+        transition={{ duration: 5, repeat: Infinity }}
+      />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -90,15 +128,21 @@ const FutureSection = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 + i * 0.1 }}
-                whileHover={{ x: 8, transition: { duration: 0.2 } }}
-                className="flex items-center gap-4 p-5 rounded-xl bg-gradient-to-r from-secondary/50 to-secondary/20 border border-border hover:border-accent/30 transition-all duration-300 group"
+                className="content-card group"
               >
-                <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent/20 transition-colors">
-                  {point.icon}
+                <div className="flex items-center gap-4 relative z-10">
+                  <motion.div 
+                    className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent/20 transition-colors icon-pulse"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                    style={{ '--tw-shadow-color': 'hsl(80 75% 50% / 0.4)' } as React.CSSProperties}
+                  >
+                    {point.icon}
+                  </motion.div>
+                  <p className="text-foreground/90 group-hover:text-foreground transition-colors font-medium text-lg">
+                    {point.text}
+                  </p>
                 </div>
-                <p className="text-foreground/90 group-hover:text-foreground transition-colors">
-                  {point.text}
-                </p>
               </motion.div>
             ))}
 
