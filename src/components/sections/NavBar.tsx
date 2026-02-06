@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ExternalLink, Menu, X, Rocket } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   Dialog,
   DialogContent,
@@ -14,6 +15,8 @@ const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { scrollY } = useScroll();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navBackground = useTransform(
     scrollY,
@@ -43,19 +46,23 @@ const NavBar = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const handleNavClick = (sectionId: string, hash: string) => {
+  const handleNavClick = (sectionId: string, path: string) => {
     scrollToSection(sectionId);
 
-    if (hash) {
-      window.history.replaceState(null, "", hash);
-    } else {
-      window.history.replaceState(null, "", window.location.pathname);
+    if (location.pathname !== path) {
+      navigate(path);
     }
   };
 
   useEffect(() => {
-    const sectionId = window.location.hash.replace("#", "");
+    const pathToSection: Record<string, string> = {
+      "/": "learn-more",
+      "/about": "philosophy",
+      "/protocol": "audience",
+      "/contact": "footer",
+    };
 
+    const sectionId = pathToSection[location.pathname];
     if (!sectionId) return;
 
     const timeout = window.setTimeout(() => {
@@ -66,13 +73,13 @@ const NavBar = () => {
     }, 0);
 
     return () => window.clearTimeout(timeout);
-  }, []);
+  }, [location.pathname]);
 
   const navItems = [
-    { sectionId: "learn-more", label: "Home", hash: "" },
-    { sectionId: "philosophy", label: "About", hash: "#philosophy" },
-    { sectionId: "audience", label: "Protocol", hash: "#audience" },
-    { sectionId: "footer", label: "Contact", hash: "#footer" },
+    { sectionId: "learn-more", label: "Home", path: "/" },
+    { sectionId: "philosophy", label: "About", path: "/about" },
+    { sectionId: "audience", label: "Protocol", path: "/protocol" },
+    { sectionId: "footer", label: "Contact", path: "/contact" },
   ];
 
   return (
@@ -115,7 +122,7 @@ const NavBar = () => {
             {navItems.map((item, i) => (
               <motion.button
                 key={i}
-                onClick={() => handleNavClick(item.sectionId, item.hash)}
+                onClick={() => handleNavClick(item.sectionId, item.path)}
                 className="nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer"
                 whileHover={{ y: -2 }}
                 transition={{ duration: 0.2 }}
@@ -176,7 +183,7 @@ const NavBar = () => {
             {navItems.map((item, i) => (
               <motion.button
                 key={i}
-                onClick={() => handleNavClick(item.sectionId, item.hash)}
+                onClick={() => handleNavClick(item.sectionId, item.path)}
                 className="block text-foreground/80 hover:text-primary transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full"
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
