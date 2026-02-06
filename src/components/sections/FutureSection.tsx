@@ -23,11 +23,11 @@ const FutureSection = () => {
       <div className="section-grid-pattern" />
       <div className="section-orb section-orb-1" style={{ top: '20%', right: '-100px' }} />
       <div className="section-orb section-orb-2" style={{ bottom: '30%', left: '-80px' }} />
-      
+
       {/* Animated horizontal accent lines */}
       <motion.div
         className="absolute top-1/3 left-0 h-px w-32 bg-gradient-to-r from-transparent via-primary/40 to-transparent"
-        animate={{ 
+        animate={{
           x: [0, 100, 0],
           opacity: [0.3, 0.6, 0.3]
         }}
@@ -35,7 +35,7 @@ const FutureSection = () => {
       />
       <motion.div
         className="absolute bottom-1/4 right-0 h-px w-48 bg-gradient-to-l from-transparent via-accent/30 to-transparent"
-        animate={{ 
+        animate={{
           x: [0, -80, 0],
           opacity: [0.2, 0.5, 0.2]
         }}
@@ -128,18 +128,18 @@ const FutureSection = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 + i * 0.1 }}
-                className="content-card group"
+                className="content-card group future-highlight-card"
               >
                 <div className="flex items-center gap-4 relative z-10">
-                  <motion.div 
-                    className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent/20 transition-colors icon-pulse"
+                  <motion.div
+                    className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent/20 transition-colors"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ duration: 0.3 }}
                     style={{ '--tw-shadow-color': 'hsl(80 75% 50% / 0.4)' } as React.CSSProperties}
                   >
                     {point.icon}
                   </motion.div>
-                  <p className="text-foreground/90 group-hover:text-foreground transition-colors font-medium text-lg">
+                  <p className="text-foreground/90 transition-colors font-medium text-lg">
                     {point.text}
                   </p>
                 </div>
