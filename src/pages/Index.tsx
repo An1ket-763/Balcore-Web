@@ -1,6 +1,5 @@
 import "../App.css";
 import NavBar from "@/components/sections/NavBar";
-import MarqueeBanner from "@/components/sections/MarqueeBanner";
 import HeroSection from "@/components/sections/HeroSection";
 import IntroSection from "@/components/sections/IntroSection";
 import ProblemSection from "@/components/sections/ProblemSection";
@@ -15,7 +14,6 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <NavBar />
-      <MarqueeBanner />
       <HeroSection />
       <IntroSection />
       <ProblemSection />
