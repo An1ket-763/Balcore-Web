@@ -132,7 +132,7 @@ const HeroSection = () => {
             transition={{ duration: 2, repeat: Infinity }}
           />
           <span className="text-sm font-medium text-primary tracking-wide">
-            NEXT-GEN DEFI INFRASTRUCTURE
+            BUILT ON AVALANCHE
           </span>
         </motion.div>
 
@@ -149,41 +149,26 @@ const HeroSection = () => {
             }}
             transition={{ duration: 5, repeat: Infinity }}
           >
-            Liquidity,
+            BalCore
           </motion.span>
-          <br />
-          <span className="text-foreground">
-            Designed for{" "}
-            <span className="relative">
-              Real Markets
-              <motion.span
-                className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent rounded-full"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 1, delay: 1 }}
-              />
-            </span>
-          </span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
+          className="mt-6 text-xl md:text-2xl text-foreground/90 max-w-3xl leading-relaxed font-medium"
         >
-          Balcore is building next-generation liquidity infrastructure for DeFi,
-          focused on sustainability, resilience, and reducing structural
-          inefficiencies in AMM-based markets.
+          Transforming passive capital into active, optimized, orchestrated yield on Avalanche and beyond
         </motion.p>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-4 text-base text-muted-foreground/80 max-w-2xl"
+          className="mt-4 text-lg text-muted-foreground max-w-2xl leading-relaxed"
         >
-          Built for evolving market conditions. Designed with risk in mind.
+          BalCore is building infrastructure that helps DeFi capital work more intelligently across changing market conditions.
         </motion.p>
 
         <motion.div
@@ -193,7 +178,7 @@ const HeroSection = () => {
           className="mt-10"
         >
           <motion.a
-            href="#learn-more"
+            href="#visual-story"
             className="btn-primary group relative overflow-hidden"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
@@ -218,7 +203,7 @@ const HeroSection = () => {
         transition={{ delay: 1.5 }}
       >
         <motion.a
-          href="#learn-more"
+          href="#visual-story"
           className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}

@@ -62,8 +62,8 @@ const NavBar = () => {
   useEffect(() => {
     const pathToSection: Record<string, string> = {
       "/": "top",
-      "/about": "philosophy",
-      "/protocol": "audience",
+      "/about": "why-balcore",
+      "/protocol": "what-balcore-does",
       "/contact": "footer",
     };
 
@@ -86,8 +86,8 @@ const NavBar = () => {
 
   const navItems = [
     { sectionId: "top", label: "Home", path: "/" },
-    { sectionId: "philosophy", label: "About", path: "/about" },
-    { sectionId: "audience", label: "Protocol", path: "/protocol" },
+    { sectionId: "why-balcore", label: "About", path: "/about" },
+    { sectionId: "what-balcore-does", label: "Protocol", path: "/protocol" },
     { sectionId: "footer", label: "Contact", path: "/contact" },
   ];
 

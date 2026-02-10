@@ -33,38 +33,15 @@ const StatusSection = () => {
           >
             <motion.div
               className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center mx-auto mb-6"
-              animate={{
-                scale: [1, 1.05, 1],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-              }}
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 3, repeat: Infinity }}
             >
               <Hammer className="w-8 h-8 text-primary" />
             </motion.div>
 
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Balcore is currently under active development. We believe
-              meaningful infrastructure takes time to design, test, and refine.
+              BalCore is currently under development. The focus is on careful design, testing assumptions, and building systems meant to last.
             </p>
-
-            <p className="text-muted-foreground mt-4">
-              Updates will be shared as the system reaches key milestones.
-            </p>
-
-            <motion.p
-              className="text-foreground font-medium mt-6 text-lg"
-              animate={{
-                opacity: [0.7, 1, 0.7],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-              }}
-            >
-              Strong foundations are built slowly — and intentionally.
-            </motion.p>
           </motion.div>
         </motion.div>
       </div>
