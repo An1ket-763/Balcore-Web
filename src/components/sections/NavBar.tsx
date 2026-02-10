@@ -47,7 +47,12 @@ const NavBar = () => {
   };
 
   const handleNavClick = (sectionId: string, path: string) => {
-    scrollToSection(sectionId);
+    if (sectionId === "top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      scrollToSection(sectionId);
+    }
+    setIsMobileMenuOpen(false);
 
     if (location.pathname !== path) {
       navigate(path);
@@ -56,7 +61,7 @@ const NavBar = () => {
 
   useEffect(() => {
     const pathToSection: Record<string, string> = {
-      "/": "learn-more",
+      "/": "top",
       "/about": "philosophy",
       "/protocol": "audience",
       "/contact": "footer",
@@ -66,9 +71,13 @@ const NavBar = () => {
     if (!sectionId) return;
 
     const timeout = window.setTimeout(() => {
-      const target = document.getElementById(sectionId);
-      if (target) {
-        target.scrollIntoView({ behavior: "auto" });
+      if (sectionId === "top") {
+        window.scrollTo({ top: 0, behavior: "auto" });
+      } else {
+        const target = document.getElementById(sectionId);
+        if (target) {
+          target.scrollIntoView({ behavior: "auto" });
+        }
       }
     }, 0);
 
@@ -76,7 +85,7 @@ const NavBar = () => {
   }, [location.pathname]);
 
   const navItems = [
-    { sectionId: "learn-more", label: "Home", path: "/" },
+    { sectionId: "top", label: "Home", path: "/" },
     { sectionId: "philosophy", label: "About", path: "/about" },
     { sectionId: "audience", label: "Protocol", path: "/protocol" },
     { sectionId: "footer", label: "Contact", path: "/contact" },
