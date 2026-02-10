@@ -1,12 +1,11 @@
 import "../App.css";
 import NavBar from "@/components/sections/NavBar";
 import HeroSection from "@/components/sections/HeroSection";
-import IntroSection from "@/components/sections/IntroSection";
-import ProblemSection from "@/components/sections/ProblemSection";
-import PhilosophySection from "@/components/sections/PhilosophySection";
-import VisionSection from "@/components/sections/VisionSection";
-import AudienceSection from "@/components/sections/AudienceSection";
-import FutureSection from "@/components/sections/FutureSection";
+import VisualStorySection from "@/components/sections/VisualStorySection";
+import WhyBalcoreSection from "@/components/sections/WhyBalcoreSection";
+import WhatBalcoreDoesSection from "@/components/sections/WhatBalcoreDoesSection";
+import SupportedAssetsSection from "@/components/sections/SupportedAssetsSection";
+import BuiltOnAvalancheSection from "@/components/sections/BuiltOnAvalancheSection";
 import StatusSection from "@/components/sections/StatusSection";
 import CTASection from "@/components/sections/CTASection";
 
@@ -15,12 +14,11 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <NavBar />
       <HeroSection />
-      <IntroSection />
-      <ProblemSection />
-      <PhilosophySection />
-      <VisionSection />
-      <AudienceSection />
-      <FutureSection />
+      <VisualStorySection />
+      <WhyBalcoreSection />
+      <WhatBalcoreDoesSection />
+      <SupportedAssetsSection />
+      <BuiltOnAvalancheSection />
       <StatusSection />
       <CTASection />
     </div>
