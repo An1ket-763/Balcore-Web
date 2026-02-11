@@ -12,7 +12,7 @@ const CTASection = () => {
           viewport={{ once: true }}
         >
           <h3 className="text-2xl font-bold text-foreground mb-2">
-            <span className="gradient-text shimmer-text">BalCore</span> Protocol
+            <span className="gradient-text shimmer-text">BalCore</span>
           </h3>
 
           <p className="text-muted-foreground mb-6">
@@ -34,7 +34,7 @@ const CTASection = () => {
             >
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
             </svg>
-            X → @BalCore
+            → @BalCore
           </motion.a>
         </motion.div>
 
@@ -53,7 +53,7 @@ const CTASection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          © BalCore Protocol
+          © BalCore
         </motion.p>
       </div>
     </footer>
