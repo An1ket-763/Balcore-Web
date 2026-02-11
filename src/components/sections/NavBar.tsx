@@ -105,7 +105,7 @@ const NavBar = () => {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <motion.a
-            onClick={() => handleNavClick("learn-more", "")}
+            onClick={() => handleNavClick("top", "/")}
             className="flex items-center gap-3 cursor-pointer"
             whileHover={{ scale: 1.02 }}
             role="button"
