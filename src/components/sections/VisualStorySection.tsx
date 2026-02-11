@@ -2,20 +2,22 @@ import { motion } from "framer-motion";
 import { Eye } from "lucide-react";
 
 const IdleCapitalAnimation = () => (
-  <div className="relative w-full max-w-[320px] mx-auto">
-    <div className="grid grid-cols-3 gap-3 mb-4">
-      {[...Array(6)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="w-full aspect-square rounded-xl bg-gradient-to-br from-muted to-secondary border border-border flex items-center justify-center"
-          animate={{ opacity: [0.4, 0.6, 0.4] }}
-          transition={{ duration: 3, repeat: Infinity, delay: i * 0.3 }}
-        >
-          <div className="w-10 h-10 rounded-full bg-background/50 border border-border/70 flex items-center justify-center">
-            <div className="w-5 h-5 rounded-full bg-muted-foreground/20 border border-muted-foreground/30" />
-          </div>
-        </motion.div>
-      ))}
+  <div className="relative w-full max-w-[320px] mx-auto flex flex-col items-center">
+    <div className="relative w-[280px] h-[280px] flex items-center justify-center">
+      <div className="grid grid-cols-3 gap-3">
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="w-20 h-20 rounded-xl bg-gradient-to-br from-muted to-secondary border border-border flex items-center justify-center"
+            animate={{ opacity: [0.4, 0.6, 0.4] }}
+            transition={{ duration: 3, repeat: Infinity, delay: i * 0.3 }}
+          >
+            <div className="w-10 h-10 rounded-full bg-background/50 border border-border/70 flex items-center justify-center">
+              <div className="w-5 h-5 rounded-full bg-muted-foreground/20 border border-muted-foreground/30" />
+            </div>
+          </motion.div>
+        ))}
+      </div>
     </div>
     <div className="flex justify-center gap-6 mt-4">
       <div className="text-center">
