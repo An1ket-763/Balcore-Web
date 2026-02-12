@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { Coins } from "lucide-react";
 
 const assets = [
-  { name: "AVAX", color: "from-red-500/20 to-red-600/10", borderColor: "border-red-500/30" },
-  { name: "BTC.b", color: "from-orange-500/20 to-amber-600/10", borderColor: "border-orange-500/30" },
-  { name: "USDC", color: "from-blue-500/20 to-blue-600/10", borderColor: "border-blue-500/30" },
-  { name: "ETH", color: "from-purple-500/20 to-indigo-600/10", borderColor: "border-purple-500/30" },
+  { name: "AVAX", logo: "/logo1.png", color: "from-red-500/20 to-red-600/10", borderColor: "border-red-500/30" },
+  { name: "BTC.b", logo: "/logo2.png", color: "from-orange-500/20 to-amber-600/10", borderColor: "border-orange-500/30" },
+  { name: "USDC", logo: "/logo3.png", color: "from-emerald-500/20 to-emerald-600/10", borderColor: "border-emerald-500/30" },
+  { name: "ETH", logo: "/logo4.png", color: "from-purple-500/20 to-indigo-600/10", borderColor: "border-purple-500/30" },
 ];
 
 const SupportedAssetsSection = () => {
@@ -56,10 +56,13 @@ const SupportedAssetsSection = () => {
               className="group"
             >
               <motion.div
-                className={`p-6 rounded-2xl bg-gradient-to-br ${asset.color} border ${asset.borderColor} text-center cursor-default transition-all duration-300 hover:scale-105`}
+                className={`p-6 rounded-2xl bg-gradient-to-br ${asset.color} border ${asset.borderColor} cursor-default transition-all duration-300 hover:scale-105`}
                 whileHover={{ y: -4 }}
               >
-                <p className="text-2xl font-bold text-foreground">{asset.name}</p>
+                <div className="flex items-center justify-center gap-3">
+                  <img src={asset.logo} alt={`${asset.name} logo`} className="w-8 h-8 object-contain" />
+                  <p className="text-2xl font-bold text-foreground">{asset.name}</p>
+                </div>
               </motion.div>
             </motion.div>
           ))}
