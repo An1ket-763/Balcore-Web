@@ -8,12 +8,12 @@ const IdleCapitalAnimation = () => (
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className="w-20 h-20 rounded-xl bg-gradient-to-br from-muted to-secondary border border-border flex items-center justify-center"
+            className="w-20 h-20 rounded-xl border border-[#4e6385] bg-gradient-to-br from-[#334766] to-[#263954] shadow-[0_8px_20px_rgba(6,14,32,0.45)] flex items-center justify-center"
             animate={{ opacity: [0.4, 0.6, 0.4] }}
             transition={{ duration: 3, repeat: Infinity, delay: i * 0.3 }}
           >
-            <div className="w-10 h-10 rounded-full bg-background/50 border border-border/70 flex items-center justify-center">
-              <div className="w-5 h-5 rounded-full bg-muted-foreground/20 border border-muted-foreground/30" />
+            <div className="w-10 h-10 rounded-full bg-[#1b2a45] border border-[#3b4f70] flex items-center justify-center">
+              <div className="w-5 h-5 rounded-full bg-[#1d3d8a] border border-[#2a5dbf]" />
             </div>
           </motion.div>
         ))}
