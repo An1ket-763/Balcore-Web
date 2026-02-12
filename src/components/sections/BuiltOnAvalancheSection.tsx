@@ -55,33 +55,29 @@ const BuiltOnAvalancheSection = () => {
             BalCore is built natively within the Avalanche ecosystem, leveraging its speed, scalability, and composability.
           </motion.p>
         </motion.div>
+      </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-          {integrations.map((name, i) => (
-            <motion.div
+      {/* Marquee Banner */}
+      <div className="relative z-10 overflow-hidden py-6">
+        {/* Fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+
+        <div className="marquee-track">
+          {[...integrations, ...integrations].map((name, i) => (
+            <div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="group"
+              className="marquee-item"
             >
-              <div className="p-5 rounded-xl content-card text-center cursor-default relative overflow-hidden">
-                <motion.div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    background: "radial-gradient(300px circle at 50% 50%, hsl(36 95% 55% / 0.06), transparent 60%)",
-                  }}
-                />
-                <p className="text-foreground/90 font-medium relative z-10 group-hover:text-primary transition-colors text-sm">
-                  {name}
-                </p>
-                <motion.div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-              </div>
-            </motion.div>
+              <span className="text-primary font-semibold text-sm tracking-wider whitespace-nowrap">
+                {name}
+              </span>
+            </div>
           ))}
         </div>
+      </div>
 
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.p
           className="text-muted-foreground text-center mt-12 text-lg max-w-2xl mx-auto"
           initial={{ opacity: 0 }}
