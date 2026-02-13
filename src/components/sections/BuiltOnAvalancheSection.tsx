@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import { Mountain } from "lucide-react";
 
 const integrations = [
-  "Avalanche Network",
-  "LFJ DEX",
-  "Pharaoh DEX",
-  "Blackhole DEX",
-  "Benqi Lending",
-  "Concentrated Liquidity Pools",
-  "Exochart Oracles",
-  "Smart Vault Architecture",
+  { name: "Avalanche Network", logo: "/logo1.png" },
+  { name: "LFJ DEX", logo: "/logo5.png" },
+  { name: "Pharaoh DEX", logo: "/logo6.jpg" },
+  { name: "Blackhole DEX", logo: "/logo7.png" },
+  { name: "Benqi Lending", logo: "/logo8.png" },
+  { name: "Concentrated Liquidity Pools", logo: "/logo9.png" },
+  { name: "Exochart Oracles", logo: "/logo10.png" },
+  { name: "Smart Vault Architecture", logo: "/logo11.png" },
 ];
 
 const BuiltOnAvalancheSection = () => {
@@ -64,13 +64,19 @@ const BuiltOnAvalancheSection = () => {
         <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-background to-transparent pointer-events-none" />
 
         <div className="marquee-track">
-          {[...integrations, ...integrations].map((name, i) => (
+          {[...integrations, ...integrations].map((integration, i) => (
             <div
               key={i}
               className="marquee-item"
             >
+              <img
+                src={integration.logo}
+                alt={`${integration.name} logo`}
+                className="w-6 h-6 rounded-sm object-contain"
+                loading="lazy"
+              />
               <span className="text-primary font-semibold text-sm tracking-wider whitespace-nowrap">
-                {name}
+                {integration.name}
               </span>
             </div>
           ))}
