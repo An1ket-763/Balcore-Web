@@ -72,7 +72,7 @@ const BuiltOnAvalancheSection = () => {
               <img
                 src={integration.logo}
                 alt={`${integration.name} logo`}
-                className="w-6 h-6 rounded-sm object-contain"
+                className="h-8 w-auto max-w-24 object-contain"
                 loading="lazy"
               />
               <span className="text-primary font-semibold text-sm tracking-wider whitespace-nowrap">

@@ -53,7 +53,7 @@ const CTASection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          © BalCore
+          © BalCore 2026
         </motion.p>
       </div>
     </footer>
