@@ -47,12 +47,12 @@ const WhatBalcoreDoesSection = () => {
             whileHover={{ scale: 1.05 }}
           >
             <Layers className="w-4 h-4 text-primary" />
-            <span className="text-xs font-semibold text-primary tracking-wider">
+            <span className="text-xs font-semibold text-white tracking-wider">
               WHAT BALCORE DOES
             </span>
           </motion.div>
 
-          <h2 className="section-title text-3xl md:text-4xl lg:text-5xl">
+          <h2 className="section-title text-3xl md:text-4xl lg:text-5xl text-white">
             Intelligent Liquidity Infrastructure
           </h2>
         </motion.div>

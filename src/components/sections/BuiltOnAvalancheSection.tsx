@@ -36,12 +36,12 @@ const BuiltOnAvalancheSection = () => {
             whileHover={{ scale: 1.05 }}
           >
             <Mountain className="w-4 h-4 text-destructive" />
-            <span className="text-xs font-semibold text-destructive tracking-wider">
+            <span className="text-xs font-semibold text-white tracking-wider">
               ECOSYSTEM
             </span>
           </motion.div>
 
-          <h2 className="section-title text-3xl md:text-4xl lg:text-5xl">
+          <h2 className="section-title text-3xl md:text-4xl lg:text-5xl text-white">
             Built on Avalanche
           </h2>
 

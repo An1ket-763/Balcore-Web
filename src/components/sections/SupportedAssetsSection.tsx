@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Coins } from "lucide-react";
+import LimeFlowBackground from "./LimeFlowBackground";
 
 const assets = [
   { name: "AVAX", logo: "/logo1.png", color: "from-red-500/20 to-red-600/10", borderColor: "border-red-500/30" },
@@ -10,8 +11,8 @@ const assets = [
 
 const SupportedAssetsSection = () => {
   return (
-    <section className="py-24 border-t border-border relative section-animated-bg">
-      <div className="section-grid-pattern" />
+    <section className="py-24 border-t border-border relative section-animated-bg overflow-hidden">
+      <LimeFlowBackground />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
@@ -25,12 +26,12 @@ const SupportedAssetsSection = () => {
             whileHover={{ scale: 1.05 }}
           >
             <Coins className="w-4 h-4 text-primary" />
-            <span className="text-xs font-semibold text-primary tracking-wider">
+            <span className="text-xs font-semibold text-white tracking-wider">
               SUPPORTED ASSETS
             </span>
           </motion.div>
 
-          <h2 className="section-title text-3xl md:text-4xl">
+          <h2 className="section-title text-3xl md:text-4xl text-white">
             Launch Assets
           </h2>
 
