@@ -12,7 +12,7 @@ const CTASection = () => {
           viewport={{ once: true }}
         >
           <h3 className="text-2xl font-bold text-white mb-2">
-            <span className="gradient-text shimmer-text">BalCore</span>
+            <span className="gradient-text shimmer-text">BALCORE</span>
           </h3>
 
           <p className="text-white/80 mb-6">
@@ -53,7 +53,7 @@ const CTASection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          © BalCore 2026
+          © Balcore 2026
         </motion.p>
       </div>
     </footer>
