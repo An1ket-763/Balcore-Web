@@ -2,7 +2,11 @@ import { useEffect, useRef } from "react";
 
 const LIME = "159,245,60";
 
-const MarketBackground = () => {
+type MarketBackgroundProps = {
+  showPhones?: boolean;
+};
+
+const MarketBackground = ({ showPhones = true }: MarketBackgroundProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -381,10 +385,12 @@ const MarketBackground = () => {
         scanline.draw();
       });
 
-      phones.forEach((phone) => {
-        phone.update();
-        phone.draw();
-      });
+      if (showPhones) {
+        phones.forEach((phone) => {
+          phone.update();
+          phone.draw();
+        });
+      }
 
       drawTicker();
 
@@ -398,11 +404,11 @@ const MarketBackground = () => {
     };
 
     resize();
-    resetPhones();
+    if (showPhones) resetPhones();
 
     const observer = new ResizeObserver(() => {
       resize();
-      resetPhones();
+      if (showPhones) resetPhones();
     });
 
     observer.observe(parent);
