@@ -274,17 +274,17 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] max-w-5xl"
+          className="text-5xl md:text-6xl lg:text-7xl leading-[1.1] max-w-5xl"
         >
-          <motion.span
-            className="text-white shimmer-text inline-block"
-            animate={{
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-            }}
-            transition={{ duration: 5, repeat: Infinity }}
-          >
+          <span className="relative inline-block font-['Orbitron'] font-semibold tracking-[0.28em] text-white uppercase">
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 -z-10 text-[#ccff00] blur-[5px] opacity-50"
+            >
+              BALCORE
+            </span>
             BALCORE
-          </motion.span>
+          </span>
         </motion.h1>
 
         <motion.p
