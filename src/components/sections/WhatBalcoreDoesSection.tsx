@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Zap, RefreshCw, Layers } from "lucide-react";
+import MarketBackground from "@/components/backgrounds/MarketBackground";
 
 const features = [
   {
@@ -22,18 +23,7 @@ const features = [
 const WhatBalcoreDoesSection = () => {
   return (
     <section id="what-balcore-does" className="py-24 border-t border-border relative section-animated-bg overflow-hidden">
-      <div className="section-grid-pattern" />
-      <div className="section-orb section-orb-1" style={{ top: '10%', right: '-120px', width: '250px', height: '250px' }} />
-      <div className="section-orb section-orb-2" style={{ bottom: '20%', left: '-100px', width: '200px', height: '200px' }} />
-
-      <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle, hsl(36 95% 55% / 0.03), transparent 60%)',
-        }}
-        animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
-        transition={{ duration: 8, repeat: Infinity }}
-      />
+      <MarketBackground />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div

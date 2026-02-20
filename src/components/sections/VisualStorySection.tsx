@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Eye } from "lucide-react";
+import MarketBackground from "@/components/backgrounds/MarketBackground";
 
 const IdleCapitalAnimation = () => (
   <div className="relative w-full max-w-[320px] mx-auto flex flex-col items-center">
@@ -201,9 +202,7 @@ const scenes = [
 const VisualStorySection = () => {
   return (
     <section id="visual-story" className="py-24 border-t border-border relative section-animated-bg">
-      <div className="section-grid-pattern" />
-      <div className="section-orb section-orb-1" />
-      <div className="section-orb section-orb-2" />
+      <MarketBackground />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div

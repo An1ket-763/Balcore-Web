@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Mountain } from "lucide-react";
+import MarketBackground from "@/components/backgrounds/MarketBackground";
 
 const integrations = [
   { name: "Avalanche Network", logo: "/logo1.png" },
@@ -15,14 +16,7 @@ const integrations = [
 const BuiltOnAvalancheSection = () => {
   return (
     <section className="py-24 border-t border-border relative section-animated-bg overflow-hidden">
-      <div className="section-grid-pattern" />
-      <div className="protocol-wave-field">
-        <div className="protocol-wave protocol-wave-1" />
-        <div className="protocol-wave protocol-wave-2" />
-        <div className="protocol-wave protocol-wave-3" />
-      </div>
-      <div className="section-orb section-orb-1" style={{ top: '20%', right: '-100px' }} />
-      <div className="section-orb section-orb-2" style={{ bottom: '15%', left: '-80px' }} />
+      <MarketBackground />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
