@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Users, Building2, Code2, Heart } from "lucide-react";
+import ProtocolFlowBackground from "@/components/backgrounds/ProtocolFlowBackground";
 
 const audiences = [
   {
@@ -25,10 +26,7 @@ const audiences = [
 const WhyBalcoreSection = () => {
   return (
     <section id="why-balcore" className="py-24 border-t border-border relative section-animated-bg overflow-hidden">
-      <div className="section-grid-pattern" />
-      <div className="about-aurora-layer" />
-      <div className="section-orb section-orb-1" style={{ top: '15%', right: '-80px' }} />
-      <div className="section-orb section-orb-2" style={{ bottom: '25%', left: '-60px' }} />
+      <ProtocolFlowBackground />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
