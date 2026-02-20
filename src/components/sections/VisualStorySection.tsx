@@ -122,9 +122,21 @@ const ActiveYieldAnimation = () => (
   <div className="relative w-full max-w-[320px] mx-auto flex flex-col items-center">
     <div className="relative w-[280px] h-[280px] flex items-center justify-center">
       {/* Optimized yield rings */}
-      <div className="absolute w-[260px] h-[260px] rounded-full border-[8px] border-dashed border-[#16c8a1]/85" />
-      <div className="absolute w-[200px] h-[200px] rounded-full border-[6px] border-dashed border-[#21afd1]/85" />
-      <div className="absolute w-[140px] h-[140px] rounded-full border-[4px] border-dashed border-[#0b8f7a]/85" />
+      <motion.div
+        className="absolute w-[260px] h-[260px] rounded-full border-[8px] border-dashed border-[#16c8a1]/85"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+      />
+      <motion.div
+        className="absolute w-[200px] h-[200px] rounded-full border-[6px] border-dashed border-[#21afd1]/85"
+        animate={{ rotate: -360 }}
+        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+      />
+      <motion.div
+        className="absolute w-[140px] h-[140px] rounded-full border-[4px] border-dashed border-[#0b8f7a]/85"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+      />
 
       {/* Core */}
       <motion.div
@@ -153,6 +165,27 @@ const ActiveYieldAnimation = () => (
         >
           {pos.value}
         </motion.span>
+      ))}
+
+      {/* Flow particles */}
+      {[
+        { x: [-30, 0, -30], y: [-40, 0, -40], duration: 2, delay: 0 },
+        { x: [30, 0, 30], y: [-40, 0, -40], duration: 2.5, delay: 0.3 },
+        { x: [-30, 0, -30], y: [40, 0, 40], duration: 3, delay: 0.6 },
+        { x: [30, 0, 30], y: [40, 0, 40], duration: 2.5, delay: 0.9 },
+      ].map((particle, i) => (
+        <motion.div
+          key={`particle-${i}`}
+          className="absolute top-1/2 left-1/2 w-2 h-2 rounded-full bg-[#16c8a1]"
+          style={{ boxShadow: "0 0 10px rgba(22, 200, 161, 0.5)" }}
+          animate={{ x: particle.x, y: particle.y, opacity: [0, 1, 0] }}
+          transition={{
+            duration: particle.duration,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: particle.delay,
+          }}
+        />
       ))}
     </div>
     <div className="flex justify-center gap-6 mt-4">
@@ -221,7 +254,7 @@ const VisualStorySection = () => {
             </span>
           </motion.div>
 
-          <h2 className="section-title text-3xl md:text-4xl lg:text-5xl text-white">
+          <h2 className="section-title font-light text-3xl md:text-4xl lg:text-5xl text-white">
             From Idle Capital to Intelligent Yield
           </h2>
         </motion.div>

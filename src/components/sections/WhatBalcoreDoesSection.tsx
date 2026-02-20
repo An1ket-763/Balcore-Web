@@ -42,7 +42,7 @@ const WhatBalcoreDoesSection = () => {
             </span>
           </motion.div>
 
-          <h2 className="section-title text-3xl md:text-4xl lg:text-5xl text-white">
+          <h2 className="section-title font-light text-3xl md:text-4xl lg:text-5xl text-white">
             Intelligent Liquidity Infrastructure
           </h2>
         </motion.div>

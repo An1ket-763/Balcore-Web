@@ -31,7 +31,7 @@ const SupportedAssetsSection = () => {
             </span>
           </motion.div>
 
-          <h2 className="section-title text-3xl md:text-4xl text-white">
+          <h2 className="section-title font-light text-3xl md:text-4xl text-white">
             Launch Assets
           </h2>
 
