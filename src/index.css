@@ -72,14 +72,14 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Clash Grotesk', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
  
-   /* Use Inter for all typography */
+   /* Use Clash Grotesk for all typography */
    h1, h2, h3, h4, h5, h6 {
-     font-family: 'Inter', system-ui, sans-serif;
+     font-family: 'Clash Grotesk', system-ui, sans-serif;
    }
 }
 
