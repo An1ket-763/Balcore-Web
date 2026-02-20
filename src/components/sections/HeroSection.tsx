@@ -283,7 +283,7 @@ const HeroSection = () => {
             }}
             transition={{ duration: 5, repeat: Infinity }}
           >
-            BalCore
+            BALCORE
           </motion.span>
         </motion.h1>
 
@@ -303,7 +303,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-4 text-lg text-white/90 max-w-2xl leading-relaxed"
         >
-          BalCore is building infrastructure that helps DeFi capital work more
+          Balcore is building infrastructure that helps DeFi capital work more
           intelligently across changing market conditions.
         </motion.p>
 
