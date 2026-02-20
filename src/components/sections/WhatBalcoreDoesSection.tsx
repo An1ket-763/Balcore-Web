@@ -37,12 +37,12 @@ const WhatBalcoreDoesSection = () => {
             whileHover={{ scale: 1.05 }}
           >
             <Layers className="w-4 h-4 text-primary" />
-            <span className="text-xs font-semibold text-primary tracking-wider">
+            <span className="text-xs font-semibold text-white tracking-wider">
               WHAT BALCORE DOES
             </span>
           </motion.div>
 
-          <h2 className="section-title text-3xl md:text-4xl lg:text-5xl">
+          <h2 className="section-title text-3xl md:text-4xl lg:text-5xl text-white">
             Intelligent Liquidity Infrastructure
           </h2>
         </motion.div>
@@ -77,10 +77,10 @@ const WhatBalcoreDoesSection = () => {
                   />
                 </motion.div>
 
-                <h3 className="text-xl font-semibold text-foreground mb-3 relative z-10 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-semibold text-white mb-3 relative z-10 group-hover:text-white transition-colors">
                   {point.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed relative z-10">
+                <p className="text-white/80 leading-relaxed relative z-10">
                   {point.desc}
                 </p>
 

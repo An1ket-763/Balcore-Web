@@ -22,16 +22,16 @@ const IdleCapitalAnimation = () => (
     </div>
     <div className="flex justify-center gap-6 mt-4">
       <div className="text-center">
-        <p className="text-xs text-muted-foreground">Status</p>
-        <p className="text-sm font-mono text-muted-foreground/70">Dormant</p>
+        <p className="text-xs text-white/80">Status</p>
+        <p className="text-sm font-mono text-white/70">Dormant</p>
       </div>
       <div className="text-center">
-        <p className="text-xs text-muted-foreground">Utilization</p>
-        <p className="text-sm font-mono text-muted-foreground/70">0%</p>
+        <p className="text-xs text-white/80">Utilization</p>
+        <p className="text-sm font-mono text-white/70">0%</p>
       </div>
       <div className="text-center">
-        <p className="text-xs text-muted-foreground">APY</p>
-        <p className="text-sm font-mono text-muted-foreground/70">—</p>
+        <p className="text-xs text-white/80">APY</p>
+        <p className="text-sm font-mono text-white/70">—</p>
       </div>
     </div>
   </div>
@@ -97,13 +97,13 @@ const OrchestrationAnimation = () => (
     </div>
     <div className="flex justify-center gap-6 mt-4">
       <div className="text-center">
-        <p className="text-xs text-muted-foreground">Status</p>
-        <p className="text-sm font-mono text-muted-foreground/70">Active</p>
+        <p className="text-xs text-white/80">Status</p>
+        <p className="text-sm font-mono text-white/70">Active</p>
       </div>
       <div className="text-center">
-        <p className="text-xs text-muted-foreground">Routing</p>
+        <p className="text-xs text-white/80">Routing</p>
         <motion.p
-          className="text-sm font-mono text-muted-foreground/70"
+          className="text-sm font-mono text-white/70"
           animate={{ opacity: [1, 0.6, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
@@ -111,8 +111,8 @@ const OrchestrationAnimation = () => (
         </motion.p>
       </div>
       <div className="text-center">
-        <p className="text-xs text-muted-foreground">Efficiency</p>
-        <p className="text-sm font-mono text-muted-foreground/70">98%</p>
+        <p className="text-xs text-white/80">Efficiency</p>
+        <p className="text-sm font-mono text-white/70">98%</p>
       </div>
     </div>
   </div>
@@ -157,13 +157,13 @@ const ActiveYieldAnimation = () => (
     </div>
     <div className="flex justify-center gap-6 mt-4">
       <div className="text-center">
-        <p className="text-xs text-muted-foreground">Status</p>
-        <p className="text-sm font-mono text-muted-foreground/70">Optimized</p>
+        <p className="text-xs text-white/80">Status</p>
+        <p className="text-sm font-mono text-white/70">Optimized</p>
       </div>
       <div className="text-center">
-        <p className="text-xs text-muted-foreground">Balance</p>
+        <p className="text-xs text-white/80">Balance</p>
         <motion.p
-          className="text-sm font-mono text-muted-foreground/70"
+          className="text-sm font-mono text-white/70"
           animate={{ opacity: [1, 0.7, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
@@ -171,8 +171,8 @@ const ActiveYieldAnimation = () => (
         </motion.p>
       </div>
       <div className="text-center">
-        <p className="text-xs text-muted-foreground">Avg APY</p>
-        <p className="text-sm font-mono text-muted-foreground/70">11.9%</p>
+        <p className="text-xs text-white/80">Avg APY</p>
+        <p className="text-sm font-mono text-white/70">11.9%</p>
       </div>
     </div>
   </div>

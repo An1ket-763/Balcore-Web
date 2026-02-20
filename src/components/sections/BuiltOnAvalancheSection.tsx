@@ -30,17 +30,17 @@ const BuiltOnAvalancheSection = () => {
             whileHover={{ scale: 1.05 }}
           >
             <Mountain className="w-4 h-4 text-destructive" />
-            <span className="text-xs font-semibold text-destructive tracking-wider">
+            <span className="text-xs font-semibold text-white tracking-wider">
               ECOSYSTEM
             </span>
           </motion.div>
 
-          <h2 className="section-title text-3xl md:text-4xl lg:text-5xl">
+          <h2 className="section-title text-3xl md:text-4xl lg:text-5xl text-white">
             Built on Avalanche
           </h2>
 
           <motion.p
-            className="text-muted-foreground mt-4 max-w-3xl mx-auto text-lg"
+            className="text-white/80 mt-4 max-w-3xl mx-auto text-lg"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -69,7 +69,7 @@ const BuiltOnAvalancheSection = () => {
                 className="h-8 w-auto max-w-24 object-contain"
                 loading="lazy"
               />
-              <span className="text-primary font-semibold text-sm tracking-wider whitespace-nowrap">
+              <span className="text-white font-semibold text-sm tracking-wider whitespace-nowrap">
                 {integration.name}
               </span>
             </div>
@@ -79,14 +79,14 @@ const BuiltOnAvalancheSection = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.p
-          className="text-muted-foreground text-center mt-12 text-lg max-w-2xl mx-auto"
+          className="text-white/80 text-center mt-12 text-lg max-w-2xl mx-auto"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
         >
           These components work together to support{" "}
-          <span className="text-foreground font-medium">intelligent liquidity orchestration</span>.
+          <span className="text-white font-medium">intelligent liquidity orchestration</span>.
         </motion.p>
       </div>
     </section>

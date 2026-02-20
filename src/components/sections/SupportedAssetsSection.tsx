@@ -26,17 +26,17 @@ const SupportedAssetsSection = () => {
             whileHover={{ scale: 1.05 }}
           >
             <Coins className="w-4 h-4 text-primary" />
-            <span className="text-xs font-semibold text-primary tracking-wider">
+            <span className="text-xs font-semibold text-white tracking-wider">
               SUPPORTED ASSETS
             </span>
           </motion.div>
 
-          <h2 className="section-title text-3xl md:text-4xl">
+          <h2 className="section-title text-3xl md:text-4xl text-white">
             Launch Assets
           </h2>
 
           <motion.p
-            className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg"
+            className="text-white/80 mt-4 max-w-2xl mx-auto text-lg"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -62,7 +62,7 @@ const SupportedAssetsSection = () => {
               >
                 <div className="flex items-center justify-center gap-3">
                   <img src={asset.logo} alt={`${asset.name} logo`} className="w-8 h-8 object-contain" />
-                  <p className="text-2xl font-bold text-foreground">{asset.name}</p>
+                  <p className="text-2xl font-bold text-white">{asset.name}</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -70,7 +70,7 @@ const SupportedAssetsSection = () => {
         </div>
 
         <motion.p
-          className="text-sm text-muted-foreground mt-8 text-center italic"
+          className="text-sm text-white/80 mt-8 text-center italic"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
