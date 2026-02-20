@@ -1,123 +1,257 @@
-import { motion, useMotionValue, useSpring } from "framer-motion";
-import { Activity, ChevronDown } from "lucide-react";
-import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+import { useEffect, useRef } from "react";
 
 const HeroSection = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const smoothX = useSpring(mouseX, { damping: 50, stiffness: 400 });
-  const smoothY = useSpring(mouseY, { damping: 50, stiffness: 400 });
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
-      setMousePosition({ x: e.clientX, y: e.clientY });
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let width = 0;
+    let height = 0;
+    let animationFrame = 0;
+    const mouse = { x: 0, y: 0 };
+    const limeRgb = "204, 255, 0";
+
+    const resize = () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
+    class Particle {
+      x = 0;
+      y = 0;
+      size = 0;
+      speedY = 0;
+      speedX = 0;
+      opacity = 0;
+      life = 0;
+      maxLife = 0;
+      wave = 0;
+      waveSpeed = 0;
+      waveAmp = 0;
+
+      constructor() {
+        this.reset(true);
+      }
+
+      reset(initial = false) {
+        this.x = Math.random() * width;
+        this.y = initial ? Math.random() * height : height + 10;
+        this.size = Math.random() * 2.2 + 0.4;
+        this.speedY = -(Math.random() * 0.6 + 0.2);
+        this.speedX = (Math.random() - 0.5) * 0.3;
+        this.opacity = Math.random() * 0.7 + 0.2;
+        this.life = 0;
+        this.maxLife = Math.random() * 300 + 200;
+        this.wave = Math.random() * Math.PI * 2;
+        this.waveSpeed = Math.random() * 0.02 + 0.005;
+        this.waveAmp = Math.random() * 1.5 + 0.5;
+      }
+
+      update() {
+        this.life += 1;
+        this.wave += this.waveSpeed;
+        this.x += this.speedX + Math.sin(this.wave) * this.waveAmp * 0.1;
+        this.y += this.speedY;
+
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance < 160) {
+          this.x += dx * 0.003;
+          this.y += dy * 0.003;
+        }
+
+        if (this.y < -10 || this.life > this.maxLife) {
+          this.reset();
+        }
+      }
+
+      draw() {
+        const fadeIn = Math.min(1, this.life / 40);
+        const fadeOut = Math.min(1, (this.maxLife - this.life) / 40);
+        const fade = fadeIn * fadeOut;
+
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${limeRgb}, ${this.opacity * fade})`;
+        ctx.fill();
+      }
+    }
+
+    class FlowLine {
+      x = 0;
+      y = 0;
+      length = 0;
+      speed = 0;
+      angle = 0;
+      opacity = 0;
+      lineWidth = 0;
+      life = 0;
+      maxLife = 0;
+
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.length = Math.random() * 120 + 40;
+        this.speed = Math.random() * 0.8 + 0.3;
+        this.angle = Math.random() * Math.PI * 2;
+        this.opacity = Math.random() * 0.12 + 0.03;
+        this.lineWidth = Math.random() * 1.2 + 0.2;
+        this.life = 0;
+        this.maxLife = Math.random() * 200 + 100;
+      }
+
+      update() {
+        this.life += 1;
+        this.angle += (Math.random() - 0.5) * 0.05;
+        this.x += Math.cos(this.angle) * this.speed;
+        this.y += Math.sin(this.angle) * this.speed;
+
+        const outOfBounds =
+          this.x < -50 ||
+          this.x > width + 50 ||
+          this.y < -50 ||
+          this.y > height + 50;
+
+        if (this.life > this.maxLife || outOfBounds) {
+          this.reset();
+        }
+      }
+
+      draw() {
+        const fadeIn = Math.min(1, this.life / 30);
+        const fadeOut = Math.min(1, (this.maxLife - this.life) / 30);
+        const fade = fadeIn * fadeOut;
+
+        const endX = this.x - Math.cos(this.angle) * this.length;
+        const endY = this.y - Math.sin(this.angle) * this.length;
+
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(endX, endY);
+
+        const gradient = ctx.createLinearGradient(this.x, this.y, endX, endY);
+        gradient.addColorStop(0, `rgba(${limeRgb}, ${this.opacity * fade})`);
+        gradient.addColorStop(1, `rgba(${limeRgb}, 0)`);
+
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = this.lineWidth;
+        ctx.stroke();
+      }
+    }
+
+    class Orb {
+      x = Math.random() * width;
+      y = Math.random() * height;
+      radius = Math.random() * 220 + 80;
+      dx = (Math.random() - 0.5) * 0.4;
+      dy = (Math.random() - 0.5) * 0.4;
+      phase = Math.random() * Math.PI * 2;
+
+      update() {
+        this.phase += 0.008;
+        this.x += this.dx + Math.sin(this.phase) * 0.3;
+        this.y += this.dy + Math.cos(this.phase * 0.7) * 0.3;
+
+        if (this.x < -this.radius) this.x = width + this.radius;
+        if (this.x > width + this.radius) this.x = -this.radius;
+        if (this.y < -this.radius) this.y = height + this.radius;
+        if (this.y > height + this.radius) this.y = -this.radius;
+      }
+
+      draw() {
+        const gradient = ctx.createRadialGradient(
+          this.x,
+          this.y,
+          0,
+          this.x,
+          this.y,
+          this.radius
+        );
+
+        gradient.addColorStop(0, `rgba(${limeRgb}, 0.045)`);
+        gradient.addColorStop(0.5, `rgba(${limeRgb}, 0.018)`);
+        gradient.addColorStop(1, `rgba(${limeRgb}, 0)`);
+
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = gradient;
+        ctx.fill();
+      }
+    }
+
+    resize();
+
+    const particles = Array.from({ length: 260 }, () => new Particle());
+    const lines = Array.from({ length: 80 }, () => new FlowLine());
+    const orbs = Array.from({ length: 5 }, () => new Orb());
+
+    const onMouseMove = (event: MouseEvent) => {
+      mouse.x = event.clientX;
+      mouse.y = event.clientY;
+    };
+
+    const draw = () => {
+      ctx.clearRect(0, 0, width, height);
+
+      const vignette = ctx.createRadialGradient(
+        width / 2,
+        height / 2,
+        0,
+        width / 2,
+        height / 2,
+        Math.max(width, height) * 0.75
+      );
+
+      vignette.addColorStop(0, "rgba(5,8,5,0)");
+      vignette.addColorStop(1, "rgba(5,8,5,0.7)");
+
+      orbs.forEach((orb) => {
+        orb.update();
+        orb.draw();
+      });
+
+      lines.forEach((line) => {
+        line.update();
+        line.draw();
+      });
+
+      particles.forEach((particle) => {
+        particle.update();
+        particle.draw();
+      });
+
+      ctx.fillStyle = vignette;
+      ctx.fillRect(0, 0, width, height);
+
+      animationFrame = window.requestAnimationFrame(draw);
+    };
+
+    draw();
+    window.addEventListener("resize", resize);
+    window.addEventListener("mousemove", onMouseMove);
+
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+      window.removeEventListener("resize", resize);
+      window.removeEventListener("mousemove", onMouseMove);
+    };
+  }, []);
 
   return (
-    <section className="hero-section relative min-h-screen flex items-center overflow-hidden">
-      {/* Mouse-following gradient */}
-      <motion.div
-        className="absolute inset-0 pointer-events-none opacity-30"
-        style={{
-          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, hsl(36 95% 55% / 0.15), transparent 40%)`,
-        }}
-      />
-
-      {/* Background effects */}
-      <div className="particle-field" />
-      <div className="network-lines" />
-      <div className="hero-orb hero-orb-1" />
-      <div className="hero-orb hero-orb-2" />
-      <div className="hero-orb hero-orb-3" />
-
-      {/* Animated grid */}
-      <motion.div
-        className="absolute inset-0 opacity-[0.03]"
-        animate={{ backgroundPosition: ["0px 0px", "40px 40px"] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        style={{
-          backgroundImage:
-            "linear-gradient(hsl(36 95% 55%) 1px, transparent 1px), linear-gradient(90deg, hsl(36 95% 55%) 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
-      />
-
-      {/* Floating crypto icons */}
-      <motion.div
-        className="absolute top-20 right-[15%] opacity-20"
-        animate={{
-          y: [0, -20, 0],
-          rotate: [0, 10, 0],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      >
-        <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary/30 to-accent/20 backdrop-blur-sm border border-primary/20 flex items-center justify-center">
-          <Activity className="w-8 h-8 text-primary" />
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="absolute bottom-32 left-[10%] opacity-15"
-        animate={{
-          y: [0, 15, 0],
-          rotate: [0, -15, 0],
-        }}
-        transition={{
-          duration: 7,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1,
-        }}
-      >
-        <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-accent/30 to-primary/20 backdrop-blur-sm border border-accent/20" />
-      </motion.div>
-
-      <motion.div
-        className="absolute top-40 left-[20%] opacity-10"
-        animate={{
-          y: [0, -25, 0],
-          x: [0, 10, 0],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2,
-        }}
-      >
-        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary/40 to-transparent" />
-      </motion.div>
-
-      {/* Additional floating elements */}
-      <motion.div
-        className="absolute top-[60%] right-[8%] w-24 h-24 rounded-2xl border border-dashed border-primary/20 hidden lg:block"
-        animate={{
-          rotate: [0, 360],
-          scale: [1, 1.1, 1],
-        }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-      />
-
-      <motion.div
-        className="absolute top-[30%] right-[30%] w-2 h-2 rounded-full bg-accent hidden lg:block"
-        animate={{
-          scale: [1, 1.5, 1],
-          opacity: [0.3, 0.8, 0.3],
-        }}
-        transition={{ duration: 3, repeat: Infinity }}
-      />
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#050805]">
+      <canvas ref={canvasRef} className="absolute inset-0 z-0" />
 
       <div className="max-w-7xl mx-auto px-6 py-24 relative z-10">
         <motion.div
@@ -131,7 +265,7 @@ const HeroSection = () => {
             animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 2, repeat: Infinity }}
           />
-          <span className="text-sm font-medium text-primary tracking-wide">
+          <span className="text-sm font-medium text-white tracking-wide">
             BUILT ON AVALANCHE
           </span>
         </motion.div>
@@ -143,7 +277,7 @@ const HeroSection = () => {
           className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] max-w-5xl"
         >
           <motion.span
-            className="gradient-text shimmer-text inline-block"
+            className="text-white shimmer-text inline-block"
             animate={{
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             }}
@@ -157,18 +291,20 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-6 text-xl md:text-2xl text-foreground/90 max-w-3xl leading-relaxed font-medium"
+          className="mt-6 text-xl md:text-2xl text-white max-w-3xl leading-relaxed font-medium"
         >
-          Transforming passive capital into active, optimized, orchestrated yield on Avalanche and beyond
+          Transforming passive capital into active, optimized, orchestrated yield on
+          Avalanche and beyond
         </motion.p>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-4 text-lg text-muted-foreground max-w-2xl leading-relaxed"
+          className="mt-4 text-lg text-white/90 max-w-2xl leading-relaxed"
         >
-          BalCore is building infrastructure that helps DeFi capital work more intelligently across changing market conditions.
+          BalCore is building infrastructure that helps DeFi capital work more
+          intelligently across changing market conditions.
         </motion.p>
 
         <motion.div
@@ -183,9 +319,7 @@ const HeroSection = () => {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
-            <span className="relative z-10 flex items-center gap-2">
-              Learn More
-            </span>
+            <span className="relative z-10 flex items-center gap-2">Learn More</span>
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
               animate={{ translateX: ["-100%", "200%"] }}
@@ -195,16 +329,15 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
       >
         <motion.a
           href="#visual-story"
-          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+          className="flex flex-col items-center gap-2 text-white/80 hover:text-white transition-colors"
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
