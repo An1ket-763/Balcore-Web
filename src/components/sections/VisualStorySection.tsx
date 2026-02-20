@@ -96,13 +96,13 @@ const OrchestrationAnimation = () => (
     </div>
     <div className="flex justify-center gap-6 mt-4">
       <div className="text-center">
-        <p className="text-xs text-accent/70">Status</p>
-        <p className="text-sm font-mono text-accent">Active</p>
+        <p className="text-xs text-muted-foreground">Status</p>
+        <p className="text-sm font-mono text-muted-foreground/70">Active</p>
       </div>
       <div className="text-center">
-        <p className="text-xs text-accent/70">Routing</p>
+        <p className="text-xs text-muted-foreground">Routing</p>
         <motion.p
-          className="text-sm font-mono text-accent"
+          className="text-sm font-mono text-muted-foreground/70"
           animate={{ opacity: [1, 0.6, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
@@ -110,8 +110,8 @@ const OrchestrationAnimation = () => (
         </motion.p>
       </div>
       <div className="text-center">
-        <p className="text-xs text-accent/70">Efficiency</p>
-        <p className="text-sm font-mono text-accent">98%</p>
+        <p className="text-xs text-muted-foreground">Efficiency</p>
+        <p className="text-sm font-mono text-muted-foreground/70">98%</p>
       </div>
     </div>
   </div>
@@ -120,31 +120,19 @@ const OrchestrationAnimation = () => (
 const ActiveYieldAnimation = () => (
   <div className="relative w-full max-w-[320px] mx-auto flex flex-col items-center">
     <div className="relative w-[280px] h-[280px] flex items-center justify-center">
-      {/* Spinning rings */}
-      <motion.div
-        className="absolute w-[260px] h-[260px] rounded-full border-[6px] border-dashed border-primary/60"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-      />
-      <motion.div
-        className="absolute w-[200px] h-[200px] rounded-full border-[4px] border-dashed border-accent/50"
-        animate={{ rotate: -360 }}
-        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-      />
-      <motion.div
-        className="absolute w-[140px] h-[140px] rounded-full border-[3px] border-dashed border-primary/40"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-      />
+      {/* Optimized yield rings */}
+      <div className="absolute w-[260px] h-[260px] rounded-full border-[8px] border-dashed border-[#16c8a1]/85" />
+      <div className="absolute w-[200px] h-[200px] rounded-full border-[6px] border-dashed border-[#21afd1]/85" />
+      <div className="absolute w-[140px] h-[140px] rounded-full border-[4px] border-dashed border-[#0b8f7a]/85" />
 
       {/* Core */}
       <motion.div
-        className="relative z-10 w-20 h-20 rounded-full bg-gradient-to-br from-primary/40 to-primary/80 flex items-center justify-center"
-        animate={{ opacity: [1, 0.7, 1] }}
-        transition={{ duration: 2, repeat: Infinity }}
+        className="relative z-10 w-24 h-24 rounded-full bg-[#0b8f7a]/70 flex items-center justify-center"
+        animate={{ scale: [1, 1.02, 1] }}
+        transition={{ duration: 2.4, repeat: Infinity }}
       >
-        <div className="w-14 h-14 rounded-full bg-background/80 flex items-center justify-center">
-          <div className="w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-b-[14px] border-b-primary rotate-90" />
+        <div className="w-16 h-16 rounded-full bg-[#07333f]/90 flex items-center justify-center">
+          <div className="w-0 h-0 border-l-[10px] border-l-[#16c8a1] border-t-[7px] border-t-transparent border-b-[7px] border-b-transparent" />
         </div>
       </motion.div>
 
@@ -157,7 +145,7 @@ const ActiveYieldAnimation = () => (
       ].map((pos, i) => (
         <motion.span
           key={i}
-          className="absolute text-primary font-bold text-sm"
+          className="absolute text-white font-bold text-sm"
           style={{ top: pos.top, left: pos.left, right: pos.right, bottom: pos.bottom }}
           animate={{ y: [0, -8, 0] }}
           transition={{ duration: 2, repeat: Infinity, delay: pos.delay }}
@@ -168,13 +156,13 @@ const ActiveYieldAnimation = () => (
     </div>
     <div className="flex justify-center gap-6 mt-4">
       <div className="text-center">
-        <p className="text-xs text-primary/70">Status</p>
-        <p className="text-sm font-mono text-primary">Optimized</p>
+        <p className="text-xs text-muted-foreground">Status</p>
+        <p className="text-sm font-mono text-muted-foreground/70">Optimized</p>
       </div>
       <div className="text-center">
-        <p className="text-xs text-primary/70">Balance</p>
+        <p className="text-xs text-muted-foreground">Balance</p>
         <motion.p
-          className="text-sm font-mono text-primary"
+          className="text-sm font-mono text-muted-foreground/70"
           animate={{ opacity: [1, 0.7, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
@@ -182,8 +170,8 @@ const ActiveYieldAnimation = () => (
         </motion.p>
       </div>
       <div className="text-center">
-        <p className="text-xs text-primary/70">Avg APY</p>
-        <p className="text-sm font-mono text-primary">11.9%</p>
+        <p className="text-xs text-muted-foreground">Avg APY</p>
+        <p className="text-sm font-mono text-muted-foreground/70">11.9%</p>
       </div>
     </div>
   </div>
@@ -228,13 +216,13 @@ const VisualStorySection = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
             whileHover={{ scale: 1.05 }}
           >
-            <Eye className="w-4 h-4 text-primary" />
-            <span className="text-xs font-semibold text-primary tracking-wider">
+            <Eye className="w-4 h-4 text-white" />
+            <span className="text-xs font-semibold text-white tracking-wider">
               HOW IT WORKS
             </span>
           </motion.div>
 
-          <h2 className="section-title text-3xl md:text-4xl lg:text-5xl">
+          <h2 className="section-title text-3xl md:text-4xl lg:text-5xl text-white">
             From Idle Capital to Intelligent Yield
           </h2>
         </motion.div>
@@ -253,10 +241,10 @@ const VisualStorySection = () => {
                 <div className="mb-6">
                   {scene.animation}
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-2 text-center group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-semibold text-white mb-2 text-center group-hover:text-white transition-colors">
                   {scene.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed text-center">
+                <p className="text-white/85 text-sm leading-relaxed text-center">
                   {scene.description}
                 </p>
 
