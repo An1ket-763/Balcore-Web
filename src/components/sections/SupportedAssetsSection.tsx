@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Coins } from "lucide-react";
-import ProtocolFlowBackground from "@/components/backgrounds/ProtocolFlowBackground";
 
 const assets = [
   { name: "AVAX", logo: "/logo1.png", color: "from-red-500/40 to-red-600/30", borderColor: "border-red-500/30" },
@@ -11,8 +10,7 @@ const assets = [
 
 const SupportedAssetsSection = () => {
   return (
-    <section className="py-24 border-t border-border relative section-animated-bg overflow-hidden">
-      <ProtocolFlowBackground />
+    <section className="py-24 border-t border-border relative overflow-hidden">
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
