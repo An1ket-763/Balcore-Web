@@ -32,11 +32,11 @@ const BuiltOnAvalancheSection = () => {
           className="text-center mb-16"
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-destructive/10 border border-destructive/20 mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
             whileHover={{ scale: 1.05 }}
           >
-            <Mountain className="w-4 h-4 text-destructive" />
-            <span className="text-xs font-semibold text-white tracking-wider">
+            <Mountain className="w-4 h-4 text-primary" />
+            <span className="text-xs font-semibold text-primary tracking-wider">
               ECOSYSTEM
             </span>
           </motion.div>
@@ -75,7 +75,7 @@ const BuiltOnAvalancheSection = () => {
                 className="h-8 w-auto max-w-24 object-contain"
                 loading="lazy"
               />
-              <span className="text-primary font-semibold text-sm tracking-wider whitespace-nowrap">
+              <span className="text-white font-semibold text-sm tracking-wider whitespace-nowrap">
                 {integration.name}
               </span>
             </div>
