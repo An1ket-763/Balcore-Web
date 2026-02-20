@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Zap, RefreshCw, Layers } from "lucide-react";
-import MarketBackground from "@/components/backgrounds/MarketBackground";
+import YieldFlowBackground from "@/components/backgrounds/YieldFlowBackground";
 
 const features = [
   {
@@ -23,7 +23,7 @@ const features = [
 const WhatBalcoreDoesSection = () => {
   return (
     <section id="what-balcore-does" className="py-24 border-t border-border relative section-animated-bg overflow-hidden">
-      <MarketBackground />
+      <YieldFlowBackground />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
