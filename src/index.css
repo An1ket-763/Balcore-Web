@@ -71,16 +71,10 @@
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Clash Grotesk', system-ui, sans-serif;
+    @apply bg-background text-foreground font-sans;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
- 
-   /* Use Clash Grotesk for all typography */
-   h1, h2, h3, h4, h5, h6 {
-     font-family: 'Clash Grotesk', system-ui, sans-serif;
-   }
 }
 
 @layer utilities {

@@ -71,7 +71,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ['Manrope', 'system-ui', 'sans-serif'],
+        sans: ['Clash Grotesk', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {
