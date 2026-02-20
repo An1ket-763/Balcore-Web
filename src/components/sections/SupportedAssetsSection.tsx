@@ -3,10 +3,10 @@ import { Coins } from "lucide-react";
 import LimeFlowBackground from "./LimeFlowBackground";
 
 const assets = [
-  { name: "AVAX", logo: "/logo1.png", color: "from-red-500/20 to-red-600/10", borderColor: "border-red-500/30" },
-  { name: "BTC.b", logo: "/logo2.png", color: "from-orange-500/20 to-amber-600/10", borderColor: "border-orange-500/30" },
-  { name: "USDC", logo: "/logo3.png", color: "from-emerald-500/20 to-emerald-600/10", borderColor: "border-emerald-500/30" },
-  { name: "ETH", logo: "/logo4.png", color: "from-purple-500/20 to-indigo-600/10", borderColor: "border-purple-500/30" },
+  { name: "AVAX", logo: "/logo1.png", color: "from-red-500 to-red-600", borderColor: "border-red-400/80" },
+  { name: "BTC.b", logo: "/logo2.png", color: "from-orange-500 to-amber-600", borderColor: "border-orange-400/80" },
+  { name: "USDC", logo: "/logo3.png", color: "from-emerald-500 to-emerald-600", borderColor: "border-emerald-400/80" },
+  { name: "ETH", logo: "/logo4.png", color: "from-purple-500 to-indigo-600", borderColor: "border-purple-400/80" },
 ];
 
 const SupportedAssetsSection = () => {
