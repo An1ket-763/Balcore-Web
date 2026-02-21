@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
+import { COLOR_RGB, COLOR_DIM_RGB } from "@/constants/colors";
 
-const LIME = "159,245,60";
-const LIME_DIM = "100,180,30";
+const COLOR = COLOR_RGB;
+const COLOR_DIM = COLOR_DIM_RGB;
 
 type Particle = {
   x: number;
@@ -185,13 +186,13 @@ class APYCounter {
   draw(ctx: CanvasRenderingContext2D) {
     ctx.textAlign = "center";
     ctx.font = "bold 52px monospace";
-    ctx.fillStyle = `rgba(${LIME},0.9)`;
-    ctx.shadowColor = `rgba(${LIME},0.5)`;
+    ctx.fillStyle = `rgba(${COLOR},0.9)`;
+    ctx.shadowColor = `rgba(${COLOR},0.5)`;
     ctx.shadowBlur = 30;
     ctx.fillText(`${this.apy.toFixed(1)}%`, this.x, this.y);
     ctx.shadowBlur = 0;
     ctx.font = "11px monospace";
-    ctx.fillStyle = `rgba(${LIME},0.45)`;
+    ctx.fillStyle = `rgba(${COLOR},0.45)`;
     ctx.fillText("BLENDED APY", this.x, this.y + 22);
     ctx.fillText("Y_vault = α·Y_LP + (1−α)·Y_res", this.x, this.y + 38);
   }
@@ -203,13 +204,13 @@ const drawRepayRing = (ctx: CanvasRenderingContext2D, cx: number, cy: number, r:
 
   ctx.beginPath();
   ctx.arc(cx, cy, r, 0, Math.PI * 2);
-  ctx.strokeStyle = `rgba(${LIME},0.08)`;
+  ctx.strokeStyle = `rgba(${COLOR},0.08)`;
   ctx.lineWidth = 6;
   ctx.stroke();
 
   ctx.beginPath();
   ctx.arc(cx, cy, r, start, start + Math.PI * 2 * pct + Math.sin(phase) * 0.1);
-  ctx.strokeStyle = `rgba(${LIME},0.7)`;
+  ctx.strokeStyle = `rgba(${COLOR},0.7)`;
   ctx.lineWidth = 6;
   ctx.lineCap = "round";
   ctx.stroke();
@@ -217,15 +218,15 @@ const drawRepayRing = (ctx: CanvasRenderingContext2D, cx: number, cy: number, r:
   const dotA = start + Math.PI * 0.5 * pct * 4 + phase * 0.5;
   ctx.beginPath();
   ctx.arc(cx + Math.cos(dotA) * r, cy + Math.sin(dotA) * r, 4, 0, Math.PI * 2);
-  ctx.fillStyle = `rgba(${LIME},1)`;
+  ctx.fillStyle = `rgba(${COLOR},1)`;
   ctx.fill();
 
   ctx.textAlign = "center";
   ctx.font = "bold 13px monospace";
-  ctx.fillStyle = `rgba(${LIME},0.8)`;
+  ctx.fillStyle = `rgba(${COLOR},0.8)`;
   ctx.fillText("25%", cx, cy - 6);
   ctx.font = "9px monospace";
-  ctx.fillStyle = `rgba(${LIME},0.45)`;
+  ctx.fillStyle = `rgba(${COLOR},0.45)`;
   ctx.fillText("→ DEBT", cx, cy + 8);
 };
 
@@ -259,15 +260,15 @@ const YieldFlowBackground = () => {
       canvas.height = height;
 
       streams = [
-        new YieldStream(0, width * 0.55, height * 0.25, 2, 1.2, LIME, "LP FEES"),
-        new YieldStream(0, width * 0.55, height * 0.4, 3.5, 0.9, LIME, "RESERVE YIELD"),
-        new YieldStream(0, width * 0.55, height * 0.55, 1.5, 1.5, LIME_DIM, "BORROW COST"),
-        new YieldStream(width * 0.58, width, height * 0.38, 4, 1.4, LIME, "NET YIELD"),
+        new YieldStream(0, width * 0.55, height * 0.25, 2, 1.2, COLOR, "LP FEES"),
+        new YieldStream(0, width * 0.55, height * 0.4, 3.5, 0.9, COLOR, "RESERVE YIELD"),
+        new YieldStream(0, width * 0.55, height * 0.55, 1.5, 1.5, COLOR_DIM, "BORROW COST"),
+        new YieldStream(width * 0.58, width, height * 0.38, 4, 1.4, COLOR, "NET YIELD"),
       ];
 
       vaults = [
         new VaultBox(width * 0.68, height * 0.15, 100, 160, "ACTIVE LP", 0.1, "255,100,80"),
-        new VaultBox(width * 0.82, height * 0.15, 100, 160, "RESERVE", 0.9, LIME),
+        new VaultBox(width * 0.82, height * 0.15, 100, 160, "RESERVE", 0.9, COLOR),
       ];
 
       apyCounter = new APYCounter(width * 0.58, height * 0.75);
@@ -277,7 +278,7 @@ const YieldFlowBackground = () => {
       ctx.clearRect(0, 0, width, height);
       t += 0.012;
 
-      ctx.fillStyle = `rgba(${LIME},0.018)`;
+      ctx.fillStyle = `rgba(${COLOR},0.018)`;
       for (let x = 0; x < width; x += 35) {
         for (let y = 0; y < height; y += 35) {
           ctx.beginPath();
@@ -297,8 +298,8 @@ const YieldFlowBackground = () => {
         ctx.moveTo(funnelX, sy);
         ctx.bezierCurveTo(funnelX + 30, sy, funnelX + 40, height * 0.38, funnelX + 60, height * 0.38);
         const g = ctx.createLinearGradient(funnelX, 0, funnelX + 60, 0);
-        g.addColorStop(0, `rgba(${LIME},0.3)`);
-        g.addColorStop(1, `rgba(${LIME},0)`);
+        g.addColorStop(0, `rgba(${COLOR},0.3)`);
+        g.addColorStop(1, `rgba(${COLOR},0)`);
         ctx.strokeStyle = g;
         ctx.lineWidth = 1.5;
         ctx.stroke();

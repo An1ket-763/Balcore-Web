@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
+import { COLOR_RGB } from "@/constants/colors";
 
-const LIME = "159,245,60";
+const COLOR = COLOR_RGB;
 
 type MarketBackgroundProps = {
   showPhones?: boolean;
@@ -121,7 +122,7 @@ const MarketBackground = ({ showPhones = true }: MarketBackgroundProps) => {
           ctx.beginPath();
           ctx.moveTo(this.ox, gridY);
           ctx.lineTo(this.ox + this.w, gridY);
-          ctx.strokeStyle = `rgba(${LIME},${0.04 * this.opacity})`;
+          ctx.strokeStyle = `rgba(${COLOR},${0.04 * this.opacity})`;
           ctx.lineWidth = 1;
           ctx.stroke();
         }
@@ -130,7 +131,7 @@ const MarketBackground = ({ showPhones = true }: MarketBackgroundProps) => {
           const x = this.ox + index * step;
           const bullish = candle.close >= candle.open;
           const alpha = this.opacity * (0.5 + (index / this.candles.length) * 0.5);
-          const color = bullish ? `rgba(${LIME},${alpha})` : `rgba(255,80,80,${alpha * 0.7})`;
+          const color = bullish ? `rgba(${COLOR},${alpha})` : `rgba(255,80,80,${alpha * 0.7})`;
 
           const openY = toY(candle.open);
           const closeY = toY(candle.close);
@@ -157,7 +158,7 @@ const MarketBackground = ({ showPhones = true }: MarketBackgroundProps) => {
           const volume = Math.abs(candle.close - candle.open) / candle.open;
           const barHeight = Math.max(1, volume * volumeHeight * 80);
           const alpha = this.opacity * 0.3;
-          ctx.fillStyle = bullish ? `rgba(${LIME},${alpha})` : `rgba(255,80,80,${alpha})`;
+          ctx.fillStyle = bullish ? `rgba(${COLOR},${alpha})` : `rgba(255,80,80,${alpha})`;
           ctx.fillRect(x, this.oy + this.h - barHeight, candleWidth, barHeight);
         });
       }
@@ -201,7 +202,7 @@ const MarketBackground = ({ showPhones = true }: MarketBackgroundProps) => {
         ctx.roundRect(-phoneWidth / 2, -phoneHeight / 2, phoneWidth, phoneHeight, radius);
         ctx.fillStyle = "rgba(8,14,8,0.92)";
         ctx.fill();
-        ctx.strokeStyle = `rgba(${LIME},0.4)`;
+        ctx.strokeStyle = `rgba(${COLOR},0.4)`;
         ctx.lineWidth = 1.5 * this.scale;
         ctx.stroke();
 
@@ -209,18 +210,18 @@ const MarketBackground = ({ showPhones = true }: MarketBackgroundProps) => {
         ctx.roundRect(-phoneWidth / 2 + 6 * this.scale, -phoneHeight / 2 + 14 * this.scale, phoneWidth - 12 * this.scale, phoneHeight - 28 * this.scale, 8 * this.scale);
         ctx.fillStyle = "rgba(4,10,4,0.95)";
         ctx.fill();
-        ctx.strokeStyle = `rgba(${LIME},0.12)`;
+        ctx.strokeStyle = `rgba(${COLOR},0.12)`;
         ctx.lineWidth = 1;
         ctx.stroke();
 
         ctx.beginPath();
         ctx.roundRect(-18 * this.scale, -phoneHeight / 2 + 5 * this.scale, 36 * this.scale, 8 * this.scale, 4 * this.scale);
-        ctx.fillStyle = `rgba(${LIME},0.15)`;
+        ctx.fillStyle = `rgba(${COLOR},0.15)`;
         ctx.fill();
 
         ctx.beginPath();
         ctx.roundRect(-20 * this.scale, phoneHeight / 2 - 10 * this.scale, 40 * this.scale, 4 * this.scale, 2 * this.scale);
-        ctx.fillStyle = `rgba(${LIME},0.25)`;
+        ctx.fillStyle = `rgba(${COLOR},0.25)`;
         ctx.fill();
         ctx.restore();
 
@@ -231,10 +232,10 @@ const MarketBackground = ({ showPhones = true }: MarketBackgroundProps) => {
         ctx.save();
         ctx.globalAlpha = this.opacity * 0.5;
         ctx.font = `${8 * this.scale}px monospace`;
-        ctx.fillStyle = `rgba(${LIME},0.7)`;
+        ctx.fillStyle = `rgba(${COLOR},0.7)`;
         ctx.fillText("AVAX/USDC", cx - 55 * this.scale, cy - phoneHeight / 2 + 30 * this.scale);
         const priceText = `$${(28 + Math.sin(this.floatPhase * 0.3) * 2).toFixed(2)}`;
-        ctx.fillStyle = `rgba(${LIME},0.9)`;
+        ctx.fillStyle = `rgba(${COLOR},0.9)`;
         ctx.fillText(priceText, cx - 55 * this.scale, cy - phoneHeight / 2 + 42 * this.scale);
         ctx.restore();
 
@@ -264,9 +265,9 @@ const MarketBackground = ({ showPhones = true }: MarketBackgroundProps) => {
 
       draw() {
         const gradient = ctx.createLinearGradient(0, this.y - 40, 0, this.y + 40);
-        gradient.addColorStop(0, `rgba(${LIME},0)`);
-        gradient.addColorStop(0.5, `rgba(${LIME},${this.opacity})`);
-        gradient.addColorStop(1, `rgba(${LIME},0)`);
+        gradient.addColorStop(0, `rgba(${COLOR},0)`);
+        gradient.addColorStop(0.5, `rgba(${COLOR},${this.opacity})`);
+        gradient.addColorStop(1, `rgba(${COLOR},0)`);
         ctx.fillStyle = gradient;
         ctx.fillRect(0, this.y - 40, width, 80);
       }
@@ -285,7 +286,7 @@ const MarketBackground = ({ showPhones = true }: MarketBackgroundProps) => {
 
     const drawGrid = () => {
       const step = 60;
-      ctx.strokeStyle = `rgba(${LIME},0.018)`;
+      ctx.strokeStyle = `rgba(${COLOR},0.018)`;
       ctx.lineWidth = 1;
 
       for (let x = 0; x < width; x += step) {
@@ -307,7 +308,7 @@ const MarketBackground = ({ showPhones = true }: MarketBackgroundProps) => {
       tickX -= 1.2;
       const full = `${tickers.join("   ·   ")}   ·   `;
       ctx.font = "11px monospace";
-      ctx.fillStyle = `rgba(${LIME},0.25)`;
+      ctx.fillStyle = `rgba(${COLOR},0.25)`;
       const textWidth = ctx.measureText(full).width;
       if (tickX < -textWidth) tickX = width;
       ctx.fillText(full + full, tickX, height - 14);
@@ -341,8 +342,8 @@ const MarketBackground = ({ showPhones = true }: MarketBackgroundProps) => {
       ctx.closePath();
 
       const fillGradient = ctx.createLinearGradient(0, baseY - lineHeight, 0, baseY);
-      fillGradient.addColorStop(0, `rgba(${LIME},0.06)`);
-      fillGradient.addColorStop(1, `rgba(${LIME},0)`);
+      fillGradient.addColorStop(0, `rgba(${COLOR},0.06)`);
+      fillGradient.addColorStop(1, `rgba(${COLOR},0)`);
       ctx.fillStyle = fillGradient;
       ctx.fill();
 
@@ -353,7 +354,7 @@ const MarketBackground = ({ showPhones = true }: MarketBackgroundProps) => {
         if (index === 0) ctx.moveTo(x, y);
         else ctx.lineTo(x, y);
       });
-      ctx.strokeStyle = `rgba(${LIME},0.22)`;
+      ctx.strokeStyle = `rgba(${COLOR},0.22)`;
       ctx.lineWidth = 1.5;
       ctx.stroke();
     };

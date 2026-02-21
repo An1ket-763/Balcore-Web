@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
+import { COLOR_RGB } from "@/constants/colors";
 
-const LIME = "159,245,60";
+const COLOR = COLOR_RGB;
 
 const ProtocolFlowBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -80,7 +81,7 @@ const ProtocolFlowBackground = () => {
         const fade = Math.min(1, this.life / 40) * Math.min(1, (this.maxLife - this.life) / 40);
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${LIME}, ${this.opacity * fade})`;
+        ctx.fillStyle = `rgba(${COLOR}, ${this.opacity * fade})`;
         ctx.fill();
       }
     }
@@ -134,8 +135,8 @@ const ProtocolFlowBackground = () => {
         const y2 = this.y - Math.sin(this.angle) * this.length;
 
         const gradient = ctx.createLinearGradient(this.x, this.y, x2, y2);
-        gradient.addColorStop(0, `rgba(${LIME}, ${this.opacity * fade})`);
-        gradient.addColorStop(1, `rgba(${LIME}, 0)`);
+        gradient.addColorStop(0, `rgba(${COLOR}, ${this.opacity * fade})`);
+        gradient.addColorStop(1, `rgba(${COLOR}, 0)`);
 
         ctx.beginPath();
         ctx.moveTo(this.x, this.y);
@@ -176,9 +177,9 @@ const ProtocolFlowBackground = () => {
 
       draw() {
         const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r);
-        gradient.addColorStop(0, `rgba(${LIME}, 0.045)`);
-        gradient.addColorStop(0.5, `rgba(${LIME}, 0.018)`);
-        gradient.addColorStop(1, `rgba(${LIME}, 0)`);
+        gradient.addColorStop(0, `rgba(${COLOR}, 0.045)`);
+        gradient.addColorStop(0.5, `rgba(${COLOR}, 0.018)`);
+        gradient.addColorStop(1, `rgba(${COLOR}, 0)`);
 
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
