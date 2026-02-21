@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { BRAND_LIME_RGB } from "@/constants/colors";
 
 const HeroSection = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -16,7 +17,7 @@ const HeroSection = () => {
     let height = 0;
     let animationFrame = 0;
     const mouse = { x: 0, y: 0 };
-    const limeRgb = "204, 255, 0";
+    const limeRgb = BRAND_LIME_RGB;
 
     const resize = () => {
       width = canvas.width = window.innerWidth;
@@ -279,7 +280,7 @@ const HeroSection = () => {
           <span className="relative inline-block font-['Orbitron'] font-semibold tracking-[0.28em] text-white uppercase">
             <span
               aria-hidden="true"
-              className="absolute inset-0 -z-10 text-[#ccff00] blur-[5px] opacity-50"
+              className="absolute inset-0 -z-10 text-brand-lime blur-[5px] opacity-50"
             >
               BALCORE
             </span>

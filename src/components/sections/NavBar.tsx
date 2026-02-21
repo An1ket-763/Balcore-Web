@@ -239,7 +239,7 @@ const NavBar = () => {
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <Rocket className="w-8 h-8 text-[#ccff00]" />
+                <Rocket className="w-8 h-8 text-brand-lime" />
               </motion.div>
             </motion.div>
             <DialogTitle className="text-2xl font-bold">
