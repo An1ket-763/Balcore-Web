@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import { BRAND_LIME_HEX } from "./src/constants/colors";
+import { COLOR_HEX } from "./src/constants/colors";
 
 export default {
   darkMode: ["class"],
@@ -65,7 +65,7 @@ export default {
         teal: {
           DEFAULT: "hsl(var(--teal-glow))",
         },
-        "brand-lime": BRAND_LIME_HEX,
+        "color": COLOR_HEX,
       },
       borderRadius: {
         lg: "var(--radius)",

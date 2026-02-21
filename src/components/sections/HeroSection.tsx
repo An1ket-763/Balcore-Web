@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useRef } from "react";
-import { BRAND_LIME_RGB } from "@/constants/colors";
+import { COLOR_RGB } from "@/constants/colors";
 
 const HeroSection = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -17,7 +17,7 @@ const HeroSection = () => {
     let height = 0;
     let animationFrame = 0;
     const mouse = { x: 0, y: 0 };
-    const limeRgb = BRAND_LIME_RGB;
+    const colorRgb = COLOR_RGB;
 
     const resize = () => {
       width = canvas.width = window.innerWidth;
@@ -81,7 +81,7 @@ const HeroSection = () => {
 
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${limeRgb}, ${this.opacity * fade})`;
+        ctx.fillStyle = `rgba(${colorRgb}, ${this.opacity * fade})`;
         ctx.fill();
       }
     }
@@ -143,8 +143,8 @@ const HeroSection = () => {
         ctx.lineTo(endX, endY);
 
         const gradient = ctx.createLinearGradient(this.x, this.y, endX, endY);
-        gradient.addColorStop(0, `rgba(${limeRgb}, ${this.opacity * fade})`);
-        gradient.addColorStop(1, `rgba(${limeRgb}, 0)`);
+        gradient.addColorStop(0, `rgba(${colorRgb}, ${this.opacity * fade})`);
+        gradient.addColorStop(1, `rgba(${colorRgb}, 0)`);
 
         ctx.strokeStyle = gradient;
         ctx.lineWidth = this.lineWidth;
@@ -181,9 +181,9 @@ const HeroSection = () => {
           this.radius
         );
 
-        gradient.addColorStop(0, `rgba(${limeRgb}, 0.045)`);
-        gradient.addColorStop(0.5, `rgba(${limeRgb}, 0.018)`);
-        gradient.addColorStop(1, `rgba(${limeRgb}, 0)`);
+        gradient.addColorStop(0, `rgba(${colorRgb}, 0.045)`);
+        gradient.addColorStop(0.5, `rgba(${colorRgb}, 0.018)`);
+        gradient.addColorStop(1, `rgba(${colorRgb}, 0)`);
 
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
@@ -280,7 +280,7 @@ const HeroSection = () => {
           <span className="relative inline-block font-['Orbitron'] font-semibold tracking-[0.28em] text-white uppercase">
             <span
               aria-hidden="true"
-              className="absolute inset-0 -z-10 text-brand-lime blur-[5px] opacity-50"
+              className="absolute inset-0 -z-10 text-color blur-[5px] opacity-50"
             >
               BALCORE
             </span>

@@ -248,7 +248,7 @@ const VisualStorySection = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
             whileHover={{ scale: 1.05 }}
           >
-            <Eye className="w-4 h-4 text-brand-lime" />
+            <Eye className="w-4 h-4 text-color" />
             <span className="text-xs font-semibold text-white tracking-wider">
               HOW IT WORKS
             </span>
