@@ -320,7 +320,7 @@ const HeroSection = () => {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
-            <span className="relative z-10 flex items-center gap-2">Learn More</span>
+            <span className="relative z-10 flex items-center gap-2 text-white">Learn More</span>
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
               animate={{ translateX: ["-100%", "200%"] }}

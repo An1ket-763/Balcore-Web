@@ -115,7 +115,7 @@ const NavBar = () => {
               whileHover={{ rotate: 10 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <span className="text-lg relative z-10 text-black">B</span>
+              <span className="text-lg relative z-10 text-white">B</span>
               <motion.div
                 className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary to-primary opacity-0"
                 whileHover={{ opacity: 0.5 }}
@@ -150,8 +150,8 @@ const NavBar = () => {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
-            <Rocket className="w-4 h-4" />
-            <span className="relative z-10">Launch App</span>
+            <Rocket className="w-4 h-4 text-white" />
+            <span className="relative z-10 text-white">Launch App</span>
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
               animate={{ translateX: ["-100%", "200%"] }}
