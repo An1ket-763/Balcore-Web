@@ -110,17 +110,13 @@ const NavBar = () => {
             whileHover={{ scale: 1.02 }}
             role="button"
           >
-            <motion.div
-              className="logo-icon relative"
+            <motion.img
+              src="/BalcoreLogo.jpeg"
+              alt="Balcore logo"
+              className="h-10 w-10 rounded-lg object-cover"
               whileHover={{ rotate: 10 }}
               transition={{ type: "spring", stiffness: 300 }}
-            >
-              <span className="text-lg relative z-10 text-white">B</span>
-              <motion.div
-                className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary to-primary opacity-0"
-                whileHover={{ opacity: 0.5 }}
-              />
-            </motion.div>
+            />
             <span className="text-xl font-semibold tracking-wide text-white">
               Balcore
             </span>
