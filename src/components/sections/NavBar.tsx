@@ -110,18 +110,14 @@ const NavBar = () => {
             whileHover={{ scale: 1.02 }}
             role="button"
           >
-            <motion.div
-              className="logo-icon relative"
+            <motion.img
+              src="/BalcoreLogo.jpeg"
+              alt="Balcore logo"
+              className="h-10 w-10 rounded-lg object-cover"
               whileHover={{ rotate: 10 }}
               transition={{ type: "spring", stiffness: 300 }}
-            >
-              <span className="text-lg relative z-10">B</span>
-              <motion.div
-                className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary to-orange-dark opacity-0"
-                whileHover={{ opacity: 0.5 }}
-              />
-            </motion.div>
-            <span className="text-xl font-semibold tracking-wide text-foreground">
+            />
+            <span className="text-xl font-semibold tracking-wide text-white">
               Balcore
             </span>
           </motion.a>
@@ -138,7 +134,7 @@ const NavBar = () => {
               >
                 {item.label}
                 <motion.span
-                  className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-accent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+                  className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
                 />
               </motion.button>
             ))}
@@ -150,8 +146,8 @@ const NavBar = () => {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
-            <Rocket className="w-4 h-4" />
-            <span className="relative z-10">Launch App</span>
+            <Rocket className="w-4 h-4 text-white" />
+            <span className="relative z-10 text-white">Launch App</span>
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
               animate={{ translateX: ["-100%", "200%"] }}
@@ -166,7 +162,7 @@ const NavBar = () => {
           {/* Mobile menu button */}
           <motion.button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-foreground"
+            className="md:hidden p-2 text-white"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -193,7 +189,7 @@ const NavBar = () => {
               <motion.button
                 key={i}
                 onClick={() => handleNavClick(item.sectionId, item.path)}
-                className="block text-foreground/80 hover:text-primary transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full"
+                className="block text-white/80 hover:text-white/85 transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full"
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: i * 0.1 }}
@@ -206,7 +202,7 @@ const NavBar = () => {
                 setIsMobileMenuOpen(false);
                 setIsModalOpen(true);
               }}
-              className="flex items-center gap-2 text-primary py-2 font-medium"
+              className="flex items-center gap-2 text-white py-2 font-medium"
             >
               <Rocket className="w-4 h-4" />
               Launch App
@@ -215,7 +211,7 @@ const NavBar = () => {
               href="https://x.com/Balcore_ai"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 text-muted-foreground py-2"
+              className="flex items-center gap-2 text-white/80 py-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Follow on X
@@ -239,13 +235,13 @@ const NavBar = () => {
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <Rocket className="w-8 h-8 text-primary" />
+                <Rocket className="w-8 h-8 text-color" />
               </motion.div>
             </motion.div>
             <DialogTitle className="text-2xl font-bold">
               <span className="gradient-text">Coming Soon</span>
             </DialogTitle>
-            <DialogDescription className="text-muted-foreground mt-2">
+            <DialogDescription className="text-white/80 mt-2">
               We're working hard to bring you the next generation of DeFi liquidity infrastructure. Stay tuned!
             </DialogDescription>
           </DialogHeader>
@@ -276,7 +272,7 @@ const NavBar = () => {
             </motion.a>
             <motion.button
               onClick={() => setIsModalOpen(false)}
-              className="w-full py-2.5 px-4 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all duration-300"
+              className="w-full py-2.5 px-4 rounded-lg border border-border text-white/80 hover:text-white hover:border-primary/50 transition-all duration-300"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >

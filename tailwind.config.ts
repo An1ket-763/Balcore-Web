@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { COLOR_HEX } from "./src/constants/colors";
 
 export default {
   darkMode: ["class"],
@@ -64,6 +65,7 @@ export default {
         teal: {
           DEFAULT: "hsl(var(--teal-glow))",
         },
+        "color": COLOR_HEX,
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -71,7 +73,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ['Manrope', 'system-ui', 'sans-serif'],
+        sans: ['Clash Grotesk', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Mountain } from "lucide-react";
+import MarketBackground from "@/components/backgrounds/MarketBackground";
 
 const integrations = [
   { name: "Avalanche Network", logo: "/logo1.png" },
@@ -15,14 +16,7 @@ const integrations = [
 const BuiltOnAvalancheSection = () => {
   return (
     <section className="py-24 border-t border-border relative section-animated-bg overflow-hidden">
-      <div className="section-grid-pattern" />
-      <div className="protocol-wave-field">
-        <div className="protocol-wave protocol-wave-1" />
-        <div className="protocol-wave protocol-wave-2" />
-        <div className="protocol-wave protocol-wave-3" />
-      </div>
-      <div className="section-orb section-orb-1" style={{ top: '20%', right: '-100px' }} />
-      <div className="section-orb section-orb-2" style={{ bottom: '15%', left: '-80px' }} />
+      <MarketBackground showPhones={false} />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
@@ -32,21 +26,21 @@ const BuiltOnAvalancheSection = () => {
           className="text-center mb-16"
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-destructive/10 border border-destructive/20 mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
             whileHover={{ scale: 1.05 }}
           >
-            <Mountain className="w-4 h-4 text-destructive" />
-            <span className="text-xs font-semibold text-destructive tracking-wider">
+            <Mountain className="w-4 h-4 text-primary" />
+            <span className="text-xs font-semibold text-white tracking-wider">
               ECOSYSTEM
             </span>
           </motion.div>
 
-          <h2 className="section-title text-3xl md:text-4xl lg:text-5xl">
+          <h2 className="section-title font-light text-3xl md:text-4xl lg:text-5xl text-white">
             Built on Avalanche
           </h2>
 
           <motion.p
-            className="text-muted-foreground mt-4 max-w-3xl mx-auto text-lg"
+            className="text-white/80 mt-4 max-w-3xl mx-auto text-lg"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -75,7 +69,7 @@ const BuiltOnAvalancheSection = () => {
                 className="h-8 w-auto max-w-24 object-contain"
                 loading="lazy"
               />
-              <span className="text-primary font-semibold text-sm tracking-wider whitespace-nowrap">
+              <span className="text-white font-semibold text-sm tracking-wider whitespace-nowrap">
                 {integration.name}
               </span>
             </div>
@@ -85,14 +79,14 @@ const BuiltOnAvalancheSection = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.p
-          className="text-muted-foreground text-center mt-12 text-lg max-w-2xl mx-auto"
+          className="text-white/80 text-center mt-12 text-lg max-w-2xl mx-auto"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
         >
           These components work together to support{" "}
-          <span className="text-foreground font-medium">intelligent liquidity orchestration</span>.
+          <span className="text-white font-medium">intelligent liquidity orchestration</span>.
         </motion.p>
       </div>
     </section>

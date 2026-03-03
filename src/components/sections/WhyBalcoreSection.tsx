@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Users, Building2, Code2, Heart } from "lucide-react";
+import ProtocolFlowBackground from "@/components/backgrounds/ProtocolFlowBackground";
 
 const audiences = [
   {
@@ -25,10 +26,7 @@ const audiences = [
 const WhyBalcoreSection = () => {
   return (
     <section id="why-balcore" className="py-24 border-t border-border relative section-animated-bg overflow-hidden">
-      <div className="section-grid-pattern" />
-      <div className="about-aurora-layer" />
-      <div className="section-orb section-orb-1" style={{ top: '15%', right: '-80px' }} />
-      <div className="section-orb section-orb-2" style={{ bottom: '25%', left: '-60px' }} />
+      <ProtocolFlowBackground />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
@@ -42,12 +40,12 @@ const WhyBalcoreSection = () => {
             whileHover={{ scale: 1.05 }}
           >
             <Heart className="w-4 h-4 text-primary" />
-            <span className="text-xs font-semibold text-primary tracking-wider">
+            <span className="text-xs font-semibold text-white tracking-wider">
               WHY BALCORE MATTERS
             </span>
           </motion.div>
 
-          <h2 className="section-title text-3xl md:text-4xl lg:text-5xl">
+          <h2 className="section-title font-light text-3xl md:text-4xl lg:text-5xl text-white">
             Making DeFi Accessible
           </h2>
         </motion.div>
@@ -82,11 +80,11 @@ const WhyBalcoreSection = () => {
                   />
                 </motion.div>
 
-                <h3 className="text-xl font-semibold text-foreground mb-4 relative z-10 group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-xl font-semibold text-white mb-4 relative z-10 group-hover:text-white transition-colors duration-300">
                   {item.title}
                 </h3>
 
-                <p className="text-muted-foreground leading-relaxed relative z-10">
+                <p className="text-white/80 leading-relaxed relative z-10">
                   {item.description}
                 </p>
 

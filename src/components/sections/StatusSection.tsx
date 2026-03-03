@@ -15,12 +15,12 @@ const StatusSection = () => {
             whileHover={{ scale: 1.05 }}
           >
             <Clock className="w-4 h-4 text-primary" />
-            <span className="text-xs font-semibold text-primary tracking-wider">
+            <span className="text-xs font-semibold text-white tracking-wider">
               PROJECT STATUS
             </span>
           </motion.div>
 
-          <h2 className="section-title text-3xl md:text-4xl">
+          <h2 className="section-title text-3xl md:text-4xl text-white">
             Under Active Development
           </h2>
 
@@ -39,7 +39,7 @@ const StatusSection = () => {
               <Hammer className="w-8 h-8 text-primary" />
             </motion.div>
 
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p className="text-white/80 text-lg leading-relaxed">
               BalCore is currently under development. The focus is on careful design, testing assumptions, and building systems meant to last.
             </p>
           </motion.div>

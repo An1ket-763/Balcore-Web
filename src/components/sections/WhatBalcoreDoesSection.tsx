@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Zap, RefreshCw, Layers } from "lucide-react";
+import YieldFlowBackground from "@/components/backgrounds/YieldFlowBackground";
 
 const features = [
   {
@@ -22,18 +23,7 @@ const features = [
 const WhatBalcoreDoesSection = () => {
   return (
     <section id="what-balcore-does" className="py-24 border-t border-border relative section-animated-bg overflow-hidden">
-      <div className="section-grid-pattern" />
-      <div className="section-orb section-orb-1" style={{ top: '10%', right: '-120px', width: '250px', height: '250px' }} />
-      <div className="section-orb section-orb-2" style={{ bottom: '20%', left: '-100px', width: '200px', height: '200px' }} />
-
-      <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle, hsl(36 95% 55% / 0.03), transparent 60%)',
-        }}
-        animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
-        transition={{ duration: 8, repeat: Infinity }}
-      />
+      <YieldFlowBackground />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
@@ -47,12 +37,12 @@ const WhatBalcoreDoesSection = () => {
             whileHover={{ scale: 1.05 }}
           >
             <Layers className="w-4 h-4 text-primary" />
-            <span className="text-xs font-semibold text-primary tracking-wider">
+            <span className="text-xs font-semibold text-white tracking-wider">
               WHAT BALCORE DOES
             </span>
           </motion.div>
 
-          <h2 className="section-title text-3xl md:text-4xl lg:text-5xl">
+          <h2 className="section-title font-light text-3xl md:text-4xl lg:text-5xl text-white">
             Intelligent Liquidity Infrastructure
           </h2>
         </motion.div>
@@ -87,10 +77,10 @@ const WhatBalcoreDoesSection = () => {
                   />
                 </motion.div>
 
-                <h3 className="text-xl font-semibold text-foreground mb-3 relative z-10 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-semibold text-white mb-3 relative z-10 group-hover:text-white transition-colors">
                   {point.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed relative z-10">
+                <p className="text-white/80 leading-relaxed relative z-10">
                   {point.desc}
                 </p>
 

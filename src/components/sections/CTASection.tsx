@@ -11,11 +11,11 @@ const CTASection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl font-bold text-foreground mb-2">
-            <span className="gradient-text shimmer-text">BalCore</span>
+          <h3 className="text-2xl font-bold text-white mb-2">
+            <span className="gradient-text shimmer-text">BALCORE</span>
           </h3>
 
-          <p className="text-muted-foreground mb-6">
+          <p className="text-white/80 mb-6">
             Built on Avalanche and beyond
           </p>
 
@@ -23,7 +23,7 @@ const CTASection = () => {
             href="https://x.com/Balcore_ai"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+            className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"
             whileHover={{ scale: 1.05 }}
           >
             <svg
@@ -47,13 +47,13 @@ const CTASection = () => {
         />
 
         <motion.p
-          className="text-sm text-muted-foreground"
+          className="text-sm text-white/80"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          © BalCore 2026
+          © Balcore 2026
         </motion.p>
       </div>
     </footer>

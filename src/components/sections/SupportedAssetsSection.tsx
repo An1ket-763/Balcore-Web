@@ -1,17 +1,18 @@
 import { motion } from "framer-motion";
 import { Coins } from "lucide-react";
+import ProtocolFlowBackground from "@/components/backgrounds/ProtocolFlowBackground";
 
 const assets = [
-  { name: "AVAX", logo: "/logo1.png", color: "from-red-500/20 to-red-600/10", borderColor: "border-red-500/30" },
-  { name: "BTC.b", logo: "/logo2.png", color: "from-orange-500/20 to-amber-600/10", borderColor: "border-orange-500/30" },
-  { name: "USDC", logo: "/logo3.png", color: "from-emerald-500/20 to-emerald-600/10", borderColor: "border-emerald-500/30" },
-  { name: "ETH", logo: "/logo4.png", color: "from-purple-500/20 to-indigo-600/10", borderColor: "border-purple-500/30" },
+  { name: "AVAX", logo: "/logo1.png", color: "from-red-500/40 to-red-600/30", borderColor: "border-red-500/30" },
+  { name: "BTC.b", logo: "/logo2.png", color: "from-orange-500/40 to-amber-600/30", borderColor: "border-orange-500/30" },
+  { name: "USDC", logo: "/logo3.png", color: "from-emerald-500/40 to-emerald-600/30", borderColor: "border-emerald-500/30" },
+  { name: "ETH", logo: "/logo4.png", color: "from-purple-500/40 to-indigo-600/30", borderColor: "border-purple-500/30" },
 ];
 
 const SupportedAssetsSection = () => {
   return (
-    <section className="py-24 border-t border-border relative section-animated-bg">
-      <div className="section-grid-pattern" />
+    <section className="py-24 border-t border-border relative section-animated-bg overflow-hidden">
+      <ProtocolFlowBackground />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
@@ -25,17 +26,17 @@ const SupportedAssetsSection = () => {
             whileHover={{ scale: 1.05 }}
           >
             <Coins className="w-4 h-4 text-primary" />
-            <span className="text-xs font-semibold text-primary tracking-wider">
+            <span className="text-xs font-semibold text-white tracking-wider">
               SUPPORTED ASSETS
             </span>
           </motion.div>
 
-          <h2 className="section-title text-3xl md:text-4xl">
+          <h2 className="section-title font-light text-3xl md:text-4xl text-white">
             Launch Assets
           </h2>
 
           <motion.p
-            className="text-muted-foreground mt-4 max-w-2xl mx-auto text-lg"
+            className="text-white/80 mt-4 max-w-2xl mx-auto text-lg"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -61,7 +62,7 @@ const SupportedAssetsSection = () => {
               >
                 <div className="flex items-center justify-center gap-3">
                   <img src={asset.logo} alt={`${asset.name} logo`} className="w-8 h-8 object-contain" />
-                  <p className="text-2xl font-bold text-foreground">{asset.name}</p>
+                  <p className="text-2xl font-bold text-white">{asset.name}</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -69,7 +70,7 @@ const SupportedAssetsSection = () => {
         </div>
 
         <motion.p
-          className="text-sm text-muted-foreground mt-8 text-center italic"
+          className="text-sm text-white/80 mt-8 text-center italic"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
