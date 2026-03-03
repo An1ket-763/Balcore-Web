@@ -253,7 +253,14 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-[#050805]">
       <canvas ref={canvasRef} className="absolute inset-0 z-0" />
-
+      <motion.img
+        src="/BalcoreLogo.jpeg"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 m-auto w-[min(65vw,620px)] md:w-[min(52vw,720px)] h-auto z-[1] pointer-events-none select-none opacity-[0.07]"
+        animate={{ scale: [1, 1.04, 1], rotate: [0, 1.5, 0] }}
+        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+      />
       <div className="max-w-7xl mx-auto px-6 py-24 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
