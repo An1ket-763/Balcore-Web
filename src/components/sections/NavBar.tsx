@@ -111,15 +111,12 @@ const NavBar = () => {
             role="button"
           >
             <motion.img
-              src="/Blogo.png"
+              src="/BalcoreLogo.png"
               alt="Balcore logo"
-              className="h-10 w-10 rounded-lg object-cover"
-              whileHover={{ rotate: 10 }}
+              className="h-10 object-contain"
+              whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             />
-            <span className="text-xl font-semibold tracking-wide text-white">
-              Balcore
-            </span>
           </motion.a>
 
           {/* Desktop Navigation */}
