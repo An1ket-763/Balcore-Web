@@ -111,7 +111,7 @@ const NavBar = () => {
             role="button"
           >
             <motion.img
-              src="/BalcoreLogo.jpeg"
+              src="/Blogo.png"
               alt="Balcore logo"
               className="h-10 w-10 rounded-lg object-cover"
               whileHover={{ rotate: 10 }}

@@ -254,7 +254,7 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center overflow-hidden bg-[#050805]">
       <canvas ref={canvasRef} className="absolute inset-0 z-0" />
       <motion.img
-        src="/BalcoreLogo.jpeg"
+        src="/Blogo.png"
         alt=""
         aria-hidden="true"
         className="absolute inset-0 m-auto w-[min(65vw,620px)] md:w-[min(52vw,720px)] h-auto z-[1] pointer-events-none select-none opacity-[0.07]"
