@@ -1,4 +1,4 @@
-export const COLOR_HEX = "#5102a8";
-export const COLOR_RGB = "81, 2, 168";
-export const COLOR_HSL = "269 98% 33%";
-export const COLOR_DIM_RGB = "60, 2, 120";
+export const COLOR_HEX = "#7329d3";
+export const COLOR_RGB = "115, 41, 211";
+export const COLOR_HSL = "266 67% 49%";
+export const COLOR_DIM_RGB = "86, 31, 158";

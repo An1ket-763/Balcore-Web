@@ -73,7 +73,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ['Clash Grotesk', 'sans-serif'],
+        sans: ['Astonpoliz', 'sans-serif'],
       },
       keyframes: {
         "accordion-down": {
