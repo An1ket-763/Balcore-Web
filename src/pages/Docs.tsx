@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronRight, BookOpen } from "lucide-react";
 import NavBar from "@/components/sections/NavBar";
 import { docsContent } from "@/docs";
-import ReactMarkdownRenderer from "@/components/docs/MarkdownRenderer";
+import ReactMarkdownRenderer from "@/docs/MarkdownRenderer";
 
 const Docs = () => {
   const navigate = useNavigate();
