@@ -9,11 +9,11 @@ export const blockchainFundamentalsSection: DocSection = {
 
 ## Consensus · Three Generations · Smart Contracts · Tokenization · AI Convergence
 
-Blockchain is the foundational infrastructure layer of the next era of the internet and finance. Understanding how it works — and how it has evolved across three distinct generations — is essential context for anyone building, investing, or participating in the on-chain economy.
+Blockchain is the foundational infrastructure layer of the next era of the internet and finance. Understanding how it works — and how it has evolved across three distinct generations — is essential context for anyone building, investing, or participating in the on-chain economy. This document traces blockchain from its cryptographic roots through today's multi-chain world, explains why the third generation is the architecture the institution-grade future demands, and explores how smart contracts, tokenization, and artificial intelligence are converging into something far larger than any of them alone.
 
 ## 1. What Is a Blockchain?
 
-A blockchain is a **distributed ledger** — a database that is not stored in any single location but replicated identically across thousands of independent computers (called nodes) around the world. Every record on this ledger is grouped into a block. Each block contains a cryptographic fingerprint (called a hash) of the block before it, chaining them together in an immutable sequence.
+A blockchain is a distributed ledger — a database that is not stored in any single location but replicated identically across thousands of independent computers (called nodes) around the world. Every record on this ledger is grouped into a block. Each block contains a cryptographic fingerprint (called a hash) of the block before it, chaining them together in an immutable sequence. To alter any historical record, you would need to recompute every subsequent block — and do it faster than thousands of nodes are simultaneously extending the chain forward. In practice, this is computationally impossible.
 
 This architecture achieves something that had never been done before in computer science: a shared, tamper-proof record of truth that no single party controls, that anyone can read, and that anyone can write to according to the protocol's rules.
 
@@ -102,4 +102,4 @@ Polkadot's architecture centers on a Relay Chain that provides security, and Par
 
 Institutions require customization, compliance controls, performance guarantees, and the ability to operate in regulated environments. The third generation was designed explicitly to provide these capabilities — making it the architecture the institution-grade future demands.
     `,
-  };
+};

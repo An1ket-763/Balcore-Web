@@ -17,7 +17,8 @@ Traditional finance (often called "TradFi") relies on centralized intermediaries
 
 DeFi removes the middleman. Instead of trusting a company, DeFi uses **smart contracts** — self-executing code running on a blockchain — to perform financial operations automatically. No CEO can freeze your account. No bank holiday delays your transaction. No geographic restriction prevents access.
 
-> **Simple Definition:** DeFi is financial services — lending, trading, earning interest — but operated by open-source code on a blockchain rather than by banks or companies. You remain in control of your assets at all times.
+> **Simple Definition**
+> DeFi is financial services — lending, trading, earning interest — but operated by open-source code on a blockchain rather than by banks or companies. You remain in control of your assets at all times.
 
 ## The Key Difference: Custody
 
@@ -26,14 +27,19 @@ In traditional finance, you deposit money into a bank and the bank controls it. 
 This is called being **"non-custodial"** — you, not a third party, hold custody of your funds.
 
 ## Core DeFi Concepts
+Before diving deeper, it helps to understand the key building blocks of the DeFi ecosystem.
 
-> **Blockchain:** A blockchain is a shared, public database that records every transaction permanently and transparently. No single party controls it. Anyone can verify any transaction at any time. Avalanche, Ethereum, and Solana are examples of popular blockchains.
+> **Blockchain**
+> blockchain is a shared, public database that records every transaction permanently and transparently. No single party controls it. Anyone can verify any transaction at any time. Avalanche, Ethereum, and Solana are examples of popular blockchains.
 
-> **Smart Contracts:** Smart contracts are programs stored on a blockchain that execute automatically when certain conditions are met. For example: "If User A sends 1 AVAX, automatically send them 40 USDC." Once deployed, a smart contract runs exactly as programmed — no human intervention required.
+> **Smart Contracts**
+> Smart contracts are programs stored on a blockchain that execute automatically when certain conditions are met. For example: "If User A sends 1 AVAX, automatically send them 40 USDC." Once deployed, a smart contract runs exactly as programmed — no human intervention required.
 
-> **Wallets:** A crypto wallet is your gateway to DeFi. It stores your private key (think of it as the password to your funds) and lets you interact with DeFi applications. Popular wallets include MetaMask, Core (Avalanche's native wallet), and Ledger for hardware security.
+> **Wallets**
+> A crypto wallet is your gateway to DeFi. It stores your private key (think of it as the password to your funds) and lets you interact with DeFi applications. Popular wallets include MetaMask, Core (Avalanche's native wallet), and Ledger for hardware security.
 
-> **Tokens:** Tokens are digital assets that exist on a blockchain. AVAX is the native token of Avalanche. USDC is a stablecoin (always worth ~$1). BTC.b is a "bridged" version of Bitcoin on Avalanche. DeFi protocols create their own tokens to represent ownership or reward participation.
+> **Tokens**
+> Tokens are digital assets that exist on a blockchain. AVAX is the native token of Avalanche. USDC is a stablecoin (always worth ~$1). BTC.b is a "bridged" version of Bitcoin on Avalanche. DeFi protocols create their own tokens to represent ownership or reward participation.
 
 ## Decentralized Exchanges (DEXs)
 
@@ -43,7 +49,8 @@ In traditional markets, a centralized exchange (like the NYSE or Coinbase) match
 
 Most DeFi exchanges use a model called an **Automated Market Maker (AMM)**. Instead of matching individual buyers and sellers, an AMM uses a mathematical formula to determine prices automatically based on the ratio of assets in a liquidity pool.
 
-> **What Is a Liquidity Pool?** A liquidity pool is a smart contract holding two tokens (e.g., AVAX and USDC). Traders swap between the two tokens using the pool. The ratio of tokens in the pool determines the exchange rate. Anyone can contribute tokens to the pool and earn a share of trading fees.
+> **What Is a Liquidity Pool?**
+> A liquidity pool is a smart contract holding two tokens (e.g., AVAX and USDC). Traders swap between the two tokens using the pool. The ratio of tokens in the pool determines the exchange rate. Anyone can contribute tokens to the pool and earn a share of trading fees.
 
 ### Concentrated Liquidity
 
@@ -51,11 +58,14 @@ Early AMM models spread liquidity evenly across all possible prices — from zer
 
 Concentrated liquidity (pioneered by Uniswap v3) allows liquidity providers to specify a specific price range where they want their capital deployed. This dramatically improves capital efficiency.
 
-> **The Trade-Off:** Concentrated liquidity is more efficient but more complex. If the market price moves outside your chosen range, your liquidity goes inactive and stops earning fees. Managing these positions requires constant attention — which is exactly the problem BalCore was built to solve.
+> **The Trade-Off**
+> Concentrated liquidity is more efficient but more complex. If the market price moves outside your chosen range, your liquidity goes inactive and stops earning fees. Managing these positions requires constant attention — which is exactly the problem BalCore was built to solve.
 
 ## Liquidity Providers and Yield
 
 People who deposit tokens into liquidity pools are called **Liquidity Providers (LPs)**. In return for providing the assets that traders need, LPs earn a portion of every trading fee generated by the pool.
+
+For example, if a DEX charges a 0.3% fee on every trade, and the pool generates $1,000,000 in trading volume per day, LPs collectively earn $3,000 in fees that day. Your share depends on what percentage of the total pool you have contributed.
 
 ## Yield Farming and APY
 
@@ -69,20 +79,58 @@ DeFi yields come from multiple sources:
 
 ## The Big Challenge: Impermanent Loss
 
+Impermanent Loss (IL) is the most important concept for any DeFi liquidity provider to understand. It is also the primary reason most people avoid providing liquidity.
+
 ### What Is Impermanent Loss?
 
 Impermanent Loss (IL) is the most important concept for any DeFi liquidity provider to understand. It is also the primary reason most people avoid providing liquidity.
 
 When you deposit two tokens into a liquidity pool in equal value, and the price of one token changes significantly relative to the other, the math of how AMMs work means you end up with a different ratio of tokens than you started with.
 
-> **Concrete Example:** You deposit 1 ETH and 2,000 USDC when ETH = $2,000. ETH doubles to $4,000. Due to how AMM math works, your position might now be worth 1,414 USDC equivalent — instead of the 4,000 + 2,000 = $6,000 you'd have if you had just held. The difference (~$2,586 in this example) is your impermanent loss.
+> **Concrete Example**
+> You deposit 1 ETH and 2,000 USDC when ETH = $2,000. ETH doubles to $4,000. Due to how AMM math works, your position might now be worth 1,414 USDC equivalent — instead of the 4,000 + 2,000 = $6,000 you'd have if you had just held. The difference (~$2,586 in this example) is your impermanent loss.
+
+The loss is called "impermanent" because if the price returns to where it started, the loss disappears. But in practice, prices rarely return to exactly the starting point, making impermanent loss a very real risk for LPs.
+
+## Why IL Has Been So Hard to Solve
+
+Impermanent loss is a structural feature of how AMMs work — it is not a bug. Any time a pool rebalances to maintain its price ratio, IL occurs. Solutions attempted in the past include:
+-	Single-sided staking (but this shifts risk to the protocol)
+-	IL insurance products (expensive and limited)
+-	Very narrow ranges (reduces IL but increases management complexity)
+-	Dynamic fee models (helps at the margins but doesn't eliminate IL)
+
 
 BalCore's FlowYield System takes a structurally different approach: rather than trying to eliminate IL after the fact, it reduces the amount of capital exposed to IL risk (only 10% is ever in active positions) and then provides a funded reserve to cover whatever IL does occur.
 
-## DeFi vs. Traditional Finance
+## Lending and Borrowing in DeFi
+Beyond trading, one of DeFi's most powerful use cases is decentralized lending. Protocols like Benqi (on Avalanche), Aave, and Compound allow users to:
+-	Lend assets and earn interest (like a savings account, but permissionless)
+-	Borrow assets by providing collateral (like a secured loan, but instant and automated)
+
+Interest rates in DeFi lending are set algorithmically based on supply and demand. When more people want to borrow an asset than supply it, rates rise. When supply exceeds demand, rates fall.
+
+> **How BalCore Uses Lending Protocols**
+> BalCore deposits the 90% reserve layer into Benqi to earn passive yield. This means your capital is never truly idle — even the portion not actively providing liquidity is generating returns. Additionally, when BalCore needs to rebalance after a one-sided market move, it can borrow the depleted asset using vault collateral, restoring balanced exposure without disrupting user positions.
+
+## Key Risks in DeFi
+
+DeFi offers powerful opportunities, but understanding the risks is essential before participating.
+
+| Risk | What It Means | How BalCore Addresses It |
+|------|---------------|--------------------------|
+Smart Contract Risk	| Bugs in code could lead to fund loss | Contracts audited; modular design limits blast radius |
+Impermanent Loss | Price divergence reduces LP value vs. holding | Triple-layer IL protection with funded reserves |
+Liquidation Risk | Borrowed positions can be force-closed |	Health Factor > 2.0 always maintained; 10% borrow cap |
+Market Risk	| Asset prices can fall significantly |	90% in stablecoin-generating reserves limits exposure |
+Liquidity Risk | May not be able to exit quickly | 7-day standard + fast-track withdrawal options provided |
+
+
+
+## DeFi vs. Traditional Finance: A Comparison
 
 | Feature | Traditional Finance | DeFi (with BalCore) |
-|---------|-------------------|-------------------|
+|---------|---------------------|---------------------|
 | Access | Restricted by geography, ID, minimum balances | Open to anyone with internet and a wallet |
 | Control | Bank holds your assets | You hold your assets (self-custody) |
 | Transparency | Opaque, internal systems | All transactions verifiable on-chain |
@@ -97,6 +145,7 @@ BalCore's FlowYield System takes a structurally different approach: rather than 
 3. **Start Small:** Begin with an amount you are comfortable losing while you learn.
 4. **Use BalCore:** Connect your wallet to balcore.io to start earning yield from BalCore's automated liquidity system.
 
-> **Important Reminder:** DeFi is powerful but carries risk. Never invest funds you cannot afford to lose. Always verify you are using the official website and smart contract addresses.
+> **Important Reminder**
+> DeFi is powerful but carries risk. Never invest funds you cannot afford to lose. Always verify you are using the official website and smart contract addresses.
     `,
-  };
+};
