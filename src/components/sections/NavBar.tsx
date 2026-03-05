@@ -47,6 +47,11 @@ const NavBar = () => {
   };
 
   const handleNavClick = (sectionId: string, path: string) => {
+    // If we're on the docs page, navigate to home first
+    if (location.pathname === "/docs") {
+      navigate(path);
+      return;
+    }
     if (sectionId === "top") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
@@ -90,6 +95,8 @@ const NavBar = () => {
     { sectionId: "what-balcore-does", label: "Protocol", path: "/protocol" },
     { sectionId: "footer", label: "Contact", path: "/contact" },
   ];
+
+  const isDocsPage = location.pathname === "/docs";
 
   return (
     <>
@@ -135,6 +142,19 @@ const NavBar = () => {
                 />
               </motion.button>
             ))}
+            <motion.button
+              onClick={() => navigate("/docs")}
+              className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${
+                isDocsPage ? "text-primary" : ""
+              }`}
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.2 }}
+            >
+              Docs
+              <motion.span
+                className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+              />
+            </motion.button>
           </nav>
 
           <motion.button
@@ -194,6 +214,20 @@ const NavBar = () => {
                 {item.label}
               </motion.button>
             ))}
+            <motion.button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                navigate("/docs");
+              }}
+              className={`block transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full ${
+                isDocsPage ? "text-primary" : "text-white/80 hover:text-white/85"
+              }`}
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: navItems.length * 0.1 }}
+            >
+              Docs
+            </motion.button>
             <motion.button
               onClick={() => {
                 setIsMobileMenuOpen(false);
