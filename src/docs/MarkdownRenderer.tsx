@@ -213,9 +213,12 @@ const ReactMarkdownRenderer: React.FC<Props> = ({ content }) => {
         i++;
       }
       elements.push(
-        <ul key={`ul-${i}`} className="list-disc list-inside space-y-2 my-4 text-muted-foreground pl-2">
+        <ul
+          key={`ul-${i}`}
+          className="list-disc list-outside space-y-2 my-4 text-muted-foreground pl-6"
+        >
           {items.map((item, ii) => (
-            <li key={ii} className="leading-relaxed">
+            <li key={ii} className="leading-relaxed pl-1">
               {parseInline(item)}
             </li>
           ))}
