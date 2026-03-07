@@ -153,9 +153,12 @@ In the old financial system, you were a customer. You paid fees to intermediarie
 
 In the tokenized DeFi system, you become a participant. You earn the fees. You provide the liquidity. You are the infrastructure.
 
-# The Future Is Being Built Now
+> The financial system is being rebuilt from first principles. The question is whether ordinary people will be participants or bystanders.
+> BalCore Protocol Vision Statement
 
 BalCore is built to ensure you are a participant. Its FlowYield System automates the complexity, its IL protection covers the risk, and its open, permissionless architecture means that anyone — anywhere in the world — can access the same market-making returns that institutions have monopolized for decades.
+
+# The Future Is Being Built Now
 
 Visit **balcore.io** to join the liquidity revolution — and to start earning market-maker returns on the tokenized financial system being built around you.
     `,
