@@ -5,11 +5,14 @@ export const tokenizationSection: DocSection = {
     title: "The Tokenization Revolution",
     shortTitle: "Tokenization",
     content: `
+
 # The Tokenization Revolution
 
 ## How Every Asset in the World Is Becoming a Token — And Why You Get to Be the Market Maker
 
 Right now, a quiet revolution is transforming global finance. The traditional barriers that kept ordinary people out of the world's most lucrative markets — stocks, bonds, real estate, commodities, private equity — are crumbling. Tokenization is rebuilding the financial system from the ground up, and protocols like BalCore are at the frontier of making these markets accessible to everyone.
+
+---
 
 # What Is Tokenization?
 
@@ -19,6 +22,8 @@ Tokenization is the process of representing ownership of a real-world asset as a
 > Any asset that has value can be tokenized. A token is simply a verifiable digital claim of ownership that can be transferred, traded, fractionalized, or used as collateral — instantly, 24/7, without a bank or broker.
 
 The implications are profound. For the first time in history, a farmer in Southeast Asia, a student in South America, and a retiree in Eastern Europe can all access the same financial markets on equal terms — without a brokerage account, without a minimum balance, and without institutional permission.
+
+---
 
 # What Gets Tokenized?
 
@@ -34,12 +39,16 @@ The scope of tokenization extends far beyond cryptocurrency. Every major asset c
 | Art & Collectibles | Auction houses, galleries, high barriers, illiquid | Fractional ownership tokens, liquid secondary markets, provenance on-chain |
 | Infrastructure & Utilities | Institutional only, pension funds, regulated vehicles | Tokenized infrastructure revenue streams accessible to any wallet |
 
-> **Tokenization of assets could be the killer app for the blockchain industry — representing a $16 trillion opportunity by 2030.**
+> ***Tokenization of assets could be the killer app for the blockchain industry — representing a $16 trillion opportunity by 2030.***
 > World Economic Forum Research, 2023
+
+---
 
 # The Problem With Traditional Market Making
 
 To understand why tokenization + DeFi is so powerful, you need to understand how markets actually function — and who currently benefits.
+
+---
 
 ## What Is a Market Maker?
 
@@ -49,6 +58,8 @@ Market makers profit from the spread — the small difference between the price 
 
 > **Who Currently Makes Markets?**
 > Today, market making is almost exclusively dominated by large financial institutions: Citadel Securities, Virtu Financial, Jane Street, Two Sigma. These firms deploy billions of dollars and sophisticated algorithms to capture spread revenue. Individual investors have never had access to this business.
+
+---
 
 ## The Institutional Lock-Out
 
@@ -62,6 +73,8 @@ Becoming a market maker in traditional finance requires:
 
 This created a two-tier financial system: institutions extracting spread revenue at industrial scale, while individual investors pay that spread every time they transact.
 
+---
+
 # DeFi Changes Everything: You Become the Market Maker
 
 Decentralized exchanges built on concentrated liquidity (like LFJ, Uniswap v3, and Pharaoh) fundamentally change who can be a market maker. When you provide liquidity to one of these pools, you are — for all practical purposes — acting as a market maker:
@@ -74,25 +87,37 @@ Decentralized exchanges built on concentrated liquidity (like LFJ, Uniswap v3, a
 > **The Democratization of Finance**
 > For the first time in history, anyone with a crypto wallet can participate in market making — earning fee revenue that was previously exclusive to multi-billion dollar firms. The only barrier that remained was technical complexity and impermanent loss risk. BalCore eliminates both.
 
+---
+
 # Tokenized Assets + DeFi Liquidity: The Convergence
 
 The tokenization of real-world assets (RWAs) and the rise of DeFi liquidity protocols are converging into a single, unified financial infrastructure. Here is what that future looks like:
+
+---
 
 ## Stage 1: Asset Tokenization
 
 Every major asset class — stocks, bonds, real estate, commodities — is represented as a token on a blockchain. Ownership is transparent, transfers are instant, and fractionalization means any investment size is possible.
 
+---
+
 ## Stage 2: On-Chain Market Making
 
 Tokenized assets need liquidity — buyers and sellers need to be matched. Instead of centralized market makers extracting that value, DeFi protocols create permissionless liquidity pools where any participant can provide two-sided markets and earn fees.
+
+---
 
 ## Stage 3: Automated Yield Optimization
 
 Protocols like BalCore automate the management of these liquidity positions — maximizing fee capture, managing risk, and generating returns from idle capital — without requiring any technical expertise from participants.
 
+---
+
 ## Stage 4: Global Participation
 
 The result: a 24/7 global financial system where anyone can invest in any asset, earn market maker returns, and access yield strategies that were previously reserved for the world's most sophisticated institutions.
+
+---
 
 # Real-World Asset Tokenization: Examples in Motion
 
@@ -106,9 +131,13 @@ This is not theoretical. Major institutions are already building the tokenized a
 | HSBC | Tokenized gold on blockchain | Physical gold ownership with instant digital transferability |
 | Siemens | Tokenized corporate bond | €60M bond issued on Polygon, settling in days not weeks |
 
+---
+
 # BalCore's Role in the Tokenized Future
 
 As more assets become tokenized and available for trading on decentralized exchanges, the need for automated, intelligent liquidity management grows exponentially. BalCore is designed to be the liquidity orchestration layer for this new financial ecosystem.
+
+---
 
 ## Why This Matters for BalCore Users
 
@@ -120,6 +149,8 @@ Today, BalCore manages liquidity for pairs like AVAX/USDC and BTC.b/USDC. In the
 - Tokenized commodity ETFs — BalCore optimizes the concentrated liquidity range
 
 Every asset class that becomes a token creates a new opportunity for BalCore's liquidity engine to operate — and for its users to earn market-maker returns.
+
+---
 
 ## Anyone Can Be a Market Maker
 
@@ -134,6 +165,8 @@ BalCore's FlowYield System means you do not need to understand market microstruc
 > **The Vision**
 > BalCore is building the infrastructure for a world where every person — regardless of geography, wealth, or technical knowledge — can participate as a market maker in a fully tokenized global financial system. The returns from providing liquidity to Apple stock, US Treasuries, real estate portfolios, and gold are no longer the exclusive domain of institutional players. They belong to everyone.
 
+---
+
 # The Barriers That Are Coming Down
 
 | Old Barrier | What Breaks It | Result |
@@ -145,6 +178,8 @@ BalCore's FlowYield System means you do not need to understand market microstruc
 | Complex position management | BalCore's FlowYield System | Automated, optimized, hands-free |
 | Impermanent loss risk | Triple-layer IL protection | Market make without principal risk |
 
+---
+
 # What This Means for You
 
 The tokenization revolution is still in its early stages, but the direction is clear. Every major financial institution in the world is now building on-chain infrastructure. Every asset class is being reimagined as a token. And the question is no longer whether this transformation will happen — but who will benefit from it.
@@ -152,6 +187,8 @@ The tokenization revolution is still in its early stages, but the direction is c
 In the old financial system, you were a customer. You paid fees to intermediaries who managed your capital, executed your trades, and collected the market-making revenue that your transactions generated.
 
 In the tokenized DeFi system, you become a participant. You earn the fees. You provide the liquidity. You are the infrastructure.
+
+---
 
 # The Future Is Being Built Now
 
