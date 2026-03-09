@@ -31,10 +31,10 @@ The Classic AMM's economics are straightforward: traders pay a fee (typically 0.
 > **LP Fee Share**
 > fee_earned_i = (LP_share_i / total_LP) × fee_rate × trade_volume. LP_share_i = user i's share of the pool | fee_rate = pool's configured fee tier.
 
+The UNI governance token — Uniswap's native token — does not capture any of this fee revenue in the base protocol. UNI holders vote on protocol parameters and treasury spending, but trading fees flow directly to LPs, not to token holders.
+
 > **The UNI Token's Role**
 > UNI is a pure governance token. Holding UNI gives you voting rights on protocol upgrades, fee switches, and treasury deployment — but it does not entitle you to a share of trading fees. This was a deliberate design choice that became a source of significant debate about value accrual in Uniswap's tokenomics.
-
-The UNI governance token — Uniswap's native token — does not capture any of this fee revenue in the base protocol. UNI holders vote on protocol parameters and treasury spending, but trading fees flow directly to LPs, not to token holders.
 
 ## 1.3 Liquidity Incentives: Emissions and Mining
 
@@ -47,9 +47,6 @@ This creates a well-known dynamic:
 - Pools lose depth, slippage rises, traders move elsewhere — a liquidity death spiral.
 
 This problem — how to sustainably attract and retain deep liquidity without relying on inflationary token emissions — became the central challenge that the Ve(3,3) model was designed to solve.
-
-> **The Core Insight Behind Ve(3,3)**
-> If token emissions are the primary incentive, rational actors will always dump emissions the moment they receive them — suppressing the token price and destroying the protocol's ability to attract future liquidity. Ve(3,3) breaks this cycle by making locking and voting the only path to meaningful rewards, aligning long-term holders with the protocol's success.
 
 ## 1.4 Governance in the Classic AMM
 
@@ -68,20 +65,24 @@ The name combines two concepts:
 - Ve — Vote-Escrow: a mechanism for locking tokens over time to gain voting power and fee rights
 - (3,3) — a game theory reference to Olympus DAO's cooperative equilibrium: the best collective outcome when all participants choose to stake rather than sell
 
+> **The Core Insight Behind Ve(3,3)**
+> If token emissions are the primary incentive, rational actors will always dump emissions the moment they receive them — suppressing the token price and destroying the protocol's ability to attract future liquidity. Ve(3,3) breaks this cycle by making locking and voting the only path to meaningful rewards, aligning long-term holders with the protocol's success.
+
 ## 2.2 Vote-Escrow (veToken) Mechanics
 
 At the heart of the Ve(3,3) model is the vote-escrow system. Rather than freely circulating governance tokens, users lock their tokens for a chosen duration to receive veTokens (vote-escrowed tokens). The longer the lock, the more veTokens received:
 
 > **veToken Balance Formula**
-> veTOKEN_balance = TOKEN_locked × (lock_duration / max_lock_duration). max_lock_duration is typically 4 years. A 4-year lock gives 1 veTOKEN per TOKEN locked. A 1-year lock gives 0.25 veTOKEN per TOKEN locked.
+> **veTOKEN_balance = TOKEN_locked × (lock_duration / max_lock_duration).**
+> max_lock_duration is typically 4 years. A 4-year lock gives 1 veTOKEN per TOKEN locked. A 1-year lock gives 0.25 veTOKEN per TOKEN locked.
+
+veTokens are non-transferable — they cannot be sold or moved to another wallet. They decay linearly over time: as your lock period gets closer to expiry, your veToken balance decreases unless you re-lock. This creates continuous incentive to extend locks.
 
 | Lock Duration | veToken Balance | Voting Power | Fee Entitlement |
 |--------------|----------------|-------------|-----------------|
 | 1 year (1,000 tokens) | 250 veTokens | Low | Low |
 | 2 years (1,000 tokens) | 500 veTokens | Medium | Medium |
 | 4 years (1,000 tokens) | 1,000 veTokens | Maximum | Maximum |
-
-veTokens are non-transferable — they cannot be sold or moved to another wallet. They decay linearly over time: as your lock period gets closer to expiry, your veToken balance decreases unless you re-lock. This creates continuous incentive to extend locks.
 
 ## 2.3 Voting: Directing Emissions
 
@@ -179,22 +180,42 @@ This makes locking extremely attractive for long-term believers in the protocol:
 
 ## 5.1 Classic AMM — Value Flow
 
-Traders pay swap fees → Fees flow 100% to LPs → LPs earn proportional to pool share → Governance token (UNI) has no direct fee capture → Value accrual depends on governance vote for fee switch.
+Value Flow: Classic AMM
+Trader swaps tokens
+    → Fee paid (0.05% / 0.3% / 1.0%)
+        → 100% distributed to LPs in that pool
+        → UNI token holders: no direct fee share
+LP rewards = trading fees + optional liquidity mining emissions
+UNI utility = governance votes only
 
 ## 5.2 Ve(3,3) Model — Value Flow
 
-Traders pay swap fees → Fees split between LPs and veToken voters → veToken holders also earn bribe income → Emissions directed by weekly votes → Anti-dilution rebase protects locked holders → Self-reinforcing cycle of locks, votes, emissions, and liquidity.
+Value Flow: Ve(3,3) Model
+Trader swaps tokens
+    → Fee paid
+        → Share to LPs (liquidity providers)
+        → Share to veToken holders who voted for that pool
+veToken holders also receive:
+    → Bribe income (from protocols paying for votes)
+    → Anti-dilution rebase (protection from new emissions)
+veToken votes direct weekly emissions → LPs follow emissions → liquidity deepens
 
 # 6. The Ve(3,3) Weekly Epoch Cycle
 
 Understanding the epoch cycle is key to understanding how Ve(3,3) DEXes operate in practice. Each week follows a predictable rhythm:
 
-1. **Epoch Start:** New emissions are minted and allocated to pools based on previous epoch's votes.
-2. **Voting Period:** veToken holders cast votes for which pools should receive emissions in the next epoch.
-3. **Bribe Collection:** Protocols deposit bribes for pools they want votes directed toward.
-4. **Fee Distribution:** Trading fees from the previous epoch are distributed to veToken voters.
-5. **Rebase:** Anti-dilution tokens are distributed to veToken holders.
-6. **Epoch End:** Votes finalize, emissions are calculated, cycle repeats.
+**Day 1**
+New Epoch Starts: veToken holders cast their votes for which pools should receive emissions this week. Bribe contracts are visible — voters evaluate which pools offer the best combination of trading fee income and bribe rewards.
+**Days 1–7**
+Active Trading: Emissions flow to voted pools, attracting LPs. Trading fees accumulate for both LPs and veToken voters. Protocols post bribes to attract votes for the following epoch.
+**Day 7**
+Epoch Ends: Accumulated trading fees are distributed to veToken holders. Bribes are claimable. Anti-dilution rebase is distributed. New emissions are minted for the following epoch based on current vote tallies.
+**Day 8**
+New Epoch Begins: The cycle resets. Votes can be changed or maintained. New bribes are posted for the coming week. LPs continue providing liquidity based on where emissions are flowing.
+
+> **Why the Epoch Cycle Matters**
+> The weekly rhythm creates a predictable, regular market for liquidity. Protocols know exactly when to post bribes. veToken holders know exactly when income is distributed. LPs know exactly when emission weights change. This predictability is a significant improvement over the ad-hoc, governance-heavy liquidity management in the Classic AMM.
+
 
 # 7. Which Model Is Better?
 
@@ -216,7 +237,14 @@ BalCore operates across both DEX model types on Avalanche. Its FlowYield system 
 - On Ve(3,3) DEXes (Pharaoh, Blackhole): BalCore participates in emission-incentivized pools, combining active LP fee revenue with the emission layer that Ve(3,3) adds on top
 - The 90% reserve layer can also interact with Ve(3,3) protocols as a depositor, capturing yield from both lending and incentivized positions
 
+>**BalCore's Advantage**
+>By being DEX-model agnostic, BalCore can route capital to wherever the risk-adjusted yield is highest on Avalanche — whether that's a Classic AMM concentrated position on LFJ or an emission-boosted pool on Pharaoh. Users benefit from this flexibility without needing to understand the mechanics of either model themselves.
+
 # 9. Summary
+
+| Classic AMM — In Brief | Ve(3,3) Model — In Brief |
+|--|--|
+| A trading-first model. LPs earn fees directly. The governance token has no fee rights. Best for simplicity, ecosystem breadth, and composability.| An incentive-coordination model. veToken holders direct emissions and capture fees. Best for sustainable liquidity, long-term alignment, and protocol-level liquidity management. |
 
 Neither model is universally superior. The Classic AMM's simplicity and ecosystem dominance make it the default for most DeFi applications. Ve(3,3)'s incentive alignment and bribe markets make it the preferred model for chains and ecosystems that want to bootstrap deep, sustainable liquidity from the ground up. Avalanche's DeFi ecosystem features both — and BalCore is built to leverage both.
 

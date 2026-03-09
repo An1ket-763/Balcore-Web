@@ -18,8 +18,8 @@ export const dexFutureSection: DocSection = {
 
 We are living through the early stages of the most significant restructuring of global financial infrastructure in history. Every asset that humans have ever created to store and transfer value — stocks, bonds, real estate, commodities, private equity, art, intellectual property — is in the process of being represented as a token on a public blockchain. When this process is complete, the question of where these assets are traded, who facilitates that trading, and who captures the economic value of market making will be answered very differently than it is today. This document makes the case that decentralized exchanges will be the answer — and explains precisely why.
 
-> **PART ONE**
-> The Structural Limits of Centralized Exchanges — Why the CEX model cannot scale to a tokenized world
+## PART ONE
+### The Structural Limits of Centralized Exchanges — Why the CEX model cannot scale to a tokenized world
 
 # 1. What CEXes Were Built For — And What They Were Not
 
@@ -47,8 +47,8 @@ But CEXes carry a set of structural characteristics that are not incidental feat
 > **The Core Problem**
 > CEXes are not failing because they are poorly run. The best centralized exchanges are extraordinary engineering achievements. They are facing obsolescence because the architectural assumptions they were built on — centralized custody, siloed national markets, permissioned access, deferred settlement — are incompatible with the on-chain, borderless, always-on world that tokenization creates.
 
-> **PART TWO**
-> The Tokenization Wave — Every asset in the world is becoming a token — and DEXes are ready for it
+## PART TWO
+### The Tokenization Wave — Every asset in the world is becoming a token — and DEXes are ready for it
 
 # 2. The Scale of What Is Being Tokenized
 
@@ -87,8 +87,8 @@ The tokenization of real-world assets is no longer a theoretical future state. T
 
 > **When the world's ten largest financial institutions are all building on-chain asset infrastructure simultaneously, the question is no longer whether tokenization will happen. The question is how fast — and who benefits.**
 
-> **PART THREE**
-> Why DEXes Win in a Tokenized World — Seven structural reasons on-chain exchanges dominate
+## PART THREE
+### Why DEXes Win in a Tokenized World — Seven structural reasons on-chain exchanges dominate
 
 # 3. Seven Reasons DEXes Become the Dominant Liquidity Hub
 
@@ -97,6 +97,9 @@ The tokenization of real-world assets is no longer a theoretical future state. T
 A tokenized stock is a smart contract. A tokenized bond is a smart contract. A tokenized real estate share is a smart contract. When an asset exists natively on a blockchain, trading it on a centralized exchange means first moving it off-chain — into a custodian's database — and then back on-chain for settlement. This round-trip reintroduces every problem that tokenization was supposed to solve: counterparty risk, settlement delay, custody fragmentation.
 
 A DEX trades tokens directly against other tokens, on-chain, atomically. No bridging. No custodians. No reconciliation. The trade and the settlement are a single transaction. For on-chain assets, this is not merely a preference — it is the architecturally correct model.
+
+> **The Compatibility Argument**
+> Asking why tokenized assets should trade on DEXes is like asking why digital music should be played on a smartphone rather than a vinyl record player. The asset is digital; the venue should be digital. CEXes are vinyl players in a streaming world.
 
 ## Reason 2: Unified Global Liquidity — Breaking Down the Silos
 
@@ -165,8 +168,8 @@ In a DEX, you hold your tokens in your own wallet. When you provide liquidity or
 
 As the asset universe expands to include stocks, bonds, real estate, and every other instrument in a tokenized form, the self-custody argument becomes even more powerful. An individual who holds their entire financial life — equities, fixed income, real estate exposure, commodity positions — in a single self-custodied wallet is exposed to one type of risk: their own private key management. That is categorically better than being exposed to the operational, financial, and regulatory risks of dozens of different custodians, brokers, and exchanges.
 
-> **PART FOUR**
-> The Timeline of DEX Dominance — When does the shift happen — and what drives it
+## PART FOUR
+### The Timeline of DEX Dominance — When does the shift happen — and what drives it
 
 # 4. The Road to DEX Dominance
 
@@ -196,6 +199,10 @@ Several converging forces will accelerate the migration of liquidity from CEXes 
 - CEX trust erosion: every centralized exchange failure adds permanent, irreversible momentum to self-custody and on-chain trading. FTX was not an anomaly — it was a demonstration of what counterparty risk looks like at scale.
 - Yield incentives: DEX LPs earn trading fees on their positions. CEX users earn nothing on idle balances. As this yield gap becomes better understood, rational capital migrates on-chain.
 
+## PART FIVE
+### Challenges DEXes Must Overcome
+### Honest assessment of what still needs to be built
+
 # 5. The Remaining Challenges
 
 Making the case for DEX dominance honestly requires acknowledging the real challenges that remain. These are not reasons the shift will not happen — they are the problems that must be solved for it to fully materialize.
@@ -218,6 +225,13 @@ Connecting a wallet, managing gas, understanding LP mechanics, and navigating on
 
 A DEX pool is only useful if it has sufficient liquidity to trade against. Bootstrapping initial liquidity for tokenized stocks, bonds, and real estate requires either large capital commitments from early LPs or incentive programs that attract sufficient depth. The protocols and economic models for bootstrapping RWA liquidity on DEXes are still being developed — though Ve(3,3) DEXes and automation protocols like BalCore point the way.
 
+> **The Direction of Travel**
+> Every one of these challenges is a technical and regulatory problem, not a fundamental argument against the DEX model. And every one of them is actively being worked on by hundreds of teams with billions of dollars in funding. The CEX model's problems, by contrast, are structural — they cannot be engineered away because they are intrinsic to what a centralized exchange is.
+
+## PART SIX
+### DEXes vs. CEXes: The Final Scorecard
+### Where each model wins in the tokenized world
+
 # 6. CEX vs. DEX: Full Structural Comparison
 
 | Dimension | CEX | DEX |
@@ -235,6 +249,10 @@ A DEX pool is only useful if it has sufficient liquidity to trade against. Boots
 | Trust requirement | High — must trust exchange solvency and honesty | Minimal — trust the open-source code, not a company |
 | Compliance scalability | Manual — jurisdiction by jurisdiction | Programmable — compliance logic in smart contracts, scales globally |
 | Yield on idle capital | None — deposited assets earn nothing passively | Yes — idle reserves earn lending yield (as in BalCore) |
+
+## PART SEVEN
+### BalCore's Place in This Future
+### How automated liquidity protocols become critical infrastructure
 
 # 7. BalCore and the Tokenized DEX Future
 
@@ -263,7 +281,12 @@ In this world:
 - A small business owner in Mexico can hold tokenized government bonds from five different countries in a single self-custodied wallet, earning yield on each and trading between them instantly at any hour.
 - A DAO can manage its treasury across tokenized equities, bonds, and commodities using a single automated protocol — no board approval, no custodian, no 3-day settlement.
 
+> **The BalCore Thesis**
+> BalCore is not just building a yield protocol for the current DeFi market. It is building the liquidity management infrastructure for the tokenized financial system that is being assembled around us. The protocols being developed today — the AMMs, the vault systems, the rebalancing engines — are the New York Stock Exchange and the Federal Reserve of the world that is being built. Being early is being foundational.
+
 # Conclusion
+
+> Every asset that has ever been created to store, transfer, or represent value is in the process of becoming a token. Every token needs a venue to trade. The venue that is architecturally, economically, and philosophically designed for this world is the DEX.
 
 The case for DEX dominance in a tokenized world is not a bet on speculation. It is a structural argument: on-chain assets belong on on-chain venues, and the on-chain venue that is permissionless, composable, transparent, always-on, self-custodied, and programmable is the DEX.
 

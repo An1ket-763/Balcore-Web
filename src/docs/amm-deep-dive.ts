@@ -134,10 +134,10 @@ Ticks are spaced at fixed percentage increments using a logarithmic scale. In Un
 > **Tick-to-Price Mapping**
 > P(i) = 1.0001^i. i = tick index | P(i) = price at that tick | Each tick is 0.01% from the next.
 
+When the current price crosses a tick boundary during a trade, the active liquidity changes — positions that were previously out of range become active, and positions whose range has been exited become inactive. This is called a tick crossing.
+
 > **Bins vs. Ticks**
 > Trader Joe's LFJ (used by BalCore) uses a 'bin' model rather than ticks. Each bin represents a fixed price range with a specific price step (e.g., 0.1% per bin for AVAX/USDC). When price moves from one bin to the next, all liquidity in the departed bin is fully converted to one asset. Bins are simpler to reason about and more gas-efficient than the tick model.
-
-When the current price crosses a tick boundary during a trade, the active liquidity changes — positions that were previously out of range become active, and positions whose range has been exited become inactive. This is called a tick crossing.
 
 ## 3.5 The Impermanent Loss Amplification Effect
 
