@@ -87,13 +87,22 @@ Instead of providing liquidity at all prices from zero to infinity, a provider c
 
 ## 3.2 The Virtual Reserve Model
 
-The mathematical magic behind concentrated liquidity is the concept of virtual reserves. Within a chosen range, the actual token amounts required are reduced because the provider is not covering the full infinite range. The formulas become:
+The mathematical magic behind concentrated liquidity is the concept of virtual reserves. Within a chosen range [Pa, Pb], the curve behaves as if there were much larger reserves — but only within that range.
 
-> **Concentrated Position Token Amounts**
-> x_real = L · (1/√P − 1/√Pb) [if Pa ≤ P ≤ Pb] and y_real = L · (√P − √Pa) [if Pa ≤ P ≤ Pb]. Pa = lower bound price | Pb = upper bound price | P = current spot price.
+The key insight is to rewrite the constant product formula in terms of the real liquidity amount L, which represents the 'depth' of the pool:
+
+> **Liquidity Definition**
+> L = √(x · y). L is the geometric mean of the two reserves — a measure of pool depth independent of price.
+
+The price P and reserves are then related by:
 
 > **Reserves from Liquidity and Price**
 > x = L / √P and y = L · √P. x = amount of Token A in the pool | y = amount of Token B | P = current price.
+
+For a concentrated position over range [Pa, Pb], the actual token amounts required are reduced because the provider is not covering the full infinite range. The formulas become:
+
+> **Concentrated Position Token Amounts**
+> x_real = L · (1/√P − 1/√Pb) [if Pa ≤ P ≤ Pb] and y_real = L · (√P − √Pa) [if Pa ≤ P ≤ Pb]. Pa = lower bound price | Pb = upper bound price | P = current spot price.
 
 If price moves below Pa, the position becomes entirely Token A (the cheaper one). If price moves above Pb, the position becomes entirely Token B (the stablecoin/quote asset). This is the mechanism behind impermanent loss in concentrated positions.
 
@@ -221,6 +230,9 @@ AVAX can move 50–100% in either direction within weeks. Concentrated positions
 3. Wait and collect fees over time.
 4. Withdraw when desired — no time pressure.
 
+> **Complexity Rating: LOW**
+> Regular AMM LP management requires almost no ongoing attention. Deposit once, collect fees, withdraw at will. The main ongoing consideration is monitoring the USD value of the position relative to simply holding the tokens.
+
 ## 7.2 What Concentrated Liquidity LPs Must Do
 
 1. Analyze current price, recent volatility, and expected price range before depositing.
@@ -230,6 +242,9 @@ AVAX can move 50–100% in either direction within weeks. Concentrated positions
 5. Rebalance: withdraw, close position, recalculate a new range centered on current price, redeploy.
 6. Pay gas for every rebalance event — frequent rebalancing can eliminate fee profits.
 7. Track impermanent loss, net fees, gas costs, and opportunity cost to assess true performance.
+
+> **Complexity Rating: VERY HIGH**
+> Manual concentrated liquidity management is a near-full-time activity for volatile pairs. Studies have found that a majority of retail LPs in concentrated liquidity pools underperform simple token holding because of poor range selection, late rebalancing, and gas costs eating into returns. This is the exact problem BalCore's FlowYield system was built to solve.
 
 ## 7.3 The Automation Imperative
 
@@ -260,6 +275,13 @@ BalCore's FlowYield System is built specifically on top of concentrated liquidit
 # 9. Summary
 
 The evolution from regular AMMs to concentrated liquidity represents one of the most important efficiency breakthroughs in DeFi history. But this efficiency comes with a complexity cost that has excluded most participants from accessing its benefits.
+
+| Regular AMM — In One Sentence | Concentrated Liquidity — In One Sentence |
+|-------------------------------|------------------------------------------|
+| Simple, passive, always earning, but deeply capital-inefficient — great for users who want simplicity above all else. | Powerful, capital-efficient, high-yielding — but demands active management that is beyond most retail participants without automation. |
+
+> **The Bottom Line**
+> Concentrated liquidity is strictly superior from a capital efficiency standpoint — but only if the management problem is solved. Protocols like BalCore exist precisely to solve that management problem, making concentrated liquidity accessible to everyone without the complexity, the active monitoring, or the impermanent loss risk.
 
 ## Start Earning Efficiently
 
