@@ -276,6 +276,13 @@ BalCore's FlowYield System is built specifically on top of concentrated liquidit
 
 The evolution from regular AMMs to concentrated liquidity represents one of the most important efficiency breakthroughs in DeFi history. But this efficiency comes with a complexity cost that has excluded most participants from accessing its benefits.
 
+| Regular AMM — In One Sentence | Concentrated Liquidity — In One Sentence |
+|-------------------------------|------------------------------------------|
+| Simple, passive, always earning, but deeply capital-inefficient — great for users who want simplicity above all else. | Powerful, capital-efficient, high-yielding — but demands active management that is beyond most retail participants without automation. |
+
+> **The Bottom Line**
+> Concentrated liquidity is strictly superior from a capital efficiency standpoint — but only if the management problem is solved. Protocols like BalCore exist precisely to solve that management problem, making concentrated liquidity accessible to everyone without the complexity, the active monitoring, or the impermanent loss risk.
+
 ## Start Earning Efficiently
 
 Visit **balcore.io** to access automated, risk-managed concentrated liquidity on Avalanche — no expertise required.
