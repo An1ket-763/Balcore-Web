@@ -230,6 +230,9 @@ AVAX can move 50–100% in either direction within weeks. Concentrated positions
 3. Wait and collect fees over time.
 4. Withdraw when desired — no time pressure.
 
+> **Complexity Rating: LOW**
+> Regular AMM LP management requires almost no ongoing attention. Deposit once, collect fees, withdraw at will. The main ongoing consideration is monitoring the USD value of the position relative to simply holding the tokens.
+
 ## 7.2 What Concentrated Liquidity LPs Must Do
 
 1. Analyze current price, recent volatility, and expected price range before depositing.
@@ -239,6 +242,9 @@ AVAX can move 50–100% in either direction within weeks. Concentrated positions
 5. Rebalance: withdraw, close position, recalculate a new range centered on current price, redeploy.
 6. Pay gas for every rebalance event — frequent rebalancing can eliminate fee profits.
 7. Track impermanent loss, net fees, gas costs, and opportunity cost to assess true performance.
+
+> **Complexity Rating: VERY HIGH**
+> Manual concentrated liquidity management is a near-full-time activity for volatile pairs. Studies have found that a majority of retail LPs in concentrated liquidity pools underperform simple token holding because of poor range selection, late rebalancing, and gas costs eating into returns. This is the exact problem BalCore's FlowYield system was built to solve.
 
 ## 7.3 The Automation Imperative
 
