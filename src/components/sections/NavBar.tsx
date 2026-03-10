@@ -65,11 +65,10 @@ const NavBar = () => {
   };
 
   useEffect(() => {
-    const pathToSection: Record<string, string> = {
+  const pathToSection: Record<string, string> = {
       "/": "top",
       "/about": "why-balcore",
       "/protocol": "what-balcore-does",
-      "/contact": "footer",
     };
 
     const sectionId = pathToSection[location.pathname];
