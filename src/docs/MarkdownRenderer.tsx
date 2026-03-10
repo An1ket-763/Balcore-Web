@@ -227,9 +227,8 @@ const ReactMarkdownRenderer: React.FC<Props> = ({ content }) => {
       continue;
     }
 
-    // Horizontal rule
-    if (line.match(/^---+$/)) {
-      elements.push(<hr key={`hr-${i}`} className="border-border/50 my-8" />);
+    // Skip markdown separator lines (---) so docs read naturally
+    if (line.trim().match(/^---+$/)) {
       i++;
       continue;
     }
