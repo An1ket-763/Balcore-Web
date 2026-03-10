@@ -7,7 +7,7 @@ export const protocolOverviewSection: DocSection = {
     content: `
 # Protocol Overview
 
-BalCore is a next-generation liquidity orchestration protocol built on Avalanche. Through its FlowYield System, it automates liquidity provisioning, dynamic rebalancing, and reserve-based yield generation — enabling anyone to earn sustainable DeFi returns without technical expertise.
+BalCore is a next-generation liquidity orchestration protocol built on Avalanche. Through its FlowYield System, it automates liquidity provisioning, dynamic rebalancing, and reserve-based yield generation enabling anyone to earn sustainable DeFi returns without technical expertise.
 
 | Metric | Value |
 |--------|-------|
@@ -18,7 +18,7 @@ BalCore is a next-generation liquidity orchestration protocol built on Avalanche
 
 ## The Problem BalCore Solves
 
-Providing liquidity in decentralized exchanges (DEXs) is one of the most powerful ways to earn yield in DeFi — but also one of the most complex and risky. Most participants face the same set of challenges:
+Providing liquidity in decentralized exchanges (DEXs) is one of the most powerful ways to earn yield in DeFi but also one of the most complex and risky. Most participants face the same set of challenges:
 
 - Managing liquidity positions manually requires constant monitoring and technical knowledge
 - Impermanent Loss (IL) erodes profits whenever token prices move in one direction
@@ -27,11 +27,11 @@ Providing liquidity in decentralized exchanges (DEXs) is one of the most powerfu
 - Most users have no automated way to recover from one-sided market moves
 
 > **The Core Challenge**
-> Billions of dollars sit in DeFi liquidity positions that are either earning suboptimal yield, suffering from impermanent loss, or stuck in idle positions. There has been no accessible, automated solution — until now.
+> Billions of dollars sit in DeFi liquidity positions that are either earning suboptimal yield, suffering from impermanent loss, or stuck in idle positions. There has been no accessible, automated solution until now.
 
 ## Introducing the FlowYield System
 
-FlowYield is BalCore's proprietary liquidity automation framework. Rather than requiring users to manually manage every aspect of their liquidity, FlowYield handles everything algorithmically — from initial placement to ongoing rebalancing and yield harvesting.
+FlowYield is BalCore's proprietary liquidity automation framework. Rather than requiring users to manually manage every aspect of their liquidity, FlowYield handles everything algorithmically from initial placement to ongoing rebalancing and yield harvesting.
 
 At its core, FlowYield introduces a dual-layer architecture designed to maximize yield while minimizing exposure:
 
@@ -62,11 +62,11 @@ One of BalCore's most important innovations is its comprehensive approach to pro
 | Layer | Method | Coverage |
 |-------|--------|----------|
 | **Layer 1** | Strategic Deployment Prevention | Prevents 80–90% of IL before it occurs through intelligent position placement |
-| **Layer 2** | IL Reserve Fund | Covers IL that occurs despite prevention — funded by 20–30% of all protocol fees |
-| **Layer 3** | Backup Reserve Vault | Ultimate guarantee — funded from excess yields above the 30% APY user cap |
+| **Layer 2** | IL Reserve Fund | Covers IL that occurs despite prevention funded by 20–30% of all protocol fees |
+| **Layer 3** | Backup Reserve Vault | Ultimate guarantee funded from excess yields above the 30% APY user cap |
 
 > **BalCore's Guarantee**
-> You will never lose your principal to impermanent loss. Three independent safety layers ensure complete protection — even during market crashes and mass withdrawal events.
+> You will never lose your principal to impermanent loss. Three independent safety layers ensure complete protection even during market crashes and mass withdrawal events.
 
 ## Supported Assets & DEXs
 
@@ -80,10 +80,10 @@ BalCore v1 supports concentrated liquidity pools across leading Avalanche DEXs i
 
 ## Withdrawal Options
 
-**Standard Withdrawal — Free** 
+**Standard Withdrawal Free** 
  Request a withdrawal at any time. The 7-day cooldown allows the protocol to safely unwind your LP position, collect pending fees, calculate any IL coverage owed, and prepare your exact token amounts for release.
 
-**Fast-Track Withdrawal — 3% Fee**
+**Fast-Track Withdrawal 3% Fee**
  Need funds urgently? BalCore offers a Fast-Track option with 24–48 hour processing. A 3% fee applies, split between the IL Reserve and active liquidity providers.
 
 > **No Hidden Fees**
@@ -107,9 +107,9 @@ BalCore v1 supports concentrated liquidity pools across leading Avalanche DEXs i
 
 ## Built on Avalanche
 
-BalCore is purpose-built for Avalanche — a high-performance, low-cost blockchain that offers the speed and scalability needed for real-time liquidity management. Transactions settle in seconds, gas fees remain minimal, and the growing Avalanche DeFi ecosystem provides deep liquidity across multiple DEX platforms.
+BalCore is purpose-built for Avalanche a high-performance, low-cost blockchain that offers the speed and scalability needed for real-time liquidity management. Transactions settle in seconds, gas fees remain minimal, and the growing Avalanche DeFi ecosystem provides deep liquidity across multiple DEX platforms.
 
-By choosing Avalanche, BalCore can execute the frequent rebalancing operations that its FlowYield system requires — without those operations eating into user returns through prohibitive gas costs.
+By choosing Avalanche, BalCore can execute the frequent rebalancing operations that its FlowYield system requires without those operations eating into user returns through prohibitive gas costs.
 
 ## Get Started
 Visit **balcore.io** to connect your wallet and start earning optimized, protected yield on Avalanche.

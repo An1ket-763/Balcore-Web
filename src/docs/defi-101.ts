@@ -9,22 +9,22 @@ export const defi101Section: DocSection = {
 
 ## Your Complete Beginner's Guide to Decentralized Finance
 
-Decentralized Finance — DeFi — is one of the most significant shifts in financial history. For the first time, anyone with an internet connection can access financial services that were previously available only to banks, hedge funds, and wealthy institutions.
+Decentralized Finance DeFi is one of the most significant shifts in financial history. For the first time, anyone with an internet connection can access financial services that were previously available only to banks, hedge funds, and wealthy institutions.
 
 ## What Is DeFi?
 
 Traditional finance (often called "TradFi") relies on centralized intermediaries: banks hold your money, brokerages execute your trades, and exchanges match buyers with sellers. Every transaction passes through a company that charges fees, applies restrictions, and maintains control over your assets.
 
-DeFi removes the middleman. Instead of trusting a company, DeFi uses **smart contracts** — self-executing code running on a blockchain — to perform financial operations automatically. No CEO can freeze your account. No bank holiday delays your transaction. No geographic restriction prevents access.
+DeFi removes the middleman. Instead of trusting a company, DeFi uses **smart contracts** self-executing code running on a blockchain to perform financial operations automatically. No CEO can freeze your account. No bank holiday delays your transaction. No geographic restriction prevents access.
 
 > **Simple Definition**
-> DeFi is financial services — lending, trading, earning interest — but operated by open-source code on a blockchain rather than by banks or companies. You remain in control of your assets at all times.
+> DeFi is financial services lending, trading, earning interest but operated by open-source code on a blockchain rather than by banks or companies. You remain in control of your assets at all times.
 
 ## The Key Difference: Custody
 
 In traditional finance, you deposit money into a bank and the bank controls it. In DeFi, your assets always remain under your control. You connect to DeFi applications using a crypto wallet (like MetaMask or Core Wallet), and at any time you can withdraw your assets without asking permission from anyone.
 
-This is called being **"non-custodial"** — you, not a third party, hold custody of your funds.
+This is called being **"non-custodial"** you, not a third party, hold custody of your funds.
 
 ## Core DeFi Concepts
 Before diving deeper, it helps to understand the key building blocks of the DeFi ecosystem.
@@ -33,7 +33,7 @@ Before diving deeper, it helps to understand the key building blocks of the DeFi
 > blockchain is a shared, public database that records every transaction permanently and transparently. No single party controls it. Anyone can verify any transaction at any time. Avalanche, Ethereum, and Solana are examples of popular blockchains.
 
 > **Smart Contracts**
-> Smart contracts are programs stored on a blockchain that execute automatically when certain conditions are met. For example: "If User A sends 1 AVAX, automatically send them 40 USDC." Once deployed, a smart contract runs exactly as programmed — no human intervention required.
+> Smart contracts are programs stored on a blockchain that execute automatically when certain conditions are met. For example: "If User A sends 1 AVAX, automatically send them 40 USDC." Once deployed, a smart contract runs exactly as programmed no human intervention required.
 
 > **Wallets**
 > A crypto wallet is your gateway to DeFi. It stores your private key (think of it as the password to your funds) and lets you interact with DeFi applications. Popular wallets include MetaMask, Core (Avalanche's native wallet), and Ledger for hardware security.
@@ -54,12 +54,12 @@ Most DeFi exchanges use a model called an **Automated Market Maker (AMM)**. Inst
 
 ### Concentrated Liquidity
 
-Early AMM models spread liquidity evenly across all possible prices — from zero to infinity. This was wildly inefficient, because most trading happens within a narrow price range.
+Early AMM models spread liquidity evenly across all possible prices from zero to infinity. This was wildly inefficient, because most trading happens within a narrow price range.
 
 Concentrated liquidity (pioneered by Uniswap v3) allows liquidity providers to specify a specific price range where they want their capital deployed. This dramatically improves capital efficiency.
 
 > **The Trade-Off**
-> Concentrated liquidity is more efficient but more complex. If the market price moves outside your chosen range, your liquidity goes inactive and stops earning fees. Managing these positions requires constant attention — which is exactly the problem BalCore was built to solve.
+> Concentrated liquidity is more efficient but more complex. If the market price moves outside your chosen range, your liquidity goes inactive and stops earning fees. Managing these positions requires constant attention which is exactly the problem BalCore was built to solve.
 
 ## Liquidity Providers and Yield
 
@@ -88,13 +88,13 @@ Impermanent Loss (IL) is the most important concept for any DeFi liquidity provi
 When you deposit two tokens into a liquidity pool in equal value, and the price of one token changes significantly relative to the other, the math of how AMMs work means you end up with a different ratio of tokens than you started with.
 
 > **Concrete Example**
-> You deposit 1 ETH and 2,000 USDC when ETH = $2,000. ETH doubles to $4,000. Due to how AMM math works, your position might now be worth 1,414 USDC equivalent — instead of the 4,000 + 2,000 = $6,000 you'd have if you had just held. The difference (~$2,586 in this example) is your impermanent loss.
+> You deposit 1 ETH and 2,000 USDC when ETH = $2,000. ETH doubles to $4,000. Due to how AMM math works, your position might now be worth 1,414 USDC equivalent instead of the 4,000 + 2,000 = $6,000 you'd have if you had just held. The difference (~$2,586 in this example) is your impermanent loss.
 
 The loss is called "impermanent" because if the price returns to where it started, the loss disappears. But in practice, prices rarely return to exactly the starting point, making impermanent loss a very real risk for LPs.
 
 ## Why IL Has Been So Hard to Solve
 
-Impermanent loss is a structural feature of how AMMs work — it is not a bug. Any time a pool rebalances to maintain its price ratio, IL occurs. Solutions attempted in the past include:
+Impermanent loss is a structural feature of how AMMs work it is not a bug. Any time a pool rebalances to maintain its price ratio, IL occurs. Solutions attempted in the past include:
 -	Single-sided staking (but this shifts risk to the protocol)
 -	IL insurance products (expensive and limited)
 -	Very narrow ranges (reduces IL but increases management complexity)
@@ -111,7 +111,7 @@ Beyond trading, one of DeFi's most powerful use cases is decentralized lending. 
 Interest rates in DeFi lending are set algorithmically based on supply and demand. When more people want to borrow an asset than supply it, rates rise. When supply exceeds demand, rates fall.
 
 > **How BalCore Uses Lending Protocols**
-> BalCore deposits the 90% reserve layer into Benqi to earn passive yield. This means your capital is never truly idle — even the portion not actively providing liquidity is generating returns. Additionally, when BalCore needs to rebalance after a one-sided market move, it can borrow the depleted asset using vault collateral, restoring balanced exposure without disrupting user positions.
+> BalCore deposits the 90% reserve layer into Benqi to earn passive yield. This means your capital is never truly idle even the portion not actively providing liquidity is generating returns. Additionally, when BalCore needs to rebalance after a one-sided market move, it can borrow the depleted asset using vault collateral, restoring balanced exposure without disrupting user positions.
 
 ## Key Risks in DeFi
 
