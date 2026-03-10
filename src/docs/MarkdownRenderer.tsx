@@ -227,9 +227,8 @@ const ReactMarkdownRenderer: React.FC<Props> = ({ content }) => {
       continue;
     }
 
-    // Horizontal rule
+    // Horizontal rule - skip (don't render)
     if (line.match(/^---+$/)) {
-      elements.push(<hr key={`hr-${i}`} className="border-border/50 my-8" />);
       i++;
       continue;
     }
