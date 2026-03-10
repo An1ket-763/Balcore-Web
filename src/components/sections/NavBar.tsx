@@ -69,7 +69,6 @@ const NavBar = () => {
       "/": "top",
       "/about": "why-balcore",
       "/protocol": "what-balcore-does",
-      "/contact": "footer",
     };
 
     const sectionId = pathToSection[location.pathname];
