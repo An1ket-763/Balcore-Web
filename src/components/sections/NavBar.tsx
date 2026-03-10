@@ -92,7 +92,6 @@ const NavBar = () => {
     { sectionId: "top", label: "Home", path: "/" },
     { sectionId: "why-balcore", label: "About", path: "/about" },
     { sectionId: "what-balcore-does", label: "Protocol", path: "/protocol" },
-    { sectionId: "footer", label: "Contact", path: "/contact" },
   ];
 
   const isDocsPage = location.pathname === "/docs";
