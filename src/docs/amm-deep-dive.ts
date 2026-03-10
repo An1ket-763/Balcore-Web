@@ -11,13 +11,13 @@ export const ammDeepDiveSection: DocSection = {
 
 ## Basics · Mathematics · Complexity · Pros & Cons
 
-Automated Market Makers (AMMs) are the engines that power decentralized trading. Understanding how they work — and how the two dominant models differ — is essential for anyone who wants to participate in DeFi, provide liquidity, or evaluate protocols like BalCore. This guide takes you from first principles to full mathematical detail, with no prior experience required.
+Automated Market Makers (AMMs) are the engines that power decentralized trading. Understanding how they work and how the two dominant models differ is essential for anyone who wants to participate in DeFi, provide liquidity, or evaluate protocols like BalCore. This guide takes you from first principles to full mathematical detail, with no prior experience required.
 
 # 1. What Is an Automated Market Maker?
 
-In traditional finance, a market is kept liquid by professional market makers — firms that continuously post buy and sell quotes, profiting from the spread. In DeFi, this role is filled by smart contracts that hold reserves of two tokens and use a mathematical formula to quote prices automatically.
+In traditional finance, a market is kept liquid by professional market makers firms that continuously post buy and sell quotes, profiting from the spread. In DeFi, this role is filled by smart contracts that hold reserves of two tokens and use a mathematical formula to quote prices automatically.
 
-No human needs to set a price. No order book needs to be matched. A trader simply sends tokens to the contract, and the formula determines exactly how many tokens they receive in return. Anyone can provide the capital that fills these contracts — and earn a share of every trading fee generated.
+No human needs to set a price. No order book needs to be matched. A trader simply sends tokens to the contract, and the formula determines exactly how many tokens they receive in return. Anyone can provide the capital that fills these contracts and earn a share of every trading fee generated.
 
 > **Core Idea**
 > An AMM is a smart contract that: (1) holds reserves of two tokens, (2) uses a formula to set the exchange rate automatically, (3) lets anyone trade against those reserves, and (4) lets anyone supply capital to earn trading fees.
@@ -26,10 +26,10 @@ No human needs to set a price. No order book needs to be matched. A trader simpl
 
 ## 2.1 The Constant Product Formula
 
-The foundational AMM design — popularized by Uniswap v2 — is built on a single, elegant equation known as the constant product formula:
+The foundational AMM design popularized by Uniswap v2 is built on a single, elegant equation known as the constant product formula:
 
 > **The Constant Product Invariant**
-> x · y = k — x = reserve of Token A | y = reserve of Token B | k = constant (never changes)
+> x · y = k x = reserve of Token A | y = reserve of Token B | k = constant (never changes)
 
 The rule is simple: no matter how many trades happen, the product of the two token reserves must always equal the same constant k. This single constraint determines every price and every trade outcome.
 
@@ -43,7 +43,7 @@ Suppose a pool holds x = 1,000 AVAX and y = 40,000 USDC. The constant is:
 A trader wants to buy 10 AVAX. They must send enough USDC so that the new product still equals k. Let Δy be the USDC they must send:
 
 > **Solving for Trade Cost**
-> (1,000 − 10) × (40,000 + Δy) = 40,000,000 → 990 × (40,000 + Δy) = 40,000,000 → 40,000 + Δy = 40,404.04 → Δy = 404.04 USDC. The trader pays $404.04 for 10 AVAX — an effective price of $40.40, slightly above the spot price.
+> (1,000 − 10) × (40,000 + Δy) = 40,000,000 → 990 × (40,000 + Δy) = 40,000,000 → 40,000 + Δy = 40,404.04 → Δy = 404.04 USDC. The trader pays $404.04 for 10 AVAX an effective price of $40.40, slightly above the spot price.
 
 The difference between the quoted price ($40.40) and the spot price ($40.00) is called price impact or slippage. Larger trades cause larger slippage because they move the ratio further from its starting point.
 
@@ -52,24 +52,24 @@ The difference between the quoted price ($40.40) and the spot price ($40.00) is 
 At any moment, the marginal exchange rate (spot price) of Token A in terms of Token B is simply:
 
 > **Spot Price**
-> P = y / x — As x decreases (AVAX bought), P rises. As x increases (AVAX sold), P falls. Price moves continuously with every trade.
+> P = y / x As x decreases (AVAX bought), P rises. As x increases (AVAX sold), P falls. Price moves continuously with every trade.
 
 ## 2.4 Liquidity Provision in a Regular AMM
 
 To add liquidity, a provider deposits both tokens in the current ratio. If the pool is at x = 1,000 AVAX and y = 40,000 USDC, a provider depositing 10 AVAX must also deposit 400 USDC to maintain the ratio.
 
-In return, the provider receives LP tokens — shares representing their proportional ownership of the pool. The fraction of the pool owned determines their share of all fees collected:
+In return, the provider receives LP tokens shares representing their proportional ownership of the pool. The fraction of the pool owned determines their share of all fees collected:
 
 > **LP Share & Fee Earnings**
-> share = deposit_value / total_pool_value — earnings = share × total_fees_collected. A 1% share earns 1% of all trading fees generated by the pool.
+> share = deposit_value / total_pool_value earnings = share × total_fees_collected. A 1% share earns 1% of all trading fees generated by the pool.
 
 ## 2.5 The Liquidity Curve
 
-Plotting x against y at constant k produces a hyperbola. This curve has a critical property: it extends from zero to infinity on both axes. Liquidity is theoretically available at every possible price — from $0.001 to $1,000,000 per AVAX.
+Plotting x against y at constant k produces a hyperbola. This curve has a critical property: it extends from zero to infinity on both axes. Liquidity is theoretically available at every possible price from $0.001 to $1,000,000 per AVAX.
 
 | What This Means for Traders | What This Means for LPs |
 |---------------------------|------------------------|
-| Price never technically hits zero or infinity — there is always some liquidity available at any price. | Capital is spread across the entire price curve from $0 to infinity — meaning most of it is never used. |
+| Price never technically hits zero or infinity there is always some liquidity available at any price. | Capital is spread across the entire price curve from $0 to infinity meaning most of it is never used. |
 
 > **The Capital Efficiency Problem**
 > If AVAX trades between $30 and $50, the vast majority of LP capital is sitting at prices that will never be reached. That capital earns zero fees while still being exposed to price risk. A pool with $10M in liquidity might only have $500,000 actively useful at any given time.
@@ -78,21 +78,21 @@ Plotting x against y at constant k produces a hyperbola. This curve has a critic
 
 ## 3.1 The Core Innovation
 
-Concentrated liquidity — introduced by Uniswap v3 and adopted by Trader Joe's LFJ, Pharaoh, and other modern DEXs — solves the capital efficiency problem by allowing liquidity providers to specify a price range [Pa, Pb] where they want their capital deployed.
+Concentrated liquidity introduced by Uniswap v3 and adopted by Trader Joe's LFJ, Pharaoh, and other modern DEXs solves the capital efficiency problem by allowing liquidity providers to specify a price range [Pa, Pb] where they want their capital deployed.
 
 Instead of providing liquidity at all prices from zero to infinity, a provider can say: 'I want my capital to only be active when AVAX is trading between $35 and $45.' All of their capital is concentrated in that range, generating fees only when the price is within their bounds.
 
 > **The Result**
-> The same amount of capital concentrated in a narrow range provides far more depth to traders (less slippage) and earns far more fees to the LP. This is called capital efficiency — getting more output from the same input.
+> The same amount of capital concentrated in a narrow range provides far more depth to traders (less slippage) and earns far more fees to the LP. This is called capital efficiency getting more output from the same input.
 
 ## 3.2 The Virtual Reserve Model
 
-The mathematical magic behind concentrated liquidity is the concept of virtual reserves. Within a chosen range [Pa, Pb], the curve behaves as if there were much larger reserves — but only within that range.
+The mathematical magic behind concentrated liquidity is the concept of virtual reserves. Within a chosen range [Pa, Pb], the curve behaves as if there were much larger reserves but only within that range.
 
 The key insight is to rewrite the constant product formula in terms of the real liquidity amount L, which represents the 'depth' of the pool:
 
 > **Liquidity Definition**
-> L = √(x · y). L is the geometric mean of the two reserves — a measure of pool depth independent of price.
+> L = √(x · y). L is the geometric mean of the two reserves a measure of pool depth independent of price.
 
 The price P and reserves are then related by:
 
@@ -123,7 +123,7 @@ Let's calculate some concrete examples:
 | ±10% Range | $36 → $44 | ~20× | ~20× more fees |
 | ±5% Range | $38 → $42 | ~42× | ~42× more fees |
 
-A position covering just ±5% around the current price earns 42× more fees from the same capital than a full-range position — as long as the price stays within that range.
+A position covering just ±5% around the current price earns 42× more fees from the same capital than a full-range position as long as the price stays within that range.
 
 ## 3.4 The Tick System
 
@@ -134,7 +134,7 @@ Ticks are spaced at fixed percentage increments using a logarithmic scale. In Un
 > **Tick-to-Price Mapping**
 > P(i) = 1.0001^i. i = tick index | P(i) = price at that tick | Each tick is 0.01% from the next.
 
-When the current price crosses a tick boundary during a trade, the active liquidity changes — positions that were previously out of range become active, and positions whose range has been exited become inactive. This is called a tick crossing.
+When the current price crosses a tick boundary during a trade, the active liquidity changes positions that were previously out of range become active, and positions whose range has been exited become inactive. This is called a tick crossing.
 
 > **Bins vs. Ticks**
 > Trader Joe's LFJ (used by BalCore) uses a 'bin' model rather than ticks. Each bin represents a fixed price range with a specific price step (e.g., 0.1% per bin for AVAX/USDC). When price moves from one bin to the next, all liquidity in the departed bin is fully converted to one asset. Bins are simpler to reason about and more gas-efficient than the tick model.
@@ -148,14 +148,14 @@ For a full-range constant product AMM, impermanent loss at price ratio R = P_new
 > **Classic IL Formula**
 > IL(R) = 2√R / (1 + R) − 1. R = price ratio (new/old) | Always ≤ 0 (always a loss relative to holding).
 
-For a concentrated position over range [Pa, Pb], the impermanent loss is bounded by the range but more severe within it. At the extreme, if price exits the range entirely on one side, the LP holds 100% of the less-valuable token — the maximum possible impermanent loss for that pair.
+For a concentrated position over range [Pa, Pb], the impermanent loss is bounded by the range but more severe within it. At the extreme, if price exits the range entirely on one side, the LP holds 100% of the less-valuable token the maximum possible impermanent loss for that pair.
 
 | Price Change | Full Range IL | ±20% Range IL | ±5% Range IL |
 |-------------|--------------|---------------|--------------|
 | +5% | -0.06% | -0.06% | Position still active |
-| +10% | -0.23% | -0.30% | Still active — mild loss |
-| +20% | -0.83% | -1.10% | Near upper bound — accelerating |
-| +30% | -1.72% | Range exited | 100% Token B — max loss |
+| +10% | -0.23% | -0.30% | Still active mild loss |
+| +20% | -0.83% | -1.10% | Near upper bound accelerating |
+| +30% | -1.72% | Range exited | 100% Token B max loss |
 | +50% | -4.15% | Range exited | Range exited |
 | +100% | -13.4% | Range exited | Range exited |
 
@@ -165,13 +165,13 @@ For a concentrated position over range [Pa, Pb], the impermanent loss is bounded
 |-----------|-------------------------------|----------------------------------------|
 | Formula | x · y = k (constant product) | x · y = k within each tick/bin; L² = x · y globally |
 | Price Range | 0 → ∞ (full range, always) | [Pa, Pb] chosen by LP per position |
-| Capital Efficiency | Low — most capital inactive | High — all capital in active range |
+| Capital Efficiency | Low most capital inactive | High all capital in active range |
 | Fee Multiplier | 1× (baseline) | Up to 4,000× for very tight ranges |
 | Impermanent Loss | Present, moderate | Present and amplified within range |
-| LP Complexity | Very low — deposit and forget | High — must monitor and rebalance positions |
-| Out-of-Range Risk | None — always earning fees | Capital stops earning when price exits range |
-| Gas Costs (Trading) | Low — simple invariant math | Higher — tick crossings add computation |
-| Gas Costs (LP Mgmt) | Low — single deposit | High — frequent rebalancing needed |
+| LP Complexity | Very low deposit and forget | High must monitor and rebalance positions |
+| Out-of-Range Risk | None always earning fees | Capital stops earning when price exits range |
+| Gas Costs (Trading) | Low simple invariant math | Higher tick crossings add computation |
+| Gas Costs (LP Mgmt) | Low single deposit | High frequent rebalancing needed |
 | Best For LPs | Passive, long-term holders | Active managers or automated systems |
 | Best Pairs | Volatile, wide-range assets | Stablecoins, correlated assets, managed vaults |
 | Protocol Examples | Uniswap v2, SushiSwap | Uniswap v3, LFJ, Pharaoh, Blackhole |
@@ -193,7 +193,7 @@ For a concentrated position over range [Pa, Pb], the impermanent loss is bounded
 | ✅ Pros | ❌ Cons |
 |--------|--------|
 | Dramatically higher capital efficiency: 10–1,000× more fee revenue from the same capital. | Active management required: position must be monitored and rebalanced as price moves. |
-| Better prices for traders: concentrated depth means less slippage on every swap. | Out-of-range risk: when price exits your range, position earns zero fees — dead capital. |
+| Better prices for traders: concentrated depth means less slippage on every swap. | Out-of-range risk: when price exits your range, position earns zero fees dead capital. |
 | Customizable exposure: LPs can express a directional view by choosing asymmetric ranges. | Amplified impermanent loss: tight ranges mean more IL for the same price move vs. full range. |
 | Optimal for stablecoin pairs: near-zero IL when both assets stay pegged, with high fee APY. | Higher gas costs: tick crossings, position management, and NFT-based LP tokens all add gas. |
 | Composable: LP positions are NFTs (unique positions) that can be used in other DeFi protocols. | Complexity barrier: most retail users cannot manage concentrated positions without tooling. |
@@ -206,9 +206,9 @@ Both tokens are designed to be worth $1.00. They rarely deviate more than 0.1% f
 
 | Regular AMM | Concentrated Liquidity |
 |------------|----------------------|
-| Capital spread from $0 to $∞ on USDC/USDT. 99.99% of capital is wasted. | Capital concentrated between $0.999 and $1.001 — all capital is active, all fees are earned. |
+| Capital spread from $0 to $∞ on USDC/USDT. 99.99% of capital is wasted. | Capital concentrated between $0.999 and $1.001 all capital is active, all fees are earned. |
 | Fee APY: perhaps 0.5–2% annually. | Fee APY: potentially 50–500%+ from the same capital. |
-| Verdict: Deeply suboptimal for this pair. | Verdict: Ideal use case — maximum efficiency, near-zero IL. |
+| Verdict: Deeply suboptimal for this pair. | Verdict: Ideal use case maximum efficiency, near-zero IL. |
 
 ## Scenario B: Volatile Asset Pair (AVAX / USDC)
 
@@ -218,7 +218,7 @@ AVAX can move 50–100% in either direction within weeks. Concentrated positions
 |------------|----------------------|
 | Always earns fees, but yield is low because capital is spread too wide. | Earns very high fees when price stays in range, but risks going out-of-range during large moves. |
 | IL is present but moderate; position never fully converts to one token. | Tight range = high fees + high IL risk. Wide range = lower fees + lower IL risk. Tradeoff is constant. |
-| Simple to manage — no ongoing attention needed. | Requires active monitoring, rebalancing, and ideally an automated system like BalCore. |
+| Simple to manage no ongoing attention needed. | Requires active monitoring, rebalancing, and ideally an automated system like BalCore. |
 | Verdict: Acceptable for passive LPs who want simplicity. | Verdict: High potential but requires automation to realize it without excessive risk. |
 
 # 7. Operational Complexity for Liquidity Providers
@@ -228,7 +228,7 @@ AVAX can move 50–100% in either direction within weeks. Concentrated positions
 1. Approve tokens and deposit into the pool contract.
 2. Receive LP tokens representing your pool share.
 3. Wait and collect fees over time.
-4. Withdraw when desired — no time pressure.
+4. Withdraw when desired no time pressure.
 
 > **Complexity Rating: LOW**
 > Regular AMM LP management requires almost no ongoing attention. Deposit once, collect fees, withdraw at will. The main ongoing consideration is monitoring the USD value of the position relative to simply holding the tokens.
@@ -236,11 +236,11 @@ AVAX can move 50–100% in either direction within weeks. Concentrated positions
 ## 7.2 What Concentrated Liquidity LPs Must Do
 
 1. Analyze current price, recent volatility, and expected price range before depositing.
-2. Choose an appropriate price range — narrow for more fees, wide for less risk.
+2. Choose an appropriate price range narrow for more fees, wide for less risk.
 3. Calculate the correct ratio of the two tokens to deposit at the current price within that range.
-4. Monitor price continuously — if it exits your range, your position stops earning fees.
+4. Monitor price continuously if it exits your range, your position stops earning fees.
 5. Rebalance: withdraw, close position, recalculate a new range centered on current price, redeploy.
-6. Pay gas for every rebalance event — frequent rebalancing can eliminate fee profits.
+6. Pay gas for every rebalance event frequent rebalancing can eliminate fee profits.
 7. Track impermanent loss, net fees, gas costs, and opportunity cost to assess true performance.
 
 > **Complexity Rating: VERY HIGH**
@@ -257,34 +257,34 @@ This is precisely the role of liquidity automation protocols. By handling range 
 | Just holding tokens | 0% (price appreciation only) | None |
 | Regular AMM LP | 3–15% APY (fees only) | Minimal |
 | Manual Conc. Liquidity | Potentially 20–100%+ but high loss risk | Very High (near full-time) |
-| Automated Conc. Liquidity (BalCore) | Up to 30% APY, IL protected | None — fully automated |
+| Automated Conc. Liquidity (BalCore) | Up to 30% APY, IL protected | None fully automated |
 
 # 8. Where BalCore Fits In
 
-BalCore's FlowYield System is built specifically on top of concentrated liquidity AMMs — LFJ, Pharaoh, Blackhole, and Uniswap-compatible pools on Avalanche. It captures all the advantages of concentrated liquidity while removing every barrier and risk that prevents retail participants from accessing those advantages:
+BalCore's FlowYield System is built specifically on top of concentrated liquidity AMMs LFJ, Pharaoh, Blackhole, and Uniswap-compatible pools on Avalanche. It captures all the advantages of concentrated liquidity while removing every barrier and risk that prevents retail participants from accessing those advantages:
 
 | Concentrated Liquidity Challenge | How BalCore's FlowYield System Solves It |
 |---------------------------------|----------------------------------------|
 | Choosing the right price range | Uses VAH (Volume Area High), Pivot Point Standard, and volume profile data to intelligently position liquidity where trading activity is highest |
 | Rebalancing when price moves out of range | Automated Dynamic Rebalancing Engine monitors bin movement and adjusts positions in real time, using reserves to restore balance |
-| Managing both active and idle capital | Dual-Layer Architecture keeps 10% in active CL positions and 90% in Benqi reserves earning passive yield — so no capital is ever truly idle |
+| Managing both active and idle capital | Dual-Layer Architecture keeps 10% in active CL positions and 90% in Benqi reserves earning passive yield so no capital is ever truly idle |
 | Impermanent loss risk | Triple-Layer IL Protection: strategic deployment prevents 80–90% of IL; the IL Reserve Fund covers the rest; the Backup Reserve Vault is the ultimate guarantee |
-| Complexity and technical barriers | Fully automated and non-custodial — users deposit once and the protocol handles all position management algorithmically |
+| Complexity and technical barriers | Fully automated and non-custodial users deposit once and the protocol handles all position management algorithmically |
 | Borrowing to rebalance after depletion | RSI/CVD/OI-based borrow logic triggers intelligent borrowing only when market signals confirm reversal, maintaining health factor above 2.0 at all times |
 
 # 9. Summary
 
 The evolution from regular AMMs to concentrated liquidity represents one of the most important efficiency breakthroughs in DeFi history. But this efficiency comes with a complexity cost that has excluded most participants from accessing its benefits.
 
-| Regular AMM — In One Sentence | Concentrated Liquidity — In One Sentence |
+| Regular AMM In One Sentence | Concentrated Liquidity In One Sentence |
 |-------------------------------|------------------------------------------|
-| Simple, passive, always earning, but deeply capital-inefficient — great for users who want simplicity above all else. | Powerful, capital-efficient, high-yielding — but demands active management that is beyond most retail participants without automation. |
+| Simple, passive, always earning, but deeply capital-inefficient great for users who want simplicity above all else. | Powerful, capital-efficient, high-yielding but demands active management that is beyond most retail participants without automation. |
 
 > **The Bottom Line**
-> Concentrated liquidity is strictly superior from a capital efficiency standpoint — but only if the management problem is solved. Protocols like BalCore exist precisely to solve that management problem, making concentrated liquidity accessible to everyone without the complexity, the active monitoring, or the impermanent loss risk.
+> Concentrated liquidity is strictly superior from a capital efficiency standpoint but only if the management problem is solved. Protocols like BalCore exist precisely to solve that management problem, making concentrated liquidity accessible to everyone without the complexity, the active monitoring, or the impermanent loss risk.
 
 ## Start Earning Efficiently
 
-Visit **balcore.io** to access automated, risk-managed concentrated liquidity on Avalanche — no expertise required.
+Visit **balcore.io** to access automated, risk-managed concentrated liquidity on Avalanche no expertise required.
     `,
 };

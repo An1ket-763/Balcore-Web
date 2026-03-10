@@ -6,17 +6,17 @@ export const lpMarketMakerSection: DocSection = {
     shortTitle: "LP & Market Making",
     content: `
 # Liquidity Providers as Market Makers
-## DEX (AMM) vs. Centralized Exchange — How Each Works & How Each Pays
+## DEX (AMM) vs. Centralized Exchange How Each Works & How Each Pays
 
-Market making is one of the most important and historically profitable roles in all of finance. For decades it was the exclusive domain of banks, hedge funds, and licensed broker-dealers. Today, thanks to decentralized exchanges and AMM protocols, any person with a crypto wallet can do exactly what those institutions do — and earn the same type of revenue. This document explains how market making works in both worlds, what the revenue models look like, and why the flexibility available to AMM liquidity providers represents a genuine democratization of financial infrastructure.
+Market making is one of the most important and historically profitable roles in all of finance. For decades it was the exclusive domain of banks, hedge funds, and licensed broker-dealers. Today, thanks to decentralized exchanges and AMM protocols, any person with a crypto wallet can do exactly what those institutions do and earn the same type of revenue. This document explains how market making works in both worlds, what the revenue models look like, and why the flexibility available to AMM liquidity providers represents a genuine democratization of financial infrastructure.
 
 # 1. What Is Market Making?
 
-A market maker is any participant who simultaneously stands ready to buy and sell an asset — providing two-sided liquidity so that other traders can transact immediately without waiting for a natural counterparty. Without market makers, you could only buy when someone else happened to want to sell at the same moment, at the same price. Markets would be illiquid, slow, and expensive.
+A market maker is any participant who simultaneously stands ready to buy and sell an asset providing two-sided liquidity so that other traders can transact immediately without waiting for a natural counterparty. Without market makers, you could only buy when someone else happened to want to sell at the same moment, at the same price. Markets would be illiquid, slow, and expensive.
 
-Market makers profit from the spread — the gap between the price they are willing to buy at (the bid) and the price they are willing to sell at (the ask). Every time a trade passes through their quotes, they capture a small slice of that spread. Applied across millions of trades per day, it generates enormous aggregate revenue.
+Market makers profit from the spread the gap between the price they are willing to buy at (the bid) and the price they are willing to sell at (the ask). Every time a trade passes through their quotes, they capture a small slice of that spread. Applied across millions of trades per day, it generates enormous aggregate revenue.
 
-> **The Spread — Core Market Maker Revenue**
+> **The Spread Core Market Maker Revenue**
 > Spread = Ask Price − Bid Price. Spread Revenue per Trade = Spread × Trade Size. Daily Revenue = Σ (Spread × Trade Size) across all trades. Tighter spread = more competitive quotes = more trade flow captured = more total revenue.
 
 > **The Traditional Barrier**
@@ -26,14 +26,14 @@ Market makers profit from the spread — the gap between the price they are will
 
 ## 2.1 How the Order Book Works
 
-A centralized exchange operates an order book — a continuously updated list of outstanding buy and sell orders at various price levels. The exchange's matching engine pairs incoming orders against the best available quotes.
+A centralized exchange operates an order book a continuously updated list of outstanding buy and sell orders at various price levels. The exchange's matching engine pairs incoming orders against the best available quotes.
 
 There are two types of participants in a CEX order book:
 
 - Makers: traders who post limit orders that sit in the order book waiting to be filled. They add liquidity.
 - Takers: traders who submit market orders that immediately consume existing orders. They remove liquidity.
 
-A professional market maker on a CEX continuously posts both bid and ask orders — tightly spaced around the current mid-price — refreshing them constantly as the market moves. Their goal is to be on both sides of as many trades as possible while managing their inventory risk.
+A professional market maker on a CEX continuously posts both bid and ask orders tightly spaced around the current mid-price refreshing them constantly as the market moves. Their goal is to be on both sides of as many trades as possible while managing their inventory risk.
 
 > **CEX Market Maker Operation Loop**
 > 1. Post bid at $39.95 and ask at $40.05 (spread = $0.10)
@@ -43,7 +43,7 @@ A professional market maker on a CEX continuously posts both bid and ask orders 
 > 5. Continuously adjust quotes as mid-price moves
 >    → Capture spread revenue across thousands of round-trips per day
 
-## 2.2 CEX Revenue Model — Full Breakdown
+## 2.2 CEX Revenue Model Full Breakdown
 
 ## Revenue Stream 1: The Bid-Ask Spread
 
@@ -55,7 +55,7 @@ The primary income source. The market maker quotes a spread and earns the differ
 
 ## Revenue Stream 2: Maker Rebates
 
-Most CEXes operate a maker-taker fee model. Takers (who remove liquidity) pay a fee. Makers (who add liquidity) often receive a rebate — a negative fee that pays them for posting orders. This is how exchanges incentivize market makers to keep order books tight.
+Most CEXes operate a maker-taker fee model. Takers (who remove liquidity) pay a fee. Makers (who add liquidity) often receive a rebate a negative fee that pays them for posting orders. This is how exchanges incentivize market makers to keep order books tight.
 
 | Exchange | Taker Fee | Maker Rebate |
 |----------|-----------|-------------|
@@ -66,13 +66,13 @@ Most CEXes operate a maker-taker fee model. Takers (who remove liquidity) pay a 
 | OKX (VIP) | 0.015% | −0.020% (rebate paid) |
 
 > **Maker Rebate Revenue**
-> Rebate_earned = rebate_rate × notional_volume_posted. Net fee position = taker_fees_paid − maker_rebates_earned. High-volume market makers can earn more in rebates than they pay in fees — a net positive cash flow from exchange fees alone.
+> Rebate_earned = rebate_rate × notional_volume_posted. Net fee position = taker_fees_paid − maker_rebates_earned. High-volume market makers can earn more in rebates than they pay in fees a net positive cash flow from exchange fees alone.
 
 ## Revenue Stream 3: Inventory Management (Hold PnL)
 
-Market makers carry inventory — they hold positions in the assets they trade. If they buy more than they sell in a period, they are long; if they sell more than they buy, they are short. The price change of this inventory position creates profit or loss independent of the spread.
+Market makers carry inventory they hold positions in the assets they trade. If they buy more than they sell in a period, they are long; if they sell more than they buy, they are short. The price change of this inventory position creates profit or loss independent of the spread.
 
-Professional market makers spend enormous resources managing inventory risk — hedging, using derivatives, and dynamically adjusting quotes to push inventory back toward neutral. For retail market makers on a CEX, inventory risk is the most dangerous element and the hardest to manage.
+Professional market makers spend enormous resources managing inventory risk hedging, using derivatives, and dynamically adjusting quotes to push inventory back toward neutral. For retail market makers on a CEX, inventory risk is the most dangerous element and the hardest to manage.
 
 ## Revenue Stream 4: Information Advantage & Rebate Optimization
 
@@ -82,7 +82,7 @@ Sophisticated market makers use real-time order flow data, volatility models, an
 
 Running a competitive market-making operation on a CEX is not free. The costs include:
 
-- Capital lockup: funds must be deposited on the exchange and cannot be used elsewhere — representing a significant opportunity cost
+- Capital lockup: funds must be deposited on the exchange and cannot be used elsewhere representing a significant opportunity cost
 - Counterparty risk: exchange insolvency or hacks can wipe out all deposited capital (FTX collapse: $8B+ lost)
 - Technical infrastructure: co-location, low-latency API access, and order management systems cost hundreds of thousands per year
 - Regulatory licensing: depending on jurisdiction, formal market-maker status requires licenses and compliance programs
@@ -101,9 +101,9 @@ In an AMM, there is no order book and no matching engine. Instead, a smart contr
 The foundational formula is the constant product invariant:
 
 > **Constant Product AMM**
-> **x · y = k** — x = Token A reserve | y = Token B reserve | k = constant that never changes.
+> **x · y = k** x = Token A reserve | y = Token B reserve | k = constant that never changes.
 
-When a trader swaps Token A for Token B, they increase x and decrease y. The formula automatically sets a new price that maintains k. The larger the trade relative to the pool size, the more the price moves — this is slippage.
+When a trader swaps Token A for Token B, they increase x and decrease y. The formula automatically sets a new price that maintains k. The larger the trade relative to the pool size, the more the price moves this is slippage.
 
 > **AMM Trade Execution Flow**
 > 1. Pool holds: 10,000 AVAX + 400,000 USDC  (k = 4,000,000,000)
@@ -111,23 +111,23 @@ When a trader swaps Token A for Token B, they increase x and decrease y. The for
 > 3. New AVAX reserve: 10,100
 > 4. New USDC reserve: 4,000,000,000 / 10,100 = 396,039.60 USDC
 > 5. Trader receives: 400,000 − 396,039.60 = 3,960.40 USDC
-> 6. Effective price: 3,960.40 / 100 = $39.60/AVAX (vs $40.00 spot — slippage)
+> 6. Effective price: 3,960.40 / 100 = $39.60/AVAX (vs $40.00 spot slippage)
 >    → LP earns fee on this trade; pool reserves update automatically
 
 ## 3.2 Classic AMM LP: Passive Market Making
 
-In a classic (full-range) AMM, a liquidity provider deposits both tokens in their current ratio and receives LP tokens representing their pool share. From that point forward, the LP passively earns fees on every trade — no active management required.
+In a classic (full-range) AMM, a liquidity provider deposits both tokens in their current ratio and receives LP tokens representing their pool share. From that point forward, the LP passively earns fees on every trade no active management required.
 
 > **Classic AMM LP Fee Earnings**
 > LP_fee_share = (LP_tokens_held / total_LP_tokens) × fee_rate × trade_volume. APY ≈ (annual_fee_revenue / LP_deposit_value) × 100. Fee rate is typically 0.05%, 0.30%, or 1.00% depending on the pool tier.
 
-The LP's effective position is always split between the two tokens according to the current price ratio. As price moves, the composition shifts automatically — this is the mechanism that creates impermanent loss. The LP is always providing two-sided liquidity at every price level simultaneously, which is exactly what a market maker does, but completely passively.
+The LP's effective position is always split between the two tokens according to the current price ratio. As price moves, the composition shifts automatically this is the mechanism that creates impermanent loss. The LP is always providing two-sided liquidity at every price level simultaneously, which is exactly what a market maker does, but completely passively.
 
 ## 3.3 Concentrated Liquidity LP: Active Market Making
 
 Concentrated liquidity AMMs (Uniswap v3, LFJ, Pharaoh) allow LPs to specify a price range [Pa, Pb] where their capital is deployed. This transforms the LP role from passive background provider into an active, targeted market maker with precise control over their position.
 
-Within the chosen range, the LP's position behaves like a market maker posting a continuous two-sided quote between Pa and Pb. Their capital is entirely concentrated in that band — providing far more depth per dollar than a full-range position, and earning proportionally more fees while the price stays within the range.
+Within the chosen range, the LP's position behaves like a market maker posting a continuous two-sided quote between Pa and Pb. Their capital is entirely concentrated in that band providing far more depth per dollar than a full-range position, and earning proportionally more fees while the price stays within the range.
 
 > **Concentrated LP Capital Efficiency**
 > efficiency_gain = 1 / (1 − √(Pa / Pb)). Example: Range $38–$42 around AVAX at $40 → efficiency_gain = 1 / (1 − √(38/42)) = 1 / (1 − 0.951) ≈ 20×. A ±5% range provides ~20× the fee revenue of a full-range position for the same capital.
@@ -135,13 +135,13 @@ Within the chosen range, the LP's position behaves like a market maker posting a
 > **The AMM LP as Market Maker**
 > When you provide concentrated liquidity between $38 and $42 on AVAX/USDC, you are doing exactly what a professional market maker does: posting a two-sided quote that says 'I will buy AVAX at prices approaching $38 and sell AVAX at prices approaching $42, and I will earn the spread (fees) on every trade that passes through my range.' The only difference is that the AMM handles the execution automatically.
 
-## 3.4 AMM Revenue Model — Full Breakdown
+## 3.4 AMM Revenue Model Full Breakdown
 
 ### Revenue Stream 1: Trading Fees
 
 Every swap against the pool pays a fee. This fee is distributed proportionally to all LPs who have active liquidity at the price where the trade occurred. For a concentrated liquidity position, only LPs whose range includes the current price earn fees on any given trade.
 
-> **Fee Revenue — Concentrated LP**
+> **Fee Revenue Concentrated LP**
 > fee_earned = (your_liquidity_in_active_range / total_liquidity_in_active_range) × fee_rate × swap_volume. Your position earns fees only while the current price is within your [Pa, Pb] range.
 
 Fee rates are set per pool tier: typically 0.01% for stable pairs (USDC/USDT), 0.05% for correlated assets (ETH/BTC), 0.30% for standard volatile pairs (AVAX/USDC), and 1.00% for highly volatile or exotic pairs.
@@ -150,15 +150,15 @@ Fee rates are set per pool tier: typically 0.01% for stable pairs (USDC/USDT), 0
 
 In a standard AMM, capital not actively earning trading fees sits idle. Automation protocols like BalCore solve this by keeping 90% of deposited capital in a reserve vault deployed into lending protocols (such as Benqi on Avalanche), earning passive yield while the active 10% earns trading fees.
 
-> **Total Yield — Dual Layer (BalCore Model)**
+> **Total Yield Dual Layer (BalCore Model)**
 > Y_total = α × Y_LP + (1 − α) × Y_reserve − C_borrow  α = 0.10 (active LP fraction) Y_LP = fee yield from active LP position Y_reserve = passive yield from reserve (Benqi etc.) C_borrow = cost of any outstanding borrow (if applicable)
-> Both layers generate yield simultaneously — no capital is ever truly idle
+> Both layers generate yield simultaneously no capital is ever truly idle
 
 ### Revenue Stream 3: Emission Incentives (Ve(3,3) DEXes)
 
-On Ve(3,3) DEXes like Pharaoh and Aerodrome, pools directed by veToken votes receive weekly token emissions as additional LP incentives. This creates a third layer of revenue on top of trading fees — LPs earn the native DEX token simply for providing liquidity to an incentivized pool.
+On Ve(3,3) DEXes like Pharaoh and Aerodrome, pools directed by veToken votes receive weekly token emissions as additional LP incentives. This creates a third layer of revenue on top of trading fees LPs earn the native DEX token simply for providing liquidity to an incentivized pool.
 
-> **Total LP Return — Ve(3,3) Pool**
+> **Total LP Return Ve(3,3) Pool**
 > LP_return = trading_fee_APY + emission_APY + reserve_yield_APY
 > All three can stack simultaneously on a Ve(3,3) DEX with a vault protocol on top
 
@@ -174,44 +174,44 @@ The most significant difference between AMM market making and CEX market making 
 
 | Requirement | CEX Market Maker | AMM Liquidity Provider |
 |------------|-----------------|----------------------|
-| Minimum capital | $500,000–$10M+ for competitive market making | Any amount — no minimum. $100 deposit works. |
-| Regulatory license | Often required (broker-dealer, MTF membership) | None — permissionless by design |
+| Minimum capital | $500,000–$10M+ for competitive market making | Any amount no minimum. $100 deposit works. |
+| Regulatory license | Often required (broker-dealer, MTF membership) | None permissionless by design |
 | Technical setup | Co-location servers, low-latency APIs, OMS systems | A crypto wallet. Browser interaction only. |
-| Approval process | Months of KYC, AML, exchange vetting | Connect wallet, sign transaction — seconds |
-| Geographic restrictions | Yes — many jurisdictions restrict market makers | None — accessible globally 24/7 |
-| Prior experience | Expected — exchanges prefer established firms | None required — protocol is self-explanatory |
+| Approval process | Months of KYC, AML, exchange vetting | Connect wallet, sign transaction seconds |
+| Geographic restrictions | Yes many jurisdictions restrict market makers | None accessible globally 24/7 |
+| Prior experience | Expected exchanges prefer established firms | None required protocol is self-explanatory |
 
 ## 4.2 Capital Control and Custody
 
 | Dimension | CEX Market Maker | AMM LP |
 |-----------|-----------------|--------|
-| Asset custody | Exchange holds funds — full counterparty risk | Self-custodied — smart contract, not a company |
-| Withdrawal speed | Hours to days — withdrawal queues, limits | Instant (classic AMM) or 7-day cooldown (BalCore vault) |
+| Asset custody | Exchange holds funds full counterparty risk | Self-custodied smart contract, not a company |
+| Withdrawal speed | Hours to days withdrawal queues, limits | Instant (classic AMM) or 7-day cooldown (BalCore vault) |
 | Capital utilization | Capital locked on exchange, earning nothing unless deployed | 90% reserve earns passive yield even when not market-making |
-| Transparency | Black box — no visibility into exchange's use of funds | Fully on-chain — every transaction auditable in real time |
-| Counterparty failure | Risk of exchange collapse (FTX, Celsius precedents) | Risk is smart contract code — no corporate counterparty |
+| Transparency | Black box no visibility into exchange's use of funds | Fully on-chain every transaction auditable in real time |
+| Counterparty failure | Risk of exchange collapse (FTX, Celsius precedents) | Risk is smart contract code no corporate counterparty |
 
 ## 4.3 Quote and Position Flexibility
 
 | Flexibility Type | CEX Market Maker | AMM LP (Concentrated) |
 |-----------------|-----------------|----------------------|
-| Price range targeting | Full order book flexibility — any price level | Set any [Pa, Pb] range — full control over where capital is active |
+| Price range targeting | Full order book flexibility any price level | Set any [Pa, Pb] range full control over where capital is active |
 | Spread width | Post tight or wide spreads dynamically based on signals | Narrow range = tight effective spread. Wide range = wider effective spread. |
 | Directional bias | Post asymmetric bid/ask to express a view | Set asymmetric range (more above or below current price) for directional tilt |
 | Multiple positions | Multiple orders at different price levels simultaneously | Multiple LP positions across different ranges simultaneously |
-| Automated management | Requires custom bots and infrastructure | Handled by protocols like BalCore natively — no infrastructure needed |
-| Pair selection | Limited to pairs listed by the exchange | Any token pair with a liquidity pool — permissionless pair creation |
+| Automated management | Requires custom bots and infrastructure | Handled by protocols like BalCore natively no infrastructure needed |
+| Pair selection | Limited to pairs listed by the exchange | Any token pair with a liquidity pool permissionless pair creation |
 
 ## 4.4 Revenue Model Comparison
 
 | Revenue Source | CEX Market Maker | AMM LP (with Vault Protocol) |
 |---------------|-----------------|------------------------------|
-| Spread / trading fees | Yes — primary income. Requires active quoting infrastructure. | Yes — primary income. Earned automatically by smart contract. |
-| Exchange rebates | Yes — significant at VIP tier. Requires huge volume to unlock. | Not applicable — no CEX fee structure. |
-| Passive yield on idle capital | No — funds on exchange earn nothing while not in quotes. | Yes — reserve layer earns lending yield 24/7 (BalCore model). |
-| Emission incentives | No native equivalent. | Yes — Ve(3,3) DEXes pay weekly emissions to LPs in voted pools. |
-| Governance / bribe income | No. | Yes — veToken holders earn bribe income and protocol-level fees. |
-| Inventory appreciation | Yes — but high risk; can also be largest loss source. | Equivalent to token price exposure — present in both models. |
+| Spread / trading fees | Yes primary income. Requires active quoting infrastructure. | Yes primary income. Earned automatically by smart contract. |
+| Exchange rebates | Yes significant at VIP tier. Requires huge volume to unlock. | Not applicable no CEX fee structure. |
+| Passive yield on idle capital | No funds on exchange earn nothing while not in quotes. | Yes reserve layer earns lending yield 24/7 (BalCore model). |
+| Emission incentives | No native equivalent. | Yes Ve(3,3) DEXes pay weekly emissions to LPs in voted pools. |
+| Governance / bribe income | No. | Yes veToken holders earn bribe income and protocol-level fees. |
+| Inventory appreciation | Yes but high risk; can also be largest loss source. | Equivalent to token price exposure present in both models. |
 
 # 5. Risk Profiles Compared
 
@@ -234,11 +234,11 @@ The most significant difference between AMM market making and CEX market making 
 - Liquidity depth risk: thin pools have high slippage, potentially reducing trading volume and fee generation below expectations.
 
 > **The Risk Asymmetry**
-> CEX market-making risk is dominated by adverse selection, inventory exposure, and counterparty failure — risks that are difficult to quantify and hard to hedge for non-professionals. AMM LP risk is dominated by impermanent loss — a risk that is mathematically well-defined, predictable from pool parameters, and actively mitigated by protocols like BalCore through structural design and funded reserve coverage.
+> CEX market-making risk is dominated by adverse selection, inventory exposure, and counterparty failure risks that are difficult to quantify and hard to hedge for non-professionals. AMM LP risk is dominated by impermanent loss a risk that is mathematically well-defined, predictable from pool parameters, and actively mitigated by protocols like BalCore through structural design and funded reserve coverage.
 
 # 6. Real-World Revenue Examples
 
-## 6.1 CEX Market Maker — Illustrative Example
+## 6.1 CEX Market Maker Illustrative Example
 
 A professional market maker on a major CEX, trading the AVAX/USDT pair:
 
@@ -256,7 +256,7 @@ A professional market maker on a major CEX, trading the AVAX/USDT pair:
 
 This return assumes a calm market with controlled inventory. In volatile conditions, adverse selection losses and inventory exposure can easily turn this into a net loss.
 
-## 6.2 AMM Liquidity Provider — Illustrative Example (with BalCore)
+## 6.2 AMM Liquidity Provider Illustrative Example (with BalCore)
 
 A BalCore vault participant on the AVAX/USDC pair, with the FlowYield system managing positions:
 
@@ -264,7 +264,7 @@ A BalCore vault participant on the AVAX/USDC pair, with the FlowYield system man
 |-----------|-------|
 | Deposited capital | $50,000 |
 | Active LP layer (10%) | $5,000 in concentrated liquidity |
-| Reserve layer (90%) | $45,000 in Benqi — earning ~5% APY |
+| Reserve layer (90%) | $45,000 in Benqi earning ~5% APY |
 | Reserve passive yield/year | $2,250 |
 | Active LP fee capture (estimated) | $3,000–$8,000/year depending on volume |
 | BalCore protocol fee (5% of yield) | −$260 to −$515 |
@@ -276,24 +276,24 @@ Unlike the CEX example, this return is not conditional on sophisticated technolo
 
 # 7. The Democratization of Market Making
 
-For the first time in financial history, the market-making function — and its associated revenue streams — is accessible to anyone. The AMM model has fundamentally rewritten who can participate in this role and on what terms.
+For the first time in financial history, the market-making function and its associated revenue streams is accessible to anyone. The AMM model has fundamentally rewritten who can participate in this role and on what terms.
 
 | Dimension | CEX Market Maker | AMM LP / DEX Market Maker |
 |-----------|-----------------|--------------------------|
-| Market structure | Order book — discrete price levels, matching engine | AMM formula — continuous pricing, automatic execution |
-| Entry requirements | High — capital, licenses, technical infrastructure | None — wallet + internet connection |
-| Capital custody | Exchange holds funds — counterparty risk | Self-custodied — smart contract only |
-| Revenue from spreads | Yes — requires active quoting infrastructure | Yes — earned automatically on every swap |
-| Maker rebates | Yes — significant at VIP tier | Not applicable |
-| Passive yield on reserves | No — idle capital earns nothing | Yes — reserve layer in lending protocols |
-| Emission incentives | No | Yes — on Ve(3,3) DEXes |
-| Range flexibility | Full — any price level in the order book | Full — any [Pa, Pb] range (concentrated liquidity) |
-| Position automation | Requires custom bots and servers | Native — protocols like BalCore handle it fully |
-| IL / inventory risk | Inventory risk — hard to measure and hedge | Impermanent loss — mathematically defined, mitigable |
-| Transparency | Opaque — no visibility into exchange operations | Full on-chain transparency — every action auditable |
+| Market structure | Order book discrete price levels, matching engine | AMM formula continuous pricing, automatic execution |
+| Entry requirements | High capital, licenses, technical infrastructure | None wallet + internet connection |
+| Capital custody | Exchange holds funds counterparty risk | Self-custodied smart contract only |
+| Revenue from spreads | Yes requires active quoting infrastructure | Yes earned automatically on every swap |
+| Maker rebates | Yes significant at VIP tier | Not applicable |
+| Passive yield on reserves | No idle capital earns nothing | Yes reserve layer in lending protocols |
+| Emission incentives | No | Yes on Ve(3,3) DEXes |
+| Range flexibility | Full any price level in the order book | Full any [Pa, Pb] range (concentrated liquidity) |
+| Position automation | Requires custom bots and servers | Native protocols like BalCore handle it fully |
+| IL / inventory risk | Inventory risk hard to measure and hedge | Impermanent loss mathematically defined, mitigable |
+| Transparency | Opaque no visibility into exchange operations | Full on-chain transparency every action auditable |
 | Accessibility | Institutional only in practice | Global, permissionless, any amount |
 
-The table above captures what has genuinely changed. A market maker on a CEX needs permission — from the exchange, from regulators, from the market itself in the form of competitive infrastructure. An AMM LP needs nothing except capital and a wallet. The protocol handles everything else.
+The table above captures what has genuinely changed. A market maker on a CEX needs permission from the exchange, from regulators, from the market itself in the form of competitive infrastructure. An AMM LP needs nothing except capital and a wallet. The protocol handles everything else.
 
 And with automation protocols like BalCore, even the remaining complexity of concentrated liquidity management disappears. The result is a market-making experience that provides institutional-grade revenue streams to participants of any size, in any country, at any time.
 
@@ -304,21 +304,21 @@ And with automation protocols like BalCore, even the remaining complexity of con
 
 | Dimension | CEX Market Maker | AMM LP / DEX Market Maker |
 |-----------|-----------------|--------------------------|
-| Market structure | Order book — discrete price levels, matching engine | AMM formula — continuous pricing, automatic execution |
-| Entry requirements | High — capital, licenses, technical infrastructure |	None — wallet + internet connection |
-| Capital custody | Exchange holds funds — counterparty risk | Self-custodied — smart contract only |
-| Revenue from spreads | Yes — requires active quoting infrastructure |	Yes — earned automatically on every swap |
-| Maker rebates | Yes — significant at VIP tier | Not applicable |
-| Passive yield on reserves | No — idle capital earns nothing |	Yes — reserve layer in lending protocols |
-| Emission incentives | No	| Yes — on Ve(3,3) DEXes |
-| Range flexibility	| Full — any price level in the order book | Full — any [Pa, Pb] range (concentrated liquidity) |
-| Position automation | Requires custom bots and servers | Native — protocols like BalCore handle it fully |
-| IL / inventory risk | Inventory risk — hard to measure and hedge | Impermanent loss — mathematically defined, mitigable |
-| Transparency | Opaque — no visibility into exchange operations | Full on-chain transparency — every action auditable |
+| Market structure | Order book discrete price levels, matching engine | AMM formula continuous pricing, automatic execution |
+| Entry requirements | High capital, licenses, technical infrastructure |	None wallet + internet connection |
+| Capital custody | Exchange holds funds counterparty risk | Self-custodied smart contract only |
+| Revenue from spreads | Yes requires active quoting infrastructure |	Yes earned automatically on every swap |
+| Maker rebates | Yes significant at VIP tier | Not applicable |
+| Passive yield on reserves | No idle capital earns nothing |	Yes reserve layer in lending protocols |
+| Emission incentives | No	| Yes on Ve(3,3) DEXes |
+| Range flexibility	| Full any price level in the order book | Full any [Pa, Pb] range (concentrated liquidity) |
+| Position automation | Requires custom bots and servers | Native protocols like BalCore handle it fully |
+| IL / inventory risk | Inventory risk hard to measure and hedge | Impermanent loss mathematically defined, mitigable |
+| Transparency | Opaque no visibility into exchange operations | Full on-chain transparency every action auditable |
 | Accessibility	| Institutional only in practice | Global, permissionless, any amount |
 
 ## Become a Market Maker Today
 
-Visit **balcore.io** to start providing liquidity as an automated market maker on Avalanche — earning trading fees, reserve yield, and protocol incentives with complete principal protection and zero operational overhead.
+Visit **balcore.io** to start providing liquidity as an automated market maker on Avalanche earning trading fees, reserve yield, and protocol incentives with complete principal protection and zero operational overhead.
     `,
 };
