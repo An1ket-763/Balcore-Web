@@ -47,8 +47,8 @@ const NavBar = () => {
   };
 
   const handleNavClick = (sectionId: string, path: string) => {
-    // If we're on the docs page, navigate to home first
-    if (location.pathname === "/docs") {
+    // If we're on non-home content pages, navigate to home first
+    if (["/docs", "/white-paper"].includes(location.pathname)) {
       navigate(path);
       return;
     }
@@ -96,6 +96,7 @@ const NavBar = () => {
   ];
 
   const isDocsPage = location.pathname === "/docs";
+  const isWhitePaperPage = location.pathname === "/white-paper";
 
   return (
     <>
@@ -150,6 +151,19 @@ const NavBar = () => {
               transition={{ duration: 0.2 }}
             >
               Docs
+              <motion.span
+                className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+              />
+            </motion.button>
+            <motion.button
+              onClick={() => navigate("/white-paper")}
+              className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${
+                isWhitePaperPage ? "text-primary" : ""
+              }`}
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.2 }}
+            >
+              White Paper
               <motion.span
                 className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
               />
@@ -226,6 +240,22 @@ const NavBar = () => {
               transition={{ delay: navItems.length * 0.1 }}
             >
               Docs
+            </motion.button>
+            <motion.button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                navigate("/white-paper");
+              }}
+              className={`block transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full ${
+                isWhitePaperPage
+                  ? "text-primary"
+                  : "text-white/80 hover:text-white/85"
+              }`}
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: (navItems.length + 1) * 0.1 }}
+            >
+              White Paper
             </motion.button>
             <motion.button
               onClick={() => {
