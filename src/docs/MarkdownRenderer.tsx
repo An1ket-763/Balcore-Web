@@ -9,8 +9,7 @@ interface Props {
  * Handles: headings, paragraphs, bold, blockquotes, tables, lists, code, and links.
  */
 const ReactMarkdownRenderer: React.FC<Props> = ({ content }) => {
-  const cleaned = content.replace(/—/g, "-");
-  const lines = cleaned.trim().split("\n");
+  const lines = content.trim().split("\n");
   const elements: React.ReactNode[] = [];
   let i = 0;
 
@@ -228,8 +227,9 @@ const ReactMarkdownRenderer: React.FC<Props> = ({ content }) => {
       continue;
     }
 
-    // Horizontal rule - skip (don't render)
+    // Horizontal rule
     if (line.match(/^---+$/)) {
+      elements.push(<hr key={`hr-${i}`} className="border-border/50 my-8" />);
       i++;
       continue;
     }
