@@ -319,6 +319,6 @@ And with automation protocols like BalCore, even the remaining complexity of con
 
 ## Become a Market Maker Today
 
-Visit **balcore.io** to start providing liquidity as an automated market maker on Avalanche earning trading fees, reserve yield, and protocol incentives with complete principal protection and zero operational overhead.
+Visit **balcore.ai** to start providing liquidity as an automated market maker on Avalanche earning trading fees, reserve yield, and protocol incentives with complete principal protection and zero operational overhead.
     `,
 };

@@ -1,10 +1,10 @@
 import { DocSection } from "./types";
 
 export const blockchainFundamentalsSection: DocSection = {
-    id: "blockchain-fundamentals",
-    title: "Blockchain Fundamentals",
-    shortTitle: "Blockchain",
-    content: `
+  id: "blockchain-fundamentals",
+  title: "Blockchain Fundamentals",
+  shortTitle: "Blockchain",
+  content: `
 
 # Blockchain Fundamentals
 
@@ -637,7 +637,7 @@ Avalanche sits at the intersection of these layers powering public DeFi ecosyste
 
 ## Learn More and Participate
 
-Visit **balcore.io** to participate in the on-chain financial system being built on Avalanche automated liquidity management, reserve yield generation, and complete impermanent loss protection at the frontier of blockchain's third generation.
+Visit **balcore.ai** to participate in the on-chain financial system being built on Avalanche automated liquidity management, reserve yield generation, and complete impermanent loss protection at the frontier of blockchain's third generation.
 
-© 2025 BalCore Inc. balcore.io
+© 2025 BalCore Inc. balcore.ai
 ` };

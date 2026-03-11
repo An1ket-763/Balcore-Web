@@ -160,6 +160,6 @@ BalCore is built to ensure you are a participant. Its FlowYield System automates
 
 # The Future Is Being Built Now
 
-Visit **balcore.io** to join the liquidity revolution and to start earning market-maker returns on the tokenized financial system being built around you.
+Visit **balcore.ai** to join the liquidity revolution and to start earning market-maker returns on the tokenized financial system being built around you.
     `,
 };

@@ -285,8 +285,8 @@
 
 // ## Start Earning Today
 
-// Visit **balcore.io** to connect your wallet and deposit into the FlowYield vault. Up to 30% APY, zero impermanent loss risk, fully automated.
+// Visit **balcore.ai** to connect your wallet and deposit into the FlowYield vault. Up to 30% APY, zero impermanent loss risk, fully automated.
 
-// © 2025 BalCore Inc. — balcore.io
+// © 2025 BalCore Inc. — balcore.ai
 // `,
 // };

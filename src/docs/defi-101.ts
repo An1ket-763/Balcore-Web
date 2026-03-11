@@ -143,7 +143,7 @@ Liquidity Risk | May not be able to exit quickly | 7-day standard + fast-track w
 1. **Get a Wallet:** Download Core Wallet (Avalanche's official wallet) or MetaMask. Write down your seed phrase and store it somewhere safe offline.
 2. **Get AVAX:** Purchase AVAX on a centralized exchange (Coinbase, Binance, Kraken) and transfer it to your wallet.
 3. **Start Small:** Begin with an amount you are comfortable losing while you learn.
-4. **Use BalCore:** Connect your wallet to balcore.io to start earning yield from BalCore's automated liquidity system.
+4. **Use BalCore:** Connect your wallet to balcore.ai to start earning yield from BalCore's automated liquidity system.
 
 > **Important Reminder**
 > DeFi is powerful but carries risk. Never invest funds you cannot afford to lose. Always verify you are using the official website and smart contract addresses.

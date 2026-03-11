@@ -285,6 +285,6 @@ The evolution from regular AMMs to concentrated liquidity represents one of the 
 
 ## Start Earning Efficiently
 
-Visit **balcore.io** to access automated, risk-managed concentrated liquidity on Avalanche no expertise required.
+Visit **balcore.ai** to access automated, risk-managed concentrated liquidity on Avalanche no expertise required.
     `,
 };

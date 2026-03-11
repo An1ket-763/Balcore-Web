@@ -250,6 +250,6 @@ Neither model is universally superior. The Classic AMM's simplicity and ecosyste
 
 ## Learn More
 
-Visit **balcore.io** to see how BalCore's FlowYield system puts these DEX models to work automatically, transparently, and without technical expertise required.
+Visit **balcore.ai** to see how BalCore's FlowYield system puts these DEX models to work automatically, transparently, and without technical expertise required.
     `,
 };

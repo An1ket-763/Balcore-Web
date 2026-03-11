@@ -112,6 +112,6 @@ BalCore is purpose-built for Avalanche a high-performance, low-cost blockchain t
 By choosing Avalanche, BalCore can execute the frequent rebalancing operations that its FlowYield system requires without those operations eating into user returns through prohibitive gas costs.
 
 ## Get Started
-Visit **balcore.io** to connect your wallet and start earning optimized, protected yield on Avalanche.
+Visit **balcore.ai** to connect your wallet and start earning optimized, protected yield on Avalanche.
     `,
 };

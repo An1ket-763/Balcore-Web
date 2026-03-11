@@ -296,6 +296,6 @@ And the protocols that manage liquidity in those exchanges efficiently, automati
 
 ## Be Part of What Comes Next
 
-Visit **balcore.io** to participate in the future of on-chain liquidity automated market making, reserve yield, and complete IL protection for any tokenized asset pair on Avalanche.
+Visit **balcore.ai** to participate in the future of on-chain liquidity automated market making, reserve yield, and complete IL protection for any tokenized asset pair on Avalanche.
     `,
 };
