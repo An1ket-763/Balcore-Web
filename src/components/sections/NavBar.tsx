@@ -144,9 +144,8 @@ const NavBar = () => {
             ))}
             <motion.button
               onClick={() => navigate("/docs")}
-              className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${
-                isDocsPage ? "text-primary" : ""
-              }`}
+              className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${isDocsPage ? "text-primary" : ""
+                }`}
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}
             >
@@ -155,7 +154,7 @@ const NavBar = () => {
                 className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
               />
             </motion.button>
-            <motion.button
+            {/* <motion.button
               onClick={() => navigate("/white-paper")}
               className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${
                 isWhitePaperPage ? "text-primary" : ""
@@ -167,7 +166,7 @@ const NavBar = () => {
               <motion.span
                 className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
               />
-            </motion.button>
+            </motion.button> */}
           </nav>
 
           <motion.button
@@ -232,9 +231,8 @@ const NavBar = () => {
                 setIsMobileMenuOpen(false);
                 navigate("/docs");
               }}
-              className={`block transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full ${
-                isDocsPage ? "text-primary" : "text-white/80 hover:text-white/85"
-              }`}
+              className={`block transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full ${isDocsPage ? "text-primary" : "text-white/80 hover:text-white/85"
+                }`}
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: navItems.length * 0.1 }}
@@ -246,11 +244,10 @@ const NavBar = () => {
                 setIsMobileMenuOpen(false);
                 navigate("/white-paper");
               }}
-              className={`block transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full ${
-                isWhitePaperPage
+              className={`block transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full ${isWhitePaperPage
                   ? "text-primary"
                   : "text-white/80 hover:text-white/85"
-              }`}
+                }`}
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: (navItems.length + 1) * 0.1 }}

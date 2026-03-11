@@ -301,8 +301,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mt-6 text-xl md:text-2xl text-white max-w-3xl leading-relaxed font-medium"
         >
-          Transforming passive capital into active, optimized, orchestrated yield on
-          Avalanche and beyond
+          Solving DeFi’s Trilemma Yield Generation, Capital Protection, and Liquidity Provision. Finally.
         </motion.p>
 
         <motion.p
