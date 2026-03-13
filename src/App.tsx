@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Docs from "./pages/Docs";
 import NotFound from "./pages/NotFound";
-import WhitePaper from "./pages/WhitePaper";
+// import WhitePaper from "./pages/WhitePaper";
 
 const queryClient = new QueryClient();
 
@@ -23,7 +23,7 @@ const App = () => (
             <Route path="/protocol" element={<Index />} />
             <Route path="/contact" element={<Index />} />
             <Route path="/docs" element={<Docs />} />
-            <Route path="/white-paper" element={<WhitePaper />} />
+            {/* <Route path="/white-paper" element={<WhitePaper />} /> */}
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

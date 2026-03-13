@@ -48,7 +48,7 @@ const NavBar = () => {
 
   const handleNavClick = (sectionId: string, path: string) => {
     // If we're on non-home content pages, navigate to home first
-    if (["/docs", "/white-paper"].includes(location.pathname)) {
+    if (["/docs"].includes(location.pathname)) {
       navigate(path);
       return;
     }
@@ -96,7 +96,7 @@ const NavBar = () => {
   ];
 
   const isDocsPage = location.pathname === "/docs";
-  const isWhitePaperPage = location.pathname === "/white-paper";
+  // const isWhitePaperPage = location.pathname === "/white-paper";
 
   return (
     <>
@@ -239,21 +239,21 @@ const NavBar = () => {
             >
               Docs
             </motion.button>
-            <motion.button
+            {/* <motion.button
               onClick={() => {
                 setIsMobileMenuOpen(false);
                 navigate("/white-paper");
               }}
               className={`block transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full ${isWhitePaperPage
-                  ? "text-primary"
-                  : "text-white/80 hover:text-white/85"
+                ? "text-primary"
+                : "text-white/80 hover:text-white/85"
                 }`}
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: (navItems.length + 1) * 0.1 }}
             >
               White Paper
-            </motion.button>
+            </motion.button> */}
             <motion.button
               onClick={() => {
                 setIsMobileMenuOpen(false);
