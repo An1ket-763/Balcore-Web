@@ -6,6 +6,7 @@ import { COLOR_RGB } from "@/constants/colors";
 const HeroSection = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [displayText, setDisplayText] = useState("");
+  const [typingDone, setTypingDone] = useState(false);
   const fullText = "BALCORE";
 
   useEffect(() => {
