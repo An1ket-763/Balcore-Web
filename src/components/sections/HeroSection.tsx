@@ -1,10 +1,22 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { COLOR_RGB } from "@/constants/colors";
 
 const HeroSection = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [displayText, setDisplayText] = useState("");
+  const fullText = "BALCORE";
+
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      setDisplayText(fullText.slice(0, i + 1));
+      i++;
+      if (i >= fullText.length) clearInterval(interval);
+    }, 150);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -289,9 +301,10 @@ const HeroSection = () => {
               aria-hidden="true"
               className="absolute inset-0 -z-10 text-color blur-[5px] opacity-50"
             >
-              BALCORE
+              {displayText}
             </span>
-            BALCORE
+            {displayText}
+            <span className="inline-block w-[3px] h-[0.85em] bg-white ml-1 align-middle animate-[pulse_1s_steps(1)_infinite]" />
           </span>
         </motion.h1>
 
