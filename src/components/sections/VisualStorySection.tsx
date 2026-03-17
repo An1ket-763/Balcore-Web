@@ -22,15 +22,14 @@ const videos = [
 
 const VisualStorySection = () => {
   return (
-    <section id="visual-story" className="py-24 border-t border-border relative section-animated-bg">
+    <section id="visual-story" className="border-t border-border relative section-animated-bg">
       <MarketBackground />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="text-center py-16 px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
         >
           <motion.div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
@@ -46,28 +45,28 @@ const VisualStorySection = () => {
             From Idle Capital to Intelligent Yield
           </h2>
         </motion.div>
+      </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {videos.map((video, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.2 }}
-              className="rounded-2xl overflow-hidden"
-            >
-              <video
-                src={video.src}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-          ))}
-        </div>
+      <div className="grid grid-cols-3 w-full relative z-10">
+        {videos.map((video, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.2 }}
+            className="overflow-hidden"
+          >
+            <video
+              src={video.src}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        ))}
       </div>
     </section>
   );
