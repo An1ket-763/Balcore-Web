@@ -336,7 +336,7 @@ function useVisualStoryCanvases(c1: React.RefObject<HTMLCanvasElement>, c2: Reac
 
     const prng = RNG(55);
     const PPTS = 80;
-    const rawPrices = Array.from({ length: PPTS }, (_, i) => (i === 0 ? 100 : 0));
+    const rawPrices: number[] = Array.from({ length: PPTS }, (_, i) => (i === 0 ? 100 : 0));
     for (let i = 1; i < PPTS; i++) {
       rawPrices[i] = Math.max(
         20,
