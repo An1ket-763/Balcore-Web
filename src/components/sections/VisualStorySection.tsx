@@ -15,18 +15,18 @@ function mono(size: number) {
 }
 
 function titleBlock(ctx: CanvasRenderingContext2D, W: number, line1: string, line2: string, accent: string) {
-  const TH = 210;
+  const TH = 150;
   const sidePadding = 36;
-  const topPadding = 20;
-  const bottomPadding = 20;
-  const lineGap = 12;
+  const topPadding = 16;
+  const bottomPadding = 16;
+  const lineGap = 8;
   const maxTextWidth = W - sidePadding * 2 - 16;
 
   const fitTitleFont = (baseSize: number, text: string, bold = true) => {
     ctx.font = fnt(baseSize, bold);
     const measured = ctx.measureText(text).width;
     const scale = measured > maxTextWidth ? maxTextWidth / measured : 1;
-    return Math.max(44, Math.floor(baseSize * scale));
+    return Math.max(40, Math.floor(baseSize * scale));
   };
 
   const measureTextBounds = (text: string, size: number, bold = true) => {
@@ -37,8 +37,8 @@ function titleBlock(ctx: CanvasRenderingContext2D, W: number, line1: string, lin
     return { ascent, descent };
   };
 
-  const widthFitLine1 = fitTitleFont(100, line1);
-  const widthFitLine2 = fitTitleFont(80, line2);
+  const widthFitLine1 = fitTitleFont(50, line1);
+  const widthFitLine2 = fitTitleFont(40, line2);
   const availableHeight = TH - topPadding - bottomPadding;
 
   let line1Size = widthFitLine1;
@@ -49,8 +49,8 @@ function titleBlock(ctx: CanvasRenderingContext2D, W: number, line1: string, lin
   const rawContentHeight = line1Bounds.ascent + line1Bounds.descent + lineGap + line2Bounds.ascent + line2Bounds.descent;
   if (rawContentHeight > availableHeight) {
     const heightScale = availableHeight / rawContentHeight;
-    line1Size = Math.max(40, Math.floor(line1Size * heightScale));
-    line2Size = Math.max(36, Math.floor(line2Size * heightScale));
+    line1Size = Math.max(36, Math.floor(line1Size * heightScale));
+    line2Size = Math.max(32, Math.floor(line2Size * heightScale));
     line1Bounds = measureTextBounds(line1, line1Size, true);
     line2Bounds = measureTextBounds(line2, line2Size, true);
   }
@@ -688,7 +688,7 @@ function useVisualStoryCanvases(c1: React.RefObject<HTMLCanvasElement>, c2: Reac
 
       badges.forEach(([lbl, col], i) => {
         if (t > i * 0.12) {
-          const iy = TH + 18 + i * 48;
+          const iy = TH + 34 + i * 48;
           ctx.font = mono(24);
           ctx.textAlign = "left";
           const tw = ctx.measureText(lbl).width;
@@ -863,26 +863,29 @@ function useVisualStoryCanvases(c1: React.RefObject<HTMLCanvasElement>, c2: Reac
 
       apyCount = Math.min(18.7, apyCount + 18.7 / 180);
       const apx = W - 175;
-      const apyY = TH + 20;
+      const apyY = TH + 34;
+      const apyW = 176;
+      const apyH = 116;
+      const apyHeaderH = 18;
       ctx.fillStyle = "#030b05";
-      roundRect(ctx, apx - 12, apyY - 10, 176, 106, 10);
+      roundRect(ctx, apx - 12, apyY - 10, apyW, apyH, 10);
       ctx.fill();
       ctx.strokeStyle = "#46db78";
       ctx.lineWidth = 2;
-      roundRect(ctx, apx - 12, apyY - 10, 176, 106, 10);
+      roundRect(ctx, apx - 12, apyY - 10, apyW, apyH, 10);
       ctx.stroke();
       ctx.fillStyle = "#46db78";
-      ctx.fillRect(apx - 12, apyY - 10, 176, 16);
+      ctx.fillRect(apx - 12, apyY - 10, apyW, apyHeaderH);
       ctx.fillStyle = "#030b05";
-      ctx.font = fnt(26, true);
+      ctx.font = fnt(24, true);
       ctx.textAlign = "center";
-      ctx.fillText("APY", apx + 76, apyY + 6);
+      ctx.fillText("APY", apx + 76, apyY + 8);
       ctx.fillStyle = "#46db78";
-      ctx.font = fnt(68, true);
-      ctx.fillText(`${apyCount.toFixed(1)}%`, apx + 76, apyY + 70);
+      ctx.font = fnt(60, true);
+      ctx.fillText(`${apyCount.toFixed(1)}%`, apx + 76, apyY + 74);
       ctx.fillStyle = "#2dd7bc";
-      ctx.font = fnt(24, false);
-      ctx.fillText("LP + Reserve", apx + 76, apyY + 96);
+      ctx.font = fnt(22, false);
+      ctx.fillText("LP + Reserve", apx + 76, apyY + 104);
 
       const inds: [string, string][] = [
         ["✓ STABLE", "#46db78"],
@@ -893,7 +896,7 @@ function useVisualStoryCanvases(c1: React.RefObject<HTMLCanvasElement>, c2: Reac
 
       inds.forEach(([lbl, col], i) => {
         if (t > i * 0.12) {
-          const iy = TH + 18 + i * 48;
+          const iy = TH + 34 + i * 48;
           ctx.font = mono(24);
           ctx.textAlign = "left";
           const tw = ctx.measureText(lbl).width;
@@ -945,7 +948,7 @@ const VisualStorySection = () => {
         </motion.div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-6 w-full relative z-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-x-4 px-6 w-full max-w-[1920px] mx-auto relative z-10">
         {[c1, c2, c3].map((ref, i) => (
           <motion.div
             key={i}
@@ -953,7 +956,7 @@ const VisualStorySection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.2 }}
-            className="overflow-hidden rounded-xl border border-primary/20 bg-[#05020e] aspect-[9/16]"
+            className="overflow-hidden rounded-xl border border-primary/20 bg-[#05020e] aspect-[9/16] max-w-[500px] md:max-w-none mx-auto"
           >
             <canvas ref={ref} className="w-full h-full" />
           </motion.div>
