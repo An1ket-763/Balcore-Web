@@ -948,7 +948,7 @@ const VisualStorySection = () => {
         </motion.div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-x-4 px-6 w-full max-w-[1920px] mx-auto relative z-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-x-8 px-6 pb-6 w-full max-w-[1680px] mx-auto relative z-10">
         {[c1, c2, c3].map((ref, i) => (
           <motion.div
             key={i}
@@ -956,7 +956,7 @@ const VisualStorySection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.2 }}
-            className="overflow-hidden rounded-xl border border-primary/20 bg-[#05020e] aspect-[9/16] max-w-[500px] md:max-w-none mx-auto"
+            className="overflow-hidden rounded-xl border border-primary/20 bg-[#05020e] aspect-[3/5] max-w-[380px] mx-auto"
           >
             <canvas ref={ref} className="w-full h-full" />
           </motion.div>
