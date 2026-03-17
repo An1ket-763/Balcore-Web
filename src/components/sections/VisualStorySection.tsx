@@ -15,20 +15,66 @@ function mono(size: number) {
 }
 
 function titleBlock(ctx: CanvasRenderingContext2D, W: number, line1: string, line2: string, accent: string) {
-  const TH = 190;
+  const TH = 210;
+  const sidePadding = 36;
+  const topPadding = 20;
+  const bottomPadding = 20;
+  const lineGap = 12;
+  const maxTextWidth = W - sidePadding * 2 - 16;
+
+  const fitTitleFont = (baseSize: number, text: string, bold = true) => {
+    ctx.font = fnt(baseSize, bold);
+    const measured = ctx.measureText(text).width;
+    const scale = measured > maxTextWidth ? maxTextWidth / measured : 1;
+    return Math.max(44, Math.floor(baseSize * scale));
+  };
+
+  const measureTextBounds = (text: string, size: number, bold = true) => {
+    ctx.font = fnt(size, bold);
+    const metrics = ctx.measureText(text);
+    const ascent = metrics.actualBoundingBoxAscent || size * 0.78;
+    const descent = metrics.actualBoundingBoxDescent || size * 0.22;
+    return { ascent, descent };
+  };
+
+  const widthFitLine1 = fitTitleFont(100, line1);
+  const widthFitLine2 = fitTitleFont(80, line2);
+  const availableHeight = TH - topPadding - bottomPadding;
+
+  let line1Size = widthFitLine1;
+  let line2Size = widthFitLine2;
+  let line1Bounds = measureTextBounds(line1, line1Size, true);
+  let line2Bounds = measureTextBounds(line2, line2Size, true);
+
+  const rawContentHeight = line1Bounds.ascent + line1Bounds.descent + lineGap + line2Bounds.ascent + line2Bounds.descent;
+  if (rawContentHeight > availableHeight) {
+    const heightScale = availableHeight / rawContentHeight;
+    line1Size = Math.max(40, Math.floor(line1Size * heightScale));
+    line2Size = Math.max(36, Math.floor(line2Size * heightScale));
+    line1Bounds = measureTextBounds(line1, line1Size, true);
+    line2Bounds = measureTextBounds(line2, line2Size, true);
+  }
+
+  const contentHeight = line1Bounds.ascent + line1Bounds.descent + lineGap + line2Bounds.ascent + line2Bounds.descent;
+  const contentTop = (TH - contentHeight) / 2;
+
   ctx.fillStyle = "#030108";
   ctx.fillRect(0, 0, W, TH);
   ctx.fillStyle = accent;
   ctx.fillRect(0, TH - 4, W, 4);
   ctx.fillRect(0, 0, 8, TH);
   ctx.fillRect(W - 8, 0, 8, TH);
+
   ctx.textAlign = "center";
   ctx.fillStyle = "#ffffff";
-  ctx.font = fnt(100, true);
-  ctx.fillText(line1, W / 2, 96);
+  ctx.font = fnt(line1Size, true);
+  const line1Y = contentTop + line1Bounds.ascent;
+  ctx.fillText(line1, W / 2, line1Y);
+
   ctx.fillStyle = accent;
-  ctx.font = fnt(80, true);
-  ctx.fillText(line2, W / 2, 178);
+  ctx.font = fnt(line2Size, true);
+  const line2Y = line1Y + line1Bounds.descent + lineGap + line2Bounds.ascent;
+  ctx.fillText(line2, W / 2, line2Y);
   return TH;
 }
 
