@@ -301,9 +301,10 @@ const HeroSection = () => {
               aria-hidden="true"
               className="absolute inset-0 -z-10 text-color blur-[5px] opacity-50"
             >
-              BALCORE
+              {displayText}
             </span>
-            BALCORE
+            {displayText}
+            <span className="inline-block w-[3px] h-[0.85em] bg-white ml-1 align-middle animate-[pulse_1s_steps(1)_infinite]" />
           </span>
         </motion.h1>
 
