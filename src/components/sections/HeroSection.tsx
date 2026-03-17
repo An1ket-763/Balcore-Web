@@ -305,7 +305,7 @@ const HeroSection = () => {
               {displayText}
             </span>
             {displayText}
-            <span className="inline-block w-[3px] h-[0.85em] bg-white ml-1 align-middle animate-[pulse_1s_steps(1)_infinite]" />
+            {!typingDone && <span className="inline-block w-[3px] h-[0.85em] bg-white ml-1 align-middle animate-[pulse_1s_steps(1)_infinite]" />}
           </span>
         </motion.h1>
 
