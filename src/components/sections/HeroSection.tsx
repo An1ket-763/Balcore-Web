@@ -14,7 +14,7 @@ const HeroSection = () => {
     const interval = setInterval(() => {
       setDisplayText(fullText.slice(0, i + 1));
       i++;
-      if (i >= fullText.length) clearInterval(interval);
+      if (i >= fullText.length) { clearInterval(interval); setTypingDone(true); }
     }, 150);
     return () => clearInterval(interval);
   }, []);
