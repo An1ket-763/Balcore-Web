@@ -47,7 +47,7 @@ const VisualStorySection = () => {
         </motion.div>
       </div>
 
-      <div className="grid grid-cols-3 w-full relative z-10">
+      <div className="grid grid-cols-3 gap-4 px-6 w-full relative z-10">
         {videos.map((video, i) => (
           <motion.div
             key={i}
