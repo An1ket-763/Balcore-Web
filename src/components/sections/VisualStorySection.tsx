@@ -55,28 +55,16 @@ const VisualStorySection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.2 }}
-              className="group relative"
+              className="rounded-2xl overflow-hidden"
             >
-              <div className="h-full p-6 rounded-2xl content-card relative overflow-hidden">
-                <div className="mb-6 rounded-xl overflow-hidden">
-                  <video
-                    src={video.src}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-auto"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-2 text-center group-hover:text-white transition-colors">
-                  {video.title}
-                </h3>
-                <p className="text-white/85 text-sm leading-relaxed text-center">
-                  {video.description}
-                </p>
-
-                <motion.div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-              </div>
+              <video
+                src={video.src}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              />
             </motion.div>
           ))}
         </div>
