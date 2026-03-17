@@ -6,38 +6,12 @@ import MarketBackground from "@/components/backgrounds/MarketBackground";
 const TAU = Math.PI * 2;
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
-const fnt = (size: number, bold = false) => `${bold ? "700" : "400"} ${size}px 'Barlow Condensed', sans-serif`;
-const mono = (size: number) => `${size}px 'Share Tech Mono', monospace`;
-
-function roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
-  ctx.beginPath();
-  ctx.moveTo(x + r, y);
-  ctx.lineTo(x + w - r, y);
-  ctx.arcTo(x + w, y, x + w, y + r, r);
-  ctx.lineTo(x + w, y + h - r);
-  ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
-  ctx.lineTo(x + r, y + h);
-  ctx.arcTo(x, y + h, x, y + h - r, r);
-  ctx.lineTo(x, y + r);
-  ctx.arcTo(x, y, x + r, y, r);
-  ctx.closePath();
+function fnt(size: number, bold = false) {
+  return `${bold ? "700" : "400"} ${size}px 'Barlow Condensed', sans-serif`;
 }
 
-function drawArrow(ctx: CanvasRenderingContext2D, x1: number, y1: number, x2: number, y2: number, col: string) {
-  const dx = x2 - x1;
-  const dy = y2 - y1;
-  const L = Math.sqrt(dx * dx + dy * dy) || 1;
-  const ux = dx / L;
-  const uy = dy / L;
-  const ax = x2 - ux * 16;
-  const ay = y2 - uy * 16;
-  ctx.beginPath();
-  ctx.moveTo(x2, y2);
-  ctx.lineTo(ax - uy * 7, ay + ux * 7);
-  ctx.lineTo(ax + uy * 7, ay - ux * 7);
-  ctx.closePath();
-  ctx.fillStyle = col;
-  ctx.fill();
+function mono(size: number) {
+  return `${size}px 'Share Tech Mono', monospace`;
 }
 
 function titleBlock(ctx: CanvasRenderingContext2D, W: number, line1: string, line2: string, accent: string) {
@@ -93,6 +67,222 @@ function dotGrid(ctx: CanvasRenderingContext2D, W: number, H: number, col: strin
   ctx.globalAlpha = 1;
 }
 
+function roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.arcTo(x + w, y, x + w, y + r, r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+  ctx.lineTo(x + r, y + h);
+  ctx.arcTo(x, y + h, x, y + h - r, r);
+  ctx.lineTo(x, y + r);
+  ctx.arcTo(x, y, x + r, y, r);
+  ctx.closePath();
+}
+
+function drawArrow(ctx: CanvasRenderingContext2D, x1: number, y1: number, x2: number, y2: number, col: string) {
+  const dx = x2 - x1;
+  const dy = y2 - y1;
+  const L = Math.sqrt(dx * dx + dy * dy) || 1;
+  const ux = dx / L;
+  const uy = dy / L;
+  const ax = x2 - ux * 16;
+  const ay = y2 - uy * 16;
+  ctx.beginPath();
+  ctx.moveTo(x2, y2);
+  ctx.lineTo(ax - uy * 7, ay + ux * 7);
+  ctx.lineTo(ax + uy * 7, ay - ux * 7);
+  ctx.closePath();
+  ctx.fillStyle = col;
+  ctx.fill();
+}
+
+function drawHub(ctx: CanvasRenderingContext2D, cx: number, cy: number, t: number) {
+  const pr = 4 * Math.sin(t * TAU * 2.5);
+  [[92 + pr, 0.38, 1], [76, 0.85, 2], [60, 1.0, 3]].forEach(([r, fa, lw]) => {
+    ctx.beginPath();
+    ctx.arc(cx, cy, r as number, 0, TAU);
+    ctx.fillStyle = "#040210";
+    ctx.fill();
+    ctx.fillStyle = "rgba(155,93,229,0.25)";
+    ctx.fill();
+    ctx.strokeStyle = `rgba(155,93,229,${Math.min(1, (fa as number) + 0.12 * Math.sin(t * TAU * 4))})`;
+    ctx.lineWidth = lw as number;
+    ctx.stroke();
+  });
+  ctx.beginPath();
+  ctx.arc(cx, cy, 18, 0, TAU);
+  ctx.fillStyle = "rgba(155,93,229,0.95)";
+  ctx.fill();
+
+  for (let i = 0; i < 32; i++) {
+    const a = (i / 32) * TAU + t * TAU * 0.4;
+    const r1 = 93;
+    const r2 = i % 8 === 0 ? 101 : 97;
+    ctx.beginPath();
+    ctx.moveTo(cx + Math.cos(a) * r1, cy + Math.sin(a) * r1);
+    ctx.lineTo(cx + Math.cos(a) * r2, cy + Math.sin(a) * r2);
+    ctx.strokeStyle = "rgba(155,93,229,0.8)";
+    ctx.lineWidth = i % 8 === 0 ? 2.5 : 1;
+    ctx.stroke();
+  }
+
+  ctx.fillStyle = "#ffffff";
+  ctx.font = fnt(48, true);
+  ctx.textAlign = "center";
+  ctx.fillText("BALCORE", cx, cy - 12);
+  ctx.fillStyle = "#c8a0ff";
+  ctx.font = fnt(26, true);
+  ctx.fillText("ORCHESTRATION", cx, cy + 22);
+  ctx.fillText("LAYER", cx, cy + 52);
+}
+
+function drawSatNode(
+  ctx: CanvasRenderingContext2D,
+  cx: number,
+  cy: number,
+  r: number,
+  label: string,
+  sub: string,
+  col: string,
+  angleDeg: number,
+  W: number,
+  H: number,
+) {
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, TAU);
+  ctx.fillStyle = "#040210";
+  ctx.fill();
+  ctx.fillStyle = `${col}44`;
+  ctx.fill();
+  ctx.strokeStyle = col;
+  ctx.lineWidth = 2.5;
+  ctx.stroke();
+
+  const a = (angleDeg * Math.PI) / 180;
+  ctx.font = fnt(32, true);
+  const lw = ctx.measureText(label).width;
+  ctx.font = fnt(24, false);
+  const sw = ctx.measureText(sub).width;
+  const boxW = Math.max(lw, sw) + 24;
+  const boxH = sub ? 72 : 46;
+
+  let bx: number;
+  let by: number;
+  const ca = Math.cos(a);
+  const sa = Math.sin(a);
+  if (ca > 0.3) bx = cx + r + 10;
+  else if (ca < -0.3) bx = cx - r - 10 - boxW;
+  else bx = cx - boxW / 2;
+
+  if (sa > 0.3) by = cy + r + 8;
+  else if (sa < -0.3) by = cy - r - 8 - boxH;
+  else by = cy - boxH / 2;
+
+  bx = Math.max(8, Math.min(W - boxW - 8, bx));
+  by = Math.max(8, Math.min(H - boxH - 8, by));
+
+  ctx.fillStyle = "rgba(4,2,16,0.94)";
+  roundRect(ctx, bx, by, boxW, boxH, 7);
+  ctx.fill();
+  ctx.strokeStyle = `${col}88`;
+  ctx.lineWidth = 1.5;
+  roundRect(ctx, bx, by, boxW, boxH, 7);
+  ctx.stroke();
+
+  ctx.fillStyle = "#ffffff";
+  ctx.font = fnt(32, true);
+  ctx.textAlign = "left";
+  ctx.fillText(label, bx + 12, by + 30);
+  if (sub) {
+    ctx.fillStyle = col;
+    ctx.font = fnt(24, false);
+    ctx.fillText(sub, bx + 12, by + 58);
+  }
+}
+
+function drawCoreHub(ctx: CanvasRenderingContext2D, cx: number, cy: number, t: number) {
+  const pr = 4 * Math.sin(t * TAU * 2.5);
+  [[78 + pr, 0.35, 1], [62, 0.88, 2], [48, 1.0, 3]].forEach(([r, fa, lw]) => {
+    ctx.beginPath();
+    ctx.arc(cx, cy, r as number, 0, TAU);
+    ctx.fillStyle = "#030b05";
+    ctx.fill();
+    ctx.fillStyle = "rgba(70,219,120,0.22)";
+    ctx.fill();
+    ctx.strokeStyle = `rgba(70,219,120,${fa})`;
+    ctx.lineWidth = lw as number;
+    ctx.stroke();
+  });
+
+  ctx.beginPath();
+  ctx.arc(cx, cy, 18, 0, TAU);
+  ctx.fillStyle = "rgba(70,219,120,0.95)";
+  ctx.fill();
+
+  for (let i = 0; i < 32; i++) {
+    const a = (i / 32) * TAU + t * TAU * 0.1;
+    const r1 = 80;
+    const r2 = i % 8 === 0 ? 88 : 84;
+    ctx.beginPath();
+    ctx.moveTo(cx + Math.cos(a) * r1, cy + Math.sin(a) * r1);
+    ctx.lineTo(cx + Math.cos(a) * r2, cy + Math.sin(a) * r2);
+    ctx.strokeStyle = "rgba(70,219,120,0.8)";
+    ctx.lineWidth = i % 8 === 0 ? 2.5 : 1.5;
+    ctx.stroke();
+  }
+
+  ctx.fillStyle = "#ffffff";
+  ctx.font = fnt(44, true);
+  ctx.textAlign = "center";
+  ctx.fillText("BALCORE", cx, cy - 8);
+  ctx.fillStyle = "#a0ffb4";
+  ctx.font = fnt(26, true);
+  ctx.fillText("BALANCED CORE", cx, cy + 28);
+}
+
+function drawPoolNode(ctx: CanvasRenderingContext2D, cx: number, cy: number, r: number, label: string, sub: string, col: string, W: number, H: number) {
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, TAU);
+  ctx.fillStyle = "#030b05";
+  ctx.fill();
+  ctx.fillStyle = `${col}44`;
+  ctx.fill();
+  ctx.strokeStyle = col;
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  ctx.font = fnt(28, true);
+  const lw = ctx.measureText(label).width;
+  ctx.font = fnt(22, false);
+  const sw = ctx.measureText(sub).width;
+  const bw = Math.max(lw, sw) + 20;
+  const bh = sub ? 60 : 38;
+  const bx = cx - bw / 2;
+  const by = cy + r + 6;
+  const byAdj = Math.min(by, H - bh - 8);
+  const bxAdj = Math.max(6, Math.min(W - bw - 6, bx));
+
+  ctx.fillStyle = "rgba(3,11,5,0.94)";
+  roundRect(ctx, bxAdj, byAdj, bw, bh, 6);
+  ctx.fill();
+  ctx.strokeStyle = `${col}66`;
+  ctx.lineWidth = 1;
+  roundRect(ctx, bxAdj, byAdj, bw, bh, 6);
+  ctx.stroke();
+
+  ctx.textAlign = "center";
+  ctx.fillStyle = "#ffffff";
+  ctx.font = fnt(28, true);
+  ctx.fillText(label, bxAdj + bw / 2, byAdj + 24);
+  if (sub) {
+    ctx.fillStyle = col;
+    ctx.font = fnt(22, false);
+    ctx.fillText(sub, bxAdj + bw / 2, byAdj + 50);
+  }
+}
+
 function useVisualStoryCanvases(c1: React.RefObject<HTMLCanvasElement>, c2: React.RefObject<HTMLCanvasElement>, c3: React.RefObject<HTMLCanvasElement>) {
   useEffect(() => {
     const initCanvas = (canvas: HTMLCanvasElement | null) => {
@@ -103,7 +293,7 @@ function useVisualStoryCanvases(c1: React.RefObject<HTMLCanvasElement>, c2: Reac
       canvas.height = H;
       const ctx = canvas.getContext("2d");
       if (!ctx) return null;
-      return { canvas, ctx, W, H };
+      return { ctx, W, H };
     };
 
     const cv1 = initCanvas(c1.current);
@@ -111,11 +301,6 @@ function useVisualStoryCanvases(c1: React.RefObject<HTMLCanvasElement>, c2: Reac
     const cv3 = initCanvas(c3.current);
     if (!cv1 || !cv2 || !cv3) return;
 
-    let raf1 = 0;
-    let raf2 = 0;
-    let raf3 = 0;
-
-    // Canvas 1
     const RNG = (seed: number) => {
       let s = seed;
       return () => {
@@ -123,9 +308,21 @@ function useVisualStoryCanvases(c1: React.RefObject<HTMLCanvasElement>, c2: Reac
         return s / 0x7fffffff;
       };
     };
+
+    let raf1 = 0;
+    let raf2 = 0;
+    let raf3 = 0;
+
+    // CANVAS 1
     const rng = RNG(42);
-    const LABELS = ["POOL A", "POOL B", "ETH/USDC", "BTC/DAI", "LP TOKEN", "VAULT", "AVAX/ETH", "YIELD", "FARM", "STAKE", "AMM", "DEX", "RESERVE", "LIQUIDITY", "PROTOCOL", "BRIDGE", "SWAP", "BORROW", "LEND", "HEDGE", "VAULT", "POOL", "TOKEN", "MARKET", "SPREAD", "FEE", "REWARD", "LOCK"];
+    const LABELS = [
+      "POOL A", "POOL B", "ETH/USDC", "BTC/DAI", "LP TOKEN", "VAULT", "AVAX/ETH",
+      "YIELD", "FARM", "STAKE", "AMM", "DEX", "RESERVE", "LIQUIDITY", "PROTOCOL",
+      "BRIDGE", "SWAP", "BORROW", "LEND", "HEDGE", "VAULT", "POOL", "TOKEN",
+      "MARKET", "SPREAD", "FEE", "REWARD", "LOCK",
+    ];
     const COLS = ["#eb3228", "#ff6450", "#7329d3", "#9b5de5", "#ff9114"];
+
     const blocks = Array.from({ length: 28 }, (_, i) => ({
       x: 80 + rng() * (cv1.W - 200),
       y: 0,
@@ -136,10 +333,16 @@ function useVisualStoryCanvases(c1: React.RefObject<HTMLCanvasElement>, c2: Reac
       sy: (rng() - 0.5) * 1.0,
       label: LABELS[i % LABELS.length],
     }));
+
     const prng = RNG(55);
     const PPTS = 80;
     const rawPrices = Array.from({ length: PPTS }, (_, i) => (i === 0 ? 100 : 0));
-    for (let i = 1; i < PPTS; i++) rawPrices[i] = Math.max(20, Math.min(260, rawPrices[i - 1] + (prng() - 0.48) * 14 + (prng() < 0.07 ? (prng() - 0.5) * 60 : 0)));
+    for (let i = 1; i < PPTS; i++) {
+      rawPrices[i] = Math.max(
+        20,
+        Math.min(260, rawPrices[i - 1] + (prng() - 0.48) * 14 + (prng() < 0.07 ? (prng() - 0.5) * 60 : 0)),
+      );
+    }
 
     const prng2 = RNG(99);
     const particles = Array.from({ length: 70 }, (_, i) => ({
@@ -148,27 +351,65 @@ function useVisualStoryCanvases(c1: React.RefObject<HTMLCanvasElement>, c2: Reac
       r: 3 + prng2() * 8,
       col: COLS[i % COLS.length],
     }));
+
     const prng3 = RNG(13);
-    const conns = Array.from({ length: 14 }, () => [Math.floor(prng3() * 28), Math.floor(prng3() * 28)]);
+    const conns = Array.from({ length: 14 }, () => {
+      const a = Math.floor(prng3() * 28);
+      const b = Math.floor(prng3() * 28);
+      return [a, b] as const;
+    });
 
     const draw1 = (ts: number) => {
       const { ctx, W, H } = cv1;
       const t = (ts * 0.0006) % 1;
       ctx.clearRect(0, 0, W, H);
+
       ctx.fillStyle = "#0a0306";
       ctx.fillRect(0, 0, W, H);
 
+      ctx.strokeStyle = "rgba(235,50,40,0.07)";
+      ctx.lineWidth = 1;
+      for (let x = 0; x < W; x += 72) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, H);
+        ctx.stroke();
+      }
+      ctx.strokeStyle = "rgba(115,41,211,0.06)";
+      for (let y = 0; y < H; y += 72) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(W, y);
+        ctx.stroke();
+      }
+
       const TH = titleBlock(ctx, W, "FRAGMENTED", "LIQUIDITY", "#eb3228");
-      const FY = footerBlock(ctx, W, H, ["Liquidity in DeFi is scattered", "across pools and protocols,", "creating inefficiencies", "and unstable markets."], "#eb3228");
+      const FY = footerBlock(
+        ctx,
+        W,
+        H,
+        [
+          "Liquidity in DeFi is scattered",
+          "across pools and protocols,",
+          "creating inefficiencies",
+          "and unstable markets.",
+        ],
+        "#eb3228",
+      );
+
       const ZY1 = TH + 20;
       const ZY2 = FY - 20;
       const ZH = ZY2 - ZY1;
 
       blocks.forEach((b) => {
-        if (!b.y || b.y < ZY1 || b.y > ZY2 - b.h) b.y = ZY1 + 40 + Math.random() * (ZH - 120);
+        if (!b.y || b.y < ZY1 || b.y > ZY2 - b.h) {
+          b.y = ZY1 + 40 + Math.random() * (ZH - 120);
+        }
       });
       particles.forEach((p) => {
-        if (!p.y || p.y < ZY1 || p.y > ZY2) p.y = ZY1 + 20 + Math.random() * (ZH - 40);
+        if (!p.y || p.y < ZY1 || p.y > ZY2) {
+          p.y = ZY1 + 20 + Math.random() * (ZH - 40);
+        }
       });
 
       ctx.lineWidth = 1.5;
@@ -189,25 +430,31 @@ function useVisualStoryCanvases(c1: React.RefObject<HTMLCanvasElement>, c2: Reac
       rawPrices.forEach((p, i) => {
         const px = 60 + (i / (PPTS - 1)) * (W - 120);
         const py = ZY2 - 40 - ((p - mn) / (mx2 - mn)) * (ZH * 0.45);
-        i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+        if (i === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
       });
       ctx.strokeStyle = "rgba(235,50,40,0.55)";
       ctx.lineWidth = 3;
       ctx.stroke();
 
       blocks.forEach((b, i) => {
-        const rx = b.x + Math.sin(t * TAU * 1.4 + i * 0.9) * 22 * b.sx;
-        const ry = b.y + Math.cos(t * TAU * 1.1 + i * 1.3) * 15 * b.sy;
+        const wx = Math.sin(t * TAU * 1.4 + i * 0.9) * 22 * b.sx;
+        const wy = Math.cos(t * TAU * 1.1 + i * 1.3) * 15 * b.sy;
+        const rx = b.x + wx;
+        const ry = b.y + wy;
         if (ry < ZY1 || ry + b.h > ZY2) return;
+
         ctx.globalAlpha = 0.18;
         ctx.fillStyle = b.col;
         roundRect(ctx, rx, ry, b.w, b.h, 8);
         ctx.fill();
+
         ctx.globalAlpha = 0.85;
         ctx.strokeStyle = b.col;
         ctx.lineWidth = 2;
         roundRect(ctx, rx, ry, b.w, b.h, 8);
         ctx.stroke();
+
         ctx.globalAlpha = 0.9;
         ctx.fillStyle = b.col;
         ctx.font = mono(22);
@@ -216,11 +463,28 @@ function useVisualStoryCanvases(c1: React.RefObject<HTMLCanvasElement>, c2: Reac
         ctx.globalAlpha = 1;
       });
 
+      [0.14, 0.33, 0.55, 0.72, 0.88].forEach((sx) => {
+        const px = 60 + sx * (W - 120);
+        const pulse = Math.abs(Math.sin(t * TAU * 3 + sx * 10));
+        ctx.strokeStyle = `rgba(235,50,40,${0.12 + 0.35 * pulse})`;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(px, ZY1 + 10);
+        ctx.lineTo(px, ZY2);
+        ctx.stroke();
+
+        ctx.fillStyle = `rgba(235,50,40,${0.6 + 0.4 * pulse})`;
+        ctx.font = fnt(36, true);
+        ctx.textAlign = "center";
+        ctx.fillText("↯", px, ZY1 + 6);
+      });
+
       particles.forEach((p, i) => {
         const phase = (t * 1.8 + i * 0.23) % 1;
         const px = p.x + Math.sin(phase * TAU + i) * 28;
         const py = p.y + Math.cos(phase * TAU * 1.5 + i * 0.8) * 20;
         if (py < ZY1 || py > ZY2) return;
+
         ctx.globalAlpha = 0.7;
         ctx.fillStyle = p.col;
         ctx.beginPath();
@@ -229,10 +493,28 @@ function useVisualStoryCanvases(c1: React.RefObject<HTMLCanvasElement>, c2: Reac
         ctx.globalAlpha = 1;
       });
 
+      const pulse = 0.5 + 0.5 * Math.abs(Math.sin(t * TAU * 2));
+      const warns: [number, number, string][] = [
+        [160, ZY1 + 100, "IDLE"],
+        [W - 200, ZY1 + 140, "FRAGMENTED"],
+        [140, ZY2 - 120, "INEFFICIENT"],
+        [W - 220, ZY2 - 100, "UNCOORDINATED"],
+      ];
+      warns.forEach(([wx, wy, lbl]) => {
+        ctx.font = mono(26);
+        ctx.textAlign = "center";
+        const tw = ctx.measureText(lbl).width;
+        ctx.strokeStyle = `rgba(235,50,40,${0.3 + 0.5 * pulse})`;
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(wx - tw / 2 - 10, wy - 10, tw + 20, 36);
+        ctx.fillStyle = `rgba(235,50,40,${0.6 + 0.4 * pulse})`;
+        ctx.fillText(lbl, wx, wy + 20);
+      });
+
       raf1 = requestAnimationFrame(draw1);
     };
 
-    // Canvas 2
+    // CANVAS 2
     const SATS = [
       { ang: 270, label: "RESERVE", sub: "90% CAP", col: "#c8a0ff" },
       { ang: 321, label: "REBALANCER", sub: "AUTO", col: "#cd73ff" },
@@ -242,6 +524,7 @@ function useVisualStoryCanvases(c1: React.RefObject<HTMLCanvasElement>, c2: Reac
       { ang: 167, label: "USER", sub: "DEPOSITS", col: "#c8a0ff" },
       { ang: 218, label: "ORACLE", sub: "VAH DATA", col: "#2dd7bc" },
     ];
+    const NODE_R = 56;
     const ORBIT_R = 360;
 
     const draw2 = (ts: number) => {
@@ -253,9 +536,30 @@ function useVisualStoryCanvases(c1: React.RefObject<HTMLCanvasElement>, c2: Reac
       dotGrid(ctx, W, H, "#9b5de5", 0.1, 96);
 
       const TH = titleBlock(ctx, W, "BALCORE", "ORCHESTRATION", "#9b5de5");
-      const FY = footerBlock(ctx, W, H, ["Balcore intelligently routes", "liquidity in real time, adapting", "to market conditions and", "maintaining balance across systems."], "#9b5de5");
+      const FY = footerBlock(
+        ctx,
+        W,
+        H,
+        [
+          "Balcore intelligently routes",
+          "liquidity in real time, adapting",
+          "to market conditions and",
+          "maintaining balance across systems.",
+        ],
+        "#9b5de5",
+      );
       const CX = W / 2;
       const CY = TH + (FY - TH) * 0.52;
+
+      for (let i = 7; i > 0; i--) {
+        const r = 70 + i * 70;
+        const pulse = 0.03 + 0.02 * Math.sin(t * TAU + i * 0.9);
+        ctx.beginPath();
+        ctx.arc(CX, CY, r, 0, TAU);
+        ctx.strokeStyle = `rgba(155,93,229,${pulse})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
 
       SATS.forEach((s, si) => {
         const a = (s.ang * Math.PI) / 180;
@@ -263,8 +567,8 @@ function useVisualStoryCanvases(c1: React.RefObject<HTMLCanvasElement>, c2: Reac
         const ny = CY + Math.sin(a) * ORBIT_R;
         const hx = CX + Math.cos(a) * 100;
         const hy = CY + Math.sin(a) * 100;
-        const ex = CX + Math.cos(a) * (ORBIT_R - 60);
-        const ey = CY + Math.sin(a) * (ORBIT_R - 60);
+        const ex = CX + Math.cos(a) * (ORBIT_R - NODE_R - 4);
+        const ey = CY + Math.sin(a) * (ORBIT_R - NODE_R - 4);
 
         ctx.beginPath();
         ctx.moveTo(hx, hy);
@@ -272,61 +576,116 @@ function useVisualStoryCanvases(c1: React.RefObject<HTMLCanvasElement>, c2: Reac
         ctx.strokeStyle = `${s.col}66`;
         ctx.lineWidth = 2.5;
         ctx.stroke();
+
         drawArrow(ctx, hx, hy, ex, ey, s.col);
+        drawArrow(ctx, ex, ey, hx, hy, s.col);
 
-        const frac = (t + si / SATS.length) % 1;
-        const px = lerp(hx, ex, frac);
-        const py = lerp(hy, ey, frac);
-        ctx.beginPath();
-        ctx.arc(px, py, 7, 0, TAU);
-        ctx.fillStyle = s.col;
-        ctx.fill();
+        for (let d = 0; d < 3; d++) {
+          const frac = (t + si / 7 + d / 3) % 1;
+          const px = lerp(hx, ex, frac);
+          const py = lerp(hy, ey, frac);
+          ctx.beginPath();
+          ctx.arc(px, py, 7, 0, TAU);
+          ctx.fillStyle = s.col;
+          ctx.fill();
 
+          ctx.beginPath();
+          ctx.arc(px, py, 13, 0, TAU);
+          ctx.strokeStyle = `${s.col}44`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+
+        for (let d = 0; d < 3; d++) {
+          const frac = (t + 0.5 + si / 7 + d / 3) % 1;
+          const px = lerp(ex, hx, frac);
+          const py = lerp(ey, hy, frac);
+          ctx.beginPath();
+          ctx.arc(px, py, 7, 0, TAU);
+          ctx.fillStyle = s.col;
+          ctx.fill();
+        }
+
+        const ns = SATS[(si + 1) % 7];
+        const na2 = (ns.ang * Math.PI) / 180;
+        const nx2 = CX + Math.cos(na2) * (ORBIT_R - NODE_R - 4);
+        const ny2 = CY + Math.sin(na2) * (ORBIT_R - NODE_R - 4);
+        const p2 = 0.07 + 0.06 * Math.sin(t * TAU * 3 + si * 0.8);
         ctx.beginPath();
-        ctx.arc(nx, ny, 56, 0, TAU);
-        ctx.fillStyle = "#040210";
-        ctx.fill();
-        ctx.fillStyle = `${s.col}44`;
-        ctx.fill();
-        ctx.strokeStyle = s.col;
-        ctx.lineWidth = 2.5;
+        ctx.moveTo(ex, ey);
+        ctx.lineTo(nx2, ny2);
+        ctx.strokeStyle = `${s.col}${Math.round(p2 * 255)
+          .toString(16)
+          .padStart(2, "0")}`;
+        ctx.lineWidth = 1;
         ctx.stroke();
+
+        const ct = (t * 0.6 + (si / 7) * 0.4) % 1;
+        const cpx = lerp(ex, nx2, ct);
+        const cpy = lerp(ey, ny2, ct);
+        ctx.beginPath();
+        ctx.arc(cpx, cpy, 5, 0, TAU);
+        ctx.fillStyle = `${s.col}aa`;
+        ctx.fill();
+
+        drawSatNode(ctx, nx, ny, NODE_R, s.label, s.sub, s.col, s.ang, W, H);
       });
 
-      ctx.beginPath();
-      ctx.arc(CX, CY, 76, 0, TAU);
-      ctx.fillStyle = "rgba(155,93,229,0.25)";
-      ctx.fill();
-      ctx.strokeStyle = "rgba(155,93,229,0.95)";
-      ctx.lineWidth = 2;
-      ctx.stroke();
-      ctx.fillStyle = "#ffffff";
-      ctx.font = fnt(48, true);
-      ctx.textAlign = "center";
-      ctx.fillText("BALCORE", CX, CY - 12);
-      ctx.fillStyle = "#c8a0ff";
-      ctx.font = fnt(26, true);
-      ctx.fillText("ORCHESTRATION", CX, CY + 22);
-      ctx.fillText("LAYER", CX, CY + 52);
+      drawHub(ctx, CX, CY, t);
+
+      const badges: [string, string][] = [
+        ["SMART ROUTING", "#c8a0ff"],
+        ["IL PROTECTION", "#2dd7bc"],
+        ["HF > 2.0 ✓", "#46db78"],
+        ["YIELD OPTIMIZED", "#e1b937"],
+      ];
+
+      badges.forEach(([lbl, col], i) => {
+        if (t > i * 0.12) {
+          const iy = TH + 18 + i * 48;
+          ctx.font = mono(24);
+          ctx.textAlign = "left";
+          const tw = ctx.measureText(lbl).width;
+
+          ctx.fillStyle = "#04020c";
+          roundRect(ctx, 10, iy - 8, tw + 28, 40, 6);
+          ctx.fill();
+
+          ctx.strokeStyle = col;
+          ctx.lineWidth = 2;
+          roundRect(ctx, 10, iy - 8, tw + 28, 40, 6);
+          ctx.stroke();
+
+          ctx.fillStyle = col;
+          ctx.fillText(lbl, 22, iy + 22);
+        }
+      });
 
       raf2 = requestAnimationFrame(draw2);
     };
 
-    // Canvas 3
+    // CANVAS 3
     const POOLS = [
-      { r: 210, ang: 0, col: "#46db78" },
-      { r: 210, ang: 60, col: "#a0ffb4" },
-      { r: 210, ang: 120, col: "#2dd7bc" },
-      { r: 210, ang: 180, col: "#46db78" },
-      { r: 210, ang: 240, col: "#a0ffb4" },
-      { r: 210, ang: 300, col: "#2dd7bc" },
-      { r: 290, ang: 30, col: "#46db78" },
-      { r: 290, ang: 150, col: "#23a050" },
-      { r: 290, ang: 270, col: "#2dd7bc" },
-      { r: 365, ang: 90, col: "#e1b937" },
-      { r: 365, ang: 210, col: "#a0ffb4" },
-      { r: 365, ang: 330, col: "#2dd7bc" },
+      { r: 210, ang: 0, label: "AVAX/USDC", sub: "LP POOL", col: "#46db78" },
+      { r: 210, ang: 60, label: "AVAX/ETH", sub: "LP POOL", col: "#a0ffb4" },
+      { r: 210, ang: 120, label: "USDC/DAI", sub: "STABLE", col: "#2dd7bc" },
+      { r: 210, ang: 180, label: "BTC/USDC", sub: "LP POOL", col: "#46db78" },
+      { r: 210, ang: 240, label: "ETH/BTC", sub: "LP POOL", col: "#a0ffb4" },
+      { r: 210, ang: 300, label: "JOE/AVAX", sub: "LP POOL", col: "#2dd7bc" },
+      { r: 290, ang: 30, label: "RESERVE", sub: "90%", col: "#46db78" },
+      { r: 290, ang: 150, label: "ACTIVE LP", sub: "10%", col: "#23a050" },
+      { r: 290, ang: 270, label: "BENQI", sub: "LEND", col: "#2dd7bc" },
+      { r: 365, ang: 90, label: "YIELD OUT", sub: "18.7%", col: "#e1b937" },
+      { r: 365, ang: 210, label: "USER", sub: "DEPOSIT", col: "#a0ffb4" },
+      { r: 365, ang: 330, label: "ORACLE", sub: "VAH", col: "#2dd7bc" },
     ];
+
+    const RINGS = [
+      { r: 210, col: "#46db78", spd: 0.05, ticks: 8 },
+      { r: 290, col: "#2dd7bc", spd: -0.04, ticks: 10 },
+      { r: 365, col: "#23a050", spd: 0.03, ticks: 12 },
+    ];
+
     let apyCount = 0;
 
     const draw3 = (ts: number) => {
@@ -338,9 +697,62 @@ function useVisualStoryCanvases(c1: React.RefObject<HTMLCanvasElement>, c2: Reac
       dotGrid(ctx, W, H, "#46db78", 0.07, 96);
 
       const TH = titleBlock(ctx, W, "COORDINATED", "LIQUIDITY", "#46db78");
-      const FY = footerBlock(ctx, W, H, ["The result is a balanced liquidity", "system that improves efficiency,", "stability, and long-term", "capital performance."], "#46db78");
+      const FY = footerBlock(
+        ctx,
+        W,
+        H,
+        [
+          "The result is a balanced liquidity",
+          "system that improves efficiency,",
+          "stability, and long-term",
+          "capital performance.",
+        ],
+        "#46db78",
+      );
+
       const CX = W / 2;
       const CY = TH + (FY - TH) * 0.52;
+
+      RINGS.forEach(({ r, col, spd, ticks }) => {
+        const rot = t * TAU * spd;
+        ctx.beginPath();
+        ctx.arc(CX, CY, r, 0, TAU);
+        ctx.strokeStyle = `${col}99`;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        for (let i = 0; i < ticks; i++) {
+          const a = (i / ticks) * TAU + rot;
+          const l = i % (ticks / 4) === 0 ? 9 : 5;
+          ctx.beginPath();
+          ctx.moveTo(CX + Math.cos(a) * (r - l), CY + Math.sin(a) * (r - l));
+          ctx.lineTo(CX + Math.cos(a) * (r + l), CY + Math.sin(a) * (r + l));
+          ctx.strokeStyle = `${col}cc`;
+          ctx.lineWidth = i % (ticks / 4) === 0 ? 2.5 : 1.5;
+          ctx.stroke();
+        }
+
+        for (let i = 0; i < 6; i++) {
+          const a = (i / 6) * TAU + rot * 2;
+          const bright = 0.5 + 0.5 * Math.sin(t * TAU * 4 + i + r * 0.02);
+          const dx = CX + Math.cos(a) * r;
+          const dy = CY + Math.sin(a) * r;
+          ctx.beginPath();
+          ctx.arc(dx, dy, 7, 0, TAU);
+          ctx.fillStyle = `${col}${Math.round(bright * 255)
+            .toString(16)
+            .padStart(2, "0")}`;
+          ctx.fill();
+
+          ctx.beginPath();
+          ctx.arc(dx, dy, 13, 0, TAU);
+          ctx.strokeStyle = `${col}${Math.round(bright * 80)
+            .toString(16)
+            .padStart(2, "0")}`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      });
 
       POOLS.forEach(({ r, ang, col }, ni) => {
         const a = (ang * Math.PI) / 180;
@@ -354,39 +766,54 @@ function useVisualStoryCanvases(c1: React.RefObject<HTMLCanvasElement>, c2: Reac
         ctx.strokeStyle = `${col}44`;
         ctx.lineWidth = 1.5;
         ctx.stroke();
-        const frac = (t + ni / POOLS.length) % 1;
-        const px = lerp(sx, nx, frac);
-        const py = lerp(sy, ny, frac);
-        ctx.beginPath();
-        ctx.arc(px, py, 5, 0, TAU);
-        ctx.fillStyle = col;
-        ctx.fill();
 
+        for (let d = 0; d < 4; d++) {
+          const frac = (t + ni / 12 + d / 4) % 1;
+          const fade = Math.sin(frac * Math.PI);
+          const px = lerp(sx, nx, frac);
+          const py = lerp(sy, ny, frac);
+          ctx.beginPath();
+          ctx.arc(px, py, 5, 0, TAU);
+          ctx.fillStyle = `${col}${Math.round(fade * 220)
+            .toString(16)
+            .padStart(2, "0")}`;
+          ctx.fill();
+        }
+      });
+
+      const ringLinks: [number, number][] = [
+        [0, 1],
+        [1, 2],
+        [2, 3],
+        [3, 4],
+        [4, 5],
+        [5, 0],
+        [6, 7],
+        [7, 8],
+        [8, 6],
+      ];
+
+      ringLinks.forEach(([a, b]) => {
+        const pa = POOLS[a];
+        const pb = POOLS[b];
+        const ax = CX + Math.cos((pa.ang * Math.PI) / 180) * pa.r;
+        const ay = CY + Math.sin((pa.ang * Math.PI) / 180) * pa.r;
+        const bx = CX + Math.cos((pb.ang * Math.PI) / 180) * pb.r;
+        const by = CY + Math.sin((pb.ang * Math.PI) / 180) * pb.r;
         ctx.beginPath();
-        ctx.arc(nx, ny, 24, 0, TAU);
-        ctx.fillStyle = "#030b05";
-        ctx.fill();
-        ctx.fillStyle = `${col}44`;
-        ctx.fill();
-        ctx.strokeStyle = col;
-        ctx.lineWidth = 2;
+        ctx.moveTo(ax, ay);
+        ctx.lineTo(bx, by);
+        ctx.strokeStyle = "rgba(70,219,120,0.22)";
+        ctx.lineWidth = 1;
         ctx.stroke();
       });
 
-      ctx.beginPath();
-      ctx.arc(CX, CY, 62, 0, TAU);
-      ctx.fillStyle = "rgba(70,219,120,0.22)";
-      ctx.fill();
-      ctx.strokeStyle = "rgba(70,219,120,1)";
-      ctx.lineWidth = 2;
-      ctx.stroke();
-      ctx.fillStyle = "#ffffff";
-      ctx.font = fnt(44, true);
-      ctx.textAlign = "center";
-      ctx.fillText("BALCORE", CX, CY - 8);
-      ctx.fillStyle = "#a0ffb4";
-      ctx.font = fnt(26, true);
-      ctx.fillText("BALANCED CORE", CX, CY + 28);
+      POOLS.forEach(({ r, ang, label, sub, col }) => {
+        const a = (ang * Math.PI) / 180;
+        drawPoolNode(ctx, CX + Math.cos(a) * r, CY + Math.sin(a) * r, 32, label, sub, col, W, H);
+      });
+
+      drawCoreHub(ctx, CX, CY, t);
 
       apyCount = Math.min(18.7, apyCount + 18.7 / 180);
       const apx = W - 175;
@@ -402,10 +829,39 @@ function useVisualStoryCanvases(c1: React.RefObject<HTMLCanvasElement>, c2: Reac
       ctx.fillRect(apx - 12, apyY - 10, 176, 16);
       ctx.fillStyle = "#030b05";
       ctx.font = fnt(26, true);
+      ctx.textAlign = "center";
       ctx.fillText("APY", apx + 76, apyY + 6);
       ctx.fillStyle = "#46db78";
       ctx.font = fnt(68, true);
       ctx.fillText(`${apyCount.toFixed(1)}%`, apx + 76, apyY + 70);
+      ctx.fillStyle = "#2dd7bc";
+      ctx.font = fnt(24, false);
+      ctx.fillText("LP + Reserve", apx + 76, apyY + 96);
+
+      const inds: [string, string][] = [
+        ["✓ STABLE", "#46db78"],
+        ["✓ EFFICIENT", "#2dd7bc"],
+        ["✓ HF > 2.0", "#a0ffb4"],
+        ["✓ OPTIMIZED", "#e1b937"],
+      ];
+
+      inds.forEach(([lbl, col], i) => {
+        if (t > i * 0.12) {
+          const iy = TH + 18 + i * 48;
+          ctx.font = mono(24);
+          ctx.textAlign = "left";
+          const tw = ctx.measureText(lbl).width;
+          ctx.fillStyle = "#030b05";
+          roundRect(ctx, 10, iy - 8, tw + 28, 40, 6);
+          ctx.fill();
+          ctx.strokeStyle = col;
+          ctx.lineWidth = 2;
+          roundRect(ctx, 10, iy - 8, tw + 28, 40, 6);
+          ctx.stroke();
+          ctx.fillStyle = col;
+          ctx.fillText(lbl, 22, iy + 22);
+        }
+      });
 
       raf3 = requestAnimationFrame(draw3);
     };
@@ -439,7 +895,6 @@ const VisualStorySection = () => {
             <Eye className="w-4 h-4 text-color" />
             <span className="text-xs font-semibold text-white tracking-wider">HOW IT WORKS</span>
           </motion.div>
-
           <h2 className="section-title font-light text-3xl md:text-4xl lg:text-5xl text-white">From Idle Capital to Intelligent Yield</h2>
         </motion.div>
       </div>
