@@ -1,4 +1,7 @@
+import { motion } from "framer-motion";
+import { Eye } from "lucide-react";
 import { useEffect, useRef, type RefObject } from "react";
+import MarketBackground from "@/components/backgrounds/MarketBackground";
 
 const TAU = Math.PI * 2;
 
@@ -424,59 +427,15 @@ const VisualStorySection = () => {
   };
 
   return (
-    <section id="visual-story" className="relative border-t border-border bg-[#07060e] px-6 py-[88px] text-white">
+    <section id="visual-story" className="border-t border-border relative section-animated-bg">
+      <MarketBackground />
+
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Bebas+Neue&display=swap');
 
-        .visual-story-shell,
-        .visual-story-shell * {
+        .visual-story-card,
+        .visual-story-card * {
           box-sizing: border-box;
-        }
-
-        .visual-story-shell {
-          font-family: 'DM Sans', sans-serif;
-          color: #ffffff;
-        }
-
-        .visual-story-shell-header {
-          text-align: center;
-          padding: 0 24px 56px;
-        }
-
-        .visual-story-shell-header h1 {
-          font-family: 'Bebas Neue', sans-serif;
-          font-size: clamp(2.6rem, 5vw, 4rem);
-          letter-spacing: 0.1em;
-          line-height: 1;
-          color: #ffffff;
-        }
-
-        .visual-story-shell-header h1 em {
-          font-style: normal;
-          color: #a78bfa;
-        }
-
-        .visual-story-shell-header p {
-          margin-top: 16px;
-          font-size: 0.92rem;
-          font-weight: 300;
-          color: rgba(255, 255, 255, 0.45);
-          letter-spacing: 0.05em;
-        }
-
-        .visual-story-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 16px;
-          max-width: 1200px;
-          margin: 0 auto;
-        }
-
-        @media (max-width: 800px) {
-          .visual-story-grid {
-            grid-template-columns: 1fr;
-            max-width: 380px;
-          }
         }
 
         .visual-story-card {
@@ -487,6 +446,8 @@ const VisualStorySection = () => {
           display: flex;
           flex-direction: column;
           transition: transform 0.35s ease, border-color 0.35s ease;
+          font-family: 'DM Sans', sans-serif;
+          color: #ffffff;
         }
 
         .visual-story-card:hover {
@@ -553,28 +514,36 @@ const VisualStorySection = () => {
         }
       `}</style>
 
-      <div className="visual-story-shell mx-auto max-w-[1248px]">
-        <header className="visual-story-shell-header">
-          <h1>
-            BALCORE — <em>HOW IT WORKS</em>
-          </h1>
-          <p>CAPITAL THAT MOVES WITH PURPOSE.</p>
-        </header>
+      <div className="text-center py-16 px-6 relative z-10">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+          <motion.div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6" whileHover={{ scale: 1.05 }}>
+            <Eye className="w-4 h-4 text-color" />
+            <span className="text-xs font-semibold text-white tracking-wider">HOW IT WORKS</span>
+          </motion.div>
+          <h2 className="section-title font-light text-3xl md:text-4xl lg:text-5xl text-white">From Idle Capital to Intelligent Yield</h2>
+        </motion.div>
+      </div>
 
-        <div className="visual-story-grid">
-          {cards.map((card) => (
-            <div key={card.refKey} className={`visual-story-card ${card.accentClass}`}>
-              <div className="visual-story-vis">
-                <canvas ref={canvasMap[card.refKey]} />
-              </div>
-              <div className="visual-story-info">
-                <div className="visual-story-step">{card.step}</div>
-                <h2>{card.title}</h2>
-                <p>{card.description}</p>
-              </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-x-8 px-6 pb-6 w-full max-w-[1680px] mx-auto relative z-10">
+        {cards.map((card, i) => (
+          <motion.div
+            key={card.refKey}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.2 }}
+            className={`visual-story-card ${card.accentClass} max-w-[380px] mx-auto w-full`}
+          >
+            <div className="visual-story-vis">
+              <canvas ref={canvasMap[card.refKey]} />
             </div>
-          ))}
-        </div>
+            <div className="visual-story-info">
+              <div className="visual-story-step">{card.step}</div>
+              <h2>{card.title}</h2>
+              <p>{card.description}</p>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
