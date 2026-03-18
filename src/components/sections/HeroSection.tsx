@@ -5,19 +5,6 @@ import { COLOR_RGB } from "@/constants/colors";
 
 const HeroSection = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [displayText, setDisplayText] = useState("");
-  const [typingDone, setTypingDone] = useState(false);
-  const fullText = "BALCORE";
-
-  useEffect(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      setDisplayText(fullText.slice(0, i + 1));
-      i++;
-      if (i >= fullText.length) { clearInterval(interval); setTypingDone(true); }
-    }, 200);
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -297,16 +284,27 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.15 }}
           className="text-5xl md:text-6xl lg:text-7xl leading-[1.1] max-w-5xl"
         >
-          <span className="relative inline-block font-sans font-weight:400 tracking-[0.28em] text-white uppercase">
-            <span
-              aria-hidden="true"
-              className="absolute inset-0 -z-10 text-color blur-[5px] opacity-50"
+          <div className="relative inline-block overflow-hidden font-sans tracking-[0.28em] text-white uppercase">
+
+            {/* TEXT (smooth reveal) */}
+            <motion.span
+              initial={{ clipPath: "inset(0 100% 0 0)" }}
+              animate={{ clipPath: "inset(0 0% 0 0)" }}
+              transition={{ duration: 1.4, ease: [0.77, 0, 0.175, 1] }}
+              className="inline-block"
             >
-              {displayText}
-            </span>
-            {displayText}
-            {!typingDone && <span className="inline-block w-[3px] h-[0.85em] bg-white ml-1 align-middle animate-[pulse_1s_steps(1)_infinite]" />}
-          </span>
+              BALCORE
+            </motion.span>
+
+            {/* MOVING BLOCK */}
+            <motion.div
+              initial={{ left: "0%" }}
+              animate={{ left: "100%" }}
+              transition={{ duration: 1.4, ease: [0.77, 0, 0.175, 1] }}
+              className="absolute top-0 h-full w-[35px] bg-white"
+            />
+
+          </div>
         </motion.h1>
 
         <motion.p
