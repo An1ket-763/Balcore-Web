@@ -297,7 +297,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.15 }}
           className="text-5xl md:text-6xl lg:text-7xl leading-[1.1] max-w-5xl"
         >
-          <span className="relative inline-block font-sans font-semibold tracking-[0.28em] text-white uppercase">
+          <span className="relative inline-block font-sans font-weight:400 tracking-[0.28em] text-white uppercase">
             <span
               aria-hidden="true"
               className="absolute inset-0 -z-10 text-color blur-[5px] opacity-50"
