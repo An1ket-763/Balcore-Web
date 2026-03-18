@@ -392,21 +392,18 @@ function useVisualStoryCanvases(
 const cards = [
   {
     refKey: "c1",
-    step: "Step 01",
     title: "Idle Capital",
     description: "Most capital in DeFi sits unused, waiting for opportunities.",
     accentClass: "visual-story-card-1",
   },
   {
     refKey: "c2",
-    step: "Step 02",
     title: "Smart Capital Movement",
     description: "Balcore helps capital move where it's needed, automatically.",
     accentClass: "visual-story-card-2",
   },
   {
     refKey: "c3",
-    step: "Step 03",
     title: "Better Results",
     description: "The result is more efficient markets and more consistent outcomes.",
     accentClass: "visual-story-card-3",
@@ -539,7 +536,6 @@ const VisualStorySection = () => {
                 <canvas ref={canvasMap[card.refKey]} />
               </div>
               <div className="visual-story-info">
-                <div className="visual-story-step">{card.step}</div>
                 <h2>{card.title}</h2>
                 <p>{card.description}</p>
               </div>
