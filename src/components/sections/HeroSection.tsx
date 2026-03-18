@@ -5,6 +5,17 @@ import { COLOR_RGB } from "@/constants/colors";
 
 const HeroSection = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const letters = "BALCORE".length;
+
+  // create stepped keyframes
+  const clipKeyframes = Array.from({ length: letters }, (_, i) => {
+    const percent = 100 - ((i + 1) / letters) * 100;
+    return `inset(0 ${percent}% 0 0)`;
+  });
+
+  const leftKeyframes = Array.from({ length: letters + 1 }, (_, i) => {
+    return `${(i / letters) * 100}%`;
+  });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -286,22 +297,29 @@ const HeroSection = () => {
         >
           <div className="relative inline-block overflow-hidden font-sans tracking-[0.28em] text-white uppercase">
 
-            {/* TEXT (smooth reveal) */}
+            {/* TEXT */}
             <motion.span
               initial={{ clipPath: "inset(0 100% 0 0)" }}
-              animate={{ clipPath: "inset(0 0% 0 0)" }}
-              transition={{ duration: 1.4, ease: [0.77, 0, 0.175, 1] }}
-              className="inline-block"
+              animate={{ clipPath: clipKeyframes }}
+              transition={{
+                duration: 1.6,
+                times: clipKeyframes.map((_, i) => (i + 1) / letters),
+                ease: "linear",
+              }}
             >
               BALCORE
             </motion.span>
 
-            {/* MOVING BLOCK */}
+            {/* BLOCK */}
             <motion.div
-              initial={{ left: "0%" }}
-              animate={{ left: "100%" }}
-              transition={{ duration: 1.4, ease: [0.77, 0, 0.175, 1] }}
-              className="absolute top-0 h-full w-[35px] bg-white"
+              initial={{ left: leftKeyframes[0] }}
+              animate={{ left: leftKeyframes }}
+              transition={{
+                duration: 1.6,
+                times: leftKeyframes.map((_, i) => i / letters),
+                ease: "linear",
+              }}
+              className="absolute top-0 h-full w-[22px] bg-white"
             />
 
           </div>
