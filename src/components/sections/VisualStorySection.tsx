@@ -427,7 +427,7 @@ const VisualStorySection = () => {
   };
 
   return (
-    <section id="visual-story" className="border-t border-border relative section-animated-bg">
+    <section id="visual-story" className="border-t border-border relative section-animated-bg overflow-hidden">
       <MarketBackground />
 
       <style>{`
@@ -514,36 +514,38 @@ const VisualStorySection = () => {
         }
       `}</style>
 
-      <div className="text-center py-16 px-6 relative z-10">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <motion.div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6" whileHover={{ scale: 1.05 }}>
-            <Eye className="w-4 h-4 text-color" />
-            <span className="text-xs font-semibold text-white tracking-wider">HOW IT WORKS</span>
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="text-center py-16">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <motion.div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6" whileHover={{ scale: 1.05 }}>
+              <Eye className="w-4 h-4 text-color" />
+              <span className="text-xs font-semibold text-white tracking-wider">HOW IT WORKS</span>
+            </motion.div>
+            <h2 className="section-title font-light text-3xl md:text-4xl lg:text-5xl text-white">From Idle Capital to Intelligent Yield</h2>
           </motion.div>
-          <h2 className="section-title font-light text-3xl md:text-4xl lg:text-5xl text-white">From Idle Capital to Intelligent Yield</h2>
-        </motion.div>
-      </div>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-x-8 px-6 pb-6 w-full max-w-[1680px] mx-auto relative z-10">
-        {cards.map((card, i) => (
-          <motion.div
-            key={card.refKey}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.2 }}
-            className={`visual-story-card ${card.accentClass} max-w-[380px] mx-auto w-full`}
-          >
-            <div className="visual-story-vis">
-              <canvas ref={canvasMap[card.refKey]} />
-            </div>
-            <div className="visual-story-info">
-              <div className="visual-story-step">{card.step}</div>
-              <h2>{card.title}</h2>
-              <p>{card.description}</p>
-            </div>
-          </motion.div>
-        ))}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-x-8 pb-6 w-full max-w-[1680px] mx-auto">
+          {cards.map((card, i) => (
+            <motion.div
+              key={card.refKey}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.2 }}
+              className={`visual-story-card ${card.accentClass} max-w-[380px] mx-auto w-full`}
+            >
+              <div className="visual-story-vis">
+                <canvas ref={canvasMap[card.refKey]} />
+              </div>
+              <div className="visual-story-info">
+                <div className="visual-story-step">{card.step}</div>
+                <h2>{card.title}</h2>
+                <p>{card.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
