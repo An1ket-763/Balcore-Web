@@ -6,37 +6,17 @@ import { COLOR_RGB } from "@/constants/colors";
 const HeroSection = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [displayText, setDisplayText] = useState("");
-  const [showCursor, setShowCursor] = useState(true);
+  const [typingDone, setTypingDone] = useState(false);
   const fullText = "BALCORE";
 
   useEffect(() => {
-    let frame = 0;
-    let timeoutId: ReturnType<typeof setTimeout> | null = null;
-    const startDelay = 350;
-    const typeDelay = 145;
-
-    const typeNext = (index: number) => {
-      timeoutId = setTimeout(() => {
-        setDisplayText(fullText.slice(0, index + 1));
-        if (index + 1 < fullText.length) {
-          typeNext(index + 1);
-        }
-      }, index === 0 ? startDelay : typeDelay);
-    };
-
-    typeNext(0);
-
-    const blinkCursor = () => {
-      setShowCursor((value) => !value);
-      frame = window.setTimeout(blinkCursor, 530);
-    };
-
-    frame = window.setTimeout(blinkCursor, 530);
-
-    return () => {
-      window.clearTimeout(frame);
-      if (timeoutId) window.clearTimeout(timeoutId);
-    };
+    let i = 0;
+    const interval = setInterval(() => {
+      setDisplayText(fullText.slice(0, i + 1));
+      i++;
+      if (i >= fullText.length) { clearInterval(interval); setTypingDone(true); }
+    }, 200);
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -324,13 +304,8 @@ const HeroSection = () => {
             >
               {displayText}
             </span>
-            <span className="inline-flex items-center min-w-[8.5ch] justify-start">
-              {displayText}
-              <span
-                aria-hidden="true"
-                className={`ml-[0.12em] inline-block h-[0.88em] w-[2px] rounded-full bg-white/90 align-middle transition-opacity duration-150 ${showCursor ? "opacity-100" : "opacity-0"}`}
-              />
-            </span>
+            {displayText}
+            {!typingDone && <span className="inline-block w-[3px] h-[0.85em] bg-white ml-1 align-middle animate-[pulse_1s_steps(1)_infinite]" />}
           </span>
         </motion.h1>
 
