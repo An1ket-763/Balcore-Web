@@ -5,17 +5,15 @@ import { COLOR_RGB } from "@/constants/colors";
 
 const HeroSection = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const letters = "BALCORE".length;
+  const [showCursor, setShowCursor] = useState(true);
 
-  // create stepped keyframes
-  const clipKeyframes = Array.from({ length: letters }, (_, i) => {
-    const percent = 100 - ((i + 1) / letters) * 100;
-    return `inset(0 ${percent}% 0 0)`;
-  });
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowCursor(false);
+    }, 1800); // tweak if needed
 
-  const leftKeyframes = Array.from({ length: letters + 1 }, (_, i) => {
-    return `${(i / letters) * 100}%`;
-  });
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -295,34 +293,51 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.15 }}
           className="text-5xl md:text-6xl lg:text-7xl leading-[1.1] max-w-5xl"
         >
-          <div className="relative inline-block overflow-hidden font-sans tracking-[0.28em] text-white uppercase">
-
+          <motion.div
+            variants={{
+              hidden: { opacity: 1 },
+              visible: {
+                transition: {
+                  staggerChildren: 0.15, // The typing speed (lower is faster)
+                  delayChildren: 0.6,    // Wait for the h1 to fade in first
+                },
+              },
+            }}
+            initial="hidden"
+            animate="visible"
+            className="flex items-center font-sans tracking-[0.28em] text-white uppercase"
+          >
             {/* TEXT */}
-            <motion.span
-              initial={{ clipPath: "inset(0 100% 0 0)" }}
-              animate={{ clipPath: clipKeyframes }}
-              transition={{
-                duration: 1.6,
-                times: clipKeyframes.map((_, i) => (i + 1) / letters),
-                ease: "linear",
-              }}
-            >
-              BALCORE
-            </motion.span>
+            <div className="flex">
+              {"BALCORE".split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  variants={{
+                    // display: none ensures it takes up 0 space until typed, naturally pushing the cursor right
+                    hidden: { display: "none" },
+                    visible: { display: "inline-block" },
+                  }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </div>
 
-            {/* BLOCK */}
-            <motion.div
-              initial={{ left: leftKeyframes[0] }}
-              animate={{ left: leftKeyframes }}
-              transition={{
-                duration: 1.6,
-                times: leftKeyframes.map((_, i) => i / letters),
-                ease: "linear",
-              }}
-              className="absolute top-0 h-full w-[22px] bg-white"
-            />
-
-          </div>
+            {/* BLINKING BLOCK CURSOR */}
+            {showCursor && (
+              <motion.div
+                initial={{ opacity: 1 }}
+                animate={{ opacity: [1, 0] }}
+                transition={{
+                  duration: 0.8,
+                  repeat: Infinity,
+                  ease: "linear",
+                  repeatType: "reverse"
+                }}
+                className="h-[0.85em] w-[22px] bg-white -mt-1 ml-1"
+              />
+            )}
+          </motion.div>
         </motion.h1>
 
         <motion.p
