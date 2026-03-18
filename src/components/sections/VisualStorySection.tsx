@@ -127,12 +127,16 @@ function useVisualStoryCanvases(
       btc: new Image(),
       avax: new Image(),
       eth: new Image(),
+      nvda: new Image(),
+      tsla: new Image(),
     };
 
     assetImages.usdc.src = "/logo3.png";
     assetImages.btc.src = "/logo2.png";
     assetImages.avax.src = "/logo1.png";
     assetImages.eth.src = "/logo4.png";
+    assetImages.nvda.src = "/logo12.png";
+    assetImages.tsla.src = "/logo13.png";
 
     let raf1 = 0;
     let raf2 = 0;
@@ -204,8 +208,8 @@ function useVisualStoryCanvases(
     const orbitAssets: CanvasAsset[] = [
       { label: "BTC", imageKey: "btc", fill: "rgba(50, 28, 4, 0.82)", stroke: "#f59e0b", glow: "rgba(245,158,11,1)", text: "#fcd34d" },
       { label: "ETH", imageKey: "eth", fill: "rgba(30, 30, 36, 0.88)", stroke: "#a1a1aa", glow: "rgba(161,161,170,1)", text: "#f4f4f5" },
-      { label: "NVDA", shortLabel: "NV", fill: "rgba(7, 35, 20, 0.88)", stroke: "#4ade80", glow: "rgba(74,222,128,1)", text: "#bbf7d0" },
-      { label: "GOLD", shortLabel: "Au", fill: "rgba(59, 46, 6, 0.9)", stroke: "#facc15", glow: "rgba(250,204,21,1)", text: "#fde68a" },
+      { label: "NVDA", imageKey: "nvda", shortLabel: "NV", fill: "rgba(7, 35, 20, 0.88)", stroke: "#4ade80", glow: "rgba(74,222,128,1)", text: "#bbf7d0" },
+      { label: "TSLA", imageKey: "tsla", shortLabel: "TS", fill: "rgba(67, 10, 16, 0.9)", stroke: "#fb7185", glow: "rgba(251,113,133,1)", text: "#fecdd3" },
       { label: "AVAX", imageKey: "avax", fill: "rgba(58, 16, 21, 0.88)", stroke: "#f87171", glow: "rgba(248,113,113,1)", text: "#fecaca" },
       { label: "USDC", imageKey: "usdc", fill: "rgba(18, 36, 69, 0.88)", stroke: "#60a5fa", glow: "rgba(96,165,250,1)", text: "#bfdbfe" },
     ];
@@ -312,16 +316,14 @@ function useVisualStoryCanvases(
       raf2 = requestAnimationFrame(draw2);
     };
 
-    // C3 — Continuous balancing architecture
+    // C3 — Better Results
     const CX = cv3.W / 2;
     const CY = cv3.H / 2;
-    const balanceAssets: CanvasAsset[] = [
-      { label: "BTC", imageKey: "btc", fill: "rgba(50, 28, 4, 0.82)", stroke: "#f59e0b", glow: "rgba(245,158,11,1)", text: "#fcd34d" },
-      { label: "AVAX", imageKey: "avax", fill: "rgba(58, 16, 21, 0.88)", stroke: "#f87171", glow: "rgba(248,113,113,1)", text: "#fecaca" },
-      { label: "USDC", imageKey: "usdc", fill: "rgba(18, 36, 69, 0.88)", stroke: "#60a5fa", glow: "rgba(96,165,250,1)", text: "#bfdbfe" },
-      { label: "ETH", imageKey: "eth", fill: "rgba(30, 30, 36, 0.88)", stroke: "#a1a1aa", glow: "rgba(161,161,170,1)", text: "#f4f4f5" },
+    let apy = 0;
+    const rings = [
+      { r: 95, col: "#34d399", speed: 0.022, n: 6 },
+      { r: 178, col: "#6ee7b7", speed: -0.016, n: 8 },
     ];
-    let balance = 0;
 
     const draw3 = (ts: number) => {
       const { ctx, W, H } = cv3;
@@ -330,132 +332,130 @@ function useVisualStoryCanvases(
       ctx.fillStyle = "#07060e";
       ctx.fillRect(0, 0, W, H);
 
-      const reserveRadius = 198;
-      const marketRadius = 132;
-      const coreRadius = 58;
-
-      ctx.beginPath();
-      ctx.arc(CX, CY, reserveRadius, 0, TAU);
-      ctx.strokeStyle = "rgba(52,211,153,0.18)";
-      ctx.lineWidth = 2;
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.arc(CX, CY, marketRadius, 0, TAU);
-      ctx.strokeStyle = "rgba(52,211,153,0.32)";
-      ctx.lineWidth = 2.5;
-      ctx.stroke();
-
-      for (let i = 0; i < 4; i++) {
-        const a = (i / 4) * TAU + t * 0.16;
-        const asset = balanceAssets[i];
-        const x = CX + Math.cos(a) * reserveRadius;
-        const y = CY + Math.sin(a) * reserveRadius;
-        drawAssetNode(ctx, x, y, 24, asset, asset.imageKey ? assetImages[asset.imageKey] : undefined);
-
+      for (let i = 0; i < 6; i++) {
+        const a = (i / 6) * TAU + t * 0.07;
         ctx.beginPath();
-        ctx.moveTo(CX + Math.cos(a) * (marketRadius + 20), CY + Math.sin(a) * (marketRadius + 20));
-        ctx.lineTo(CX + Math.cos(a) * (reserveRadius - 32), CY + Math.sin(a) * (reserveRadius - 32));
-        ctx.strokeStyle = "rgba(52,211,153,0.12)";
-        ctx.lineWidth = 1.2;
+        ctx.moveTo(CX + Math.cos(a) * 44, CY + Math.sin(a) * 44);
+        ctx.lineTo(CX + Math.cos(a) * 176, CY + Math.sin(a) * 176);
+        ctx.strokeStyle = "rgba(52,211,153,0.09)";
+        ctx.lineWidth = 1;
         ctx.stroke();
       }
 
-      for (let i = 0; i < 3; i++) {
-        const phase = (t * 0.42 + i * 0.23) % 1;
-        const angle = phase * TAU - Math.PI / 2;
-        const r = marketRadius + Math.sin((phase + i) * TAU) * 10;
-        const x = CX + Math.cos(angle) * r;
-        const y = CY + Math.sin(angle) * r;
-        glow(ctx, x, y, 24, "rgba(52,211,153,1)", 0.45);
+      rings.forEach(({ r, col, speed, n }) => {
+        const rot = t * TAU * speed;
+
         ctx.beginPath();
-        ctx.arc(x, y, 7, 0, TAU);
+        ctx.arc(CX, CY, r, 0, TAU);
+        ctx.strokeStyle = `${col}44`;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        for (let i = 0; i < n * 2; i++) {
+          const a = (i / (n * 2)) * TAU + rot;
+          const tl = i % 2 === 0 ? 7 : 4;
+          ctx.beginPath();
+          ctx.moveTo(CX + Math.cos(a) * (r - tl), CY + Math.sin(a) * (r - tl));
+          ctx.lineTo(CX + Math.cos(a) * (r + tl), CY + Math.sin(a) * (r + tl));
+          ctx.strokeStyle = col + (i % 2 === 0 ? "88" : "44");
+          ctx.lineWidth = i % 2 === 0 ? 2 : 1;
+          ctx.stroke();
+        }
+
+        for (let i = 0; i < n; i++) {
+          const a = (i / n) * TAU + rot;
+          const dx = CX + Math.cos(a) * r;
+          const dy = CY + Math.sin(a) * r;
+          const pulse = 0.5 + 0.35 * Math.sin(t * TAU * 1.4 + i * 1.1);
+
+          glow(ctx, dx, dy, 20, "rgba(52,211,153,1)", pulse * 0.38);
+
+          ctx.beginPath();
+          ctx.arc(dx, dy, 6, 0, TAU);
+          ctx.fillStyle = col;
+          ctx.globalAlpha = pulse;
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        }
+
+        const tf = Math.abs(t * speed * 5) % 1;
+        const tx = CX + Math.cos(tf * TAU) * r;
+        const ty = CY + Math.sin(tf * TAU) * r;
+        glow(ctx, tx, ty, 24, "rgba(110,231,183,1)", 0.55);
+        ctx.beginPath();
+        ctx.arc(tx, ty, 8, 0, TAU);
         ctx.fillStyle = "#6ee7b7";
         ctx.fill();
-      }
+      });
 
-      for (let i = 0; i < 4; i++) {
-        const phase = (t * 0.52 + i * 0.25) % 1;
-        const startAngle = (i / 4) * TAU - Math.PI / 2;
-        const endAngle = startAngle + Math.PI / 2;
-        const angle = startAngle + (endAngle - startAngle) * phase;
-        const x = CX + Math.cos(angle) * ((marketRadius + coreRadius) / 2 + 18);
-        const y = CY + Math.sin(angle) * ((marketRadius + coreRadius) / 2 + 18);
+      const pulse = 3 * Math.sin(t * TAU * 1.5);
+      glow(ctx, CX, CY, 55 + pulse, "rgba(52,211,153,1)", 0.18);
 
-        glow(ctx, x, y, 18, "rgba(16,185,129,1)", 0.38);
-        ctx.beginPath();
-        ctx.arc(x, y, 5, 0, TAU);
-        ctx.fillStyle = "#34d399";
-        ctx.fill();
-      }
-
-      for (let i = 0; i < 4; i++) {
-        const start = (i / 4) * TAU + t * 0.12;
-        ctx.beginPath();
-        ctx.arc(CX, CY, marketRadius, start, start + Math.PI / 3.2);
-        ctx.strokeStyle = i % 2 === 0 ? "rgba(52,211,153,0.46)" : "rgba(110,231,183,0.18)";
-        ctx.lineWidth = i % 2 === 0 ? 6 : 3;
-        ctx.lineCap = "round";
-        ctx.stroke();
-      }
-      ctx.lineCap = "butt";
-
-      const shieldRot = t * 0.24;
-      ctx.save();
-      ctx.translate(CX, CY);
-      ctx.rotate(shieldRot);
       ctx.beginPath();
-      ctx.moveTo(0, -26);
-      ctx.lineTo(22, -10);
-      ctx.lineTo(16, 18);
-      ctx.lineTo(0, 30);
-      ctx.lineTo(-16, 18);
-      ctx.lineTo(-22, -10);
-      ctx.closePath();
-      ctx.fillStyle = "rgba(52,211,153,0.14)";
+      ctx.arc(CX, CY, 42, 0, TAU);
+      ctx.fillStyle = "#07060e";
       ctx.fill();
-      ctx.strokeStyle = "rgba(52,211,153,0.7)";
-      ctx.lineWidth = 2;
-      ctx.stroke();
-      ctx.restore();
-
-      const pulse = 4 * Math.sin(t * TAU * 1.3);
-      glow(ctx, CX, CY, coreRadius * 1.9 + pulse, "rgba(52,211,153,1)", 0.16);
-
-      ctx.beginPath();
-      ctx.arc(CX, CY, coreRadius, 0, TAU);
-      ctx.fillStyle = "rgba(13, 11, 24, 0.98)";
+      ctx.fillStyle = "rgba(52,211,153,0.12)";
       ctx.fill();
       ctx.strokeStyle = "#34d399";
       ctx.lineWidth = 2.5;
       ctx.stroke();
 
       ctx.beginPath();
-      ctx.arc(CX, CY, coreRadius * 0.68, 0, TAU);
-      ctx.strokeStyle = "rgba(52,211,153,0.28)";
-      ctx.lineWidth = 1.2;
+      ctx.arc(CX, CY, 28, 0, TAU);
+      ctx.strokeStyle = "rgba(52,211,153,0.25)";
+      ctx.lineWidth = 1;
       ctx.stroke();
 
-      ctx.fillStyle = "#ecfdf5";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.font = "600 14px 'DM Sans', sans-serif";
-      ctx.fillText("FLOW", CX, CY - 8);
-      ctx.fillText("YIELD", CX, CY + 10);
-      ctx.textBaseline = "alphabetic";
+      for (let i = 0; i < 12; i++) {
+        const a = (i / 12) * TAU + t * TAU * 0.1;
+        ctx.beginPath();
+        ctx.moveTo(CX + Math.cos(a) * 43, CY + Math.sin(a) * 43);
+        ctx.lineTo(CX + Math.cos(a) * (i % 3 === 0 ? 51 : 48), CY + Math.sin(a) * (i % 3 === 0 ? 51 : 48));
+        ctx.strokeStyle = "rgba(52,211,153,0.55)";
+        ctx.lineWidth = i % 3 === 0 ? 2 : 1;
+        ctx.stroke();
+      }
 
-      drawAssetBadge(ctx, CX, CY - reserveRadius - 34, 104, "Reserve Yield", "rgba(8, 20, 17, 0.88)", "rgba(52,211,153,0.35)", "#6ee7b7");
-      drawAssetBadge(ctx, CX + reserveRadius - 16, CY - 10, 132, "Active Market Making", "rgba(8, 20, 17, 0.88)", "rgba(52,211,153,0.35)", "#6ee7b7");
-      drawAssetBadge(ctx, CX, CY + reserveRadius + 18, 112, "IL Mitigation", "rgba(8, 20, 17, 0.88)", "rgba(52,211,153,0.35)", "#6ee7b7");
+      glow(ctx, CX, CY, 18, "rgba(52,211,153,1)", 0.85);
 
-      balance = Math.min(99, balance + 0.18);
+      apy = Math.min(18.7, apy + 0.055);
+      const apyLabelY = CY + 140;
+
       ctx.font = "300 11px 'DM Sans', sans-serif";
-      ctx.fillStyle = "rgba(110,231,183,0.56)";
+      ctx.fillStyle = "rgba(52,211,153,0.5)";
       ctx.textAlign = "center";
-      ctx.fillText("CONTINUOUS REBALANCE", CX, CY + 146);
-      ctx.font = "600 36px 'DM Sans', sans-serif";
+      ctx.fillText("BLENDED APY", CX, apyLabelY);
+
+      ctx.font = "600 38px 'DM Sans', sans-serif";
       ctx.fillStyle = "#34d399";
-      ctx.fillText(`${balance.toFixed(0)}%`, CX, CY + 188);
+      ctx.fillText(`${apy.toFixed(1)}%`, CX, apyLabelY + 44);
+
+      const labels = ["Higher Yield", "Lower Risk", "Consistent"];
+      const badgeY = apyLabelY + 66;
+      ctx.font = "400 10px 'DM Sans', sans-serif";
+      let totalW = 0;
+      const badgeWidths = labels.map((label) => ctx.measureText(label).width + 18);
+      badgeWidths.forEach((width) => {
+        totalW += width;
+      });
+      totalW += 8 * (labels.length - 1);
+      let badgeX = CX - totalW / 2;
+
+      labels.forEach((label, i) => {
+        const width = badgeWidths[i];
+        ctx.beginPath();
+        ctx.roundRect(badgeX, badgeY, width, 22, 5);
+        ctx.fillStyle = "rgba(52,211,153,0.07)";
+        ctx.fill();
+        ctx.strokeStyle = "rgba(52,211,153,0.3)";
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.fillStyle = "#34d399";
+        ctx.textAlign = "center";
+        ctx.fillText(label, badgeX + width / 2, badgeY + 14);
+        badgeX += width + 8;
+      });
 
       raf3 = requestAnimationFrame(draw3);
     };
