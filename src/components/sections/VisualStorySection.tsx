@@ -208,8 +208,8 @@ function useVisualStoryCanvases(
     const orbitAssets: CanvasAsset[] = [
       { label: "BTC", imageKey: "btc", fill: "rgba(50, 28, 4, 0.82)", stroke: "#f59e0b", glow: "rgba(245,158,11,1)", text: "#fcd34d" },
       { label: "ETH", imageKey: "eth", fill: "rgba(30, 30, 36, 0.88)", stroke: "#a1a1aa", glow: "rgba(161,161,170,1)", text: "#f4f4f5" },
-      { label: "NVDA", imageKey: "nvda", shortLabel: "NV", fill: "rgba(7, 35, 20, 0.88)", stroke: "#4ade80", glow: "rgba(74,222,128,1)", text: "#bbf7d0" },
-      { label: "TSLA", imageKey: "tsla", shortLabel: "TS", fill: "rgba(67, 10, 16, 0.9)", stroke: "#fb7185", glow: "rgba(251,113,133,1)", text: "#fecdd3" },
+      { label: "NVIDIA", imageKey: "nvda", shortLabel: "NV", fill: "rgba(7, 35, 20, 0.88)", stroke: "#4ade80", glow: "rgba(74,222,128,1)", text: "#bbf7d0" },
+      { label: "TESLA", imageKey: "tsla", shortLabel: "TS", fill: "rgba(67, 10, 16, 0.9)", stroke: "#fb7185", glow: "rgba(251,113,133,1)", text: "#fecdd3" },
       { label: "AVAX", imageKey: "avax", fill: "rgba(58, 16, 21, 0.88)", stroke: "#f87171", glow: "rgba(248,113,113,1)", text: "#fecaca" },
       { label: "USDC", imageKey: "usdc", fill: "rgba(18, 36, 69, 0.88)", stroke: "#60a5fa", glow: "rgba(96,165,250,1)", text: "#bfdbfe" },
     ];
