@@ -414,7 +414,6 @@ const VisualStorySection = () => {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&display=swap');
         .flowyield-section, .flowyield-section * { box-sizing: border-box; margin: 0; padding: 0; }
         @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
         @keyframes fadeInUpF{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
@@ -429,15 +428,15 @@ const VisualStorySection = () => {
         .fy-inner{max-width:960px;margin:0 auto;padding:0 3rem;width:100%}
         .fy-head{text-align:center;margin-bottom:3.5rem}
         .fy-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.28);border-radius:100px;padding:5px 16px;margin-bottom:1.25rem;animation:fadeUp .8s ease both}
-        .fy-eyebrow span{font-size:10px;font-weight:600;letter-spacing:1.8px;color:#a78bfa;text-transform:uppercase;font-family:'Inter',sans-serif}
-        .fy-h2{font-family:'Syne',sans-serif;font-size:clamp(32px,3.8vw,50px);font-weight:800;letter-spacing:-1.5px;color:#fff;margin-bottom:.85rem;animation:fadeUp .8s .08s ease both}
-        .fy-hdesc{font-size:15px;color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto;line-height:1.75;font-family:'Inter',sans-serif;animation:fadeUp .8s .16s ease both}
+        .fy-eyebrow span{font-size:10px;font-weight:600;letter-spacing:1.8px;color:#a78bfa;text-transform:uppercase;font-family:"Clash Grotesk", sans-serif}
+        .fy-h2{font-family:"Clash Grotesk", sans-serif;font-size:clamp(32px,3.8vw,50px);font-weight:800;letter-spacing:-1.5px;color:#fff;margin-bottom:.85rem;animation:fadeUp .8s .08s ease both}
+        .fy-hdesc{font-size:15px;color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto;line-height:1.75;font-family:"Clash Grotesk", sans-serif;animation:fadeUp .8s .16s ease both}
         .fy-card{background:rgba(255,255,255,0.022);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:2rem;backdrop-filter:blur(12px);box-shadow:0 0 80px rgba(124,58,237,0.06),0 32px 64px rgba(0,0,0,0.3)}
         .fy-topbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,0.06)}
-        .fy-title{font-size:16px;font-weight:600;color:#fff;font-family:'Syne',sans-serif;letter-spacing:-.2px}
-        .fy-sub{font-size:11px;color:rgba(255,255,255,0.38);margin-top:4px;font-family:'Inter',sans-serif}
+        .fy-title{font-size:16px;font-weight:600;color:#fff;font-family:"Clash Grotesk", sans-serif;letter-spacing:-.2px}
+        .fy-sub{font-size:11px;color:rgba(255,255,255,0.38);margin-top:4px;font-family:"Clash Grotesk", sans-serif}
         .fy-btns{display:flex;gap:5px;flex-wrap:wrap}
-        .fy-btn{cursor:pointer;border-radius:7px;border:1px solid rgba(255,255,255,0.11);background:rgba(255,255,255,0.04);padding:6px 14px;font-size:11px;color:rgba(255,255,255,0.45);transition:all .15s;font-family:'Inter',sans-serif;letter-spacing:.1px}
+        .fy-btn{cursor:pointer;border-radius:7px;border:1px solid rgba(255,255,255,0.11);background:rgba(255,255,255,0.04);padding:6px 14px;font-size:11px;color:rgba(255,255,255,0.45);transition:all .15s;font-family:"Clash Grotesk", sans-serif;letter-spacing:.1px}
         .fy-btn:hover:not(.factive){background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7)}
         .fy-btn.factive{background:#7c3aed;color:#fff;border-color:#7c3aed;box-shadow:0 0 16px rgba(124,58,237,0.35)}
         .fy-btn.fpulse{color:rgba(14,165,233,0.85);border-color:rgba(14,165,233,0.3);background:rgba(14,165,233,0.06)}
@@ -446,21 +445,21 @@ const VisualStorySection = () => {
         .ftrails{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
         #fmain-svg{display:block;position:relative;z-index:1}
         .fapy{position:absolute;bottom:16px;right:16px;background:rgba(7,8,15,0.94);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:8px 14px;text-align:right;z-index:10;backdrop-filter:blur(12px)}
-        .fapy-label{font-size:9px;color:rgba(255,255,255,0.28);font-family:'Inter',sans-serif;letter-spacing:.5px;text-transform:uppercase}
-        .fapy-val{font-size:20px;font-weight:700;font-family:'Syne',sans-serif;margin-top:2px}
-        .frbadge{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:rgba(124,58,237,0.18);border:1px solid rgba(124,58,237,0.38);border-radius:20px;padding:5px 18px;font-size:10px;color:#a78bfa;z-index:10;font-family:'Inter',sans-serif;letter-spacing:.3px;backdrop-filter:blur(8px)}
+        .fapy-label{font-size:9px;color:rgba(255,255,255,0.28);font-family:"Clash Grotesk", sans-serif;letter-spacing:.5px;text-transform:uppercase}
+        .fapy-val{font-size:20px;font-weight:700;font-family:"Clash Grotesk", sans-serif;margin-top:2px}
+        .frbadge{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:rgba(124,58,237,0.18);border:1px solid rgba(124,58,237,0.38);border-radius:20px;padding:5px 18px;font-size:10px;color:#a78bfa;z-index:10;font-family:"Clash Grotesk", sans-serif;letter-spacing:.3px;backdrop-filter:blur(8px)}
         .frbadge.is-visible{animation:rbadgeF 2.2s ease forwards}
         .ftoast{position:absolute;top:14px;left:14px;background:rgba(7,8,15,0.97);border:1px solid rgba(124,58,237,0.35);border-radius:14px;padding:14px 18px;font-size:12px;max-width:230px;z-index:20;box-shadow:0 8px 32px rgba(0,0,0,.6);backdrop-filter:blur(16px);animation:fadeInUpF .2s ease}
-        .ftoast-name{font-weight:700;color:#fff;margin-bottom:7px;font-size:13px;font-family:'Syne',sans-serif}
+        .ftoast-name{font-weight:700;color:#fff;margin-bottom:7px;font-size:13px;font-family:"Clash Grotesk", sans-serif}
         .ftoast-bar{display:flex;gap:8px;align-items:center;margin:7px 0 6px}
-        .ftoast-info{color:rgba(255,255,255,0.48);line-height:1.6;font-size:11px;font-family:'Inter',sans-serif}
+        .ftoast-info{color:rgba(255,255,255,0.48);line-height:1.6;font-size:11px;font-family:"Clash Grotesk", sans-serif}
         .fstats{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:1.25rem}
         .fst{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:12px 14px;transition:border-color .2s,background .2s}
         .fst:hover{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1)}
-        .fst-label{font-size:9px;color:rgba(255,255,255,0.28);margin-bottom:5px;font-family:'Inter',sans-serif;letter-spacing:.5px;text-transform:uppercase}
-        .fst-val{font-size:20px;font-weight:700;line-height:1;color:#fff;font-family:'Syne',sans-serif}
-        .fst-sub{font-size:9px;color:rgba(255,255,255,0.25);margin-top:4px;font-family:'Inter',sans-serif}
-        .flegend{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap;font-size:11px;color:rgba(255,255,255,0.32);font-family:'Inter',sans-serif;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.05)}
+        .fst-label{font-size:9px;color:rgba(255,255,255,0.28);margin-bottom:5px;font-family:"Clash Grotesk", sans-serif;letter-spacing:.5px;text-transform:uppercase}
+        .fst-val{font-size:20px;font-weight:700;line-height:1;color:#fff;font-family:"Clash Grotesk", sans-serif}
+        .fst-sub{font-size:9px;color:rgba(255,255,255,0.25);margin-top:4px;font-family:"Clash Grotesk", sans-serif}
+        .flegend{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap;font-size:11px;color:rgba(255,255,255,0.32);font-family:"Clash Grotesk", sans-serif;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.05)}
         .fldot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0}
         .fasset{cursor:pointer;transition:filter .2s}
         .fasset:hover{filter:brightness(1.2)}
@@ -517,10 +516,10 @@ const VisualStorySection = () => {
                 </g>
 
                 <circle id="fres-ring" cx="350" cy="240" r="192" fill="none" stroke="#0EA5E9" strokeWidth="0.5" strokeDasharray="4 7" opacity={layerVisuals.reserveRingOpacity} />
-                <text id="fres-lbl" x="350" y="54" textAnchor="middle" fontSize="11" fill="#0EA5E9" opacity={layerVisuals.reserveLabelOpacity} fontFamily="Inter,sans-serif">reserve yield layer — Benqi · zero IL exposure</text>
+                <text id="fres-lbl" x="350" y="54" textAnchor="middle" fontSize="11" fill="#0EA5E9" opacity={layerVisuals.reserveLabelOpacity} fontFamily={'"Clash Grotesk", sans-serif'}>reserve yield layer — Benqi · zero IL exposure</text>
 
                 <circle id="fact-ring" cx="350" cy="240" r="122" fill="none" stroke="#a78bfa" strokeWidth="0.5" strokeDasharray="3 5" opacity={layerVisuals.activeRingOpacity} />
-                <text id="fact-lbl" x="350" y="126" textAnchor="middle" fontSize="11" fill="#a78bfa" opacity={layerVisuals.activeLabelOpacity} fontFamily="Inter,sans-serif">active market making layer · fee generation</text>
+                <text id="fact-lbl" x="350" y="126" textAnchor="middle" fontSize="11" fill="#a78bfa" opacity={layerVisuals.activeLabelOpacity} fontFamily={'"Clash Grotesk", sans-serif'}>active market making layer · fee generation</text>
 
                 <circle id="fpulse-ring" cx="350" cy="240" r={pulseRing.radius} fill="none" stroke="#7c3aed" strokeWidth="1.5" opacity={pulseRing.opacity} />
 
@@ -529,8 +528,8 @@ const VisualStorySection = () => {
                   <circle cx="350" cy="240" r="54" fill="#7c3aed" opacity=".09" />
                   <circle cx="350" cy="240" r="45" fill="#7c3aed" opacity=".14" />
                   <circle cx="350" cy="240" r="37" fill="#7c3aed" opacity=".92" />
-                  <text x="350" y="234" textAnchor="middle" fontSize="12" fontWeight="600" fill="white" fontFamily="Inter,sans-serif">FlowYield</text>
-                  <text x="350" y="248" textAnchor="middle" fontSize="10" fill="rgba(255,255,255,.72)" fontFamily="Inter,sans-serif">engine</text>
+                  <text x="350" y="234" textAnchor="middle" fontSize="12" fontWeight="600" fill="white" fontFamily={'"Clash Grotesk", sans-serif'}>FlowYield</text>
+                  <text x="350" y="248" textAnchor="middle" fontSize="10" fill="rgba(255,255,255,.72)" fontFamily={'"Clash Grotesk", sans-serif'}>engine</text>
                 </g>
                 <circle cx="350" cy="240" r="37" fill="none" stroke="white" strokeWidth=".5" opacity=".18" />
 
@@ -539,8 +538,8 @@ const VisualStorySection = () => {
                     <g key={asset.label} className="forbit" style={orbitStyle(asset)}>
                       <g className="fasset" transform="translate(350,118)" onClick={() => setSelectedAsset(asset.label as AssetKey)}>
                         <circle r={asset.radius} fill={asset.color} opacity=".93" />
-                        <text textAnchor="middle" fontSize="11" fontWeight="600" fill="white" dy="1" fontFamily="Inter,sans-serif">{asset.label}</text>
-                        <text textAnchor="middle" fontSize="8" fill="rgba(255,255,255,.8)" dy="12" fontFamily="Inter,sans-serif">{asset.symbol}</text>
+                        <text textAnchor="middle" fontSize="11" fontWeight="600" fill="white" dy="1" fontFamily={'"Clash Grotesk", sans-serif'}>{asset.label}</text>
+                        <text textAnchor="middle" fontSize="8" fill="rgba(255,255,255,.8)" dy="12" fontFamily={'"Clash Grotesk", sans-serif'}>{asset.symbol}</text>
                       </g>
                     </g>
                   ))}
@@ -551,7 +550,7 @@ const VisualStorySection = () => {
                     <g key={asset.label} className="forbit" style={orbitStyle(asset)}>
                       <g className="fasset" transform="translate(350,48)" onClick={() => setSelectedAsset(asset.label as AssetKey)}>
                         <circle r={asset.radius} fill={asset.color} opacity=".88" />
-                        <text textAnchor="middle" fontSize="10" fontWeight="600" fill="white" dy="4" fontFamily="Inter,sans-serif">{asset.label}</text>
+                        <text textAnchor="middle" fontSize="10" fontWeight="600" fill="white" dy="4" fontFamily={'"Clash Grotesk", sans-serif'}>{asset.label}</text>
                       </g>
                     </g>
                   ))}
@@ -562,30 +561,30 @@ const VisualStorySection = () => {
                   <circle cx="264" cy="320" r="4" fill="#16A34A" />
                   <circle cx="350" cy="342" r="4" fill="#16A34A" />
                   <circle cx="436" cy="320" r="4" fill="#16A34A" />
-                  <text x="350" y="388" textAnchor="middle" fontSize="10" fill="#16A34A" fontFamily="Inter,sans-serif">IL protection — 3 independent layers always active</text>
-                  <text x="264" y="338" textAnchor="middle" fontSize="9" fill="#16A34A" opacity=".8" fontFamily="Inter,sans-serif">prevention</text>
-                  <text x="350" y="358" textAnchor="middle" fontSize="9" fill="#16A34A" opacity=".8" fontFamily="Inter,sans-serif">IL reserve</text>
-                  <text x="436" y="338" textAnchor="middle" fontSize="9" fill="#16A34A" opacity=".8" fontFamily="Inter,sans-serif">backup vault</text>
+                  <text x="350" y="388" textAnchor="middle" fontSize="10" fill="#16A34A" fontFamily={'"Clash Grotesk", sans-serif'}>IL protection — 3 independent layers always active</text>
+                  <text x="264" y="338" textAnchor="middle" fontSize="9" fill="#16A34A" opacity=".8" fontFamily={'"Clash Grotesk", sans-serif'}>prevention</text>
+                  <text x="350" y="358" textAnchor="middle" fontSize="9" fill="#16A34A" opacity=".8" fontFamily={'"Clash Grotesk", sans-serif'}>IL reserve</text>
+                  <text x="436" y="338" textAnchor="middle" fontSize="9" fill="#16A34A" opacity=".8" fontFamily={'"Clash Grotesk", sans-serif'}>backup vault</text>
                 </g>
 
                 <g opacity=".38">
-                  <text x="120" y="162" textAnchor="middle" fontSize="10" fill="#0EA5E9" fontFamily="Inter,sans-serif">LP fees</text>
+                  <text x="120" y="162" textAnchor="middle" fontSize="10" fill="#0EA5E9" fontFamily={'"Clash Grotesk", sans-serif'}>LP fees</text>
                   <path d="M158 160 L193 184" stroke="#0EA5E9" strokeWidth=".8" fill="none" markerEnd="url(#farw)" />
-                  <text x="582" y="162" textAnchor="middle" fontSize="10" fill="#0EA5E9" fontFamily="Inter,sans-serif">reserve yield</text>
+                  <text x="582" y="162" textAnchor="middle" fontSize="10" fill="#0EA5E9" fontFamily={'"Clash Grotesk", sans-serif'}>reserve yield</text>
                   <path d="M542 160 L508 184" stroke="#0EA5E9" strokeWidth=".8" fill="none" markerEnd="url(#farw)" />
-                  <text x="120" y="322" textAnchor="middle" fontSize="10" fill="#0EA5E9" fontFamily="Inter,sans-serif">rebalancing</text>
+                  <text x="120" y="322" textAnchor="middle" fontSize="10" fill="#0EA5E9" fontFamily={'"Clash Grotesk", sans-serif'}>rebalancing</text>
                   <path d="M158 314 L193 292" stroke="#0EA5E9" strokeWidth=".8" fill="none" markerEnd="url(#farw)" />
-                  <text x="582" y="322" textAnchor="middle" fontSize="10" fill="#0EA5E9" fontFamily="Inter,sans-serif">fee harvest</text>
+                  <text x="582" y="322" textAnchor="middle" fontSize="10" fill="#0EA5E9" fontFamily={'"Clash Grotesk", sans-serif'}>fee harvest</text>
                   <path d="M542 314 L508 292" stroke="#0EA5E9" strokeWidth=".8" fill="none" markerEnd="url(#farw)" />
                 </g>
 
                 <rect x="490" y="68" width="168" height="80" rx="8" fill="rgba(7,8,15,0.92)" stroke="rgba(124,58,237,0.45)" strokeWidth=".5" />
-                <text x="574" y="90" textAnchor="middle" fontSize="11" fontWeight="600" fill="#a78bfa" fontFamily="Inter,sans-serif">FlowYield architecture</text>
+                <text x="574" y="90" textAnchor="middle" fontSize="11" fontWeight="600" fill="#a78bfa" fontFamily={'"Clash Grotesk", sans-serif'}>FlowYield architecture</text>
                 <rect x="501" y="100" width="14" height="10" rx="2" fill="#7c3aed" opacity=".9" />
-                <text x="521" y="109" fontSize="10" fill="rgba(255,255,255,0.5)" fontFamily="Inter,sans-serif">Active market making</text>
+                <text x="521" y="109" fontSize="10" fill="rgba(255,255,255,0.5)" fontFamily={'"Clash Grotesk", sans-serif'}>Active market making</text>
                 <rect x="501" y="116" width="14" height="10" rx="2" fill="#0EA5E9" opacity=".75" />
-                <text x="521" y="125" fontSize="10" fill="rgba(255,255,255,0.5)" fontFamily="Inter,sans-serif">Reserve yield engine</text>
-                <text x="501" y="143" fontSize="9" fill="rgba(255,255,255,0.28)" fontFamily="Inter,sans-serif">proprietary · continuously optimised</text>
+                <text x="521" y="125" fontSize="10" fill="rgba(255,255,255,0.5)" fontFamily={'"Clash Grotesk", sans-serif'}>Reserve yield engine</text>
+                <text x="501" y="143" fontSize="9" fill="rgba(255,255,255,0.28)" fontFamily={'"Clash Grotesk", sans-serif'}>proprietary · continuously optimised</text>
               </svg>
 
               <div className="fapy"><div className="fapy-label">live est. APY</div><div className="fapy-val" style={{ color: getApyColor }}>{apyValue.toFixed(1)}%</div></div>

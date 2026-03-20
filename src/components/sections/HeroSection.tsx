@@ -32,7 +32,7 @@ const logos = {
         fontSize="26"
         fontWeight="900"
         fill="#22c55e"
-        fontFamily="Georgia,serif"
+        fontFamily={'"Clash Grotesk", sans-serif'}
       >
         $
       </text>
@@ -85,7 +85,7 @@ const logos = {
         fontSize="8"
         fontWeight="800"
         fill="#fff"
-        fontFamily="-apple-system,sans-serif"
+        fontFamily={'"Clash Grotesk", sans-serif'}
         letterSpacing="1"
       >
         GOLD
@@ -106,7 +106,7 @@ const logos = {
         fontSize="7"
         fontWeight="800"
         fill="#76b900"
-        fontFamily="-apple-system,sans-serif"
+        fontFamily={'"Clash Grotesk", sans-serif'}
         letterSpacing=".5"
       >
         NVIDIA
@@ -445,8 +445,6 @@ const HeroSection = () => {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
-
         .balcore-hero, .balcore-hero * { box-sizing: border-box; }
         .balcore-hero {
           --purple:#7c3aed;--purple-light:#a78bfa;--purple-dark:#4c1d95;
@@ -475,7 +473,7 @@ const HeroSection = () => {
           display: flex;
           flex-direction: column;
           z-index: 2;
-          font-family: 'Inter', sans-serif;
+          font-family: "Clash Grotesk", sans-serif;
         }
         .balcore-badge {
           display: inline-flex;
@@ -497,7 +495,7 @@ const HeroSection = () => {
           font-size: 11px;font-weight: 600;letter-spacing: 1.8px;color: var(--text2);text-transform: uppercase;
         }
         .balcore-title {
-          font-family: 'Syne', sans-serif;
+          font-family: "Clash Grotesk", sans-serif;
           font-size: clamp(52px,6vw,88px);
           font-weight: 800;
           letter-spacing: -2px;
@@ -512,7 +510,7 @@ const HeroSection = () => {
         .balcore-subtitle strong { color: #fff; font-weight: 500; }
         .balcore-actions { margin-top: 2.5rem;display: flex;align-items: center;gap: 1rem;animation: balcore-fade-up .8s .3s ease both; flex-wrap: wrap; }
         .balcore-btn-primary, .balcore-btn-secondary {
-          font-family: 'Inter', sans-serif;
+          font-family: "Clash Grotesk", sans-serif;
           text-decoration: none;
           display: inline-flex;
           align-items: center;
@@ -531,7 +529,7 @@ const HeroSection = () => {
         .balcore-stats {
           margin-top: 3.5rem;display: flex;gap: 2.5rem;animation: balcore-fade-up .8s .45s ease both;padding-top: 2rem;border-top: 1px solid rgba(255,255,255,0.07);flex-wrap: wrap;
         }
-        .balcore-stat-num { font-family: 'Syne', sans-serif;font-size: 26px;font-weight: 700;color: #fff; }
+        .balcore-stat-num { font-family: "Clash Grotesk", sans-serif;font-size: 26px;font-weight: 700;color: #fff; }
         .balcore-stat-num span { font-size: 16px;color: var(--purple-light); }
         .balcore-stat-desc { font-size: 12px;color: var(--text3);margin-top: 2px;letter-spacing: .3px; }
         .balcore-hero-right {
@@ -547,7 +545,7 @@ const HeroSection = () => {
         .balcore-core {
           position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);width: 96px;height: 96px;border-radius: 50%;background: radial-gradient(circle,#2a1f6e 0%,#130e3a 60%,#07080f 100%);border: 2px solid rgba(138,92,246,0.85);display: flex;align-items: center;justify-content: center;flex-direction: column;animation: balcore-core-pulse 3s ease-in-out infinite;box-shadow: 0 0 32px rgba(138,92,246,0.45),0 0 65px rgba(138,92,246,0.18),inset 0 0 24px rgba(138,92,246,0.22);
         }
-        .balcore-core-label { font-size: 10px;font-weight: 700;color: #fff;letter-spacing: 2px;font-family: 'Syne', sans-serif; }
+        .balcore-core-label { font-size: 10px;font-weight: 700;color: #fff;letter-spacing: 2px;font-family: "Clash Grotesk", sans-serif; }
         .balcore-core-sub { font-size: 7px;color: rgba(138,92,246,0.85);letter-spacing: 1.2px;margin-top: 2px; }
         .balcore-token { position: absolute;top: 50%;left: 50%;cursor: pointer; }
         .balcore-token:hover .balcore-token-inner { transform: scale(1.12);filter: brightness(1.22); }
