@@ -445,6 +445,7 @@ const HeroSection = () => {
   return (
     <>
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap');
         .balcore-hero, .balcore-hero * { box-sizing: border-box; }
         .balcore-hero {
           --purple:#7c3aed;--purple-light:#a78bfa;--purple-dark:#4c1d95;
@@ -495,7 +496,7 @@ const HeroSection = () => {
           font-size: 11px;font-weight: 600;letter-spacing: 1.8px;color: var(--text2);text-transform: uppercase;
         }
         .balcore-title {
-          font-family: "Clash Grotesk", sans-serif;
+          font-family: "Syne", sans-serif;
           font-size: clamp(52px,6vw,88px);
           font-weight: 800;
           letter-spacing: 0.16em;
