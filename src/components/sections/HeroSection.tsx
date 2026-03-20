@@ -499,7 +499,6 @@ const HeroSection = () => {
           font-family: "Syne", sans-serif;
           font-size: clamp(52px,6vw,88px);
           font-weight: 800;
-          letter-spacing: 0.16em;
           line-height: .95;
           color: #fff;
           animation: balcore-fade-up .8s .1s ease both;
