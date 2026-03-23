@@ -126,6 +126,7 @@ const logos = {
 
 const HERO_TITLE = "BALCORE";
 const TITLE_REVEAL_DURATION_MS = 1500;
+const TITLE_STEP_DURATION_MS = TITLE_REVEAL_DURATION_MS / HERO_TITLE.length;
 
 const tokens: Token[] = [
   {
@@ -237,10 +238,10 @@ const HeroSection = () => {
     y: 0,
     token: null,
   });
-  const [titleRevealProgress, setTitleRevealProgress] = useState(0);
+  const [visibleTitleLength, setVisibleTitleLength] = useState(0);
   const [isTitleAnimating, setIsTitleAnimating] = useState(true);
 
-  const titleRevealPercent = `${titleRevealProgress * 100}%`;
+  const animatedTitle = HERO_TITLE.slice(0, visibleTitleLength);
 
   const tokenPositions = useMemo(
     () =>
@@ -256,28 +257,21 @@ const HeroSection = () => {
   );
 
   useEffect(() => {
-    setTitleRevealProgress(0);
+    setVisibleTitleLength(0);
     setIsTitleAnimating(true);
 
-    let animationFrame = 0;
-    const startTime = window.performance.now();
+    let currentIndex = 0;
+    const typewriterInterval = window.setInterval(() => {
+      currentIndex += 1;
+      setVisibleTitleLength(currentIndex);
 
-    const animateReveal = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const nextProgress = Math.min(elapsed / TITLE_REVEAL_DURATION_MS, 1);
-
-      setTitleRevealProgress(nextProgress);
-
-      if (nextProgress < 1) {
-        animationFrame = window.requestAnimationFrame(animateReveal);
-      } else {
+      if (currentIndex >= HERO_TITLE.length) {
         setIsTitleAnimating(false);
+        window.clearInterval(typewriterInterval);
       }
-    };
+    }, TITLE_STEP_DURATION_MS);
 
-    animationFrame = window.requestAnimationFrame(animateReveal);
-
-    return () => window.cancelAnimationFrame(animationFrame);
+    return () => window.clearInterval(typewriterInterval);
   }, []);
 
   useEffect(() => {
@@ -550,10 +544,9 @@ const HeroSection = () => {
           pointer-events: none;
         }
         .balcore-title-active {
-          position: relative;
-          display: block;
-          width: 100%;
-          height: 100%;
+          display: inline-flex;
+          align-items: center;
+          width: fit-content;
           overflow: visible;
         }
         .balcore-title-text {
@@ -561,19 +554,17 @@ const HeroSection = () => {
           white-space: nowrap;
           position: relative;
           z-index: 1;
-          clip-path: inset(0 calc(100% - var(--title-reveal-progress, 0%)) 0 0);
         }
         .balcore-title-reveal-block {
-          position: absolute;
-          top: -0.06em;
-          left: var(--title-reveal-progress, 0%);
-          width: 1.05ch;
-          height: 1.08em;
-          background: #000;
-          transform: translateX(-100%);
-          box-shadow: 0 0 0 1px rgba(255,255,255,0.06);
+          width: 0.92em;
+          height: 1.02em;
+          margin-left: -0.08em;
+          border-radius: 0;
+          background: #fff;
+          box-shadow: 0 0 18px rgba(255,255,255,0.38);
+          flex-shrink: 0;
+          position: relative;
           z-index: 2;
-          pointer-events: none;
         }
         .balcore-subtitle {
           margin-top: 1.75rem;font-size: clamp(15px,1.4vw,18px);font-weight: 400;color: var(--text2);line-height: 1.65;max-width: 480px;
@@ -683,11 +674,8 @@ const HeroSection = () => {
                 <span className="balcore-title-ghost" aria-hidden="true">
                   {HERO_TITLE}
                 </span>
-                <span
-                  className="balcore-title-active"
-                  style={{ ["--title-reveal-progress" as string]: titleRevealPercent }}
-                >
-                  <span className="balcore-title-text">{HERO_TITLE}</span>
+                <span className="balcore-title-active">
+                  <span className="balcore-title-text">{animatedTitle}</span>
                   {isTitleAnimating ? <span className="balcore-title-reveal-block" aria-hidden="true" /> : null}
                 </span>
               </span>
