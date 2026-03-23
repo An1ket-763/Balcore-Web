@@ -6,7 +6,6 @@ import WhyBalcoreSection from "@/components/sections/WhyBalcoreSection";
 import WhatBalcoreDoesSection from "@/components/sections/WhatBalcoreDoesSection";
 import SupportedAssetsSection from "@/components/sections/SupportedAssetsSection";
 import BuiltOnAvalancheSection from "@/components/sections/BuiltOnAvalancheSection";
-import StatusSection from "@/components/sections/StatusSection";
 import CTASection from "@/components/sections/CTASection";
 
 const Index = () => {
@@ -19,7 +18,6 @@ const Index = () => {
       <WhatBalcoreDoesSection />
       <SupportedAssetsSection />
       <BuiltOnAvalancheSection />
-      <StatusSection />
       <CTASection />
     </div>
   );

@@ -15,7 +15,7 @@ const integrations = [
 
 const BuiltOnAvalancheSection = () => {
   return (
-    <section className="py-24 border-t border-border relative section-animated-bg overflow-hidden">
+    <section className="py-16 md:py-20 border-t border-border relative section-animated-bg overflow-hidden">
       <MarketBackground showPhones={false} />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">

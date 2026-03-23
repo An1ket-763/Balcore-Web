@@ -25,7 +25,7 @@ const audiences = [
 
 const WhyBalcoreSection = () => {
   return (
-    <section id="why-balcore" className="py-24 border-t border-border relative section-animated-bg overflow-hidden">
+    <section id="why-balcore" className="py-16 md:py-20 border-t border-border relative section-animated-bg overflow-hidden">
       <ProtocolFlowBackground />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
