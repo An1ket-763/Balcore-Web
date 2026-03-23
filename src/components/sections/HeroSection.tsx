@@ -125,8 +125,8 @@ const logos = {
 };
 
 const HERO_TITLE = "BALCORE";
-const TITLE_REVEAL_DURATION_MS = 1600;
-const TITLE_STEP_DURATION_MS = Math.ceil(TITLE_REVEAL_DURATION_MS / HERO_TITLE.length);
+const TITLE_REVEAL_DURATION_MS = 1500;
+const TITLE_STEP_DURATION_MS = TITLE_REVEAL_DURATION_MS / HERO_TITLE.length;
 
 const tokens: Token[] = [
   {
@@ -530,13 +530,26 @@ const HeroSection = () => {
           animation: balcore-fade-up .8s .1s ease both;
         }
         .balcore-title-typewriter {
+          position: relative;
+          display: inline-grid;
+          min-height: 1em;
+        }
+        .balcore-title-ghost,
+        .balcore-title-active {
+          grid-area: 1 / 1;
+          white-space: nowrap;
+        }
+        .balcore-title-ghost {
+          visibility: hidden;
+          pointer-events: none;
+        }
+        .balcore-title-active {
           display: inline-flex;
           align-items: center;
-          min-height: 1em;
+          width: fit-content;
         }
         .balcore-title-text {
           display: inline-block;
-          min-width: 8ch;
           white-space: nowrap;
         }
         .balcore-title-caret {
@@ -654,8 +667,13 @@ const HeroSection = () => {
 
             <h1 className="balcore-title" aria-label={HERO_TITLE}>
               <span className="balcore-title-typewriter">
-                <span className="balcore-title-text">{animatedTitle}</span>
-                {isTitleAnimating ? <span className="balcore-title-caret" aria-hidden="true" /> : null}
+                <span className="balcore-title-ghost" aria-hidden="true">
+                  {HERO_TITLE}
+                </span>
+                <span className="balcore-title-active">
+                  <span className="balcore-title-text">{animatedTitle}</span>
+                  {isTitleAnimating ? <span className="balcore-title-caret" aria-hidden="true" /> : null}
+                </span>
               </span>
             </h1>
 
