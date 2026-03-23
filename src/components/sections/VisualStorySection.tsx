@@ -516,10 +516,10 @@ const VisualStorySection = () => {
                 </g>
 
                 <circle id="fres-ring" cx="350" cy="240" r="192" fill="none" stroke="#0EA5E9" strokeWidth="0.5" strokeDasharray="4 7" opacity={layerVisuals.reserveRingOpacity} />
-                <text id="fres-lbl" x="350" y="54" textAnchor="middle" fontSize="11" fill="#0EA5E9" opacity={layerVisuals.reserveLabelOpacity} fontFamily={'"Clash Grotesk", sans-serif'}>reserve yield layer — Benqi · zero IL exposure</text>
+                <text id="fres-lbl" x="350" y="86" textAnchor="middle" fontSize="11" fill="#0EA5E9" opacity={layerVisuals.reserveLabelOpacity} fontFamily={'"Clash Grotesk", sans-serif'}>reserve yield layer — Benqi · zero IL exposure</text>
 
                 <circle id="fact-ring" cx="350" cy="240" r="122" fill="none" stroke="#a78bfa" strokeWidth="0.5" strokeDasharray="3 5" opacity={layerVisuals.activeRingOpacity} />
-                <text id="fact-lbl" x="350" y="126" textAnchor="middle" fontSize="11" fill="#a78bfa" opacity={layerVisuals.activeLabelOpacity} fontFamily={'"Clash Grotesk", sans-serif'}>active market making layer · fee generation</text>
+                <text id="fact-lbl" x="350" y="154" textAnchor="middle" fontSize="11" fill="#a78bfa" opacity={layerVisuals.activeLabelOpacity} fontFamily={'"Clash Grotesk", sans-serif'}>active market making layer · fee generation</text>
 
                 <circle id="fpulse-ring" cx="350" cy="240" r={pulseRing.radius} fill="none" stroke="#7c3aed" strokeWidth="1.5" opacity={pulseRing.opacity} />
 
