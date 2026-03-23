@@ -125,6 +125,8 @@ const logos = {
 };
 
 const HERO_TITLE = "BALCORE";
+const TITLE_REVEAL_DURATION_MS = 1600;
+const TITLE_STEP_DURATION_MS = Math.ceil(TITLE_REVEAL_DURATION_MS / HERO_TITLE.length);
 
 const tokens: Token[] = [
   {
@@ -237,6 +239,7 @@ const HeroSection = () => {
     token: null,
   });
   const [visibleTitleLength, setVisibleTitleLength] = useState(0);
+  const [isTitleAnimating, setIsTitleAnimating] = useState(true);
 
   const animatedTitle = HERO_TITLE.slice(0, visibleTitleLength);
 
@@ -255,6 +258,7 @@ const HeroSection = () => {
 
   useEffect(() => {
     setVisibleTitleLength(0);
+    setIsTitleAnimating(true);
 
     let currentIndex = 0;
     const typewriterInterval = window.setInterval(() => {
@@ -262,9 +266,10 @@ const HeroSection = () => {
       setVisibleTitleLength(currentIndex);
 
       if (currentIndex >= HERO_TITLE.length) {
+        setIsTitleAnimating(false);
         window.clearInterval(typewriterInterval);
       }
-    }, 70);
+    }, TITLE_STEP_DURATION_MS);
 
     return () => window.clearInterval(typewriterInterval);
   }, []);
@@ -650,7 +655,7 @@ const HeroSection = () => {
             <h1 className="balcore-title" aria-label={HERO_TITLE}>
               <span className="balcore-title-typewriter">
                 <span className="balcore-title-text">{animatedTitle}</span>
-                <span className="balcore-title-caret" aria-hidden="true" />
+                {isTitleAnimating ? <span className="balcore-title-caret" aria-hidden="true" /> : null}
               </span>
             </h1>
 
