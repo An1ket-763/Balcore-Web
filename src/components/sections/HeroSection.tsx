@@ -547,19 +547,24 @@ const HeroSection = () => {
           display: inline-flex;
           align-items: center;
           width: fit-content;
+          overflow: visible;
         }
         .balcore-title-text {
           display: inline-block;
           white-space: nowrap;
+          position: relative;
+          z-index: 1;
         }
         .balcore-title-reveal-block {
-          width: 0.32em;
-          height: 0.9em;
-          margin-left: 0.12em;
-          border-radius: 0.08em;
+          width: 0.92em;
+          height: 1.02em;
+          margin-left: -0.08em;
+          border-radius: 0;
           background: #fff;
-          box-shadow: 0 0 16px rgba(255,255,255,0.4);
+          box-shadow: 0 0 18px rgba(255,255,255,0.38);
           flex-shrink: 0;
+          position: relative;
+          z-index: 2;
         }
         .balcore-subtitle {
           margin-top: 1.75rem;font-size: clamp(15px,1.4vw,18px);font-weight: 400;color: var(--text2);line-height: 1.65;max-width: 480px;
