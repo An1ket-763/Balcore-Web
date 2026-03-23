@@ -425,7 +425,7 @@ const VisualStorySection = () => {
           .fcore-pulse{animation:corePulseF 3s ease-in-out infinite}
         }
         .fy-section{padding:5rem 0;background:linear-gradient(180deg,#07080f 0%,#080c1a 50%,#07080f 100%);position:relative}
-        .fy-inner{max-width:960px;margin:0 auto;padding:0 3rem;width:100%}
+        .fy-inner{max-width:960px;margin:0 auto;padding:0 1rem;width:100%}
         .fy-head{text-align:center;margin-bottom:3.5rem}
         .fy-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.28);border-radius:100px;padding:5px 16px;margin-bottom:1.25rem;animation:fadeUp .8s ease both}
         .fy-eyebrow span{font-size:10px;font-weight:600;letter-spacing:1.8px;color:#a78bfa;text-transform:uppercase;font-family:"Clash Grotesk", sans-serif}
@@ -463,8 +463,9 @@ const VisualStorySection = () => {
         .fldot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0}
         .fasset{cursor:pointer;transition:filter .2s}
         .fasset:hover{filter:brightness(1.2)}
-        @media(max-width:900px){.fy-inner{padding:0 1.5rem}.fstats{grid-template-columns:repeat(3,1fr)}}
-        @media(max-width:640px){.fy-section{padding:3.5rem 0}.fy-btns{display:none}.fstats{grid-template-columns:repeat(2,1fr)}}
+        @media(max-width:900px){.fy-inner{padding:0 1.25rem}.fstats{grid-template-columns:repeat(3,1fr)}}
+        @media(max-width:640px){.fy-section{padding:3.5rem 0}.fy-inner{padding:0 1rem}.fy-head{margin-bottom:2.5rem}.fy-card{padding:1rem}.fy-topbar{align-items:flex-start}.fy-sub{line-height:1.5}.fy-btns{display:none}.fvis{border-radius:14px}.fapy{position:static;margin:0.75rem 0 0 auto;width:fit-content}.frbadge{bottom:12px;padding:5px 12px;font-size:9px}.ftoast{left:10px;right:10px;top:10px;max-width:none;padding:12px 14px}.fstats{grid-template-columns:repeat(2,1fr)}#fmain-svg text[data-mobile-hide="true"]{display:none}}
+        @media(max-width:480px){.fy-card{padding:.875rem}.fst{padding:10px 12px}.fst-val{font-size:17px}.fstats{gap:6px}}
       `}</style>
 
       <section id="visual-story" className="flowyield-section fy-section">
@@ -516,10 +517,10 @@ const VisualStorySection = () => {
                 </g>
 
                 <circle id="fres-ring" cx="350" cy="240" r="192" fill="none" stroke="#0EA5E9" strokeWidth="0.5" strokeDasharray="4 7" opacity={layerVisuals.reserveRingOpacity} />
-                <text id="fres-lbl" x="350" y="86" textAnchor="middle" fontSize="11" fill="#0EA5E9" opacity={layerVisuals.reserveLabelOpacity} fontFamily={'"Clash Grotesk", sans-serif'}>reserve yield layer — Benqi · zero IL exposure</text>
+                <text id="fres-lbl" x="350" y="86" textAnchor="middle" fontSize="11" fill="#0EA5E9" opacity={layerVisuals.reserveLabelOpacity} fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">reserve yield layer — Benqi · zero IL exposure</text>
 
                 <circle id="fact-ring" cx="350" cy="240" r="122" fill="none" stroke="#a78bfa" strokeWidth="0.5" strokeDasharray="3 5" opacity={layerVisuals.activeRingOpacity} />
-                <text id="fact-lbl" x="350" y="154" textAnchor="middle" fontSize="11" fill="#a78bfa" opacity={layerVisuals.activeLabelOpacity} fontFamily={'"Clash Grotesk", sans-serif'}>active market making layer · fee generation</text>
+                <text id="fact-lbl" x="350" y="154" textAnchor="middle" fontSize="11" fill="#a78bfa" opacity={layerVisuals.activeLabelOpacity} fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">active market making layer · fee generation</text>
 
                 <circle id="fpulse-ring" cx="350" cy="240" r={pulseRing.radius} fill="none" stroke="#7c3aed" strokeWidth="1.5" opacity={pulseRing.opacity} />
 
@@ -561,30 +562,30 @@ const VisualStorySection = () => {
                   <circle cx="264" cy="320" r="4" fill="#16A34A" />
                   <circle cx="350" cy="342" r="4" fill="#16A34A" />
                   <circle cx="436" cy="320" r="4" fill="#16A34A" />
-                  <text x="350" y="388" textAnchor="middle" fontSize="10" fill="#16A34A" fontFamily={'"Clash Grotesk", sans-serif'}>IL protection — 3 independent layers always active</text>
-                  <text x="264" y="338" textAnchor="middle" fontSize="9" fill="#16A34A" opacity=".8" fontFamily={'"Clash Grotesk", sans-serif'}>prevention</text>
-                  <text x="350" y="358" textAnchor="middle" fontSize="9" fill="#16A34A" opacity=".8" fontFamily={'"Clash Grotesk", sans-serif'}>IL reserve</text>
-                  <text x="436" y="338" textAnchor="middle" fontSize="9" fill="#16A34A" opacity=".8" fontFamily={'"Clash Grotesk", sans-serif'}>backup vault</text>
+                  <text x="350" y="388" textAnchor="middle" fontSize="10" fill="#16A34A" fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">IL protection — 3 independent layers always active</text>
+                  <text x="264" y="338" textAnchor="middle" fontSize="9" fill="#16A34A" opacity=".8" fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">prevention</text>
+                  <text x="350" y="358" textAnchor="middle" fontSize="9" fill="#16A34A" opacity=".8" fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">IL reserve</text>
+                  <text x="436" y="338" textAnchor="middle" fontSize="9" fill="#16A34A" opacity=".8" fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">backup vault</text>
                 </g>
 
                 <g opacity=".38">
-                  <text x="120" y="162" textAnchor="middle" fontSize="10" fill="#0EA5E9" fontFamily={'"Clash Grotesk", sans-serif'}>LP fees</text>
+                  <text x="120" y="162" textAnchor="middle" fontSize="10" fill="#0EA5E9" fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">LP fees</text>
                   <path d="M158 160 L193 184" stroke="#0EA5E9" strokeWidth=".8" fill="none" markerEnd="url(#farw)" />
-                  <text x="582" y="162" textAnchor="middle" fontSize="10" fill="#0EA5E9" fontFamily={'"Clash Grotesk", sans-serif'}>reserve yield</text>
+                  <text x="582" y="162" textAnchor="middle" fontSize="10" fill="#0EA5E9" fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">reserve yield</text>
                   <path d="M542 160 L508 184" stroke="#0EA5E9" strokeWidth=".8" fill="none" markerEnd="url(#farw)" />
-                  <text x="120" y="322" textAnchor="middle" fontSize="10" fill="#0EA5E9" fontFamily={'"Clash Grotesk", sans-serif'}>rebalancing</text>
+                  <text x="120" y="322" textAnchor="middle" fontSize="10" fill="#0EA5E9" fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">rebalancing</text>
                   <path d="M158 314 L193 292" stroke="#0EA5E9" strokeWidth=".8" fill="none" markerEnd="url(#farw)" />
-                  <text x="582" y="322" textAnchor="middle" fontSize="10" fill="#0EA5E9" fontFamily={'"Clash Grotesk", sans-serif'}>fee harvest</text>
+                  <text x="582" y="322" textAnchor="middle" fontSize="10" fill="#0EA5E9" fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">fee harvest</text>
                   <path d="M542 314 L508 292" stroke="#0EA5E9" strokeWidth=".8" fill="none" markerEnd="url(#farw)" />
                 </g>
 
-                <rect x="490" y="68" width="168" height="80" rx="8" fill="rgba(7,8,15,0.92)" stroke="rgba(124,58,237,0.45)" strokeWidth=".5" />
-                <text x="574" y="90" textAnchor="middle" fontSize="11" fontWeight="600" fill="#a78bfa" fontFamily={'"Clash Grotesk", sans-serif'}>FlowYield architecture</text>
-                <rect x="501" y="100" width="14" height="10" rx="2" fill="#7c3aed" opacity=".9" />
-                <text x="521" y="109" fontSize="10" fill="rgba(255,255,255,0.5)" fontFamily={'"Clash Grotesk", sans-serif'}>Active market making</text>
-                <rect x="501" y="116" width="14" height="10" rx="2" fill="#0EA5E9" opacity=".75" />
-                <text x="521" y="125" fontSize="10" fill="rgba(255,255,255,0.5)" fontFamily={'"Clash Grotesk", sans-serif'}>Reserve yield engine</text>
-                <text x="501" y="143" fontSize="9" fill="rgba(255,255,255,0.28)" fontFamily={'"Clash Grotesk", sans-serif'}>proprietary · continuously optimised</text>
+                <rect x="490" y="68" width="168" height="80" rx="8" fill="rgba(7,8,15,0.92)" stroke="rgba(124,58,237,0.45)" strokeWidth=".5" data-mobile-hide="true" />
+                <text x="574" y="90" textAnchor="middle" fontSize="11" fontWeight="600" fill="#a78bfa" fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">FlowYield architecture</text>
+                <rect x="501" y="100" width="14" height="10" rx="2" fill="#7c3aed" opacity=".9" data-mobile-hide="true" />
+                <text x="521" y="109" fontSize="10" fill="rgba(255,255,255,0.5)" fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">Active market making</text>
+                <rect x="501" y="116" width="14" height="10" rx="2" fill="#0EA5E9" opacity=".75" data-mobile-hide="true" />
+                <text x="521" y="125" fontSize="10" fill="rgba(255,255,255,0.5)" fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">Reserve yield engine</text>
+                <text x="501" y="143" fontSize="9" fill="rgba(255,255,255,0.28)" fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">proprietary · continuously optimised</text>
               </svg>
 
               <div className="fapy"><div className="fapy-label">live est. APY</div><div className="fapy-val" style={{ color: getApyColor }}>{apyValue.toFixed(1)}%</div></div>

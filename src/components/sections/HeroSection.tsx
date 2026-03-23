@@ -509,7 +509,7 @@ const HeroSection = () => {
           --bg:#07080f;--bg2:#0d0f1a;
           --text:#ffffff;--text2:rgba(255,255,255,0.65);--text3:rgba(255,255,255,0.35);
           position: relative;
-          min-height: 100vh;
+          min-height: 100svh;
           overflow: hidden;
           background: var(--bg);
           color: var(--text);
@@ -518,14 +518,14 @@ const HeroSection = () => {
         .balcore-flow-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 1; }
         .balcore-hero-grid {
           position: relative;
-          min-height: 100vh;
+          min-height: 100svh;
           display: grid;
           grid-template-columns: minmax(0, 1fr) minmax(540px, 620px);
           align-items: center;
           column-gap: clamp(4rem, 7vw, 8rem);
           width: min(100%, 1480px);
           margin: 0 auto;
-          padding: 64px clamp(1.5rem, 4vw, 3.5rem) 3rem clamp(1.5rem, 3vw, 2.5rem);
+          padding: 72px clamp(1.25rem, 4vw, 3.5rem) 3rem clamp(1.25rem, 3vw, 2.5rem);
           overflow: hidden;
           z-index: 2;
         }
@@ -621,6 +621,9 @@ const HeroSection = () => {
         .balcore-stats {
           margin-top: 3.5rem;display: grid;grid-template-columns: repeat(4, minmax(0, 1fr));gap: 1.75rem;animation: balcore-fade-up .8s .45s ease both;padding-top: 2rem;border-top: 1px solid rgba(255,255,255,0.07);
         }
+        .balcore-stat-card {
+          min-width: 0;
+        }
         .balcore-stat-num { font-family: "Clash Grotesk", sans-serif;font-size: 26px;font-weight: 700;color: #fff; }
         .balcore-stat-num span { font-size: 16px;color: var(--purple-light); }
         .balcore-stat-desc { font-size: 12px;color: var(--text3);margin-top: 2px;letter-spacing: .3px; }
@@ -683,16 +686,30 @@ const HeroSection = () => {
           .balcore-hub-scene-wrap { --scene-size: 420px; transform: translateX(0.5rem); }
         }
         @media (max-width: 767px) {
-          .balcore-hero-grid { grid-template-columns: 1fr; padding: 56px 1.25rem 2.5rem; }
-          .balcore-hero-left { max-width: 100%; }
-          .balcore-hero-right { min-height: 420px; justify-self: center; }
-          .balcore-hub-scene-wrap { --scene-size: min(82vw, 360px); }
-          .balcore-scroll-hint { position: static; transform: none; margin-top: 2rem; align-items: center; }
+          .balcore-flow-canvas { display: none; }
+          .balcore-hero-grid { grid-template-columns: 1fr; padding: 88px 1rem 2.5rem; row-gap: 2rem; width: 100%; }
+          .balcore-hero-left { max-width: 100%; text-align: center; align-items: center; }
+          .balcore-badge { margin-bottom: 1.5rem; }
+          .balcore-actions { width: 100%; justify-content: center; }
+          .balcore-btn-primary, .balcore-btn-secondary { width: 100%; max-width: 320px; }
+          .balcore-subtitle { max-width: 100%; }
+          .balcore-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; width: 100%; }
+          .balcore-hero-right { min-height: 360px; justify-self: center; justify-content: center; padding-left: 0; }
+          .balcore-hub-scene-wrap { --scene-size: min(88vw, 360px); transform: none; }
+          .balcore-token-inner { width: 62px; height: 62px; }
+          .balcore-token-pulse { width: 62px; height: 62px; }
+          .balcore-token-name { font-size: 7px; }
+          .balcore-scroll-hint { position: static; transform: none; margin-top: 0.5rem; align-items: center; }
+          .balcore-tooltip { display: none; }
         }
         @media (max-width: 640px) {
-          .balcore-title { font-size: 42px; }
-          .balcore-stats { grid-template-columns: 1fr; gap: 1.25rem; }
-          .balcore-hub-scene-wrap { --scene-size: min(84vw, 320px); }
+          .balcore-title { font-size: clamp(38px, 13vw, 48px); }
+          .balcore-subtitle { margin-top: 1.25rem; font-size: 15px; }
+          .balcore-actions { margin-top: 2rem; gap: 0.75rem; }
+          .balcore-stats { grid-template-columns: 1fr; gap: 0.9rem; margin-top: 2.5rem; }
+          .balcore-stat-card { text-align: left; padding: 0.9rem 1rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.03); }
+          .balcore-stat-num { font-size: 22px; }
+          .balcore-hub-scene-wrap { --scene-size: min(92vw, 310px); }
         }
       `}</style>
 
@@ -744,21 +761,21 @@ const HeroSection = () => {
             </div>
 
             <div className="balcore-stats">
-              <div>
+              <div className="balcore-stat-card">
                 <div className="balcore-stat-num">≤ 30<span> %</span></div>
                 <div className="balcore-stat-desc">Target APY · market-dependent</div>
               </div>
-              <div>
+              <div className="balcore-stat-card">
                 <div className="balcore-stat-num">3<span> ×</span></div>
                 <div className="balcore-stat-desc">Independent IL shield layers</div>
               </div>
-              <div>
+              <div className="balcore-stat-card">
                 <div className="balcore-stat-num" style={{ fontSize: "22px", paddingTop: "4px" }}>
                   Principal
                 </div>
                 <div className="balcore-stat-desc">Always returned on exit</div>
               </div>
-              <div>
+              <div className="balcore-stat-card">
                 <div className="balcore-stat-num">24<span>/7</span></div>
                 <div className="balcore-stat-desc">Fully automated</div>
               </div>

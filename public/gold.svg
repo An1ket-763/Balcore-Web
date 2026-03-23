@@ -1,0 +1,6 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="128" height="128" rx="28" fill="#130F08"/>
+  <path d="M24 46L32 30H96L104 46V82L90 98H38L24 82V46Z" fill="#D4A017" stroke="#F0C040" stroke-width="4"/>
+  <rect x="36" y="48" width="56" height="24" rx="6" fill="#F6D36A" fill-opacity="0.25"/>
+  <text x="64" y="68" text-anchor="middle" fill="white" font-size="18" font-family="Arial, sans-serif" font-weight="700" letter-spacing="2">GOLD</text>
+</svg>

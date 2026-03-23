@@ -110,7 +110,7 @@ const NavBar = () => {
         }}
         className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b transition-all duration-300"
       >
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 sm:py-4 flex justify-between items-center gap-3">
           <motion.a
             onClick={() => handleNavClick("top", "/")}
             className="flex items-center gap-3 cursor-pointer"
@@ -120,7 +120,7 @@ const NavBar = () => {
             <motion.img
               src="/BalcoreLogo.png"
               alt="Balcore logo"
-              className="h-10 object-contain"
+              className="h-9 sm:h-10 object-contain"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             />
@@ -191,7 +191,7 @@ const NavBar = () => {
           {/* Mobile menu button */}
           <motion.button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-white"
+            className="md:hidden p-2 text-white shrink-0"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -211,9 +211,9 @@ const NavBar = () => {
             opacity: isMobileMenuOpen ? 1 : 0,
           }}
           transition={{ duration: 0.3 }}
-          className="md:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-t border-border"
+          className="md:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-t border-border shadow-2xl"
         >
-          <nav className="px-6 py-4 space-y-4">
+          <nav className="px-4 sm:px-6 py-4 space-y-3">
             {navItems.map((item, i) => (
               <motion.button
                 key={i}
@@ -259,7 +259,7 @@ const NavBar = () => {
                 setIsMobileMenuOpen(false);
                 setIsModalOpen(true);
               }}
-              className="flex items-center gap-2 text-white py-2 font-medium"
+              className="flex items-center gap-2 text-white py-2.5 font-medium w-full justify-start"
             >
               <Rocket className="w-4 h-4" />
               Launch App
@@ -268,7 +268,7 @@ const NavBar = () => {
               href="https://x.com/Balcore_ai"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 text-white/80 py-2"
+              className="flex items-center gap-2 text-white/80 py-2.5"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Follow on X
