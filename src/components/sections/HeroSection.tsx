@@ -270,16 +270,23 @@ const HeroSection = () => {
   );
 
   useEffect(() => {
+    const measure = titleMeasureRef.current;
+    if (!measure) return;
+
     const updateCursorWidth = () => {
-      const measure = titleMeasureRef.current;
-      if (!measure) return;
       setTitleCursorWidth(measure.getBoundingClientRect().width);
     };
 
     updateCursorWidth();
+
+    const resizeObserver = new ResizeObserver(updateCursorWidth);
+    resizeObserver.observe(measure);
     window.addEventListener("resize", updateCursorWidth);
 
-    return () => window.removeEventListener("resize", updateCursorWidth);
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", updateCursorWidth);
+    };
   }, []);
 
   useEffect(() => {
@@ -556,18 +563,16 @@ const HeroSection = () => {
           color: #fff;
           animation: balcore-fade-up .8s .1s ease both;
         }
-        .balcore-title-typewriter {
+        .balcore-title-shell {
           position: relative;
           display: inline-grid;
-          min-height: 1em;
         }
-        .balcore-title-ghost,
-        .balcore-title-active,
-        .balcore-title-measure {
+        .balcore-title-placeholder,
+        .balcore-title-active {
           grid-area: 1 / 1;
           white-space: nowrap;
         }
-        .balcore-title-ghost,
+        .balcore-title-placeholder,
         .balcore-title-measure {
           visibility: hidden;
           pointer-events: none;
@@ -575,17 +580,20 @@ const HeroSection = () => {
         .balcore-title-active {
           display: inline-flex;
           align-items: center;
+          min-height: 1em;
           width: fit-content;
-        }
-        .balcore-title-text {
-          display: inline-block;
-          white-space: nowrap;
         }
         .balcore-title-caret {
           display: inline-block;
           height: 1em;
           background: #fff;
           flex: 0 0 auto;
+        }
+        .balcore-title-measure {
+          position: absolute;
+          top: 0;
+          left: 0;
+          white-space: nowrap;
         }
         .balcore-subtitle {
           margin-top: 1.75rem;font-size: clamp(15px,1.4vw,18px);font-weight: 400;color: var(--text2);line-height: 1.65;max-width: 480px;
@@ -699,22 +707,22 @@ const HeroSection = () => {
             </div>
 
             <h1 className="balcore-title" aria-label={HERO_TITLE}>
-              <span className="balcore-title-typewriter">
-                <span className="balcore-title-ghost" aria-hidden="true">
+              <span className="balcore-title-shell">
+                <span className="balcore-title-placeholder" aria-hidden="true">
                   {HERO_TITLE}
                 </span>
-                <span ref={titleMeasureRef} className="balcore-title-measure" aria-hidden="true">
-                  M
-                </span>
                 <span className="balcore-title-active">
-                  <span className="balcore-title-text">{activeTitleStep.shown}</span>
+                  {activeTitleStep.shown}
                   {activeTitleStep.width > 0 ? (
                     <span
                       className="balcore-title-caret"
                       aria-hidden="true"
-                      style={{ width: `${titleCursorWidth * activeTitleStep.width}px` }}
+                      style={{ width: `${Math.max(titleCursorWidth * activeTitleStep.width, 2)}px` }}
                     />
                   ) : null}
+                </span>
+                <span ref={titleMeasureRef} className="balcore-title-measure" aria-hidden="true">
+                  M
                 </span>
               </span>
             </h1>
