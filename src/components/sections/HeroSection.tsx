@@ -125,8 +125,20 @@ const logos = {
 };
 
 const HERO_TITLE = "BALCORE";
-const TITLE_REVEAL_DURATION_MS = 1500;
-const TITLE_STEP_DURATION_MS = TITLE_REVEAL_DURATION_MS / HERO_TITLE.length;
+const TITLE_STEPS = [
+  { shown: "", width: 2 },
+  { shown: "B", width: 1 },
+  { shown: "BA", width: 0 },
+  { shown: "BA", width: 2 },
+  { shown: "BAL", width: 1 },
+  { shown: "BALC", width: 0 },
+  { shown: "BALC", width: 2 },
+  { shown: "BALCO", width: 1 },
+  { shown: "BALCOR", width: 0 },
+  { shown: "BALCOR", width: 1 },
+  { shown: "BALCORE", width: 0 },
+] as const;
+const TITLE_STEP_DURATION_MS = 180;
 
 const tokens: Token[] = [
   {
@@ -232,16 +244,17 @@ const tokens: Token[] = [
 const HeroSection = () => {
   const sceneRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const titleMeasureRef = useRef<HTMLSpanElement>(null);
   const [tooltip, setTooltip] = useState<TooltipState>({
     visible: false,
     x: 0,
     y: 0,
     token: null,
   });
-  const [visibleTitleLength, setVisibleTitleLength] = useState(0);
-  const [isTitleAnimating, setIsTitleAnimating] = useState(true);
+  const [titleStepIndex, setTitleStepIndex] = useState(0);
+  const [titleCursorWidth, setTitleCursorWidth] = useState(0);
 
-  const animatedTitle = HERO_TITLE.slice(0, visibleTitleLength);
+  const activeTitleStep = TITLE_STEPS[Math.min(titleStepIndex, TITLE_STEPS.length - 1)];
 
   const tokenPositions = useMemo(
     () =>
@@ -257,16 +270,27 @@ const HeroSection = () => {
   );
 
   useEffect(() => {
-    setVisibleTitleLength(0);
-    setIsTitleAnimating(true);
+    const updateCursorWidth = () => {
+      const measure = titleMeasureRef.current;
+      if (!measure) return;
+      setTitleCursorWidth(measure.getBoundingClientRect().width);
+    };
 
-    let currentIndex = 0;
+    updateCursorWidth();
+    window.addEventListener("resize", updateCursorWidth);
+
+    return () => window.removeEventListener("resize", updateCursorWidth);
+  }, []);
+
+  useEffect(() => {
+    setTitleStepIndex(0);
+
+    let currentStepIndex = 0;
     const typewriterInterval = window.setInterval(() => {
-      currentIndex += 1;
-      setVisibleTitleLength(currentIndex);
+      currentStepIndex += 1;
+      setTitleStepIndex(currentStepIndex);
 
-      if (currentIndex >= HERO_TITLE.length) {
-        setIsTitleAnimating(false);
+      if (currentStepIndex >= TITLE_STEPS.length - 1) {
         window.clearInterval(typewriterInterval);
       }
     }, TITLE_STEP_DURATION_MS);
@@ -538,11 +562,13 @@ const HeroSection = () => {
           min-height: 1em;
         }
         .balcore-title-ghost,
-        .balcore-title-active {
+        .balcore-title-active,
+        .balcore-title-measure {
           grid-area: 1 / 1;
           white-space: nowrap;
         }
-        .balcore-title-ghost {
+        .balcore-title-ghost,
+        .balcore-title-measure {
           visibility: hidden;
           pointer-events: none;
         }
@@ -556,13 +582,10 @@ const HeroSection = () => {
           white-space: nowrap;
         }
         .balcore-title-caret {
-          width: 0.08em;
-          height: 0.9em;
-          margin-left: 0.08em;
-          border-radius: 999px;
-          background: rgba(255,255,255,0.95);
-          box-shadow: 0 0 12px rgba(255,255,255,0.35);
-          animation: balcore-caret-blink .45s steps(1) infinite;
+          display: inline-block;
+          height: 1em;
+          background: #fff;
+          flex: 0 0 auto;
         }
         .balcore-subtitle {
           margin-top: 1.75rem;font-size: clamp(15px,1.4vw,18px);font-weight: 400;color: var(--text2);line-height: 1.65;max-width: 480px;
@@ -640,7 +663,6 @@ const HeroSection = () => {
         @keyframes balcore-token-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         @keyframes balcore-token-pulse { 0% { transform: translate(-50%,-50%) scale(1);opacity: .6; } 100% { transform: translate(-50%,-50%) scale(2.2);opacity: 0; } }
         @keyframes balcore-arrow-bounce { 0%,100% { transform: rotate(45deg) translateY(0); } 50% { transform: rotate(45deg) translateY(5px); } }
-        @keyframes balcore-caret-blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
 
         @media (max-width: 1320px) {
           .balcore-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(460px, 520px); column-gap: 3rem; width: min(100%, 1280px); }
@@ -681,9 +703,18 @@ const HeroSection = () => {
                 <span className="balcore-title-ghost" aria-hidden="true">
                   {HERO_TITLE}
                 </span>
+                <span ref={titleMeasureRef} className="balcore-title-measure" aria-hidden="true">
+                  M
+                </span>
                 <span className="balcore-title-active">
-                  <span className="balcore-title-text">{animatedTitle}</span>
-                  {isTitleAnimating ? <span className="balcore-title-caret" aria-hidden="true" /> : null}
+                  <span className="balcore-title-text">{activeTitleStep.shown}</span>
+                  {activeTitleStep.width > 0 ? (
+                    <span
+                      className="balcore-title-caret"
+                      aria-hidden="true"
+                      style={{ width: `${titleCursorWidth * activeTitleStep.width}px` }}
+                    />
+                  ) : null}
                 </span>
               </span>
             </h1>
