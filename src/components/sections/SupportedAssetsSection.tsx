@@ -7,6 +7,7 @@ const assets = [
   { name: "BTC.b", logo: "/logo2.png", color: "from-orange-500/40 to-amber-600/30", borderColor: "border-orange-500/30" },
   { name: "USDC", logo: "/logo3.png", color: "from-emerald-500/40 to-emerald-600/30", borderColor: "border-emerald-500/30" },
   { name: "ETH", logo: "/logo4.png", color: "from-purple-500/40 to-indigo-600/30", borderColor: "border-purple-500/30" },
+  { name: "Gold", logo: "/gold.svg", color: "from-amber-400/35 to-yellow-600/25", borderColor: "border-amber-400/35" },
 ];
 
 const SupportedAssetsSection = () => {
@@ -14,12 +15,12 @@ const SupportedAssetsSection = () => {
     <section className="py-16 md:py-20 border-t border-border relative section-animated-bg overflow-hidden">
       <ProtocolFlowBackground />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <motion.div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
@@ -36,7 +37,7 @@ const SupportedAssetsSection = () => {
           </h2>
 
           <motion.p
-            className="text-white/80 mt-4 max-w-2xl mx-auto text-lg"
+            className="text-white/80 mt-4 max-w-2xl mx-auto text-base sm:text-lg"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -46,10 +47,10 @@ const SupportedAssetsSection = () => {
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5 max-w-5xl mx-auto">
           {assets.map((asset, i) => (
             <motion.div
-              key={i}
+              key={asset.name}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -57,12 +58,12 @@ const SupportedAssetsSection = () => {
               className="group"
             >
               <motion.div
-                className={`p-6 rounded-2xl bg-gradient-to-br ${asset.color} border ${asset.borderColor} cursor-default transition-all duration-300 hover:scale-105`}
+                className={`h-full min-h-[104px] sm:min-h-[116px] p-4 sm:p-6 rounded-2xl bg-gradient-to-br ${asset.color} border ${asset.borderColor} cursor-default transition-all duration-300 hover:scale-105`}
                 whileHover={{ y: -4 }}
               >
-                <div className="flex items-center justify-center gap-3">
-                  <img src={asset.logo} alt={`${asset.name} logo`} className="w-8 h-8 object-contain" />
-                  <p className="text-2xl font-bold text-white">{asset.name}</p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-center sm:text-left h-full">
+                  <img src={asset.logo} alt={`${asset.name} logo`} className="w-10 h-10 sm:w-8 sm:h-8 object-contain shrink-0" />
+                  <p className="text-xl sm:text-2xl font-bold text-white">{asset.name}</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -70,7 +71,7 @@ const SupportedAssetsSection = () => {
         </div>
 
         <motion.p
-          className="text-sm text-white/80 mt-8 text-center italic"
+          className="text-sm text-white/80 mt-8 text-center italic px-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
