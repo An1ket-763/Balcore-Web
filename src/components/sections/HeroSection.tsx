@@ -630,8 +630,8 @@ const HeroSection = () => {
         .balcore-hero-right {
           position: relative;display: flex;align-items: center;justify-content: flex-end;min-height: 620px;width: 100%;justify-self: end;padding-left: clamp(1rem, 2vw, 2rem);z-index: 2;animation: balcore-fade-in 1.2s .2s ease both;
         }
-        .balcore-hub-scene-wrap { --scene-size: 540px; --scene-scale: calc(var(--scene-size) / 540); position: relative; width: var(--scene-size); height: var(--scene-size); transform: translateX(clamp(1rem, 2.4vw, 2.75rem)); flex-shrink: 0; overflow: hidden; }
-        .balcore-scene { position: absolute; top: 50%; left: 50%; width: 540px; height: 540px; transform: translate(-50%, -50%) scale(var(--scene-scale)); transform-origin: center; z-index: 2; }
+        .balcore-hub-scene-wrap { --scene-size: 540px; --scene-scale: calc(var(--scene-size) / 540); position: relative; width: var(--scene-size); height: var(--scene-size); transform: translateX(clamp(1rem, 2.4vw, 2.75rem)); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+        .balcore-scene { position: relative; width: 540px; height: 540px; transform: scale(var(--scene-scale)); transform-origin: center; z-index: 2; }
         .balcore-ring { position: absolute;border-radius: 50%;top: 50%;left: 50%;transform: translate(-50%,-50%); }
         .balcore-ring1 { width: 148px;height: 148px;border: 1px solid rgba(138,92,246,0.5);animation: balcore-spin-r 18s linear infinite; }
         .balcore-ring2 { width: 256px;height: 256px;border: 1px dashed rgba(138,92,246,0.25);animation: balcore-spin-l 30s linear infinite; }
