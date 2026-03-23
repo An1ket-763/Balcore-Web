@@ -124,6 +124,8 @@ const logos = {
   ),
 };
 
+const HERO_TITLE = "BALCORE";
+
 const tokens: Token[] = [
   {
     id: "USD",
@@ -234,6 +236,9 @@ const HeroSection = () => {
     y: 0,
     token: null,
   });
+  const [visibleTitleLength, setVisibleTitleLength] = useState(0);
+
+  const animatedTitle = HERO_TITLE.slice(0, visibleTitleLength);
 
   const tokenPositions = useMemo(
     () =>
@@ -247,6 +252,22 @@ const HeroSection = () => {
       }),
     []
   );
+
+  useEffect(() => {
+    setVisibleTitleLength(0);
+
+    let currentIndex = 0;
+    const typewriterInterval = window.setInterval(() => {
+      currentIndex += 1;
+      setVisibleTitleLength(currentIndex);
+
+      if (currentIndex >= HERO_TITLE.length) {
+        window.clearInterval(typewriterInterval);
+      }
+    }, 70);
+
+    return () => window.clearInterval(typewriterInterval);
+  }, []);
 
   useEffect(() => {
     const updateTooltipPosition = (event: MouseEvent) => {
@@ -503,6 +524,25 @@ const HeroSection = () => {
           color: #fff;
           animation: balcore-fade-up .8s .1s ease both;
         }
+        .balcore-title-typewriter {
+          display: inline-flex;
+          align-items: center;
+          min-height: 1em;
+        }
+        .balcore-title-text {
+          display: inline-block;
+          min-width: 8ch;
+          white-space: nowrap;
+        }
+        .balcore-title-caret {
+          width: 0.08em;
+          height: 0.9em;
+          margin-left: 0.08em;
+          border-radius: 999px;
+          background: rgba(255,255,255,0.95);
+          box-shadow: 0 0 12px rgba(255,255,255,0.35);
+          animation: balcore-caret-blink .45s steps(1) infinite;
+        }
         .balcore-subtitle {
           margin-top: 1.75rem;font-size: clamp(15px,1.4vw,18px);font-weight: 400;color: var(--text2);line-height: 1.65;max-width: 480px;
           animation: balcore-fade-up .8s .2s ease both;
@@ -579,6 +619,7 @@ const HeroSection = () => {
         @keyframes balcore-token-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         @keyframes balcore-token-pulse { 0% { transform: translate(-50%,-50%) scale(1);opacity: .6; } 100% { transform: translate(-50%,-50%) scale(2.2);opacity: 0; } }
         @keyframes balcore-arrow-bounce { 0%,100% { transform: rotate(45deg) translateY(0); } 50% { transform: rotate(45deg) translateY(5px); } }
+        @keyframes balcore-caret-blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
 
         @media (max-width: 1024px) {
           .balcore-hero-grid { grid-template-columns: 1fr; padding: 72px 2rem 0; }
@@ -606,7 +647,12 @@ const HeroSection = () => {
               <span>Built on Avalanche</span>
             </div>
 
-            <h1 className="balcore-title">BALCORE</h1>
+            <h1 className="balcore-title" aria-label={HERO_TITLE}>
+              <span className="balcore-title-typewriter">
+                <span className="balcore-title-text">{animatedTitle}</span>
+                <span className="balcore-title-caret" aria-hidden="true" />
+              </span>
+            </h1>
 
             <p className="balcore-subtitle">
               Solving DeFi&apos;s trilemma — <strong>yield generation</strong>, <strong>capital protection</strong>, and <strong>liquidity provision</strong>. Every asset. Every market. Finally.
