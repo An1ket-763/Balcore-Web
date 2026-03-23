@@ -618,7 +618,7 @@ const HeroSection = () => {
           position: absolute;width: 76px;height: 76px;border-radius: 50%;border: 2px solid var(--pc,#fff);animation: balcore-token-pulse 2.8s ease-out infinite;animation-delay: var(--pd,0s);top: 50%;left: 50%;transform: translate(-50%,-50%);pointer-events: none;
         }
         .balcore-scroll-hint {
-          position: absolute;bottom: 2rem;left: 5rem;display: flex;flex-direction: column;align-items: flex-start;gap: 6px;animation: balcore-fade-in 1.5s 1s ease both;z-index: 3;
+          position: absolute;bottom: 2rem;left: 50%;transform: translateX(-50%);display: flex;flex-direction: column;align-items: center;gap: 6px;animation: balcore-fade-in 1.5s 1s ease both;z-index: 3;
         }
         .balcore-scroll-hint span { font-size: 10px;letter-spacing: 2px;color: var(--text3);text-transform: uppercase; }
         .balcore-scroll-arrow { width: 20px;height: 20px;border-right: 1px solid var(--text3);border-bottom: 1px solid var(--text3);transform: rotate(45deg);animation: balcore-arrow-bounce 1.8s ease-in-out infinite;margin-top: 2px;margin-left: 4px; }
@@ -651,14 +651,13 @@ const HeroSection = () => {
           .balcore-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
           .balcore-hero-right { min-height: 520px; }
           .balcore-hub-scene-wrap { --scene-size: 420px; transform: translateX(0.5rem); }
-          .balcore-scroll-hint { left: clamp(1.5rem, 4vw, 3rem); }
         }
         @media (max-width: 767px) {
           .balcore-hero-grid { grid-template-columns: 1fr; padding: 56px 1.25rem 2.5rem; }
           .balcore-hero-left { max-width: 100%; }
           .balcore-hero-right { min-height: 420px; justify-self: center; }
           .balcore-hub-scene-wrap { --scene-size: min(82vw, 360px); }
-          .balcore-scroll-hint { position: static; margin-top: 2rem; align-items: flex-start; }
+          .balcore-scroll-hint { position: static; transform: none; margin-top: 2rem; align-items: center; }
         }
         @media (max-width: 640px) {
           .balcore-title { font-size: 42px; }

@@ -424,7 +424,7 @@ const VisualStorySection = () => {
           .forbit{animation:orbit var(--dur,22s) linear infinite}
           .fcore-pulse{animation:corePulseF 3s ease-in-out infinite}
         }
-        .fy-section{padding:7rem 0;background:linear-gradient(180deg,#07080f 0%,#080c1a 50%,#07080f 100%);position:relative;min-height:100vh;display:flex;align-items:center}
+        .fy-section{padding:5rem 0;background:linear-gradient(180deg,#07080f 0%,#080c1a 50%,#07080f 100%);position:relative}
         .fy-inner{max-width:960px;margin:0 auto;padding:0 3rem;width:100%}
         .fy-head{text-align:center;margin-bottom:3.5rem}
         .fy-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.28);border-radius:100px;padding:5px 16px;margin-bottom:1.25rem;animation:fadeUp .8s ease both}
@@ -464,7 +464,7 @@ const VisualStorySection = () => {
         .fasset{cursor:pointer;transition:filter .2s}
         .fasset:hover{filter:brightness(1.2)}
         @media(max-width:900px){.fy-inner{padding:0 1.5rem}.fstats{grid-template-columns:repeat(3,1fr)}}
-        @media(max-width:640px){.fy-section{padding:4rem 0}.fy-btns{display:none}.fstats{grid-template-columns:repeat(2,1fr)}}
+        @media(max-width:640px){.fy-section{padding:3.5rem 0}.fy-btns{display:none}.fstats{grid-template-columns:repeat(2,1fr)}}
       `}</style>
 
       <section id="visual-story" className="flowyield-section fy-section">
