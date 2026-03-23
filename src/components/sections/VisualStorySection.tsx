@@ -429,7 +429,7 @@ const VisualStorySection = () => {
         .fy-head{text-align:center;margin-bottom:3.5rem}
         .fy-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.28);border-radius:100px;padding:5px 16px;margin-bottom:1.25rem;animation:fadeUp .8s ease both}
         .fy-eyebrow span{font-size:10px;font-weight:600;letter-spacing:1.8px;color:#a78bfa;text-transform:uppercase;font-family:"Clash Grotesk", sans-serif}
-        .fy-h2{font-family:"Clash Grotesk", sans-serif;font-size:clamp(32px,3.8vw,50px);font-weight:800;letter-spacing:-1.5px;color:#fff;margin-bottom:.85rem;animation:fadeUp .8s .08s ease both}
+        .fy-h2{font-family:"Clash Grotesk", sans-serif;font-size:clamp(32px,3.8vw,50px);font-weight:500;letter-spacing:-1px;color:#fff;margin-bottom:.85rem;animation:fadeUp .8s .08s ease both}
         .fy-hdesc{font-size:15px;color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto;line-height:1.75;font-family:"Clash Grotesk", sans-serif;animation:fadeUp .8s .16s ease both}
         .fy-card{background:rgba(255,255,255,0.022);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:2rem;backdrop-filter:blur(12px);box-shadow:0 0 80px rgba(124,58,237,0.06),0 32px 64px rgba(0,0,0,0.3)}
         .fy-topbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,0.06)}

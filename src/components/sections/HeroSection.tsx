@@ -494,7 +494,7 @@ const HeroSection = () => {
           column-gap: clamp(4rem, 7vw, 8rem);
           width: min(100%, 1480px);
           margin: 0 auto;
-          padding: 96px clamp(1.5rem, 4vw, 3.5rem) 3rem clamp(1.5rem, 3vw, 2.5rem);
+          padding: 64px clamp(1.5rem, 4vw, 3.5rem) 3rem clamp(1.5rem, 3vw, 2.5rem);
           overflow: hidden;
           z-index: 2;
         }
@@ -654,7 +654,7 @@ const HeroSection = () => {
           .balcore-scroll-hint { left: clamp(1.5rem, 4vw, 3rem); }
         }
         @media (max-width: 767px) {
-          .balcore-hero-grid { grid-template-columns: 1fr; padding: 88px 1.25rem 2.5rem; }
+          .balcore-hero-grid { grid-template-columns: 1fr; padding: 56px 1.25rem 2.5rem; }
           .balcore-hero-left { max-width: 100%; }
           .balcore-hero-right { min-height: 420px; justify-self: center; }
           .balcore-hub-scene-wrap { --scene-size: min(82vw, 360px); }

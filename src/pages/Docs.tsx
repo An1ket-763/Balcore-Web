@@ -167,7 +167,7 @@ const Docs = () => {
             sidebarOpen ? "lg:ml-72" : "lg:ml-0"
           }`}
         >
-          <div className="max-w-4xl mx-auto px-6 md:px-12 py-12">
+          <div className="max-w-4xl mx-auto px-6 md:px-12 pt-6 pb-12">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
               <button
