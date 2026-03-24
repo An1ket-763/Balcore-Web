@@ -687,15 +687,15 @@ const HeroSection = () => {
         }
         @media (max-width: 767px) {
           .balcore-flow-canvas { display: none; }
-          .balcore-hero-grid { grid-template-columns: 1fr; padding: 88px 1rem 2.5rem; row-gap: 2rem; width: 100%; }
+          .balcore-hero-grid { grid-template-columns: 1fr; padding: 88px 0.95rem 2.5rem; row-gap: 2rem; width: 100%; }
           .balcore-hero-left { max-width: 100%; text-align: center; align-items: center; }
           .balcore-badge { margin-bottom: 1.5rem; }
           .balcore-actions { width: 100%; justify-content: center; }
           .balcore-btn-primary, .balcore-btn-secondary { width: 100%; max-width: 320px; }
           .balcore-subtitle { max-width: 100%; }
           .balcore-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; width: 100%; }
-          .balcore-hero-right { min-height: 320px; width: 100%; justify-self: center; justify-content: center; padding-left: 0; overflow: hidden; }
-          .balcore-hub-scene-wrap { --scene-size: min(88vw, 332px); transform: none; margin: 0 auto; }
+          .balcore-hero-right { min-height: 320px; width: 100%; justify-self: center; justify-content: center; padding-left: 0; overflow: visible; }
+          .balcore-hub-scene-wrap { --scene-size: min(calc(100vw - 2.25rem), 332px); transform: none; margin: 0 auto; }
           .balcore-scroll-hint { position: static; transform: none; margin-top: 0.5rem; align-items: center; }
           .balcore-tooltip { display: none; }
         }
@@ -708,14 +708,18 @@ const HeroSection = () => {
           .balcore-stat-card { text-align: center; padding: 0.9rem 1rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.03); }
           .balcore-stat-num { font-size: 22px; }
           .balcore-stat-desc { text-align: center; }
-          .balcore-hub-scene-wrap { --scene-size: min(90vw, 296px); }
+          .balcore-hub-scene-wrap { --scene-size: min(calc(100vw - 2.5rem), 296px); }
+        }
+        @media (max-width: 430px) {
+          .balcore-hero-grid { padding-left: 0.85rem; padding-right: 0.85rem; }
+          .balcore-hub-scene-wrap { --scene-size: min(calc(100vw - 2rem), 282px); }
         }
       `}</style>
 
       <section id="top" className="balcore-hero">
         <canvas ref={canvasRef} className="balcore-flow-canvas" aria-hidden="true" />
 
-        <div className="balcore-hero-grid">
+        <div className="balcore-hero-grid mobile-layout-shell">
           <div className="balcore-hero-left">
             <div className="balcore-badge">
               <div className="balcore-badge-dot" />

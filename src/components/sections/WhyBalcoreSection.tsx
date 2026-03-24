@@ -28,7 +28,7 @@ const WhyBalcoreSection = () => {
     <section id="why-balcore" className="py-16 md:py-20 border-t border-border relative section-animated-bg overflow-hidden">
       <ProtocolFlowBackground />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 mobile-layout-shell relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

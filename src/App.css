@@ -936,3 +936,10 @@
 .docs-article tr:hover {
   background: hsl(var(--color) / 0.03);
 }
+
+@media (max-width: 767px) {
+  .mobile-layout-shell {
+    max-width: 430px;
+    margin: 0 auto;
+  }
+}

@@ -110,7 +110,7 @@ const NavBar = () => {
         }}
         className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b transition-all duration-300"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 sm:py-4 flex justify-between items-center gap-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 mobile-layout-shell py-3.5 sm:py-4 flex justify-between items-center gap-3">
           <motion.a
             onClick={() => handleNavClick("top", "/")}
             className="flex items-center gap-3 cursor-pointer"
