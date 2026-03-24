@@ -424,7 +424,7 @@ const VisualStorySection = () => {
           .forbit{animation:orbit var(--dur,22s) linear infinite}
           .fcore-pulse{animation:corePulseF 3s ease-in-out infinite}
         }
-        .fy-section{padding:5rem 0;background:linear-gradient(180deg,#07080f 0%,#080c1a 50%,#07080f 100%);position:relative}
+        .fy-section{padding:2.5rem 0 5rem;background:linear-gradient(180deg,#07080f 0%,#080c1a 50%,#07080f 100%);position:relative}
         .fy-inner{max-width:960px;margin:0 auto;padding:0 1rem;width:100%}
         .fy-head{text-align:center;margin-bottom:3.5rem}
         .fy-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.28);border-radius:100px;padding:5px 16px;margin-bottom:1.25rem;animation:fadeUp .8s ease both}
@@ -464,7 +464,7 @@ const VisualStorySection = () => {
         .fasset{cursor:pointer;transition:filter .2s}
         .fasset:hover{filter:brightness(1.2)}
         @media(max-width:900px){.fy-inner{padding:0 1.25rem}.fstats{grid-template-columns:repeat(3,1fr)}}
-        @media(max-width:640px){.fy-section{padding:3.5rem 0}.fy-inner{padding:0 1rem}.fy-head{margin-bottom:2.5rem}.fy-card{padding:1rem}.fy-topbar{align-items:flex-start}.fy-sub{line-height:1.5}.fy-btns{display:none}.fvis{border-radius:14px}.fapy{position:static;margin:0.75rem 0 0 auto;width:fit-content}.frbadge{bottom:12px;padding:5px 12px;font-size:9px}.ftoast{left:10px;right:10px;top:10px;max-width:none;padding:12px 14px}.fstats{grid-template-columns:repeat(2,1fr)}#fmain-svg text[data-mobile-hide="true"]{display:none}}
+        @media(max-width:640px){.fy-section{padding:2rem 0 3.5rem}.fy-inner{padding:0 1rem}.fy-head{margin-bottom:2.5rem}.fy-card{padding:1rem}.fy-topbar{align-items:flex-start}.fy-sub{line-height:1.5}.fy-btns{display:none}.fvis{border-radius:14px}.fapy{position:static;margin:0.75rem 0 0 auto;width:fit-content}.frbadge{bottom:12px;padding:5px 12px;font-size:9px}.ftoast{left:10px;right:10px;top:10px;max-width:none;padding:12px 14px}.fstats{grid-template-columns:repeat(2,1fr)}#fmain-svg text[data-mobile-hide="true"]{display:none}}
         @media(max-width:480px){.fy-card{padding:.875rem}.fst{padding:10px 12px}.fst-val{font-size:17px}.fstats{gap:6px}}
       `}</style>
 
