@@ -769,11 +769,11 @@ const HeroSection = () => {
 
             <div className="balcore-stats">
               <div className="balcore-stat-card">
-                <div className="balcore-stat-num">upto <span> 30%</span></div>
+                <div className="balcore-stat-num">upto 30%</div>
                 <div className="balcore-stat-desc">Target APY · market-dependent</div>
               </div>
               <div className="balcore-stat-card">
-                <div className="balcore-stat-num">3<span> ×</span></div>
+                <div className="balcore-stat-num">3 ×</div>
                 <div className="balcore-stat-desc">Independent IL shield layers</div>
               </div>
               <div className="balcore-stat-card">
@@ -783,7 +783,7 @@ const HeroSection = () => {
                 <div className="balcore-stat-desc">Always returned on exit</div>
               </div>
               <div className="balcore-stat-card">
-                <div className="balcore-stat-num">24<span>/7</span></div>
+                <div className="balcore-stat-num">24/7</div>
                 <div className="balcore-stat-desc">Fully automated</div>
               </div>
             </div>
