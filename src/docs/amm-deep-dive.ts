@@ -11,7 +11,7 @@ export const ammDeepDiveSection: DocSection = {
 
 ## Basics · Mathematics · Complexity · Pros & Cons
 
-Automated Market Makers (AMMs) are the engines that power decentralized trading. Understanding how they work and how the two dominant models differ is essential for anyone who wants to participate in DeFi, provide liquidity, or evaluate protocols like BalCore. This guide takes you from first principles to full mathematical detail, with no prior experience required.
+Automated Market Makers (AMMs) are the engines that power decentralized trading. Understanding how they work and how the two dominant models differ is essential for anyone who wants to participate in DeFi, provide liquidity, or evaluate protocols like Balcore. This guide takes you from first principles to full mathematical detail, with no prior experience required.
 
 # 1. What Is an Automated Market Maker?
 
@@ -137,7 +137,7 @@ Ticks are spaced at fixed percentage increments using a logarithmic scale. In Un
 When the current price crosses a tick boundary during a trade, the active liquidity changes positions that were previously out of range become active, and positions whose range has been exited become inactive. This is called a tick crossing.
 
 > **Bins vs. Ticks**
-> Trader Joe's LFJ (used by BalCore) uses a 'bin' model rather than ticks. Each bin represents a fixed price range with a specific price step (e.g., 0.1% per bin for AVAX/USDC). When price moves from one bin to the next, all liquidity in the departed bin is fully converted to one asset. Bins are simpler to reason about and more gas-efficient than the tick model.
+> Trader Joe's LFJ (used by Balcore) uses a 'bin' model rather than ticks. Each bin represents a fixed price range with a specific price step (e.g., 0.1% per bin for AVAX/USDC). When price moves from one bin to the next, all liquidity in the departed bin is fully converted to one asset. Bins are simpler to reason about and more gas-efficient than the tick model.
 
 ## 3.5 The Impermanent Loss Amplification Effect
 
@@ -218,7 +218,7 @@ AVAX can move 50–100% in either direction within weeks. Concentrated positions
 |------------|----------------------|
 | Always earns fees, but yield is low because capital is spread too wide. | Earns very high fees when price stays in range, but risks going out-of-range during large moves. |
 | IL is present but moderate; position never fully converts to one token. | Tight range = high fees + high IL risk. Wide range = lower fees + lower IL risk. Tradeoff is constant. |
-| Simple to manage no ongoing attention needed. | Requires active monitoring, rebalancing, and ideally an automated system like BalCore. |
+| Simple to manage no ongoing attention needed. | Requires active monitoring, rebalancing, and ideally an automated system like Balcore. |
 | Verdict: Acceptable for passive LPs who want simplicity. | Verdict: High potential but requires automation to realize it without excessive risk. |
 
 # 7. Operational Complexity for Liquidity Providers
@@ -244,7 +244,7 @@ AVAX can move 50–100% in either direction within weeks. Concentrated positions
 7. Track impermanent loss, net fees, gas costs, and opportunity cost to assess true performance.
 
 > **Complexity Rating: VERY HIGH**
-> Manual concentrated liquidity management is a near-full-time activity for volatile pairs. Studies have found that a majority of retail LPs in concentrated liquidity pools underperform simple token holding because of poor range selection, late rebalancing, and gas costs eating into returns. This is the exact problem BalCore's FlowYield system was built to solve.
+> Manual concentrated liquidity management is a near-full-time activity for volatile pairs. Studies have found that a majority of retail LPs in concentrated liquidity pools underperform simple token holding because of poor range selection, late rebalancing, and gas costs eating into returns. This is the exact problem Balcore's FlowYield system was built to solve.
 
 ## 7.3 The Automation Imperative
 
@@ -257,13 +257,13 @@ This is precisely the role of liquidity automation protocols. By handling range 
 | Just holding tokens | 0% (price appreciation only) | None |
 | Regular AMM LP | 3–15% APY (fees only) | Minimal |
 | Manual Conc. Liquidity | Potentially 20–100%+ but high loss risk | Very High (near full-time) |
-| Automated Conc. Liquidity (BalCore) | Up to 30% APY, IL protected | None fully automated |
+| Automated Conc. Liquidity (Balcore) | Up to 30% APY, IL protected | None fully automated |
 
-# 8. Where BalCore Fits In
+# 8. Where Balcore Fits In
 
-BalCore's FlowYield System is built specifically on top of concentrated liquidity AMMs LFJ, Pharaoh, Blackhole, and Uniswap-compatible pools on Avalanche. It captures all the advantages of concentrated liquidity while removing every barrier and risk that prevents retail participants from accessing those advantages:
+Balcore's FlowYield System is built specifically on top of concentrated liquidity AMMs LFJ, Pharaoh, Blackhole, and Uniswap-compatible pools on Avalanche. It captures all the advantages of concentrated liquidity while removing every barrier and risk that prevents retail participants from accessing those advantages:
 
-| Concentrated Liquidity Challenge | How BalCore's FlowYield System Solves It |
+| Concentrated Liquidity Challenge | How Balcore's FlowYield System Solves It |
 |---------------------------------|----------------------------------------|
 | Choosing the right price range | Uses VAH (Volume Area High), Pivot Point Standard, and volume profile data to intelligently position liquidity where trading activity is highest |
 | Rebalancing when price moves out of range | Automated Dynamic Rebalancing Engine monitors bin movement and adjusts positions in real time, using reserves to restore balance |
@@ -281,7 +281,7 @@ The evolution from regular AMMs to concentrated liquidity represents one of the 
 | Simple, passive, always earning, but deeply capital-inefficient great for users who want simplicity above all else. | Powerful, capital-efficient, high-yielding but demands active management that is beyond most retail participants without automation. |
 
 > **The Bottom Line**
-> Concentrated liquidity is strictly superior from a capital efficiency standpoint but only if the management problem is solved. Protocols like BalCore exist precisely to solve that management problem, making concentrated liquidity accessible to everyone without the complexity, the active monitoring, or the impermanent loss risk.
+> Concentrated liquidity is strictly superior from a capital efficiency standpoint but only if the management problem is solved. Protocols like Balcore exist precisely to solve that management problem, making concentrated liquidity accessible to everyone without the complexity, the active monitoring, or the impermanent loss risk.
 
 ## Start Earning Efficiently
 

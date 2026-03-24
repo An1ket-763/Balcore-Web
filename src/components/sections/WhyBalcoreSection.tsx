@@ -19,7 +19,7 @@ const audiences = [
     icon: <Code2 className="w-6 h-6" />,
     title: "For DeFi",
     description:
-      "BalCore bridges the gap between complex liquidity strategies and user accessibility, helping unlock idle capital for productive use.",
+      "Balcore bridges the gap between complex liquidity strategies and user accessibility, helping unlock idle capital for productive use.",
   },
 ];
 

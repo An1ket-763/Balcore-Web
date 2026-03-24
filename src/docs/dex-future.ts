@@ -223,7 +223,7 @@ Connecting a wallet, managing gas, understanding LP mechanics, and navigating on
 
 ## 5.4 Liquidity Bootstrap for New Asset Classes
 
-A DEX pool is only useful if it has sufficient liquidity to trade against. Bootstrapping initial liquidity for tokenized stocks, bonds, and real estate requires either large capital commitments from early LPs or incentive programs that attract sufficient depth. The protocols and economic models for bootstrapping RWA liquidity on DEXes are still being developed though Ve(3,3) DEXes and automation protocols like BalCore point the way.
+A DEX pool is only useful if it has sufficient liquidity to trade against. Bootstrapping initial liquidity for tokenized stocks, bonds, and real estate requires either large capital commitments from early LPs or incentive programs that attract sufficient depth. The protocols and economic models for bootstrapping RWA liquidity on DEXes are still being developed though Ve(3,3) DEXes and automation protocols like Balcore point the way.
 
 > **The Direction of Travel**
 > Every one of these challenges is a technical and regulatory problem, not a fundamental argument against the DEX model. And every one of them is actively being worked on by hundreds of teams with billions of dollars in funding. The CEX model's problems, by contrast, are structural they cannot be engineered away because they are intrinsic to what a centralized exchange is.
@@ -248,25 +248,25 @@ A DEX pool is only useful if it has sufficient liquidity to trade against. Boots
 | Fee structure | Exchange captures spread and trading fees | Fees go directly to liquidity providers no intermediary |
 | Trust requirement | High must trust exchange solvency and honesty | Minimal trust the open-source code, not a company |
 | Compliance scalability | Manual jurisdiction by jurisdiction | Programmable compliance logic in smart contracts, scales globally |
-| Yield on idle capital | None deposited assets earn nothing passively | Yes idle reserves earn lending yield (as in BalCore) |
+| Yield on idle capital | None deposited assets earn nothing passively | Yes idle reserves earn lending yield (as in Balcore) |
 
 ## PART SEVEN
-### BalCore's Place in This Future
+### Balcore's Place in This Future
 ### How automated liquidity protocols become critical infrastructure
 
-# 7. BalCore and the Tokenized DEX Future
+# 7. Balcore and the Tokenized DEX Future
 
 If DEXes become the dominant global liquidity infrastructure for tokenized assets, the critical bottleneck shifts: the challenge is no longer accessing the market it is managing liquidity efficiently within it. Concentrated liquidity AMMs are capital-efficient but operationally demanding. Most participants cannot manage positions across dozens of tokenized asset pairs simultaneously. This is where automated liquidity protocols become essential infrastructure.
 
 ## 7.1 The Liquidity Management Layer
 
-In the tokenized DEX future, BalCore and protocols like it serve as the liquidity management layer sitting between individual capital holders and the DEX pools where their assets are deployed. A user deposits a basket of tokens (or eventually a portfolio of tokenized RWAs). The protocol automatically allocates capital to the appropriate pools, manages range positions, earns fees, generates reserve yield, and handles rebalancing for every asset class simultaneously.
+In the tokenized DEX future, Balcore and protocols like it serve as the liquidity management layer sitting between individual capital holders and the DEX pools where their assets are deployed. A user deposits a basket of tokens (or eventually a portfolio of tokenized RWAs). The protocol automatically allocates capital to the appropriate pools, manages range positions, earns fees, generates reserve yield, and handles rebalancing for every asset class simultaneously.
 
 This is a qualitatively different function from what asset managers perform today. There is no fund structure, no management fee exceeding 1%, no board of directors, no operational risk from human error. It is code transparent, auditable, and operating at the same speed as the blockchain itself.
 
 ## 7.2 From Crypto Pairs to Every Asset Class
 
-Today BalCore manages AVAX/USDC and BTC.b/USDC concentrated liquidity positions on Avalanche DEXes. The same architecture dual-layer allocation, dynamic rebalancing, reserve yield, borrow-to-refill logic applies directly to any token pair. When tokenized Apple shares trade against tokenized T-bills on an Avalanche DEX, BalCore's FlowYield system can manage that position with identical logic.
+Today Balcore manages AVAX/USDC and BTC.b/USDC concentrated liquidity positions on Avalanche DEXes. The same architecture dual-layer allocation, dynamic rebalancing, reserve yield, borrow-to-refill logic applies directly to any token pair. When tokenized Apple shares trade against tokenized T-bills on an Avalanche DEX, Balcore's FlowYield system can manage that position with identical logic.
 
 The infrastructure does not need to be rebuilt. It needs to be pointed at new assets.
 
@@ -281,8 +281,8 @@ In this world:
 - A small business owner in Mexico can hold tokenized government bonds from five different countries in a single self-custodied wallet, earning yield on each and trading between them instantly at any hour.
 - A DAO can manage its treasury across tokenized equities, bonds, and commodities using a single automated protocol no board approval, no custodian, no 3-day settlement.
 
-> **The BalCore Thesis**
-> BalCore is not just building a yield protocol for the current DeFi market. It is building the liquidity management infrastructure for the tokenized financial system that is being assembled around us. The protocols being developed today the AMMs, the vault systems, the rebalancing engines are the New York Stock Exchange and the Federal Reserve of the world that is being built. Being early is being foundational.
+> **The Balcore Thesis**
+> Balcore is not just building a yield protocol for the current DeFi market. It is building the liquidity management infrastructure for the tokenized financial system that is being assembled around us. The protocols being developed today the AMMs, the vault systems, the rebalancing engines are the New York Stock Exchange and the Federal Reserve of the world that is being built. Being early is being foundational.
 
 # Conclusion
 

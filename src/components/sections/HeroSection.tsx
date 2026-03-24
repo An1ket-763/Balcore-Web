@@ -654,11 +654,6 @@ const HeroSection = () => {
         .balcore-token-pulse {
           position: absolute;width: 76px;height: 76px;border-radius: 50%;border: 2px solid var(--pc,#fff);animation: balcore-token-pulse 2.8s ease-out infinite;animation-delay: var(--pd,0s);top: 50%;left: 50%;transform: translate(-50%,-50%);pointer-events: none;
         }
-        .balcore-scroll-hint {
-          position: absolute;bottom: 2rem;left: 50%;transform: translateX(-50%);display: flex;flex-direction: column;align-items: center;gap: 6px;animation: balcore-fade-in 1.5s 1s ease both;z-index: 3;
-        }
-        .balcore-scroll-hint span { font-size: 10px;letter-spacing: 2px;color: var(--text3);text-transform: uppercase; }
-        .balcore-scroll-arrow { width: 20px;height: 20px;border-right: 1px solid var(--text3);border-bottom: 1px solid var(--text3);transform: rotate(45deg);animation: balcore-arrow-bounce 1.8s ease-in-out infinite;margin-top: 2px;margin-left: 4px; }
         .balcore-tooltip {
           position: fixed;background: rgba(12,8,35,0.97);border: 1px solid rgba(138,92,246,0.42);border-radius: 11px;padding: 11px 15px;font-size: 11px;color: rgba(255,255,255,.82);pointer-events: none;z-index: 200;max-width: 190px;line-height: 1.6;box-shadow: 0 4px 20px rgba(0,0,0,.5);
         }
@@ -676,7 +671,6 @@ const HeroSection = () => {
         }
         @keyframes balcore-token-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
         @keyframes balcore-token-pulse { 0% { transform: translate(-50%,-50%) scale(1);opacity: .6; } 100% { transform: translate(-50%,-50%) scale(2.2);opacity: 0; } }
-        @keyframes balcore-arrow-bounce { 0%,100% { transform: rotate(45deg) translateY(0); } 50% { transform: rotate(45deg) translateY(5px); } }
 
         @media (max-width: 1320px) {
           .balcore-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(460px, 520px); column-gap: 3rem; width: min(100%, 1280px); }
@@ -700,7 +694,6 @@ const HeroSection = () => {
           .balcore-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; width: 100%; }
           .balcore-hero-right { min-height: clamp(220px, 62vw, 290px); width: 100%; justify-self: center; justify-content: center; padding-left: 0; overflow: hidden; margin-top: 0.25rem; }
           .balcore-hub-scene-wrap { --scene-size: clamp(180px, 56vw, 240px); --scene-content-scale: 0.82; transform: none; margin: 0 auto; max-width: 100%; }
-          .balcore-scroll-hint { position: static; transform: none; margin-top: 0.5rem; align-items: center; }
           .balcore-tooltip { display: none; }
         }
         @media (max-width: 640px) {
@@ -862,10 +855,6 @@ const HeroSection = () => {
             )}
           </div>
 
-          <a href="#visual-story" className="balcore-scroll-hint">
-            <span>Scroll</span>
-            <div className="balcore-scroll-arrow" />
-          </a>
         </div>
 
         {tooltip.visible && tooltip.token ? (

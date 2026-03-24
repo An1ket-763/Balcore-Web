@@ -9,7 +9,7 @@ export const tokenizationSection: DocSection = {
 
 ## How Every Asset in the World Is Becoming a Token And Why You Get to Be the Market Maker
 
-Right now, a quiet revolution is transforming global finance. The traditional barriers that kept ordinary people out of the world's most lucrative markets stocks, bonds, real estate, commodities, private equity are crumbling. Tokenization is rebuilding the financial system from the ground up, and protocols like BalCore are at the frontier of making these markets accessible to everyone.
+Right now, a quiet revolution is transforming global finance. The traditional barriers that kept ordinary people out of the world's most lucrative markets stocks, bonds, real estate, commodities, private equity are crumbling. Tokenization is rebuilding the financial system from the ground up, and protocols like Balcore are at the frontier of making these markets accessible to everyone.
 
 # What Is Tokenization?
 
@@ -72,7 +72,7 @@ Decentralized exchanges built on concentrated liquidity (like LFJ, Uniswap v3, a
 - There is no minimum deposit, no license, no approval process required
 
 > **The Democratization of Finance**
-> For the first time in history, anyone with a crypto wallet can participate in market making earning fee revenue that was previously exclusive to multi-billion dollar firms. The only barrier that remained was technical complexity and impermanent loss risk. BalCore eliminates both.
+> For the first time in history, anyone with a crypto wallet can participate in market making earning fee revenue that was previously exclusive to multi-billion dollar firms. The only barrier that remained was technical complexity and impermanent loss risk. Balcore eliminates both.
 
 # Tokenized Assets + DeFi Liquidity: The Convergence
 
@@ -88,7 +88,7 @@ Tokenized assets need liquidity buyers and sellers need to be matched. Instead o
 
 ## Stage 3: Automated Yield Optimization
 
-Protocols like BalCore automate the management of these liquidity positions maximizing fee capture, managing risk, and generating returns from idle capital without requiring any technical expertise from participants.
+Protocols like Balcore automate the management of these liquidity positions maximizing fee capture, managing risk, and generating returns from idle capital without requiring any technical expertise from participants.
 
 ## Stage 4: Global Participation
 
@@ -106,24 +106,24 @@ This is not theoretical. Major institutions are already building the tokenized a
 | HSBC | Tokenized gold on blockchain | Physical gold ownership with instant digital transferability |
 | Siemens | Tokenized corporate bond | €60M bond issued on Polygon, settling in days not weeks |
 
-# BalCore's Role in the Tokenized Future
+# Balcore's Role in the Tokenized Future
 
-As more assets become tokenized and available for trading on decentralized exchanges, the need for automated, intelligent liquidity management grows exponentially. BalCore is designed to be the liquidity orchestration layer for this new financial ecosystem.
+As more assets become tokenized and available for trading on decentralized exchanges, the need for automated, intelligent liquidity management grows exponentially. Balcore is designed to be the liquidity orchestration layer for this new financial ecosystem.
 
-## Why This Matters for BalCore Users
+## Why This Matters for Balcore Users
 
-Today, BalCore manages liquidity for pairs like AVAX/USDC and BTC.b/USDC. In the tokenized future, the same infrastructure applies to any pair of tokenized assets:
+Today, Balcore manages liquidity for pairs like AVAX/USDC and BTC.b/USDC. In the tokenized future, the same infrastructure applies to any pair of tokenized assets:
 
-- Tokenized Apple shares paired with USDC BalCore provides market-making liquidity
-- Tokenized US Treasury bonds paired with a stablecoin BalCore manages the position
-- Tokenized real estate revenue shares paired with a dollar token BalCore earns fees on every trade
-- Tokenized commodity ETFs BalCore optimizes the concentrated liquidity range
+- Tokenized Apple shares paired with USDC Balcore provides market-making liquidity
+- Tokenized US Treasury bonds paired with a stablecoin Balcore manages the position
+- Tokenized real estate revenue shares paired with a dollar token Balcore earns fees on every trade
+- Tokenized commodity ETFs Balcore optimizes the concentrated liquidity range
 
-Every asset class that becomes a token creates a new opportunity for BalCore's liquidity engine to operate and for its users to earn market-maker returns.
+Every asset class that becomes a token creates a new opportunity for Balcore's liquidity engine to operate and for its users to earn market-maker returns.
 
 ## Anyone Can Be a Market Maker
 
-BalCore's FlowYield System means you do not need to understand market microstructure, manage bin positions, or monitor price ranges 24 hours a day. You simply deposit your tokens, and the protocol handles the rest including:
+Balcore's FlowYield System means you do not need to understand market microstructure, manage bin positions, or monitor price ranges 24 hours a day. You simply deposit your tokens, and the protocol handles the rest including:
 
 - Intelligently positioning liquidity where price activity is concentrated
 - Automatically rebalancing as prices move
@@ -132,7 +132,7 @@ BalCore's FlowYield System means you do not need to understand market microstruc
 - Distributing your share of trading fees weekly
 
 > **The Vision**
-> BalCore is building the infrastructure for a world where every person regardless of geography, wealth, or technical knowledge can participate as a market maker in a fully tokenized global financial system. The returns from providing liquidity to Apple stock, US Treasuries, real estate portfolios, and gold are no longer the exclusive domain of institutional players. They belong to everyone.
+> Balcore is building the infrastructure for a world where every person regardless of geography, wealth, or technical knowledge can participate as a market maker in a fully tokenized global financial system. The returns from providing liquidity to Apple stock, US Treasuries, real estate portfolios, and gold are no longer the exclusive domain of institutional players. They belong to everyone.
 
 # The Barriers That Are Coming Down
 
@@ -142,7 +142,7 @@ BalCore's FlowYield System means you do not need to understand market microstruc
 | Geographic restrictions | Permissionless blockchain access | Global markets from any wallet |
 | Market maker licensing | DeFi liquidity protocols | Earn spread revenue directly |
 | Illiquid assets (real estate, art) | Tokenized fractional ownership + DEX liquidity | Trade previously illiquid assets 24/7 |
-| Complex position management | BalCore's FlowYield System | Automated, optimized, hands-free |
+| Complex position management | Balcore's FlowYield System | Automated, optimized, hands-free |
 | Impermanent loss risk | Triple-layer IL protection | Market make without principal risk |
 
 # What This Means for You
@@ -154,9 +154,9 @@ In the old financial system, you were a customer. You paid fees to intermediarie
 In the tokenized DeFi system, you become a participant. You earn the fees. You provide the liquidity. You are the infrastructure.
 
 > The financial system is being rebuilt from first principles. The question is whether ordinary people will be participants or bystanders.
-> BalCore Protocol Vision Statement
+> Balcore Protocol Vision Statement
 
-BalCore is built to ensure you are a participant. Its FlowYield System automates the complexity, its IL protection covers the risk, and its open, permissionless architecture means that anyone anywhere in the world can access the same market-making returns that institutions have monopolized for decades.
+Balcore is built to ensure you are a participant. Its FlowYield System automates the complexity, its IL protection covers the risk, and its open, permissionless architecture means that anyone anywhere in the world can access the same market-making returns that institutions have monopolized for decades.
 
 # The Future Is Being Built Now
 

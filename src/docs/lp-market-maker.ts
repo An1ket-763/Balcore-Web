@@ -146,11 +146,11 @@ Every swap against the pool pays a fee. This fee is distributed proportionally t
 
 Fee rates are set per pool tier: typically 0.01% for stable pairs (USDC/USDT), 0.05% for correlated assets (ETH/BTC), 0.30% for standard volatile pairs (AVAX/USDC), and 1.00% for highly volatile or exotic pairs.
 
-### Revenue Stream 2: Reserve Yield (BalCore / Vault Protocols)
+### Revenue Stream 2: Reserve Yield (Balcore / Vault Protocols)
 
-In a standard AMM, capital not actively earning trading fees sits idle. Automation protocols like BalCore solve this by keeping 90% of deposited capital in a reserve vault deployed into lending protocols (such as Benqi on Avalanche), earning passive yield while the active 10% earns trading fees.
+In a standard AMM, capital not actively earning trading fees sits idle. Automation protocols like Balcore solve this by keeping 90% of deposited capital in a reserve vault deployed into lending protocols (such as Benqi on Avalanche), earning passive yield while the active 10% earns trading fees.
 
-> **Total Yield Dual Layer (BalCore Model)**
+> **Total Yield Dual Layer (Balcore Model)**
 > Y_total = α × Y_LP + (1 − α) × Y_reserve − C_borrow  α = 0.10 (active LP fraction) Y_LP = fee yield from active LP position Y_reserve = passive yield from reserve (Benqi etc.) C_borrow = cost of any outstanding borrow (if applicable)
 > Both layers generate yield simultaneously no capital is ever truly idle
 
@@ -186,7 +186,7 @@ The most significant difference between AMM market making and CEX market making 
 | Dimension | CEX Market Maker | AMM LP |
 |-----------|-----------------|--------|
 | Asset custody | Exchange holds funds full counterparty risk | Self-custodied smart contract, not a company |
-| Withdrawal speed | Hours to days withdrawal queues, limits | Instant (classic AMM) or 7-day cooldown (BalCore vault) |
+| Withdrawal speed | Hours to days withdrawal queues, limits | Instant (classic AMM) or 7-day cooldown (Balcore vault) |
 | Capital utilization | Capital locked on exchange, earning nothing unless deployed | 90% reserve earns passive yield even when not market-making |
 | Transparency | Black box no visibility into exchange's use of funds | Fully on-chain every transaction auditable in real time |
 | Counterparty failure | Risk of exchange collapse (FTX, Celsius precedents) | Risk is smart contract code no corporate counterparty |
@@ -199,7 +199,7 @@ The most significant difference between AMM market making and CEX market making 
 | Spread width | Post tight or wide spreads dynamically based on signals | Narrow range = tight effective spread. Wide range = wider effective spread. |
 | Directional bias | Post asymmetric bid/ask to express a view | Set asymmetric range (more above or below current price) for directional tilt |
 | Multiple positions | Multiple orders at different price levels simultaneously | Multiple LP positions across different ranges simultaneously |
-| Automated management | Requires custom bots and infrastructure | Handled by protocols like BalCore natively no infrastructure needed |
+| Automated management | Requires custom bots and infrastructure | Handled by protocols like Balcore natively no infrastructure needed |
 | Pair selection | Limited to pairs listed by the exchange | Any token pair with a liquidity pool permissionless pair creation |
 
 ## 4.4 Revenue Model Comparison
@@ -208,7 +208,7 @@ The most significant difference between AMM market making and CEX market making 
 |---------------|-----------------|------------------------------|
 | Spread / trading fees | Yes primary income. Requires active quoting infrastructure. | Yes primary income. Earned automatically by smart contract. |
 | Exchange rebates | Yes significant at VIP tier. Requires huge volume to unlock. | Not applicable no CEX fee structure. |
-| Passive yield on idle capital | No funds on exchange earn nothing while not in quotes. | Yes reserve layer earns lending yield 24/7 (BalCore model). |
+| Passive yield on idle capital | No funds on exchange earn nothing while not in quotes. | Yes reserve layer earns lending yield 24/7 (Balcore model). |
 | Emission incentives | No native equivalent. | Yes Ve(3,3) DEXes pay weekly emissions to LPs in voted pools. |
 | Governance / bribe income | No. | Yes veToken holders earn bribe income and protocol-level fees. |
 | Inventory appreciation | Yes but high risk; can also be largest loss source. | Equivalent to token price exposure present in both models. |
@@ -234,7 +234,7 @@ The most significant difference between AMM market making and CEX market making 
 - Liquidity depth risk: thin pools have high slippage, potentially reducing trading volume and fee generation below expectations.
 
 > **The Risk Asymmetry**
-> CEX market-making risk is dominated by adverse selection, inventory exposure, and counterparty failure risks that are difficult to quantify and hard to hedge for non-professionals. AMM LP risk is dominated by impermanent loss a risk that is mathematically well-defined, predictable from pool parameters, and actively mitigated by protocols like BalCore through structural design and funded reserve coverage.
+> CEX market-making risk is dominated by adverse selection, inventory exposure, and counterparty failure risks that are difficult to quantify and hard to hedge for non-professionals. AMM LP risk is dominated by impermanent loss a risk that is mathematically well-defined, predictable from pool parameters, and actively mitigated by protocols like Balcore through structural design and funded reserve coverage.
 
 # 6. Real-World Revenue Examples
 
@@ -256,9 +256,9 @@ A professional market maker on a major CEX, trading the AVAX/USDT pair:
 
 This return assumes a calm market with controlled inventory. In volatile conditions, adverse selection losses and inventory exposure can easily turn this into a net loss.
 
-## 6.2 AMM Liquidity Provider Illustrative Example (with BalCore)
+## 6.2 AMM Liquidity Provider Illustrative Example (with Balcore)
 
-A BalCore vault participant on the AVAX/USDC pair, with the FlowYield system managing positions:
+A Balcore vault participant on the AVAX/USDC pair, with the FlowYield system managing positions:
 
 | Parameter | Value |
 |-----------|-------|
@@ -267,12 +267,12 @@ A BalCore vault participant on the AVAX/USDC pair, with the FlowYield system man
 | Reserve layer (90%) | $45,000 in Benqi earning ~5% APY |
 | Reserve passive yield/year | $2,250 |
 | Active LP fee capture (estimated) | $3,000–$8,000/year depending on volume |
-| BalCore protocol fee (5% of yield) | −$260 to −$515 |
+| Balcore protocol fee (5% of yield) | −$260 to −$515 |
 | Impermanent loss coverage | Covered by IL Reserve Fund (no out-of-pocket) |
 | Estimated total annual yield | $4,990–$9,735 = ~10%–19.5% APY |
-| BalCore cap | Capped at 30% APY; excess builds Backup Reserve |
+| Balcore cap | Capped at 30% APY; excess builds Backup Reserve |
 
-Unlike the CEX example, this return is not conditional on sophisticated technology, VIP tier access, or active monitoring. The BalCore protocol handles all position management automatically.
+Unlike the CEX example, this return is not conditional on sophisticated technology, VIP tier access, or active monitoring. The Balcore protocol handles all position management automatically.
 
 # 7. The Democratization of Market Making
 
@@ -288,17 +288,17 @@ For the first time in financial history, the market-making function and its asso
 | Passive yield on reserves | No idle capital earns nothing | Yes reserve layer in lending protocols |
 | Emission incentives | No | Yes on Ve(3,3) DEXes |
 | Range flexibility | Full any price level in the order book | Full any [Pa, Pb] range (concentrated liquidity) |
-| Position automation | Requires custom bots and servers | Native protocols like BalCore handle it fully |
+| Position automation | Requires custom bots and servers | Native protocols like Balcore handle it fully |
 | IL / inventory risk | Inventory risk hard to measure and hedge | Impermanent loss mathematically defined, mitigable |
 | Transparency | Opaque no visibility into exchange operations | Full on-chain transparency every action auditable |
 | Accessibility | Institutional only in practice | Global, permissionless, any amount |
 
 The table above captures what has genuinely changed. A market maker on a CEX needs permission from the exchange, from regulators, from the market itself in the form of competitive infrastructure. An AMM LP needs nothing except capital and a wallet. The protocol handles everything else.
 
-And with automation protocols like BalCore, even the remaining complexity of concentrated liquidity management disappears. The result is a market-making experience that provides institutional-grade revenue streams to participants of any size, in any country, at any time.
+And with automation protocols like Balcore, even the remaining complexity of concentrated liquidity management disappears. The result is a market-making experience that provides institutional-grade revenue streams to participants of any size, in any country, at any time.
 
-> **What BalCore Adds to AMM Market Making**
-> BalCore takes AMM market making one step further: it eliminates the need to actively manage positions, protects against impermanent loss through a triple-layer system, generates passive yield on the idle capital reserve, and handles all rebalancing, range optimization, and borrow-to-refill operations algorithmically. The result is a market-making experience that earns institutional-quality returns with none of the operational overhead.
+> **What Balcore Adds to AMM Market Making**
+> Balcore takes AMM market making one step further: it eliminates the need to actively manage positions, protects against impermanent loss through a triple-layer system, generates passive yield on the idle capital reserve, and handles all rebalancing, range optimization, and borrow-to-refill operations algorithmically. The result is a market-making experience that earns institutional-quality returns with none of the operational overhead.
 
 # 8. Full Summary: DEX LP vs. CEX Market Maker
 
@@ -312,7 +312,7 @@ And with automation protocols like BalCore, even the remaining complexity of con
 | Passive yield on reserves | No idle capital earns nothing |	Yes reserve layer in lending protocols |
 | Emission incentives | No	| Yes on Ve(3,3) DEXes |
 | Range flexibility	| Full any price level in the order book | Full any [Pa, Pb] range (concentrated liquidity) |
-| Position automation | Requires custom bots and servers | Native protocols like BalCore handle it fully |
+| Position automation | Requires custom bots and servers | Native protocols like Balcore handle it fully |
 | IL / inventory risk | Inventory risk hard to measure and hedge | Impermanent loss mathematically defined, mitigable |
 | Transparency | Opaque no visibility into exchange operations | Full on-chain transparency every action auditable |
 | Accessibility	| Institutional only in practice | Global, permissionless, any amount |

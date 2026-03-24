@@ -59,7 +59,7 @@ Early AMM models spread liquidity evenly across all possible prices from zero to
 Concentrated liquidity (pioneered by Uniswap v3) allows liquidity providers to specify a specific price range where they want their capital deployed. This dramatically improves capital efficiency.
 
 > **The Trade-Off**
-> Concentrated liquidity is more efficient but more complex. If the market price moves outside your chosen range, your liquidity goes inactive and stops earning fees. Managing these positions requires constant attention which is exactly the problem BalCore was built to solve.
+> Concentrated liquidity is more efficient but more complex. If the market price moves outside your chosen range, your liquidity goes inactive and stops earning fees. Managing these positions requires constant attention which is exactly the problem Balcore was built to solve.
 
 ## Liquidity Providers and Yield
 
@@ -75,7 +75,7 @@ DeFi yields come from multiple sources:
 - Trading fees from DEX liquidity provision
 - Lending interest from supplying assets to lending protocols
 - Protocol reward tokens for participating in a DeFi system
-- Yield from lending idle reserve assets (as BalCore does with Benqi)
+- Yield from lending idle reserve assets (as Balcore does with Benqi)
 
 ## The Big Challenge: Impermanent Loss
 
@@ -101,7 +101,7 @@ Impermanent loss is a structural feature of how AMMs work it is not a bug. Any t
 -	Dynamic fee models (helps at the margins but doesn't eliminate IL)
 
 
-BalCore's FlowYield System takes a structurally different approach: rather than trying to eliminate IL after the fact, it reduces the amount of capital exposed to IL risk (only 10% is ever in active positions) and then provides a funded reserve to cover whatever IL does occur.
+Balcore's FlowYield System takes a structurally different approach: rather than trying to eliminate IL after the fact, it reduces the amount of capital exposed to IL risk (only 10% is ever in active positions) and then provides a funded reserve to cover whatever IL does occur.
 
 ## Lending and Borrowing in DeFi
 Beyond trading, one of DeFi's most powerful use cases is decentralized lending. Protocols like Benqi (on Avalanche), Aave, and Compound allow users to:
@@ -110,14 +110,14 @@ Beyond trading, one of DeFi's most powerful use cases is decentralized lending. 
 
 Interest rates in DeFi lending are set algorithmically based on supply and demand. When more people want to borrow an asset than supply it, rates rise. When supply exceeds demand, rates fall.
 
-> **How BalCore Uses Lending Protocols**
-> BalCore deposits the 90% reserve layer into Benqi to earn passive yield. This means your capital is never truly idle even the portion not actively providing liquidity is generating returns. Additionally, when BalCore needs to rebalance after a one-sided market move, it can borrow the depleted asset using vault collateral, restoring balanced exposure without disrupting user positions.
+> **How Balcore Uses Lending Protocols**
+> Balcore deposits the 90% reserve layer into Benqi to earn passive yield. This means your capital is never truly idle even the portion not actively providing liquidity is generating returns. Additionally, when Balcore needs to rebalance after a one-sided market move, it can borrow the depleted asset using vault collateral, restoring balanced exposure without disrupting user positions.
 
 ## Key Risks in DeFi
 
 DeFi offers powerful opportunities, but understanding the risks is essential before participating.
 
-| Risk | What It Means | How BalCore Addresses It |
+| Risk | What It Means | How Balcore Addresses It |
 |------|---------------|--------------------------|
 Smart Contract Risk	| Bugs in code could lead to fund loss | Contracts audited; modular design limits blast radius |
 Impermanent Loss | Price divergence reduces LP value vs. holding | Triple-layer IL protection with funded reserves |
@@ -129,7 +129,7 @@ Liquidity Risk | May not be able to exit quickly | 7-day standard + fast-track w
 
 ## DeFi vs. Traditional Finance: A Comparison
 
-| Feature | Traditional Finance | DeFi (with BalCore) |
+| Feature | Traditional Finance | DeFi (with Balcore) |
 |---------|---------------------|---------------------|
 | Access | Restricted by geography, ID, minimum balances | Open to anyone with internet and a wallet |
 | Control | Bank holds your assets | You hold your assets (self-custody) |
@@ -143,7 +143,7 @@ Liquidity Risk | May not be able to exit quickly | 7-day standard + fast-track w
 1. **Get a Wallet:** Download Core Wallet (Avalanche's official wallet) or MetaMask. Write down your seed phrase and store it somewhere safe offline.
 2. **Get AVAX:** Purchase AVAX on a centralized exchange (Coinbase, Binance, Kraken) and transfer it to your wallet.
 3. **Start Small:** Begin with an amount you are comfortable losing while you learn.
-4. **Use BalCore:** Connect your wallet to balcore.ai to start earning yield from BalCore's automated liquidity system.
+4. **Use Balcore:** Connect your wallet to balcore.ai to start earning yield from Balcore's automated liquidity system.
 
 > **Important Reminder**
 > DeFi is powerful but carries risk. Never invest funds you cannot afford to lose. Always verify you are using the official website and smart contract addresses.
