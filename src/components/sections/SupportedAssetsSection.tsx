@@ -48,26 +48,30 @@ const SupportedAssetsSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5 max-w-5xl mx-auto">
-          {assets.map((asset, i) => (
-            <motion.div
-              key={asset.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="group"
-            >
+          {assets.map((asset, i) => {
+            const isMiddleMobileAsset = asset.name === "USDC";
+
+            return (
               <motion.div
-                className={`h-full min-h-[104px] sm:min-h-[116px] p-4 sm:p-6 rounded-2xl bg-gradient-to-br ${asset.color} border ${asset.borderColor} cursor-default transition-all duration-300 hover:scale-105`}
-                whileHover={{ y: -4 }}
+                key={asset.name}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className={`group ${isMiddleMobileAsset ? "col-span-2 sm:col-span-1" : ""}`}
               >
+                <motion.div
+                  className={`h-full min-h-[104px] sm:min-h-[116px] p-4 sm:p-6 rounded-2xl bg-gradient-to-br ${asset.color} border ${asset.borderColor} cursor-default transition-all duration-300 hover:scale-105 ${isMiddleMobileAsset ? "mx-auto w-full max-w-[220px] sm:max-w-none" : ""}`}
+                  whileHover={{ y: -4 }}
+                >
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-center sm:text-left h-full">
                   <img src={asset.logo} alt={`${asset.name} logo`} className="w-10 h-10 sm:w-8 sm:h-8 object-contain shrink-0" />
                   <p className="text-xl sm:text-2xl font-bold text-white">{asset.name}</p>
                 </div>
+                </motion.div>
               </motion.div>
-            </motion.div>
-          ))}
+            );
+          })}
         </div>
 
         <motion.p
