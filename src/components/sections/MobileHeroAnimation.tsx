@@ -23,15 +23,14 @@ const MobileHeroAnimation = ({ tokens, logos }: MobileHeroAnimationProps) => {
     <>
       <style>{`
         .balcore-mobile-scene-wrap {
-          --mobile-scene-size: clamp(150px, 48vw, 220px);
-          --mobile-scene-scale: calc(var(--mobile-scene-size) / 760);
+          --mobile-scene-size: clamp(190px, 66vw, 280px);
+          --mobile-scene-scale: calc(var(--mobile-scene-size) / 620);
           width: var(--mobile-scene-size);
           height: var(--mobile-scene-size);
           display: flex;
           align-items: center;
           justify-content: center;
           margin: 0 auto;
-          overflow: hidden;
         }
         .balcore-mobile-scene {
           position: relative;
