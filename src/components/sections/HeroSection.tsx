@@ -599,7 +599,7 @@ const HeroSection = () => {
           white-space: nowrap;
         }
         .balcore-subtitle {
-          margin-top: 1.75rem;font-size: clamp(15px,1.4vw,18px);font-weight: 400;color: var(--text2);line-height: 1.65;max-width: 480px;
+          margin-top: 1.75rem;font-size: clamp(15px,1.4vw,18px);font-weight: 400;color: var(--text2);line-height: 1.65;max-width: 640px;
           animation: balcore-fade-up .8s .2s ease both;
         }
         .balcore-subtitle strong { color: #fff; font-weight: 500; }
