@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
+import MobileHeroAnimation from "./MobileHeroAnimation";
 
 type Token = {
   id: string;
@@ -243,6 +245,7 @@ const tokens: Token[] = [
 
 const HeroSection = () => {
   const sceneRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const titleMeasureRef = useRef<HTMLSpanElement>(null);
   const [tooltip, setTooltip] = useState<TooltipState>({
@@ -787,72 +790,76 @@ const HeroSection = () => {
           </div>
 
           <div className="balcore-hero-right">
-            <div className="balcore-hub-scene-wrap">
-              <div ref={sceneRef} className="balcore-scene">
-                <div className="balcore-ring balcore-ring1">
-                  <div className="balcore-rdot" style={{ top: "-2px", left: "50%", transform: "translateX(-50%)" }} />
-                  <div className="balcore-rdot" style={{ bottom: "-2px", left: "50%", transform: "translateX(-50%)" }} />
-                </div>
-                <div className="balcore-ring balcore-ring2">
-                  <div className="balcore-rdot" style={{ top: "-2px", left: "50%", transform: "translateX(-50%)" }} />
-                  <div className="balcore-rdot" style={{ right: "-2px", top: "50%", transform: "translateY(-50%)" }} />
-                  <div className="balcore-rdot" style={{ bottom: "-2px", left: "50%", transform: "translateX(-50%)" }} />
-                  <div className="balcore-rdot" style={{ left: "-2px", top: "50%", transform: "translateY(-50%)" }} />
-                </div>
-                <div className="balcore-ring balcore-ring3">
-                  <div className="balcore-rdot" style={{ top: "-2px", left: "50%", transform: "translateX(-50%)" }} />
-                  <div className="balcore-rdot" style={{ right: "-2px", top: "50%", transform: "translateY(-50%)" }} />
-                  <div className="balcore-rdot" style={{ bottom: "-2px", left: "50%", transform: "translateX(-50%)" }} />
-                  <div className="balcore-rdot" style={{ left: "-2px", top: "50%", transform: "translateY(-50%)" }} />
-                </div>
-                <div className="balcore-core">
-                  <div className="balcore-core-label">BALCORE</div>
-                  <div className="balcore-core-sub">FLOWYIELD</div>
-                </div>
+            {isMobile ? (
+              <MobileHeroAnimation />
+            ) : (
+              <div className="balcore-hub-scene-wrap">
+                <div ref={sceneRef} className="balcore-scene">
+                  <div className="balcore-ring balcore-ring1">
+                    <div className="balcore-rdot" style={{ top: "-2px", left: "50%", transform: "translateX(-50%)" }} />
+                    <div className="balcore-rdot" style={{ bottom: "-2px", left: "50%", transform: "translateX(-50%)" }} />
+                  </div>
+                  <div className="balcore-ring balcore-ring2">
+                    <div className="balcore-rdot" style={{ top: "-2px", left: "50%", transform: "translateX(-50%)" }} />
+                    <div className="balcore-rdot" style={{ right: "-2px", top: "50%", transform: "translateY(-50%)" }} />
+                    <div className="balcore-rdot" style={{ bottom: "-2px", left: "50%", transform: "translateX(-50%)" }} />
+                    <div className="balcore-rdot" style={{ left: "-2px", top: "50%", transform: "translateY(-50%)" }} />
+                  </div>
+                  <div className="balcore-ring balcore-ring3">
+                    <div className="balcore-rdot" style={{ top: "-2px", left: "50%", transform: "translateX(-50%)" }} />
+                    <div className="balcore-rdot" style={{ right: "-2px", top: "50%", transform: "translateY(-50%)" }} />
+                    <div className="balcore-rdot" style={{ bottom: "-2px", left: "50%", transform: "translateX(-50%)" }} />
+                    <div className="balcore-rdot" style={{ left: "-2px", top: "50%", transform: "translateY(-50%)" }} />
+                  </div>
+                  <div className="balcore-core">
+                    <div className="balcore-core-label">BALCORE</div>
+                    <div className="balcore-core-sub">FLOWYIELD</div>
+                  </div>
 
-                {tokenPositions.map((token) => (
-                  <button
-                    key={token.id}
-                    type="button"
-                    className="balcore-token"
-                    style={{
-                      transform: `translate(calc(-50% + ${token.tx}px), calc(-50% + ${token.ty}px))`,
-                    }}
-                    onMouseEnter={(event) =>
-                      setTooltip({
-                        visible: true,
-                        x: event.clientX + 16,
-                        y: event.clientY - 12,
-                        token,
-                      })
-                    }
-                    onMouseLeave={() => setTooltip({ visible: false, x: 0, y: 0, token: null })}
-                    aria-label={`${token.id} ${token.name}`}
-                  >
-                    <div
-                      className="balcore-token-inner"
+                  {tokenPositions.map((token) => (
+                    <button
+                      key={token.id}
+                      type="button"
+                      className="balcore-token"
                       style={{
-                        background: `radial-gradient(circle, ${token.color}1a 0%, #0d0d1e 75%)`,
-                        borderColor: token.color,
-                        boxShadow: `0 0 18px ${token.glow}, 0 0 38px ${token.glow.replace("0.55", "0.12")}`,
-                        ["--fd" as string]: token.fd,
-                        ["--fdd" as string]: token.fdd,
+                        transform: `translate(calc(-50% + ${token.tx}px), calc(-50% + ${token.ty}px))`,
                       }}
+                      onMouseEnter={(event) =>
+                        setTooltip({
+                          visible: true,
+                          x: event.clientX + 16,
+                          y: event.clientY - 12,
+                          token,
+                        })
+                      }
+                      onMouseLeave={() => setTooltip({ visible: false, x: 0, y: 0, token: null })}
+                      aria-label={`${token.id} ${token.name}`}
                     >
-                      {logos[token.logo]}
-                      <div className="balcore-token-name">{token.name}</div>
-                    </div>
-                    <div
-                      className="balcore-token-pulse"
-                      style={{
-                        ["--pc" as string]: token.color,
-                        ["--pd" as string]: token.pd,
-                      }}
-                    />
-                  </button>
-                ))}
+                      <div
+                        className="balcore-token-inner"
+                        style={{
+                          background: `radial-gradient(circle, ${token.color}1a 0%, #0d0d1e 75%)`,
+                          borderColor: token.color,
+                          boxShadow: `0 0 18px ${token.glow}, 0 0 38px ${token.glow.replace("0.55", "0.12")}`,
+                          ["--fd" as string]: token.fd,
+                          ["--fdd" as string]: token.fdd,
+                        }}
+                      >
+                        {logos[token.logo]}
+                        <div className="balcore-token-name">{token.name}</div>
+                      </div>
+                      <div
+                        className="balcore-token-pulse"
+                        style={{
+                          ["--pc" as string]: token.color,
+                          ["--pd" as string]: token.pd,
+                        }}
+                      />
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           <a href="#visual-story" className="balcore-scroll-hint">
