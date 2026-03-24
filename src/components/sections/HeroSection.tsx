@@ -630,8 +630,8 @@ const HeroSection = () => {
         .balcore-hero-right {
           position: relative;display: flex;align-items: center;justify-content: flex-end;min-height: 620px;width: 100%;justify-self: end;padding-left: clamp(1rem, 2vw, 2rem);z-index: 2;animation: balcore-fade-in 1.2s .2s ease both;
         }
-        .balcore-hub-scene-wrap { --scene-size: 540px; --scene-scale: calc(var(--scene-size) / 540); position: relative; width: var(--scene-size); height: var(--scene-size); transform: translateX(clamp(1rem, 2.4vw, 2.75rem)); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
-        .balcore-scene { position: relative; width: 540px; height: 540px; transform: scale(var(--scene-scale)); transform-origin: center; z-index: 2; }
+        .balcore-hub-scene-wrap { --scene-size: 540px; --scene-scale: calc(var(--scene-size) / 540); --scene-content-scale: 1; position: relative; width: var(--scene-size); height: var(--scene-size); transform: translateX(clamp(1rem, 2.4vw, 2.75rem)); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+        .balcore-scene { position: relative; width: 540px; height: 540px; transform: scale(calc(var(--scene-scale) * var(--scene-content-scale))); transform-origin: center; z-index: 2; }
         .balcore-ring { position: absolute;border-radius: 50%;top: 50%;left: 50%;transform: translate(-50%,-50%); }
         .balcore-ring1 { width: 148px;height: 148px;border: 1px solid rgba(138,92,246,0.5);animation: balcore-spin-r 18s linear infinite; }
         .balcore-ring2 { width: 256px;height: 256px;border: 1px dashed rgba(138,92,246,0.25);animation: balcore-spin-l 30s linear infinite; }
@@ -689,18 +689,19 @@ const HeroSection = () => {
           .balcore-flow-canvas { display: none; }
           .balcore-hero-grid { grid-template-columns: 1fr; padding: 88px 0.95rem 2.5rem; row-gap: 2rem; width: 100%; }
           .balcore-hero-left { max-width: 100%; text-align: center; align-items: center; }
+          .balcore-title { font-size: clamp(34px, 11.5vw, 44px); }
           .balcore-badge { margin-bottom: 1.5rem; }
           .balcore-actions { width: 100%; justify-content: center; }
           .balcore-btn-primary, .balcore-btn-secondary { width: 100%; max-width: 320px; }
           .balcore-subtitle { max-width: 100%; }
           .balcore-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; width: 100%; }
-          .balcore-hero-right { min-height: clamp(220px, 58vw, 320px); width: 100%; justify-self: center; justify-content: center; padding-left: 0; overflow: hidden; margin-top: 0.25rem; }
-          .balcore-hub-scene-wrap { --scene-size: clamp(188px, 62vw, 268px); transform: none; margin: 0 auto; max-width: 100%; }
+          .balcore-hero-right { min-height: clamp(220px, 62vw, 290px); width: 100%; justify-self: center; justify-content: center; padding-left: 0; overflow: hidden; margin-top: 0.25rem; }
+          .balcore-hub-scene-wrap { --scene-size: clamp(180px, 56vw, 240px); --scene-content-scale: 0.82; transform: none; margin: 0 auto; max-width: 100%; }
           .balcore-scroll-hint { position: static; transform: none; margin-top: 0.5rem; align-items: center; }
           .balcore-tooltip { display: none; }
         }
         @media (max-width: 640px) {
-          .balcore-title { font-size: clamp(38px, 13vw, 48px); width: 100%; text-align: center; }
+          .balcore-title { font-size: clamp(32px, 11vw, 40px); width: 100%; text-align: center; }
           .balcore-title-shell { justify-content: center; }
           .balcore-subtitle { margin-top: 1.25rem; font-size: 15px; }
           .balcore-actions { margin-top: 2rem; gap: 0.75rem; }
@@ -708,11 +709,11 @@ const HeroSection = () => {
           .balcore-stat-card { text-align: center; padding: 0.9rem 1rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.03); }
           .balcore-stat-num { font-size: 22px; }
           .balcore-stat-desc { text-align: center; }
-          .balcore-hub-scene-wrap { --scene-size: clamp(176px, 60vw, 240px); }
+          .balcore-hub-scene-wrap { --scene-size: clamp(168px, 54vw, 218px); --scene-content-scale: 0.8; }
         }
         @media (max-width: 430px) {
           .balcore-hero-grid { padding-left: 0.85rem; padding-right: 0.85rem; }
-          .balcore-hub-scene-wrap { --scene-size: clamp(164px, 58vw, 220px); }
+          .balcore-hub-scene-wrap { --scene-size: clamp(154px, 52vw, 198px); --scene-content-scale: 0.78; }
         }
       `}</style>
 
