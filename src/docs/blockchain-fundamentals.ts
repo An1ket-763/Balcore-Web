@@ -239,7 +239,7 @@ Developer writes contract code (Solidity, Vyper, etc.)
 
 Smart contracts power every major DeFi application:
 
-lending (Aave, Compound), trading (Uniswap), yield optimization (Yearn), stablecoins (MakerDAO's DAI), NFT marketplaces (OpenSea), DAOs (Compound Governance), and every protocol in BalCore's ecosystem.
+lending (Aave, Compound), trading (Uniswap), yield optimization (Yearn), stablecoins (MakerDAO's DAI), NFT marketplaces (OpenSea), DAOs (Compound Governance), and every protocol in Balcore's ecosystem.
 
 ---
 
@@ -560,8 +560,8 @@ The most immediate convergence between AI and blockchain is the emergence of aut
 
 ---
 
-> **BalCore and AI Convergence**
-> BalCore's FlowYield system represents an early implementation of this convergence where algorithmic intelligence manages concentrated liquidity positions automatically. These systems respond dynamically to market indicators such as RSI signals, cumulative volume delta (CVD), and open interest changes. Liquidity positions can be automatically rebalanced while automated borrowing logic refills liquidity ranges, allowing strategies to operate continuously without manual intervention. As AI models improve the complexity and performance of these autonomous liquidity management systems will increase significantly.
+> **Balcore and AI Convergence**
+> Balcore's FlowYield system represents an early implementation of this convergence where algorithmic intelligence manages concentrated liquidity positions automatically. These systems respond dynamically to market indicators such as RSI signals, cumulative volume delta (CVD), and open interest changes. Liquidity positions can be automatically rebalanced while automated borrowing logic refills liquidity ranges, allowing strategies to operate continuously without manual intervention. As AI models improve the complexity and performance of these autonomous liquidity management systems will increase significantly.
 
 ---
 
@@ -620,7 +620,7 @@ This document has traced blockchain from its cryptographic fundamentals through 
 | Settlement | Third-generation blockchains (Avalanche, Cosmos, Polkadot) | Provide secure, scalable, interoperable ledger infrastructure for recording and transferring ownership of any asset | Live and scaling rapidly |
 | Asset layer | Tokenization (ERC-3643, ERC-4626, SPVs) | Convert real-world assets into programmable, composable, fractionalized digital tokens | Early institutional adoption; accelerating |
 | Liquidity layer | DEXes + AMMs (LFJ, Pharaoh, Uniswap) | Provide permissionless, 24/7 trading venues for tokenized assets with automated market making | Proven for crypto markets; expanding to RWAs |
-| Management layer | Automated protocols (BalCore FlowYield) | Manage liquidity positions, optimize yield, protect capital, and distribute returns automatically | Live on Avalanche; expanding |
+| Management layer | Automated protocols (Balcore FlowYield) | Manage liquidity positions, optimize yield, protect capital, and distribute returns automatically | Live on Avalanche; expanding |
 | Intelligence layer | AI agents + on-chain models | Analyze data, optimize decisions, execute strategies, and govern protocols autonomously | Emerging rapidly; multi-billion-dollar investment |
 
 
@@ -630,8 +630,8 @@ Avalanche sits at the intersection of these layers powering public DeFi ecosyste
 
 ---
 
-> **The BalCore Position**
-> BalCore is building at the intersection of third-generation institutional infrastructure, decentralized liquidity markets, and AI-driven financial management. The FlowYield system represents an early architecture for AI-managed cross-asset liquidity orchestration. The infrastructure being built today may form the foundation of global on-chain finance for decades to come.
+> **The Balcore Position**
+> Balcore is building at the intersection of third-generation institutional infrastructure, decentralized liquidity markets, and AI-driven financial management. The FlowYield system represents an early architecture for AI-managed cross-asset liquidity orchestration. The infrastructure being built today may form the foundation of global on-chain finance for decades to come.
 
 ---
 
@@ -639,5 +639,5 @@ Avalanche sits at the intersection of these layers powering public DeFi ecosyste
 
 Visit **balcore.ai** to participate in the on-chain financial system being built on Avalanche automated liquidity management, reserve yield generation, and complete impermanent loss protection at the frontier of blockchain's third generation.
 
-© 2025 BalCore Inc. balcore.ai
+© 2025 Balcore Inc. balcore.ai
 ` };

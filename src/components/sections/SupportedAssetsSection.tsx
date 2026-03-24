@@ -43,7 +43,7 @@ const SupportedAssetsSection = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            BalCore is designed to support high-quality, widely used assets at launch.
+            Balcore is designed to support high-quality, widely used assets at launch.
           </motion.p>
         </motion.div>
 

@@ -46,7 +46,7 @@ const BuiltOnAvalancheSection = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            BalCore is built natively within the Avalanche ecosystem, leveraging its speed, scalability, and composability.
+            Balcore is built natively within the Avalanche ecosystem, leveraging its speed, scalability, and composability.
           </motion.p>
         </motion.div>
       </div>

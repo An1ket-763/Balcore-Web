@@ -132,7 +132,7 @@ This makes locking extremely attractive for long-term believers in the protocol:
 | Solidly (original) | Fantom | veSOLID | Introduced the Ve(3,3) model |
 | Velodrome | Optimism | veVELO | Most successful V1 implementation; $500M+ TVL at peak |
 | Aerodrome | Base | veAERO | Dominant DEX on Base; over $1B TVL |
-| Pharaoh | Avalanche | xPHAR/vePHAR | Leading Ve(3,3) on Avalanche; used by BalCore |
+| Pharaoh | Avalanche | xPHAR/vePHAR | Leading Ve(3,3) on Avalanche; used by Balcore |
 | Thena | BNB Chain | veTHE | BNB Chain's leading Ve(3,3) DEX |
 | Equalizer | Sonic/Fantom | veEQUAL | Multi-chain Ve(3,3) derivative |
 
@@ -229,16 +229,16 @@ The answer depends entirely on your perspective as a participant:
 | A protocol needing liquidity | Must fund external mining programs expensive and temporary | Pay bribes on-chain targeted, efficient, and immediately measurable |
 | A DeFi developer | Massive ecosystem, best composability and tooling | Emerging tooling; bribe market APIs and vote aggregators growing |
 
-# 8. How This Relates to BalCore
+# 8. How This Relates to Balcore
 
-BalCore operates across both DEX model types on Avalanche. Its FlowYield system is designed to be AMM-agnostic deploying liquidity where the best combination of depth, fee revenue, and incentives exists at any given time.
+Balcore operates across both DEX model types on Avalanche. Its FlowYield system is designed to be AMM-agnostic deploying liquidity where the best combination of depth, fee revenue, and incentives exists at any given time.
 
-- On Classic AMM DEXes: BalCore provides concentrated liquidity positions, actively managing ranges to capture trading fees with capital efficiency
-- On Ve(3,3) DEXes (Pharaoh, Blackhole): BalCore participates in emission-incentivized pools, combining active LP fee revenue with the emission layer that Ve(3,3) adds on top
+- On Classic AMM DEXes: Balcore provides concentrated liquidity positions, actively managing ranges to capture trading fees with capital efficiency
+- On Ve(3,3) DEXes (Pharaoh, Blackhole): Balcore participates in emission-incentivized pools, combining active LP fee revenue with the emission layer that Ve(3,3) adds on top
 - The 90% reserve layer can also interact with Ve(3,3) protocols as a depositor, capturing yield from both lending and incentivized positions
 
->**BalCore's Advantage**
->By being DEX-model agnostic, BalCore can route capital to wherever the risk-adjusted yield is highest on Avalanche whether that's a Classic AMM concentrated position on LFJ or an emission-boosted pool on Pharaoh. Users benefit from this flexibility without needing to understand the mechanics of either model themselves.
+>**Balcore's Advantage**
+>By being DEX-model agnostic, Balcore can route capital to wherever the risk-adjusted yield is highest on Avalanche whether that's a Classic AMM concentrated position on LFJ or an emission-boosted pool on Pharaoh. Users benefit from this flexibility without needing to understand the mechanics of either model themselves.
 
 # 9. Summary
 
@@ -246,10 +246,10 @@ BalCore operates across both DEX model types on Avalanche. Its FlowYield system 
 |--|--|
 | A trading-first model. LPs earn fees directly. The governance token has no fee rights. Best for simplicity, ecosystem breadth, and composability.| An incentive-coordination model. veToken holders direct emissions and capture fees. Best for sustainable liquidity, long-term alignment, and protocol-level liquidity management. |
 
-Neither model is universally superior. The Classic AMM's simplicity and ecosystem dominance make it the default for most DeFi applications. Ve(3,3)'s incentive alignment and bribe markets make it the preferred model for chains and ecosystems that want to bootstrap deep, sustainable liquidity from the ground up. Avalanche's DeFi ecosystem features both and BalCore is built to leverage both.
+Neither model is universally superior. The Classic AMM's simplicity and ecosystem dominance make it the default for most DeFi applications. Ve(3,3)'s incentive alignment and bribe markets make it the preferred model for chains and ecosystems that want to bootstrap deep, sustainable liquidity from the ground up. Avalanche's DeFi ecosystem features both and Balcore is built to leverage both.
 
 ## Learn More
 
-Visit **balcore.ai** to see how BalCore's FlowYield system puts these DEX models to work automatically, transparently, and without technical expertise required.
+Visit **balcore.ai** to see how Balcore's FlowYield system puts these DEX models to work automatically, transparently, and without technical expertise required.
     `,
 };

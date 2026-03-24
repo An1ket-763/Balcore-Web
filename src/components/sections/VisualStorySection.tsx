@@ -67,7 +67,7 @@ const assetData = {
   GOLD: {
     layer: "Reserve layer",
     color: "#D4A017",
-    role: "Tokenized gold. RWA reserve asset earning steady Benqi yield. Part of BalCore's expanding real-world asset support.",
+    role: "Tokenized gold. RWA reserve asset earning steady Benqi yield. Part of Balcore's expanding real-world asset support.",
     bars: [0, 100],
   },
   TSLA: {
