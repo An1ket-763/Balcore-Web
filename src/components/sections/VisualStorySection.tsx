@@ -470,7 +470,7 @@ const VisualStorySection = () => {
 
       <section id="visual-story" className="flowyield-section fy-section">
         <div id="flowyield" className="absolute -top-24" aria-hidden="true" />
-        <div className="fy-inner">
+        <div className="fy-inner mobile-layout-shell">
           <div className="fy-head">
             <div className="fy-eyebrow"><span>How It Works</span></div>
             <h2 className="fy-h2">The FlowYield Engine</h2>
