@@ -766,7 +766,7 @@ const HeroSection = () => {
                 <div className="balcore-stat-desc">Target APY · market-dependent</div>
               </div>
               <div className="balcore-stat-card">
-                <div className="balcore-stat-num">3 X</div>
+                <div className="balcore-stat-num">3 x</div>
                 <div className="balcore-stat-desc">Independent IL shield layers</div>
               </div>
               <div className="balcore-stat-card">
