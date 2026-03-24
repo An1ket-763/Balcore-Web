@@ -694,8 +694,8 @@ const HeroSection = () => {
           .balcore-btn-primary, .balcore-btn-secondary { width: 100%; max-width: 320px; }
           .balcore-subtitle { max-width: 100%; }
           .balcore-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; width: 100%; }
-          .balcore-hero-right { min-height: 300px; width: 100%; justify-self: center; justify-content: center; padding-left: 0; overflow: hidden; margin-top: 0.25rem; }
-          .balcore-hub-scene-wrap { --scene-size: min(calc(100vw - 3rem), 268px); transform: none; margin: 0 auto; }
+          .balcore-hero-right { min-height: clamp(220px, 58vw, 320px); width: 100%; justify-self: center; justify-content: center; padding-left: 0; overflow: hidden; margin-top: 0.25rem; }
+          .balcore-hub-scene-wrap { --scene-size: clamp(188px, 62vw, 268px); transform: none; margin: 0 auto; max-width: 100%; }
           .balcore-scroll-hint { position: static; transform: none; margin-top: 0.5rem; align-items: center; }
           .balcore-tooltip { display: none; }
         }
@@ -708,11 +708,11 @@ const HeroSection = () => {
           .balcore-stat-card { text-align: center; padding: 0.9rem 1rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: rgba(255,255,255,0.03); }
           .balcore-stat-num { font-size: 22px; }
           .balcore-stat-desc { text-align: center; }
-          .balcore-hub-scene-wrap { --scene-size: min(calc(100vw - 3.1rem), 252px); }
+          .balcore-hub-scene-wrap { --scene-size: clamp(176px, 60vw, 240px); }
         }
         @media (max-width: 430px) {
           .balcore-hero-grid { padding-left: 0.85rem; padding-right: 0.85rem; }
-          .balcore-hub-scene-wrap { --scene-size: min(calc(100vw - 2.7rem), 244px); }
+          .balcore-hub-scene-wrap { --scene-size: clamp(164px, 58vw, 220px); }
         }
       `}</style>
 
