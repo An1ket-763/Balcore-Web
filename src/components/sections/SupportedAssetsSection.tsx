@@ -7,7 +7,7 @@ const assets = [
   { name: "BTC.b", logo: "/logo2.png", color: "from-orange-500/40 to-amber-600/30", borderColor: "border-orange-500/30" },
   { name: "USDC", logo: "/logo3.png", color: "from-emerald-500/40 to-emerald-600/30", borderColor: "border-emerald-500/30" },
   { name: "ETH", logo: "/logo4.png", color: "from-purple-500/40 to-indigo-600/30", borderColor: "border-purple-500/30" },
-  { name: "Gold", logo: "/gold.svg", color: "from-amber-400/35 to-yellow-600/25", borderColor: "border-amber-400/35" },
+  { name: "Gold", logo: "/logo14.png", color: "from-amber-400/35 to-yellow-600/25", borderColor: "border-amber-400/35" },
 ];
 
 const SupportedAssetsSection = () => {

@@ -744,7 +744,7 @@ const HeroSection = () => {
             </h1>
 
             <p className="balcore-subtitle">
-              Solving DeFi&apos;s trilemma — <strong>yield generation</strong>, <strong>capital protection</strong>, and <strong>liquidity provision</strong>. Every asset. Every market. Finally.
+              Solving DeFi's last barrier - accessible market making, with real yield, impermanent loss protection, and zero complexity powered by automated 24/7 pool rebalancing. Every asset. Every market. For everyone. Finally.
             </p>
 
             <div className="balcore-actions">
@@ -761,7 +761,7 @@ const HeroSection = () => {
 
             <div className="balcore-stats">
               <div className="balcore-stat-card">
-                <div className="balcore-stat-num">≤ 30<span> %</span></div>
+                <div className="balcore-stat-num">upto <span> 30%</span></div>
                 <div className="balcore-stat-desc">Target APY · market-dependent</div>
               </div>
               <div className="balcore-stat-card">
