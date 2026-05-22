@@ -74,6 +74,8 @@ export default {
       },
       fontFamily: {
         sans: ['"Clash Grotesk"', 'sans-serif'],
+        barlow: ["Barlow", "sans-serif"],
+        "barlow-condensed": ["Barlow Condensed", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
