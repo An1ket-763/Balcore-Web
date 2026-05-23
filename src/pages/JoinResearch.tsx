@@ -158,6 +158,7 @@ const JoinResearch = () => {
         © 2026 Balcore — Build the future of on-chain liquidity.
       </footer>
     </div>
+    </>
   );
 };
 
