@@ -155,6 +155,17 @@ const NavBar = () => {
               Docs
               <motion.span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
             </motion.button>
+            <motion.button
+              onClick={() => navigate("/join-us")}
+              className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${
+                location.pathname === "/join-us" ? "text-primary" : ""
+              }`}
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.2 }}
+            >
+              Join Us
+              <motion.span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+            </motion.button>
             {/* <motion.button
               onClick={() => navigate("/white-paper")}
               className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${
@@ -242,6 +253,22 @@ const NavBar = () => {
               transition={{ delay: navItems.length * 0.1 }}
             >
               Docs
+            </motion.button>
+            <motion.button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                navigate("/join-us");
+              }}
+              className={`block transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full ${
+                location.pathname === "/join-us"
+                  ? "text-primary"
+                  : "text-white/80 hover:text-white/85"
+              }`}
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: (navItems.length + 1) * 0.1 }}
+            >
+              Join Us
             </motion.button>
             {/* <motion.button
               onClick={() => {
