@@ -42,7 +42,7 @@ const WhatWeDoSection = () => {
   return (
     <section
       id="liquidity"
-      className="relative border-b border-purple-500/10 px-6 pt-8 pb-24 lg:px-14"
+      className="relative border-b border-purple-500/10 px-6 py-24 lg:px-14"
     >
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-20 lg:grid-cols-2">
         {/* LEFT */}
