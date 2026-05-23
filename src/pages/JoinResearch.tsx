@@ -1,3 +1,5 @@
+import NavBar from "@/components/sections/NavBar";
+
 const styles = `
   .jr-root {
     --bg: #0a0717;
