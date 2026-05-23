@@ -1,14 +1,14 @@
-User-agent: Googlebot
-Allow: /
+const events = require("events");
 
-User-agent: Bingbot
-Allow: /
+const eventEmitter = new events.EventEmitter();
 
-User-agent: Twitterbot
-Allow: /
+const myHandler = function () {
+ console.log("Event Triggered !");
 
-User-agent: facebookexternalhit
-Allow: /
+}
 
-User-agent: *
-Allow: /
+
+
+
+
+
