@@ -65,8 +65,10 @@ const styles = `
 
 const JoinResearch = () => {
   return (
-    <div className="jr-root">
-      <style>{styles}</style>
+    <>
+      <NavBar />
+      <div className="jr-root">
+        <style>{styles}</style>
 
       <section className="jr-hero">
         <div className="jr-eyebrow">Research Team</div>
