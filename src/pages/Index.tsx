@@ -21,7 +21,7 @@ const Index = () => {
       <LiquidityEngineSection />
       <ProtocolSection />
       <TechnologySection />
-      <CTASection />
+      {/* <CTASection /> */}
     </div>
   );
 };
