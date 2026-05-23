@@ -641,15 +641,15 @@ const HeroSection = () => {
           />
         </section>
 
-        {/* ── Stats bar ── */}
-        <div className="stats">
+        {/* ── Stats bar (removed) ── */}
+        {/* <div className="stats">
           {STATS.map((s) => (
             <div key={s.label} className="stat">
               <span className="sv">{s.value}</span>
               <span className="sl">{s.label}</span>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* ── Hex seam SVG overlay ── */}
       </div>
