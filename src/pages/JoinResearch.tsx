@@ -1,3 +1,5 @@
+import NavBar from "@/components/sections/NavBar";
+
 const styles = `
   .jr-root {
     --bg: #0a0717;
@@ -63,8 +65,10 @@ const styles = `
 
 const JoinResearch = () => {
   return (
-    <div className="jr-root">
-      <style>{styles}</style>
+    <>
+      <NavBar />
+      <div className="jr-root">
+        <style>{styles}</style>
 
       <section className="jr-hero">
         <div className="jr-eyebrow">Research Team</div>
@@ -154,6 +158,7 @@ const JoinResearch = () => {
         © 2026 Balcore — Build the future of on-chain liquidity.
       </footer>
     </div>
+    </>
   );
 };
 
