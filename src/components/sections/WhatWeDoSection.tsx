@@ -766,7 +766,7 @@ const WhatWeDoHero = () => {
 
       <section
         id="what-we-do"
-        className="relative overflow-hidden border-b border-white/10 px-6 pb-20 pt-[140px] lg:px-14"
+        className="relative overflow-hidden border-b border-white/10 px-6 py-20  lg:px-14"
       >
         {/* Background Glow */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_80%_50%,rgba(124,58,237,0.12)_0%,transparent_70%)]" />
