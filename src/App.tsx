@@ -11,7 +11,7 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <div className="font-sans">
+  <div>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
@@ -19,8 +19,10 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/about" element={<Index />} />
+            <Route path="/what-we-do" element={<Index />} />
+            <Route path="/liquidity-engine" element={<Index />} />
             <Route path="/protocol" element={<Index />} />
+            <Route path="/technology" element={<Index />} />
             <Route path="/contact" element={<Index />} />
             <Route path="/docs" element={<Docs />} />
             {/* <Route path="/white-paper" element={<WhitePaper />} /> */}

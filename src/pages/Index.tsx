@@ -7,17 +7,20 @@ import WhatBalcoreDoesSection from "@/components/sections/WhatBalcoreDoesSection
 import SupportedAssetsSection from "@/components/sections/SupportedAssetsSection";
 import BuiltOnAvalancheSection from "@/components/sections/BuiltOnAvalancheSection";
 import CTASection from "@/components/sections/CTASection";
+import WhatWeDoSection from "@/components/sections/WhatWeDoSection";
+import LiquidityEngineSection from "@/components/sections/LiquidityEngineSection";
+import ProtocolSection from "@/components/sections/ProtocolSection";
+import TechnologySection from "@/components/sections/TechnologySection";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <NavBar />
       <HeroSection />
-      <VisualStorySection />
-      <WhyBalcoreSection />
-      <WhatBalcoreDoesSection />
-      <SupportedAssetsSection />
-      <BuiltOnAvalancheSection />
+      <WhatWeDoSection />
+      <LiquidityEngineSection />
+      <ProtocolSection />
+      <TechnologySection />
       <CTASection />
     </div>
   );
