@@ -244,7 +244,35 @@ const HeroSection = () => {
         svg!.appendChild(mk("#08080f", "hcL"));
         svg!.appendChild(mk("#08080f", "hcR"));
       });
+
+      /* ── Bottom-edge hexagons (transparent, video shows through) ── */
+      const hexW = R * Math.sqrt(3); // flat-to-flat width for pointy-top hex
+      const startX = seam + R * 1.2; // begin just right of the seam hexes
+      const bottomY = H - R * 0.35; // straddle the bottom edge
+      const rowOffsets: [number, number][] = [];
+      let x = startX;
+      let row = 0;
+      while (x < W + hexW) {
+        const yOff = row % 2 === 0 ? 0 : R * 0.9;
+        rowOffsets.push([x, bottomY + yOff]);
+        x += hexW;
+        row++;
+      }
+      rowOffsets.forEach(([cx, cy]) => {
+        let pts = "";
+        for (let i = 0; i < 6; i++) {
+          const a = (Math.PI / 3) * i - Math.PI / 6;
+          pts += `${(cx + R * Math.cos(a)).toFixed(1)},${(cy + R * Math.sin(a)).toFixed(1)} `;
+        }
+        const el = document.createElementNS(NS, "polygon");
+        el.setAttribute("points", pts);
+        el.setAttribute("fill", "transparent");
+        el.setAttribute("stroke", "rgba(255,255,255,0.9)");
+        el.setAttribute("stroke-width", "2.5");
+        svg!.appendChild(el);
+      });
     }
+
 
     build();
     window.addEventListener("resize", build);
