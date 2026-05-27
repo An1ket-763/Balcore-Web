@@ -433,18 +433,27 @@ const HeroSection = () => {
         }
 
         /* ── Right panel ───────────────────────────── */
-        .hero-right { position: relative; overflow: hidden; }
+        .hero-right { position: relative; overflow: visible; }
+
+        /* Video stage spans the full hero-section; clipped by SVG #vidClip
+           so video reveals through right rect + left hexes + bottom hexes. */
+        .vid-stage {
+          position: absolute; inset: 0;
+          z-index: 1; pointer-events: none;
+          clip-path: url(#vidClip);
+          -webkit-clip-path: url(#vidClip);
+        }
+        .vid-stage video {
+          position: absolute; inset: 0;
+          width: 100%; height: 100%;
+          object-fit: cover; object-position: 100% center;
+          opacity: 0; transition: opacity 1.2s ease;
+        }
+        .vid-stage video.active { opacity: 1; }
 
         .vid-wrap {
           position: absolute; inset: 0; z-index: 1;
         }
-        .vid-wrap video {
-          position: absolute; inset: 0;
-          width: 100%; height: 100%;
-          object-fit: cover; object-position: center;
-          opacity: 0; transition: opacity 1.2s ease;
-        }
-        .vid-wrap video.active { opacity: 1; }
 
         /* Fallback gradient when no video */
         .vid-fallback {
@@ -463,7 +472,7 @@ const HeroSection = () => {
         }
         .edge-b {
           position: absolute; left: 0; right: 0; bottom: 0;
-          height: 110px; z-index: 4; pointer-events: none;
+          height: 60px; z-index: 4; pointer-events: none;
           background: linear-gradient(to top, #08080f 0%, transparent 100%);
         }
 
