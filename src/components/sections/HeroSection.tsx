@@ -30,6 +30,20 @@ const HEX_OFFSETS: [number, number][] = [
   [70, 530],
 ];
 
+const EDGE_HEXES_LEFT = [
+  { x: -62, y: 72 },
+  { x: -62, y: 188 },
+  { x: -62, y: 304 },
+  { x: -62, y: 420 },
+];
+
+const EDGE_HEXES_BOTTOM = [
+  { x: 210, y: "calc(100% - 56px)" },
+  { x: 340, y: "calc(100% - 56px)" },
+  { x: 470, y: "calc(100% - 56px)" },
+  { x: 600, y: "calc(100% - 56px)" },
+];
+
 /* ═══════════════════════════════════════════════════════════════════════
    HeroSection
    ═══════════════════════════════════════════════════════════════════════ */
@@ -419,7 +433,7 @@ const HeroSection = () => {
         }
 
         /* ── Right panel ───────────────────────────── */
-        .hero-right { position: relative; overflow: hidden; }
+        .hero-right { position: relative; overflow: visible; }
 
         .vid-wrap {
           position: absolute; inset: 0; z-index: 1;
@@ -431,6 +445,40 @@ const HeroSection = () => {
           opacity: 0; transition: opacity 1.2s ease;
         }
         .vid-wrap video.active { opacity: 1; }
+
+        .hex-edge-cluster {
+          position: absolute;
+          inset: 0;
+          z-index: 6;
+          pointer-events: none;
+          overflow: visible;
+        }
+        .edge-hex {
+          --hex-size: 124px;
+          position: absolute;
+          width: var(--hex-size);
+          aspect-ratio: 1 / 1;
+          transform: translate(-50%, -50%);
+          clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
+          border: 4px solid rgba(255,255,255,0.95);
+          background: #08080f;
+        }
+        .edge-hex::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border: 1px solid rgba(255,255,255,0.5);
+          clip-path: inherit;
+        }
+        .edge-hex video {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0;
+          transition: opacity 1.2s ease;
+        }
+        .edge-hex video.active { opacity: 1; }
 
         /* Fallback gradient when no video */
         .vid-fallback {
@@ -616,6 +664,44 @@ const HeroSection = () => {
                   preload="auto"
                   className={index === 0 ? "active" : ""}
                 />
+              ))}
+            </div>
+            <div className="hex-edge-cluster" aria-hidden="true">
+              {EDGE_HEXES_LEFT.map((hex, hexIndex) => (
+                <div
+                  key={`left-${hexIndex}`}
+                  className="edge-hex"
+                  style={{ left: `${hex.x}px`, top: `${hex.y}px` }}
+                >
+                  {videos?.map((video, index) => (
+                    <video
+                      key={`left-${hexIndex}-${index}`}
+                      src={video}
+                      muted
+                      playsInline
+                      preload="auto"
+                      className={activeScene === index ? "active" : ""}
+                    />
+                  ))}
+                </div>
+              ))}
+              {EDGE_HEXES_BOTTOM.map((hex, hexIndex) => (
+                <div
+                  key={`bottom-${hexIndex}`}
+                  className="edge-hex"
+                  style={{ left: `${hex.x}px`, top: hex.y }}
+                >
+                  {videos?.map((video, index) => (
+                    <video
+                      key={`bottom-${hexIndex}-${index}`}
+                      src={video}
+                      muted
+                      playsInline
+                      preload="auto"
+                      className={activeScene === index ? "active" : ""}
+                    />
+                  ))}
+                </div>
               ))}
             </div>
 
