@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import vid1 from "@/assets/webHerosVideo/video 1.mp4";
-import vid2 from "@/assets/webHerosVideo/video 2.mp4";
+import vid2 from "@/assets/webHerosVideo/Video 2.mp4";
 import vid3 from "@/assets/webHerosVideo/video 3.mp4";
 import vid4 from "@/assets/webHerosVideo/video 4.mp4";
 import vid5 from "@/assets/webHerosVideo/video 5.mp4";
-import vid6 from "@/assets/webHerosVideo/video 6.mp4";
+import vid6 from "@/assets/webHerosVideo/Video 6.mp4";
 import vid7 from "@/assets/webHerosVideo/video 7.mp4";
 import vid8 from "@/assets/webHerosVideo/video 8.mp4";
 // etc.
@@ -180,7 +180,7 @@ const HeroSection = () => {
     };
   }, []);
 
-  /* ── Hex seam overlay SVG (fixed, pointer-events:none) ───────────── */
+  /* ── Hex seam overlay SVG + video clip-path ───────────── */
   useEffect(() => {
     const svg = hexSvgRef.current;
     if (!svg) return;
@@ -191,59 +191,73 @@ const HeroSection = () => {
       while (svg!.firstChild) svg!.removeChild(svg!.firstChild);
       const W = window.innerWidth;
       const seam = W * 0.495;
-      // const NAV = 68;
-      // const H = window.innerHeight;
 
       const hero = document.querySelector(".hero-section") as HTMLElement;
       const H = hero?.offsetHeight || window.innerHeight;
-      const NAV = 0;
 
-      const defs = document.createElementNS(NS, "defs");
+      const navStr = getComputedStyle(document.documentElement)
+        .getPropertyValue("--nav-h")
+        .trim();
+      const NAV = parseFloat(navStr) || 0;
 
-      // Left clip
-      const cL = document.createElementNS(NS, "clipPath");
-      cL.setAttribute("id", "hcL");
-      const rL = document.createElementNS(NS, "rect");
-      rL.setAttribute("x", "0");
-      rL.setAttribute("y", "0");
-      rL.setAttribute("width", String(seam));
-      rL.setAttribute("height", String(H));
-      cL.appendChild(rL);
-      defs.appendChild(cL);
+      svg!.setAttribute("viewBox", `0 0 ${W} ${H}`);
+      svg!.setAttribute("preserveAspectRatio", "none");
 
-      // Right clip
-      const cR = document.createElementNS(NS, "clipPath");
-      cR.setAttribute("id", "hcR");
-      const rR = document.createElementNS(NS, "rect");
-      rR.setAttribute("x", String(seam));
-      rR.setAttribute("y", "0");
-      rR.setAttribute("width", String(W - seam));
-      rR.setAttribute("height", String(H));
-      cR.appendChild(rR);
-      defs.appendChild(cR);
-
-      svg!.appendChild(defs);
-
-      HEX_OFFSETS.forEach(([dx, dy]) => {
-        const cx = seam + dx;
-        const cy = NAV + dy;
+      const hexPoints = (cx: number, cy: number) => {
         let pts = "";
         for (let i = 0; i < 6; i++) {
           const a = (Math.PI / 3) * i - Math.PI / 6;
           pts += `${(cx + R * Math.cos(a)).toFixed(1)},${(cy + R * Math.sin(a)).toFixed(1)} `;
         }
-        const mk = (fill: string, clip: string) => {
-          const el = document.createElementNS(NS, "polygon");
-          el.setAttribute("points", pts);
-          el.setAttribute("fill", fill);
-          el.setAttribute("stroke", "rgba(255,255,255,0.9)");
-          el.setAttribute("stroke-width", "2.5");
-          el.setAttribute("clip-path", `url(#${clip})`);
-          return el;
-        };
-        svg!.appendChild(mk("#08080f", "hcL"));
-        svg!.appendChild(mk("#08080f", "hcR"));
+        return pts;
+      };
+
+      const leftCenters: [number, number][] = HEX_OFFSETS.map(
+        ([dx, dy]) => [seam + dx, NAV + dy]
+      );
+
+      const bottomCenters: [number, number][] = [];
+      const bottomY = H - R * 0.55;
+      const stepX = R * Math.sqrt(3);
+      for (let cx = seam + R * 1.4; cx < W + R; cx += stepX) {
+        bottomCenters.push([cx, bottomY]);
+      }
+
+      // ── clipPath that reveals: right-of-seam rect + left hexes + bottom hexes ──
+      const defs = document.createElementNS(NS, "defs");
+      const vidClip = document.createElementNS(NS, "clipPath");
+      vidClip.setAttribute("id", "vidClip");
+      vidClip.setAttribute("clipPathUnits", "userSpaceOnUse");
+
+      const mainRect = document.createElementNS(NS, "rect");
+      mainRect.setAttribute("x", String(seam));
+      mainRect.setAttribute("y", "0");
+      mainRect.setAttribute("width", String(W - seam));
+      mainRect.setAttribute("height", String(H));
+      vidClip.appendChild(mainRect);
+
+      [...leftCenters, ...bottomCenters].forEach(([cx, cy]) => {
+        const p = document.createElementNS(NS, "polygon");
+        p.setAttribute("points", hexPoints(cx, cy));
+        vidClip.appendChild(p);
       });
+
+      defs.appendChild(vidClip);
+      svg!.appendChild(defs);
+
+      // ── White hex strokes on top (transparent fill so video shows through) ──
+      const drawStroke = (cx: number, cy: number) => {
+        const el = document.createElementNS(NS, "polygon");
+        el.setAttribute("points", hexPoints(cx, cy));
+        el.setAttribute("fill", "transparent");
+        el.setAttribute("stroke", "rgba(255,255,255,0.92)");
+        el.setAttribute("stroke-width", "2.5");
+        el.setAttribute("stroke-linejoin", "round");
+        svg!.appendChild(el);
+      };
+
+      leftCenters.forEach(([cx, cy]) => drawStroke(cx, cy));
+      bottomCenters.forEach(([cx, cy]) => drawStroke(cx, cy));
     }
 
     build();
@@ -419,18 +433,27 @@ const HeroSection = () => {
         }
 
         /* ── Right panel ───────────────────────────── */
-        .hero-right { position: relative; overflow: hidden; }
+        .hero-right { position: relative; overflow: visible; }
+
+        /* Video stage spans the full hero-section; clipped by SVG #vidClip
+           so video reveals through right rect + left hexes + bottom hexes. */
+        .vid-stage {
+          position: absolute; inset: 0;
+          z-index: 1; pointer-events: none;
+          clip-path: url(#vidClip);
+          -webkit-clip-path: url(#vidClip);
+        }
+        .vid-stage video {
+          position: absolute; inset: 0;
+          width: 100%; height: 100%;
+          object-fit: cover; object-position: 100% center;
+          opacity: 0; transition: opacity 1.2s ease;
+        }
+        .vid-stage video.active { opacity: 1; }
 
         .vid-wrap {
           position: absolute; inset: 0; z-index: 1;
         }
-        .vid-wrap video {
-          position: absolute; inset: 0;
-          width: 100%; height: 100%;
-          object-fit: cover; object-position: center;
-          opacity: 0; transition: opacity 1.2s ease;
-        }
-        .vid-wrap video.active { opacity: 1; }
 
         /* Fallback gradient when no video */
         .vid-fallback {
@@ -449,7 +472,7 @@ const HeroSection = () => {
         }
         .edge-b {
           position: absolute; left: 0; right: 0; bottom: 0;
-          height: 110px; z-index: 4; pointer-events: none;
+          height: 60px; z-index: 4; pointer-events: none;
           background: linear-gradient(to top, #08080f 0%, transparent 100%);
         }
 
@@ -498,13 +521,14 @@ const HeroSection = () => {
         /* ── Hex seam SVG overlay ──────────────────── */
         .hex-seam-svg {
           position: absolute;
-          top: var(--nav-h);
-          left: 0%;
+          top: 0;
+          left: 0;
           width: 100%;
-          height: calc(100vh - var(--nav-h));
+          height: 100%;
           z-index: 50;
           pointer-events: none;
-        }     
+          overflow: visible;
+        }
 
         /* ── Mobile ────────────────────────────────── */
         @media (max-width: 768px) {
@@ -601,23 +625,27 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right — video / fallback */}
+          {/* Video stage — spans full hero-section, clipped by SVG to show
+              through right rect + left hexagons + bottom hexagons */}
+          <div className="vid-stage" aria-hidden="true">
+            {videos?.map((video, index) => (
+              <video
+                key={index}
+                ref={(el) => {
+                  videoRefs.current[index] = el;
+                }}
+                src={video}
+                muted
+                playsInline
+                preload="auto"
+                className={index === 0 ? "active" : ""}
+              />
+            ))}
+          </div>
+
+          {/* Right — overlays / dots */}
           <div className="hero-right">
-            <div className="vid-wrap">
-              {videos?.map((video, index) => (
-                <video
-                  key={index}
-                  ref={(el) => {
-                    videoRefs.current[index] = el;
-                  }}
-                  src={video}
-                  muted
-                  playsInline
-                  preload="auto"
-                  className={index === 0 ? "active" : ""}
-                />
-              ))}
-            </div>
+
 
             <div className="grade" aria-hidden="true" />
             <div className="edge-b" aria-hidden="true" />
