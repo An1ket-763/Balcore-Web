@@ -241,10 +241,37 @@ const HeroSection = () => {
           el.setAttribute("clip-path", `url(#${clip})`);
           return el;
         };
+        // Left side stays dark (matches hero-left bg)
         svg!.appendChild(mk("#08080f", "hcL"));
-        svg!.appendChild(mk("#08080f", "hcR"));
+        // Right side is transparent so the video plays through
+        svg!.appendChild(mk("transparent", "hcR"));
       });
+
+      /* ── Bottom-edge hexagons (transparent, video plays through) ── */
+      const hexW = R * Math.sqrt(3);
+      const startX = seam + R * 1.2;
+      const bottomY = H - R * 0.4;
+      let x = startX;
+      let row = 0;
+      while (x < W + hexW) {
+        const cx = x;
+        const cy = bottomY + (row % 2 === 0 ? 0 : R * 0.9);
+        let pts = "";
+        for (let i = 0; i < 6; i++) {
+          const a = (Math.PI / 3) * i - Math.PI / 6;
+          pts += `${(cx + R * Math.cos(a)).toFixed(1)},${(cy + R * Math.sin(a)).toFixed(1)} `;
+        }
+        const el = document.createElementNS(NS, "polygon");
+        el.setAttribute("points", pts);
+        el.setAttribute("fill", "transparent");
+        el.setAttribute("stroke", "rgba(255,255,255,0.9)");
+        el.setAttribute("stroke-width", "2.5");
+        svg!.appendChild(el);
+        x += hexW;
+        row++;
+      }
     }
+
 
     build();
     window.addEventListener("resize", build);
@@ -498,13 +525,15 @@ const HeroSection = () => {
         /* ── Hex seam SVG overlay ──────────────────── */
         .hex-seam-svg {
           position: absolute;
-          top: var(--nav-h);
-          left: 0%;
+          top: 0;
+          left: 0;
           width: 100%;
-          height: calc(100vh - var(--nav-h));
+          height: 100%;
           z-index: 50;
           pointer-events: none;
+          overflow: visible;
         }     
+
 
         /* ── Mobile ────────────────────────────────── */
         @media (max-width: 768px) {
