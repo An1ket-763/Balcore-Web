@@ -521,13 +521,14 @@ const HeroSection = () => {
         /* ── Hex seam SVG overlay ──────────────────── */
         .hex-seam-svg {
           position: absolute;
-          top: var(--nav-h);
-          left: 0%;
+          top: 0;
+          left: 0;
           width: 100%;
-          height: calc(100vh - var(--nav-h));
+          height: 100%;
           z-index: 50;
           pointer-events: none;
-        }     
+          overflow: visible;
+        }
 
         /* ── Mobile ────────────────────────────────── */
         @media (max-width: 768px) {
