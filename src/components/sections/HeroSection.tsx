@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import vid1 from "@/assets/webHerosVideo/video 1.mp4";
-import vid2 from "@/assets/webHerosVideo/video 2.mp4";
+import vid2 from "@/assets/webHerosVideo/Video 2.mp4";
 import vid3 from "@/assets/webHerosVideo/video 3.mp4";
 import vid4 from "@/assets/webHerosVideo/video 4.mp4";
 import vid5 from "@/assets/webHerosVideo/video 5.mp4";
-import vid6 from "@/assets/webHerosVideo/video 6.mp4";
+import vid6 from "@/assets/webHerosVideo/Video 6.mp4";
 import vid7 from "@/assets/webHerosVideo/video 7.mp4";
 import vid8 from "@/assets/webHerosVideo/video 8.mp4";
 // etc.
