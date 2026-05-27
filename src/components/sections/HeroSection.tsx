@@ -625,23 +625,27 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right — video / fallback */}
+          {/* Video stage — spans full hero-section, clipped by SVG to show
+              through right rect + left hexagons + bottom hexagons */}
+          <div className="vid-stage" aria-hidden="true">
+            {videos?.map((video, index) => (
+              <video
+                key={index}
+                ref={(el) => {
+                  videoRefs.current[index] = el;
+                }}
+                src={video}
+                muted
+                playsInline
+                preload="auto"
+                className={index === 0 ? "active" : ""}
+              />
+            ))}
+          </div>
+
+          {/* Right — overlays / dots */}
           <div className="hero-right">
-            <div className="vid-wrap">
-              {videos?.map((video, index) => (
-                <video
-                  key={index}
-                  ref={(el) => {
-                    videoRefs.current[index] = el;
-                  }}
-                  src={video}
-                  muted
-                  playsInline
-                  preload="auto"
-                  className={index === 0 ? "active" : ""}
-                />
-              ))}
-            </div>
+
 
             <div className="grade" aria-hidden="true" />
             <div className="edge-b" aria-hidden="true" />
