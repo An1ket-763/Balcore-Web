@@ -180,7 +180,7 @@ const HeroSection = () => {
     };
   }, []);
 
-  /* ── Hex seam overlay SVG (fixed, pointer-events:none) ───────────── */
+  /* ── Hex seam overlay SVG + video clip-path ───────────── */
   useEffect(() => {
     const svg = hexSvgRef.current;
     if (!svg) return;
@@ -191,59 +191,73 @@ const HeroSection = () => {
       while (svg!.firstChild) svg!.removeChild(svg!.firstChild);
       const W = window.innerWidth;
       const seam = W * 0.495;
-      // const NAV = 68;
-      // const H = window.innerHeight;
 
       const hero = document.querySelector(".hero-section") as HTMLElement;
       const H = hero?.offsetHeight || window.innerHeight;
-      const NAV = 0;
 
-      const defs = document.createElementNS(NS, "defs");
+      const navStr = getComputedStyle(document.documentElement)
+        .getPropertyValue("--nav-h")
+        .trim();
+      const NAV = parseFloat(navStr) || 0;
 
-      // Left clip
-      const cL = document.createElementNS(NS, "clipPath");
-      cL.setAttribute("id", "hcL");
-      const rL = document.createElementNS(NS, "rect");
-      rL.setAttribute("x", "0");
-      rL.setAttribute("y", "0");
-      rL.setAttribute("width", String(seam));
-      rL.setAttribute("height", String(H));
-      cL.appendChild(rL);
-      defs.appendChild(cL);
+      svg!.setAttribute("viewBox", `0 0 ${W} ${H}`);
+      svg!.setAttribute("preserveAspectRatio", "none");
 
-      // Right clip
-      const cR = document.createElementNS(NS, "clipPath");
-      cR.setAttribute("id", "hcR");
-      const rR = document.createElementNS(NS, "rect");
-      rR.setAttribute("x", String(seam));
-      rR.setAttribute("y", "0");
-      rR.setAttribute("width", String(W - seam));
-      rR.setAttribute("height", String(H));
-      cR.appendChild(rR);
-      defs.appendChild(cR);
-
-      svg!.appendChild(defs);
-
-      HEX_OFFSETS.forEach(([dx, dy]) => {
-        const cx = seam + dx;
-        const cy = NAV + dy;
+      const hexPoints = (cx: number, cy: number) => {
         let pts = "";
         for (let i = 0; i < 6; i++) {
           const a = (Math.PI / 3) * i - Math.PI / 6;
           pts += `${(cx + R * Math.cos(a)).toFixed(1)},${(cy + R * Math.sin(a)).toFixed(1)} `;
         }
-        const mk = (fill: string, clip: string) => {
-          const el = document.createElementNS(NS, "polygon");
-          el.setAttribute("points", pts);
-          el.setAttribute("fill", fill);
-          el.setAttribute("stroke", "rgba(255,255,255,0.9)");
-          el.setAttribute("stroke-width", "2.5");
-          el.setAttribute("clip-path", `url(#${clip})`);
-          return el;
-        };
-        svg!.appendChild(mk("#08080f", "hcL"));
-        svg!.appendChild(mk("#08080f", "hcR"));
+        return pts;
+      };
+
+      const leftCenters: [number, number][] = HEX_OFFSETS.map(
+        ([dx, dy]) => [seam + dx, NAV + dy]
+      );
+
+      const bottomCenters: [number, number][] = [];
+      const bottomY = H - R * 0.55;
+      const stepX = R * Math.sqrt(3);
+      for (let cx = seam + R * 1.4; cx < W + R; cx += stepX) {
+        bottomCenters.push([cx, bottomY]);
+      }
+
+      // ── clipPath that reveals: right-of-seam rect + left hexes + bottom hexes ──
+      const defs = document.createElementNS(NS, "defs");
+      const vidClip = document.createElementNS(NS, "clipPath");
+      vidClip.setAttribute("id", "vidClip");
+      vidClip.setAttribute("clipPathUnits", "userSpaceOnUse");
+
+      const mainRect = document.createElementNS(NS, "rect");
+      mainRect.setAttribute("x", String(seam));
+      mainRect.setAttribute("y", "0");
+      mainRect.setAttribute("width", String(W - seam));
+      mainRect.setAttribute("height", String(H));
+      vidClip.appendChild(mainRect);
+
+      [...leftCenters, ...bottomCenters].forEach(([cx, cy]) => {
+        const p = document.createElementNS(NS, "polygon");
+        p.setAttribute("points", hexPoints(cx, cy));
+        vidClip.appendChild(p);
       });
+
+      defs.appendChild(vidClip);
+      svg!.appendChild(defs);
+
+      // ── White hex strokes on top (transparent fill so video shows through) ──
+      const drawStroke = (cx: number, cy: number) => {
+        const el = document.createElementNS(NS, "polygon");
+        el.setAttribute("points", hexPoints(cx, cy));
+        el.setAttribute("fill", "transparent");
+        el.setAttribute("stroke", "rgba(255,255,255,0.92)");
+        el.setAttribute("stroke-width", "2.5");
+        el.setAttribute("stroke-linejoin", "round");
+        svg!.appendChild(el);
+      };
+
+      leftCenters.forEach(([cx, cy]) => drawStroke(cx, cy));
+      bottomCenters.forEach(([cx, cy]) => drawStroke(cx, cy));
     }
 
     build();
