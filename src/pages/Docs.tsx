@@ -20,10 +20,15 @@ const Docs = () => {
     window.scrollTo({ top: 0 });
   }, [activeSection.id]);
 
-  const handleSectionClick = (id: string) => {
-    navigate(`/docs#${id}`, { replace: true });
-    setMobileSidebarOpen(false);
-  };
+const handleSectionClick = (id: string) => {
+  navigate(`/docs#${id}`, { replace: true });
+
+  if (id === "whitepaper") {
+    window.open("https://storage.googleapis.com/balcore-web/Technical%20Public%20WP/BalCore_FlowYield_Public_Brief.pdf", "_blank");
+  }
+
+  setMobileSidebarOpen(false);
+};
 
   return (
     <div className="min-h-screen bg-background">
