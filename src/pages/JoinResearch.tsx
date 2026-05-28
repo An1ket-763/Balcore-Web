@@ -1,4 +1,5 @@
 import NavBar from "@/components/sections/NavBar";
+import { useEffect } from "react";
 
 const styles = `
   .jr-root {
@@ -66,6 +67,12 @@ const styles = `
 `;
 
 const JoinResearch = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
   return (
     <>
       <NavBar />

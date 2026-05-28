@@ -17,6 +17,12 @@ export const docsContent: DocSection[] = [
   dexModelsSection,
   lpMarketMakerSection,
   tokenizationSection,
+  {
+    id: "whitepaper",
+    shortTitle: "Whitepaper",
+    content: "",
+    title: ""
+  },
 ];
 
 export type { DocSection };
