@@ -297,11 +297,14 @@ const HeroSection = () => {
         }
 
         .hero-root {
-          width: 100%; min-height: 100vh;
+          width: 100%;
+          min-height: 100vh;
+          min-height: 100svh;
           background: var(--bg);
           color: var(--text);
           font-family: 'Barlow', system-ui, sans-serif;
-          overflow: hidden;
+          overflow-x: clip;
+          overflow-y: visible;
           position: relative;
         }
 
@@ -352,6 +355,7 @@ const HeroSection = () => {
           position: relative;
           z-index: 10;
           height: calc(100vh - var(--nav-h));
+          height: calc(100svh - var(--nav-h));
           display: grid;
           grid-template-columns: 52% 48%;
           overflow: hidden;
@@ -506,6 +510,7 @@ const HeroSection = () => {
           left: 0%;
           width: 100%;
           height: calc(100vh - var(--nav-h));
+          height: calc(100svh - var(--nav-h));
           z-index: 50;
           pointer-events: none;
         }     
@@ -519,6 +524,8 @@ const HeroSection = () => {
             grid-template-columns: none;
             height: auto;
             min-height: calc(100vh - var(--nav-h));
+            min-height: calc(100dvh - var(--nav-h));
+            overflow: visible;
           }
           .hero-left {
             padding: 120px 56px 60px;
@@ -546,7 +553,10 @@ const HeroSection = () => {
           .hero-section {
             display: flex; flex-direction: column;
             grid-template-columns: none;
-            height: auto; min-height: calc(100vh - var(--nav-h));
+            height: auto;
+            min-height: calc(100vh - var(--nav-h));
+            min-height: calc(100dvh - var(--nav-h));
+            overflow: visible;
           }
           .hero-left { padding: 22px 20px 26px; }
           .hero-right { width: 100%; height: 52vh; min-height: 320px; max-height: 460px; }

@@ -14,7 +14,7 @@ import TechnologySection from "@/components/sections/TechnologySection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-clip">
       <NavBar />
       <HeroSection />
       <WhatWeDoSection />

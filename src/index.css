@@ -75,13 +75,24 @@
   }
 
   html {
+    min-height: 100%;
+    overflow-x: clip;
+    overflow-y: auto;
     scroll-behavior: smooth;
   }
 
   body {
     @apply bg-background text-foreground font-sans;
+    min-height: 100%;
+    overflow-x: clip;
+    overflow-y: auto;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+  }
+
+  #root {
+    min-height: 100%;
+    overflow-x: clip;
   }
 }
 
