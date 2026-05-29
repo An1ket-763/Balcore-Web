@@ -733,7 +733,7 @@ const WhatWeDoHero = () => {
           .balcore-hero-right { min-height: 520px; }
           .balcore-hub-scene-wrap { --scene-size: 420px; transform: translateX(0.5rem); }
         }
-        @media (min-width: 768px) and (max-width: 1023px) {
+        @media (min-width: 768px) and (max-width: 1024px) {
           .balcore-what-grid {
             grid-template-columns: 1fr !important;
             justify-items: center;
@@ -752,7 +752,7 @@ const WhatWeDoHero = () => {
             overflow: hidden;
           }
           .balcore-hub-scene-wrap {
-            --scene-size: clamp(560px, 78vw, 620px);
+            --scene-size: clamp(600px, 84vw, 650px);
             transform: none;
             margin: 0 auto;
             width: var(--scene-size);
