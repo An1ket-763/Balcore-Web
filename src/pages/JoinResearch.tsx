@@ -59,12 +59,10 @@ const styles = `
   .jr-alt-contact a { color: var(--accent); text-decoration: none; }
   .jr-alt-contact a:hover { text-decoration: underline; }
   .jr-footer { border-top: 1px solid var(--border); padding: 32px 48px; text-align: center; color: var(--text-dim); font-size: 13px; }
-  .jr-scroll-spacer { display: none; }
-  @media (max-width: 1180px), (hover: none) and (pointer: coarse) and (max-width: 1366px) {
-    .jr-root { padding-bottom: env(safe-area-inset-bottom, 0px); }
-    .jr-scroll-spacer { display: block; height: calc(240px + env(safe-area-inset-bottom, 0px)); }
-    .jr-section { padding: 44px 0; }
-    .jr-apply { margin: 24px 0 96px; }
+  @media (max-width: 1180px) {
+    .jr-root { padding-bottom: calc(180px + env(safe-area-inset-bottom, 0px)); }
+    .jr-root::after { content: ""; display: block; height: calc(120px + env(safe-area-inset-bottom, 0px)); }
+    .jr-apply { margin-bottom: 96px; }
     .jr-footer { margin-bottom: env(safe-area-inset-bottom, 0px); }
   }
   @media (max-width: 768px) {
@@ -176,7 +174,6 @@ const JoinResearch = () => {
       <footer className="jr-footer">
         © 2026 Balcore — Build the future of on-chain liquidity.
       </footer>
-      <div className="jr-scroll-spacer" aria-hidden="true" />
     </div>
     </>
   );
