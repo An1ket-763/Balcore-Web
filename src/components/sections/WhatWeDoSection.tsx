@@ -734,11 +734,17 @@ const WhatWeDoHero = () => {
           .balcore-hub-scene-wrap { --scene-size: 420px; transform: translateX(0.5rem); }
         }
         @media (min-width: 768px) and (max-width: 1023px) {
+          .balcore-visual-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+          }
           .balcore-hub-scene-wrap {
-            --scene-size: min(480px, 80vw);
+            --scene-size: min(520px, 78vw);
             transform: none;
             margin: 0 auto;
-            width: 100%;
+            width: var(--scene-size);
             height: var(--scene-size);
             max-width: var(--scene-size);
           }
@@ -862,7 +868,7 @@ const WhatWeDoHero = () => {
             <MobileHeroAnimation />
           ) : (
             <div className="relative mx-auto w-full max-w-[560px] lg:max-w-none">
-              <div className="aspect-square w-full rounded-[30px] border border-[#7c3aed]/20 bg-[linear-gradient(135deg,rgba(124,58,237,0.12)_0%,rgba(8,8,15,0.9)_100%)]">
+              <div className="balcore-visual-card aspect-square w-full rounded-[30px] border border-[#7c3aed]/20 bg-[linear-gradient(135deg,rgba(124,58,237,0.12)_0%,rgba(8,8,15,0.9)_100%)]">
 
                 <div className="balcore-hub-scene-wrap">
                   <div ref={sceneRef} className="balcore-scene">
