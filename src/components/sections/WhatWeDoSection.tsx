@@ -851,8 +851,9 @@ const WhatWeDoHero = () => {
           {isMobile ? (
             <MobileHeroAnimation />
           ) : (
-            <div className="relative">
+            <div className="relative mx-auto w-full max-w-[560px] lg:max-w-none">
               <div className="aspect-square w-full rounded-[30px] border border-[#7c3aed]/20 bg-[linear-gradient(135deg,rgba(124,58,237,0.12)_0%,rgba(8,8,15,0.9)_100%)]">
+
                 <div className="balcore-hub-scene-wrap">
                   <div ref={sceneRef} className="balcore-scene">
                     <div className="balcore-ring balcore-ring1">
