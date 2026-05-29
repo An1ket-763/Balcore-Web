@@ -733,6 +733,16 @@ const WhatWeDoHero = () => {
           .balcore-hero-right { min-height: 520px; }
           .balcore-hub-scene-wrap { --scene-size: 420px; transform: translateX(0.5rem); }
         }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .balcore-hub-scene-wrap {
+            --scene-size: min(480px, 80vw);
+            transform: none;
+            margin: 0 auto;
+            width: 100%;
+            height: var(--scene-size);
+            max-width: var(--scene-size);
+          }
+        }
         @media (max-width: 767px) {
           .balcore-flow-canvas { display: none; }
           .balcore-hero-grid { grid-template-columns: 1fr; padding: 88px 0.95rem 2.5rem; row-gap: 2rem; width: 100%; }
