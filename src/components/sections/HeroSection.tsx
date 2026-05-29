@@ -529,7 +529,7 @@ const HeroSection = () => {
           .headline { text-align: center; }
           .headline-default { display: none; }
           .headline-ipad { display: block; }
-          .hero-lower { align-items: center; }
+          .hero-lower { align-items: center; margin-top: 24px; }
           .sub { max-width: 600px; text-align: center; }
           .btns { justify-content: center; }
           .hero-right { width: 100%; height: 60vh; min-height: 420px; }
