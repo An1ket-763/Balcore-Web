@@ -508,6 +508,30 @@ const HeroSection = () => {
         }     
 
         /* ── Mobile ────────────────────────────────── */
+        /* ── iPad / Tablet (769px - 1024px) ──────── */
+        @media (min-width: 769px) and (max-width: 1024px) {
+          .hero-section {
+            display: flex;
+            flex-direction: column;
+            grid-template-columns: none;
+            height: auto;
+            min-height: calc(100vh - var(--nav-h));
+          }
+          .hero-left {
+            padding: 120px 56px 60px;
+            align-items: center;
+            text-align: center;
+          }
+          .hero-left > div:first-child { display: flex; flex-direction: column; align-items: center; }
+          .headline { text-align: center; }
+          .hero-lower { align-items: center; }
+          .sub { max-width: 600px; text-align: center; }
+          .btns { justify-content: center; }
+          .hero-right { width: 100%; height: 60vh; min-height: 420px; }
+          .hex-seam-svg { display: none; }
+          .scene-dots { display: none; }
+        }
+
         @media (max-width: 768px) {
           :root { --nav-h: 56px; }
           .navbar { padding: 0 16px; }
