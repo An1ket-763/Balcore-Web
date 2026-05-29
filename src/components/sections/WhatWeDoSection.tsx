@@ -734,6 +734,17 @@ const WhatWeDoHero = () => {
           .balcore-hub-scene-wrap { --scene-size: 420px; transform: translateX(0.5rem); }
         }
         @media (min-width: 768px) and (max-width: 1023px) {
+          .balcore-what-grid {
+            grid-template-columns: 1fr !important;
+            justify-items: center;
+          }
+          .balcore-what-grid > div:first-child {
+            width: 100%;
+          }
+          .balcore-visual-shell {
+            width: min(100%, 700px);
+            max-width: 700px;
+          }
           .balcore-visual-card {
             display: flex;
             align-items: center;
@@ -741,7 +752,7 @@ const WhatWeDoHero = () => {
             overflow: hidden;
           }
           .balcore-hub-scene-wrap {
-            --scene-size: min(520px, 78vw);
+            --scene-size: clamp(560px, 78vw, 620px);
             transform: none;
             margin: 0 auto;
             width: var(--scene-size);
@@ -787,7 +798,7 @@ const WhatWeDoHero = () => {
         {/* Background Glow */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_80%_50%,rgba(124,58,237,0.12)_0%,transparent_70%)]" />
 
-        <div className="relative z-10 mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-20 lg:grid-cols-2">
+        <div className="balcore-what-grid relative z-10 mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-20 lg:grid-cols-2">
           {/* LEFT CONTENT */}
           <div>
             {/* Label */}
@@ -867,7 +878,7 @@ const WhatWeDoHero = () => {
           {isMobile ? (
             <MobileHeroAnimation />
           ) : (
-            <div className="relative mx-auto w-full max-w-[560px] lg:max-w-none">
+            <div className="balcore-visual-shell relative mx-auto w-full max-w-[560px] lg:max-w-none">
               <div className="balcore-visual-card aspect-square w-full rounded-[30px] border border-[#7c3aed]/20 bg-[linear-gradient(135deg,rgba(124,58,237,0.12)_0%,rgba(8,8,15,0.9)_100%)]">
 
                 <div className="balcore-hub-scene-wrap">
