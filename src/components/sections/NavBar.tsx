@@ -131,7 +131,7 @@ const NavBar = () => {
           </motion.a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden min-[1025px]:flex items-center gap-8">
             {navItems.map((item, i) => (
               <motion.button
                 key={i}
@@ -183,7 +183,7 @@ const NavBar = () => {
 
           <motion.button
             onClick={() => setIsModalOpen(true)}
-            className="btn-primary hidden lg:flex items-center gap-2 relative overflow-hidden group"
+            className="btn-primary hidden min-[1025px]:flex items-center gap-2 relative overflow-hidden group"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -203,7 +203,7 @@ const NavBar = () => {
           {/* Mobile menu button */}
           <motion.button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-white shrink-0"
+            className="min-[1025px]:hidden p-2 text-white shrink-0"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -223,7 +223,7 @@ const NavBar = () => {
             opacity: isMobileMenuOpen ? 1 : 0,
           }}
           transition={{ duration: 0.3 }}
-          className="lg:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-t border-border shadow-2xl"
+          className="min-[1025px]:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-t border-border shadow-2xl"
         >
           <nav className="px-4 sm:px-6 py-4 space-y-3">
             {navItems.map((item, i) => (

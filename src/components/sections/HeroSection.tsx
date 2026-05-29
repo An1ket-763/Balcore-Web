@@ -87,9 +87,11 @@ const HeroSection = () => {
       ctx.beginPath();
       for (let i = 0; i < 6; i++) {
         const a = (Math.PI / 3) * i - Math.PI / 6;
-        i
-          ? ctx.lineTo(cx + R * Math.cos(a), cy + R * Math.sin(a))
-          : ctx.moveTo(cx + R * Math.cos(a), cy + R * Math.sin(a));
+        if (i) {
+          ctx.lineTo(cx + R * Math.cos(a), cy + R * Math.sin(a));
+        } else {
+          ctx.moveTo(cx + R * Math.cos(a), cy + R * Math.sin(a));
+        }
       }
       ctx.closePath();
     }
@@ -390,6 +392,7 @@ const HeroSection = () => {
           line-height: .93; letter-spacing: -.015em;
           text-transform: uppercase; color: #fff;
         }
+        .headline-ipad { display: none; }
         .headline em { font-style: normal; color: var(--p3); }
 
         .hero-lower {
@@ -508,8 +511,8 @@ const HeroSection = () => {
         }     
 
         /* ── Mobile ────────────────────────────────── */
-        /* ── iPad / Tablet (769px - 1024px) ──────── */
-        @media (min-width: 769px) and (max-width: 1024px) {
+        /* ── iPad / Tablet (768px - 1024px) ──────── */
+        @media (min-width: 768px) and (max-width: 1024px) {
           .hero-section {
             display: flex;
             flex-direction: column;
@@ -524,7 +527,9 @@ const HeroSection = () => {
           }
           .hero-left > div:first-child { display: flex; flex-direction: column; align-items: center; }
           .headline { text-align: center; }
-          .hero-lower { align-items: center; }
+          .headline-default { display: none; }
+          .headline-ipad { display: block; }
+          .hero-lower { align-items: center; margin-top: 24px; }
           .sub { max-width: 600px; text-align: center; }
           .btns { justify-content: center; }
           .hero-right { width: 100%; height: 60vh; min-height: 420px; }
@@ -532,7 +537,7 @@ const HeroSection = () => {
           .scene-dots { display: none; }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
           :root { --nav-h: 56px; }
           .navbar { padding: 0 16px; }
           .nav-links { display: none; }
@@ -583,7 +588,7 @@ const HeroSection = () => {
                 <span className="badge-dot" />
                 Built on Avalanche
               </div>
-              <h1 className="headline">
+              <h1 className="headline headline-default">
                 Solving
                 <br />
                 the Puzzle
@@ -598,6 +603,14 @@ const HeroSection = () => {
                 of Onchain
                 <br />
                 Liquidity
+              </h1>
+              <h1 className="headline headline-ipad">
+                Solving the Puzzle
+                <br />
+                of{" "}
+                <em>Capital Efficiency</em>
+                <br />
+                of Onchain Liquidity
               </h1>
             </div>
 
