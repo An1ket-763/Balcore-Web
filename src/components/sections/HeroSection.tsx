@@ -518,17 +518,17 @@ const HeroSection = () => {
         /* ── Mobile ────────────────────────────────── */
         /* ── iPad / Tablet (768px - 1024px) ──────── */
         @media (min-width: 768px) and (max-width: 1024px) {
+          .hero-root { min-height: 0; }
           .hero-section {
             display: flex;
             flex-direction: column;
             grid-template-columns: none;
             height: auto;
-            min-height: calc(100vh - var(--nav-h));
-            min-height: calc(100dvh - var(--nav-h));
+            min-height: 0;
             overflow: visible;
           }
           .hero-left {
-            padding: 120px 56px 60px;
+            padding: 104px 48px 40px;
             align-items: center;
             text-align: center;
           }
@@ -539,13 +539,14 @@ const HeroSection = () => {
           .hero-lower { align-items: center; margin-top: 24px; }
           .sub { max-width: 600px; text-align: center; }
           .btns { justify-content: center; }
-          .hero-right { width: 100%; height: 60vh; min-height: 420px; }
+          .hero-right { width: 100%; height: clamp(320px, 38vh, 420px); min-height: 0; }
           .hex-seam-svg { display: none; }
           .scene-dots { display: none; }
         }
 
         @media (max-width: 767px) {
           :root { --nav-h: 56px; }
+          .hero-root { min-height: 0; }
           .navbar { padding: 0 16px; }
           .nav-links { display: none; }
           .logo { font-size: 15px; gap: 8px; }
@@ -554,12 +555,11 @@ const HeroSection = () => {
             display: flex; flex-direction: column;
             grid-template-columns: none;
             height: auto;
-            min-height: calc(100vh - var(--nav-h));
-            min-height: calc(100dvh - var(--nav-h));
+            min-height: 0;
             overflow: visible;
           }
-          .hero-left { padding: 22px 20px 26px; }
-          .hero-right { width: 100%; height: 52vh; min-height: 320px; max-height: 460px; }
+          .hero-left { padding: 82px 20px 26px; }
+          .hero-right { width: 100%; height: clamp(260px, 34vh, 340px); min-height: 0; max-height: none; }
           .badge { font-size: 11px; padding: 6px 14px; }
           .headline { font-size: 36px; margin-top: 18px; line-height: .96; }
           .hero-lower { gap: 16px; margin-top: 28px; }
@@ -577,7 +577,7 @@ const HeroSection = () => {
           .sl { font-size: 9.5px; }
         }
         @media (max-width: 380px) {
-          .hero-left { padding: 18px 16px 22px; }
+          .hero-left { padding: 78px 16px 22px; }
           .headline { font-size: 32px; }
           .btn-p, .btn-o { padding: 11px 18px; font-size: 13px; }
           .stat { padding: 12px 14px; }

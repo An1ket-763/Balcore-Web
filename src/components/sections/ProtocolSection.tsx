@@ -30,16 +30,16 @@ const ProtocolSection = () => {
   return (
     <section
       id="protocol"
-      className="relative border-b border-purple-500/10 px-6 py-20 lg:px-14"
+      className="relative border-b border-purple-500/10 px-5 py-12 md:py-14 lg:px-14 lg:py-20"
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-20 lg:grid-cols-2">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 md:gap-12 lg:grid-cols-2 lg:gap-20">
         {/* LEFT */}
         <div className="order-2 lg:order-1">
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
             {protocolCards.map((card, index) => (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-2xl border border-purple-500/10 bg-[#11101a] p-7 transition-all hover:border-purple-500/30"
+                className="group relative overflow-hidden rounded-2xl border border-purple-500/10 bg-[#11101a] p-5 md:p-6 lg:p-7 transition-all hover:border-purple-500/30"
               >
                 <div className="mb-4 font-condensed text-6xl font-black leading-none text-purple-500/20">
                   {card.num}
@@ -68,13 +68,13 @@ const ProtocolSection = () => {
             </span>
           </div>
 
-          <h2 className="mb-8 font-condensed text-5xl font-black uppercase leading-none text-white md:text-6xl">
+          <h2 className="mb-6 font-condensed text-5xl font-black uppercase leading-none text-white md:mb-8 md:text-6xl">
             Built on Avalanche.
             <br />
             Built to Last.
           </h2>
 
-          <div className="space-y-5 text-[15px] leading-[1.9] text-white/60">
+          <div className="space-y-4 text-[15px] leading-[1.75] text-white/60 md:space-y-5 md:leading-[1.9]">
             <p>
               Technology is central to everything we do. Years of building
               automated market-making systems on Avalanche has given BalCore
@@ -90,7 +90,7 @@ const ProtocolSection = () => {
             </p>
           </div>
 
-          <button className="group mt-10 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-purple-400 transition-all hover:gap-5">
+          <button className="group mt-8 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-purple-400 transition-all hover:gap-5 md:mt-10">
             Read technical docs
             <ArrowRight
               size={15}
