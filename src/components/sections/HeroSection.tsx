@@ -511,8 +511,8 @@ const HeroSection = () => {
         }     
 
         /* ── Mobile ────────────────────────────────── */
-        /* ── iPad / Tablet (769px - 1024px) ──────── */
-        @media (min-width: 769px) and (max-width: 1024px) {
+        /* ── iPad / Tablet (768px - 1024px) ──────── */
+        @media (min-width: 768px) and (max-width: 1024px) {
           .hero-section {
             display: flex;
             flex-direction: column;
@@ -537,7 +537,7 @@ const HeroSection = () => {
           .scene-dots { display: none; }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
           :root { --nav-h: 56px; }
           .navbar { padding: 0 16px; }
           .nav-links { display: none; }
