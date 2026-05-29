@@ -59,16 +59,17 @@ const styles = `
   .jr-alt-contact a { color: var(--accent); text-decoration: none; }
   .jr-alt-contact a:hover { text-decoration: underline; }
   .jr-footer { border-top: 1px solid var(--border); padding: 32px 48px; text-align: center; color: var(--text-dim); font-size: 13px; }
-  @media (max-width: 1024px) {
-    .jr-root { padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)); }
-    .jr-apply { margin-bottom: 72px; }
+  @media (max-width: 1180px) {
+    .jr-root { padding-bottom: calc(180px + env(safe-area-inset-bottom, 0px)); }
+    .jr-root::after { content: ""; display: block; height: calc(120px + env(safe-area-inset-bottom, 0px)); }
+    .jr-apply { margin-bottom: 96px; }
     .jr-footer { margin-bottom: env(safe-area-inset-bottom, 0px); }
   }
   @media (max-width: 768px) {
     .jr-hero { padding: 120px 24px 40px; }
     .jr-section { padding: 40px 0; }
     .jr-container { padding: 0 24px; }
-    .jr-apply { padding: 32px 24px; margin: 20px 0 72px; }
+    .jr-apply { padding: 32px 24px; margin: 20px 0 96px; }
     .jr-footer { padding: 24px; }
   }
 `;
