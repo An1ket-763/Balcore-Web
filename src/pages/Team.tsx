@@ -1,9 +1,10 @@
 import NavBar from "@/components/sections/NavBar";
 import { useEffect } from "react";
 
-const jonyImg = encodeURI("/Jony pfp (1).avif");
-const amitImg = encodeURI("/Amit PFP (1).jpg");
-const alpImg = encodeURI("/Alp pfp (1).jpg");
+const jonyImg = "/Jony_pfp.avif";
+const amitImg = "/Amit_pfp.jpg";
+const alpImg = "/Alp_pfp.jpg";
+const ranaImg = "/Rana_pfp.png";
 
 const styles = `
   .team-root { --bg:#08080f; --bg2:#0d0c1a; --purple:#7c3aed; --p3:#9f5fff;
@@ -304,7 +305,7 @@ const Team = () => {
                     <div className="roster-tag">F-003</div>
                   </a>
                   <a onClick={() => scrollTo("capital")} className="roster-row">
-                    <div className="roster-avatar"><div className="roster-avatar-fallback">R</div></div>
+                    <div className="roster-avatar"><img src={ranaImg} alt="Rana Mukherjee" /></div>
                     <div className="roster-info">
                       <div className="roster-name">Rana Mukherjee</div>
                       <div className="roster-role">Strategic Advisor · Risk &amp; Capital</div>
@@ -472,7 +473,7 @@ const Team = () => {
               </div>
               <div className="reveal reveal-delay-1">
                 <div className="visual-box" style={{ maxWidth: 440 }}>
-                  <div className="portrait-frame"><div className="portrait-placeholder">R</div></div>
+                  <div className="portrait-frame"><img src={ranaImg} alt="Rana Mukherjee" /></div>
                   <div className="portrait-meta">
                     <div className="portrait-name-wrap">
                       <div className="portrait-name">Rana Mukherjee</div>
