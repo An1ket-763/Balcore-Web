@@ -742,8 +742,8 @@ const WhatWeDoHero = () => {
             width: 100%;
           }
           .balcore-visual-shell {
-            width: min(100%, 700px);
-            max-width: 700px;
+            width: min(100%, clamp(360px, 58vw, 520px));
+            max-width: 520px;
           }
           .balcore-visual-card {
             display: flex;
@@ -752,7 +752,7 @@ const WhatWeDoHero = () => {
             overflow: hidden;
           }
           .balcore-hub-scene-wrap {
-            --scene-size: clamp(600px, 84vw, 650px);
+            --scene-size: clamp(340px, 52vw, 460px);
             transform: none;
             margin: 0 auto;
             width: var(--scene-size);
@@ -793,12 +793,12 @@ const WhatWeDoHero = () => {
 
       <section
         id="what-we-do"
-        className="relative overflow-hidden border-b border-white/10 px-6 py-20  lg:px-14"
+        className="relative overflow-hidden border-b border-white/10 px-5 py-12 md:py-14 lg:px-14 lg:py-20"
       >
         {/* Background Glow */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_80%_50%,rgba(124,58,237,0.12)_0%,transparent_70%)]" />
 
-        <div className="balcore-what-grid relative z-10 mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-20 lg:grid-cols-2">
+        <div className="balcore-what-grid relative z-10 mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-10 md:gap-12 lg:grid-cols-2 lg:gap-20">
           {/* LEFT CONTENT */}
           <div>
             {/* Label */}
@@ -808,7 +808,7 @@ const WhatWeDoHero = () => {
             </div>
 
             {/* Heading */}
-            <h1 className="font-barlow-condensed text-[clamp(52px,7vw,96px)] font-black uppercase leading-[0.9] tracking-[-0.02em] text-white">
+            <h1 className="font-barlow-condensed text-[clamp(44px,10vw,72px)] lg:text-[clamp(52px,7vw,96px)] font-black uppercase leading-[0.9] tracking-[-0.02em] text-white">
               Liquidity.
               <br />
               <span className="text-[#9f5fff]">Yield.</span>
@@ -817,7 +817,7 @@ const WhatWeDoHero = () => {
             </h1>
 
             {/* Description */}
-            <div className="mt-8 max-w-[470px] space-y-5 text-[16px] leading-[1.85] text-[#f1eeff]/60">
+            <div className="mt-6 max-w-[470px] space-y-4 text-[16px] leading-[1.75] text-[#f1eeff]/60 md:mt-8 md:space-y-5 md:leading-[1.85]">
               <p>
                 BalCore is a research-driven DeFi protocol that uses
                 sophisticated on-chain automation and deep market mechanics to
@@ -835,7 +835,7 @@ const WhatWeDoHero = () => {
             </div>
 
             {/* CTA */}
-            <div className="mt-9 flex flex-wrap gap-4">
+            <div className="mt-7 flex flex-wrap gap-4 md:mt-9">
               <a
                 href="#liquidity"
                 className="group inline-flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.1em] text-[#9f5fff] transition-all hover:gap-4"
@@ -1030,9 +1030,9 @@ const WhatWeDoHero = () => {
         </div>
 
         {/* STATS */}
-        <div className="relative z-10 mx-auto mt-16 max-w-[1200px]">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            <div className="rounded-[12px] border border-[#7c3aed]/20 bg-[#7c3aed]/5 p-7 transition-all hover:border-[#7c3aed]/40 hover:bg-[#7c3aed]/10">
+        <div className="relative z-10 mx-auto mt-10 max-w-[1200px] md:mt-12 lg:mt-16">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5 lg:gap-6">
+            <div className="rounded-[12px] border border-[#7c3aed]/20 bg-[#7c3aed]/5 p-5 md:p-6 lg:p-7 transition-all hover:border-[#7c3aed]/40 hover:bg-[#7c3aed]/10">
               <div className="font-barlow-condensed text-[42px] font-black leading-none tracking-[-0.02em] text-white">
                 30<span className="text-[22px] text-[#9f5fff]">%</span>
               </div>
@@ -1042,7 +1042,7 @@ const WhatWeDoHero = () => {
               </div>
             </div>
 
-            <div className="rounded-[12px] border border-[#7c3aed]/20 bg-[#7c3aed]/5 p-7 transition-all hover:border-[#7c3aed]/40 hover:bg-[#7c3aed]/10">
+            <div className="rounded-[12px] border border-[#7c3aed]/20 bg-[#7c3aed]/5 p-5 md:p-6 lg:p-7 transition-all hover:border-[#7c3aed]/40 hover:bg-[#7c3aed]/10">
               <div className="font-barlow-condensed text-[42px] font-black leading-none tracking-[-0.02em] text-white">
                 3<span className="text-[22px] text-[#9f5fff]">×</span>
               </div>
@@ -1052,7 +1052,7 @@ const WhatWeDoHero = () => {
               </div>
             </div>
 
-            <div className="rounded-[12px] border border-[#7c3aed]/20 bg-[#7c3aed]/5 p-7 transition-all hover:border-[#7c3aed]/40 hover:bg-[#7c3aed]/10">
+            <div className="rounded-[12px] border border-[#7c3aed]/20 bg-[#7c3aed]/5 p-5 md:p-6 lg:p-7 transition-all hover:border-[#7c3aed]/40 hover:bg-[#7c3aed]/10">
               <div className="font-barlow-condensed text-[42px] font-black leading-none tracking-[-0.02em] text-white">
                 200<span className="text-[22px] text-[#9f5fff]">+</span>
               </div>

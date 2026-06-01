@@ -40,9 +40,9 @@ const TechnologySection = () => {
   return (
     <section
       id="technology"
-      className="relative border-b border-purple-500/10 px-6 py-20 lg:px-14"
+      className="relative border-b border-purple-500/10 px-5 py-12 md:py-14 lg:px-14 lg:py-20"
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-20 lg:grid-cols-2">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 md:gap-12 lg:grid-cols-2 lg:gap-20">
         {/* LEFT */}
         <div>
           <div className="mb-4 flex items-center gap-3">
@@ -52,7 +52,7 @@ const TechnologySection = () => {
             </span>
           </div>
 
-          <h2 className="mb-8 font-condensed text-4xl font-black uppercase leading-none text-white md:text-4xl">
+          <h2 className="mb-6 font-condensed text-4xl font-black uppercase leading-none text-white md:mb-8 md:text-4xl">
             Drawing on Machine
             <br />
             Learning to Advance Yield
@@ -60,7 +60,7 @@ const TechnologySection = () => {
             Research.
           </h2>
 
-          <div className="space-y-5 text-[15px] leading-[1.9] text-white/60">
+          <div className="space-y-4 text-[15px] leading-[1.75] text-white/60 md:space-y-5 md:leading-[1.9]">
             <p>
               DeFi serves as a unique, rapid-feedback platform for ML
               experimentation every block is a new data point, every trade a
@@ -86,7 +86,7 @@ const TechnologySection = () => {
             </p>
           </div>
 
-          <button className="group mt-10 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-purple-400 transition-all hover:gap-5">
+          <button className="group mt-8 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-purple-400 transition-all hover:gap-5 md:mt-10">
             Join the research team
             <ArrowRight
               size={15}
@@ -97,7 +97,7 @@ const TechnologySection = () => {
 
         {/* RIGHT */}
         <div>
-          <div className="rounded-3xl border border-purple-500/10 bg-gradient-to-br from-purple-500/10 to-[#0a0913] p-8">
+          <div className="rounded-3xl border border-purple-500/10 bg-gradient-to-br from-purple-500/10 to-[#0a0913] p-5 md:p-6 lg:p-8">
             <div className="mb-6 text-[10px] font-bold uppercase tracking-[0.2em] text-purple-400">
               Live Signal Stack
             </div>
@@ -139,7 +139,7 @@ const TechnologySection = () => {
         </div>
       </div>
       {/* GROWING EVERY YEAR */}
-      <div className="mx-auto mt-28 max-w-[720px] text-center">
+      <div className="mx-auto mt-14 max-w-[720px] text-center md:mt-16 lg:mt-28">
         <div className="mb-5 flex items-center justify-center gap-3 text-[10px] font-bold uppercase tracking-[0.18em] text-[#9f5fff]">
           Growing Every Year
         </div>
@@ -154,7 +154,7 @@ const TechnologySection = () => {
           others avoid staying persistent, rigorous, and innovative.
         </p>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4 md:mt-10">
           <button className="flex items-center gap-2 rounded-md bg-[#7c3aed] px-8 py-3 text-[14px] font-medium text-white transition-all hover:bg-[#9f5fff]">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
               <path d="M8 5v14l11-7z" />

@@ -42,9 +42,9 @@ const WhatWeDoSection = () => {
   return (
     <section
       id="liquidity"
-      className="relative border-b border-purple-500/10 px-6 py-20 lg:px-14"
+      className="relative border-b border-purple-500/10 px-5 py-12 md:py-14 lg:px-14 lg:py-20"
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-20 lg:grid-cols-2">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 md:gap-12 lg:grid-cols-2 lg:gap-20">
         {/* LEFT */}
         <div>
           <div className="mb-4 flex items-center gap-3">
@@ -54,11 +54,11 @@ const WhatWeDoSection = () => {
             </span>
           </div>
 
-          <h2 className="mb-8 font-condensed text-5xl font-black uppercase leading-none text-white md:text-6xl">
+          <h2 className="mb-6 font-condensed text-5xl font-black uppercase leading-none text-white md:mb-8 md:text-6xl">
             The Liquidity Engine
           </h2>
 
-          <div className="space-y-5 text-[15px] leading-[1.9] text-white/60">
+          <div className="space-y-4 text-[15px] leading-[1.75] text-white/60 md:space-y-5 md:leading-[1.9]">
             <p>
               Our global on-chain presence allows us to manage liquidity
               continuously across Avalanche's concentrated AMM pools, dynamic
@@ -87,7 +87,7 @@ const WhatWeDoSection = () => {
             </p>
           </div>
 
-          <button className="group mt-10 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-purple-400 transition-all hover:gap-5">
+          <button className="group mt-8 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-purple-400 transition-all hover:gap-5 md:mt-10">
             <a href="#what-we-do">Explore liquidity mechanics</a>
             <ArrowRight
               size={15}
@@ -98,11 +98,11 @@ const WhatWeDoSection = () => {
 
         {/* RIGHT */}
         <div>
-          <ul className="space-y-6">
+          <ul className="space-y-5 md:space-y-6">
             {features.map((item, index) => (
               <li
                 key={index}
-                className="flex gap-5 border-b border-purple-500/10 pb-6"
+                className="flex gap-4 border-b border-purple-500/10 pb-5 md:gap-5 md:pb-6"
               >
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-purple-500/20 bg-purple-500/10 text-purple-400">
                   {item.icon}

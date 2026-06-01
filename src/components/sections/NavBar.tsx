@@ -68,7 +68,7 @@ const NavBar = () => {
     const pathToSection: Record<string, string> = {
       "/": "top",
       "/what-we-do": "what-we-do",
-      "/liquidity-engine": "liquidity-engine",
+      "/liquidity-engine": "liquidity",
       "/protocol": "protocol",
       "/technology": "technology",
       "/contact": "footer",
