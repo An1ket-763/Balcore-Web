@@ -1,16 +1,24 @@
 import { motion } from "framer-motion";
 import { Mountain } from "lucide-react";
 import MarketBackground from "@/components/backgrounds/MarketBackground";
+import avalancheLogo from "@/assets/images/logo1.png";
+import lfjLogo from "@/assets/images/logo5.png";
+import pharaohLogo from "@/assets/images/logo6.jpg";
+import blackholeLogo from "@/assets/images/logo7.png";
+import benqiLogo from "@/assets/images/logo8.png";
+import liquidityPoolsLogo from "@/assets/images/logo9.png";
+import exochartLogo from "@/assets/images/logo10.png";
+import smartVaultLogo from "@/assets/images/logo11.png";
 
 const integrations = [
-  { name: "Avalanche Network", logo: "/logo1.png" },
-  { name: "LFJ DEX", logo: "/logo5.png" },
-  { name: "Pharaoh DEX", logo: "/logo6.jpg" },
-  { name: "Blackhole DEX", logo: "/logo7.png" },
-  { name: "Benqi Lending", logo: "/logo8.png" },
-  { name: "Concentrated Liquidity Pools", logo: "/logo9.png" },
-  { name: "Exochart Oracles", logo: "/logo10.png" },
-  { name: "Smart Vault Architecture", logo: "/logo11.png" },
+  { name: "Avalanche Network", logo: avalancheLogo },
+  { name: "LFJ DEX", logo: lfjLogo },
+  { name: "Pharaoh DEX", logo: pharaohLogo },
+  { name: "Blackhole DEX", logo: blackholeLogo },
+  { name: "Benqi Lending", logo: benqiLogo },
+  { name: "Concentrated Liquidity Pools", logo: liquidityPoolsLogo },
+  { name: "Exochart Oracles", logo: exochartLogo },
+  { name: "Smart Vault Architecture", logo: smartVaultLogo },
 ];
 
 const BuiltOnAvalancheSection = () => {

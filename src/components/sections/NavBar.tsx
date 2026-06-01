@@ -2,6 +2,7 @@ import { motion, rgba, useScroll, useTransform } from "framer-motion";
 import { ExternalLink, Menu, X, Rocket } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import balcoreLogo from "@/assets/images/BalcoreLogo.png";
 import {
   Dialog,
   DialogContent,
@@ -122,7 +123,7 @@ const NavBar = () => {
             role="button"
           >
             <motion.img
-              src="/BalcoreLogo.png"
+              src={balcoreLogo}
               alt="Balcore logo"
               className="h-9 sm:h-10 object-contain"
               whileHover={{ scale: 1.05 }}

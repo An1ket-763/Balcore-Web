@@ -20,4 +20,4 @@ Balcore Web is the marketing site for Balcore's Avalanche-native liquidity infra
 
 ## Notes
 
-Static social metadata is configured in `index.html`, and public assets live in `public/`.
+Static social metadata is configured in `index.html`, application assets live in `src/assets`, and `public/` contains files that must remain publicly served as-is.
