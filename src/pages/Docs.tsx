@@ -24,7 +24,7 @@ const handleSectionClick = (id: string) => {
   navigate(`/docs#${id}`, { replace: true });
 
   if (id === "whitepaper") {
-    window.open("https://storage.googleapis.com/balcore-web/Technical%20Public%20WP/BalCore_FlowYield_Public_Brief.pdf", "_blank");
+    window.open("https://cdn.balcore.ai/whitepaper.pdf", "_blank");
   }
 
   setMobileSidebarOpen(false);
