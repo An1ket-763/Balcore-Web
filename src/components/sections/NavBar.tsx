@@ -156,6 +156,17 @@ const NavBar = () => {
               <motion.span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
             </motion.button>
             <motion.button
+              onClick={() => navigate("/team")}
+              className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${
+                location.pathname === "/team" ? "text-primary" : ""
+              }`}
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.2 }}
+            >
+              Team
+              <motion.span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+            </motion.button>
+            <motion.button
               onClick={() => navigate("/join-us")}
               className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${
                 location.pathname === "/join-us" ? "text-primary" : ""
