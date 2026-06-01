@@ -1,10 +1,9 @@
 import NavBar from "@/components/sections/NavBar";
+import jonyImg from "@/assets/images/Jony_pfp.avif";
+import amitImg from "@/assets/images/Amit_pfp.jpg";
+import alpImg from "@/assets/images/Alp_pfp.jpg";
+import ranaImg from "@/assets/images/Rana_pfp.png";
 import { useEffect } from "react";
-
-const jonyImg = "/Jony_pfp.avif";
-const amitImg = "/Amit_pfp.jpg";
-const alpImg = "/Alp_pfp.jpg";
-const ranaImg = "/Rana_pfp.png";
 
 const styles = `
   .team-root { --bg:#08080f; --bg2:#0d0c1a; --purple:#7c3aed; --p3:#9f5fff;

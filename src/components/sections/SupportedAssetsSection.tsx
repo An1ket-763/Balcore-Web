@@ -1,13 +1,18 @@
 import { motion } from "framer-motion";
 import { Coins } from "lucide-react";
 import ProtocolFlowBackground from "@/components/backgrounds/ProtocolFlowBackground";
+import avaxLogo from "@/assets/images/logo1.png";
+import btcLogo from "@/assets/images/logo2.png";
+import usdcLogo from "@/assets/images/logo3.png";
+import ethLogo from "@/assets/images/logo4.png";
+import goldLogo from "@/assets/images/logo14.png";
 
 const assets = [
-  { name: "AVAX", logo: "/logo1.png", color: "from-red-500/40 to-red-600/30", borderColor: "border-red-500/30" },
-  { name: "BTC.b", logo: "/logo2.png", color: "from-orange-500/40 to-amber-600/30", borderColor: "border-orange-500/30" },
-  { name: "USDC", logo: "/logo3.png", color: "from-emerald-500/40 to-emerald-600/30", borderColor: "border-emerald-500/30" },
-  { name: "ETH", logo: "/logo4.png", color: "from-purple-500/40 to-indigo-600/30", borderColor: "border-purple-500/30" },
-  { name: "Gold", logo: "/logo14.png", color: "from-amber-400/35 to-yellow-600/25", borderColor: "border-amber-400/35" },
+  { name: "AVAX", logo: avaxLogo, color: "from-red-500/40 to-red-600/30", borderColor: "border-red-500/30" },
+  { name: "BTC.b", logo: btcLogo, color: "from-orange-500/40 to-amber-600/30", borderColor: "border-orange-500/30" },
+  { name: "USDC", logo: usdcLogo, color: "from-emerald-500/40 to-emerald-600/30", borderColor: "border-emerald-500/30" },
+  { name: "ETH", logo: ethLogo, color: "from-purple-500/40 to-indigo-600/30", borderColor: "border-purple-500/30" },
+  { name: "Gold", logo: goldLogo, color: "from-amber-400/35 to-yellow-600/25", borderColor: "border-amber-400/35" },
 ];
 
 const SupportedAssetsSection = () => {
