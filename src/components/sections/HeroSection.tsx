@@ -31,14 +31,14 @@ const HeroSection = () => {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [activeScene, setActiveScene] = useState(0);
   const videos = [
-    "https://storage.googleapis.com/balcore-web/Web%20Heros%20video/video%201.mp4",
-    "https://storage.googleapis.com/balcore-web/Web%20Heros%20video/Video%202.mp4",
-    "https://storage.googleapis.com/balcore-web/Web%20Heros%20video/video%203.mp4",
-    "https://storage.googleapis.com/balcore-web/Web%20Heros%20video/video%204.mp4",
-    "https://storage.googleapis.com/balcore-web/Web%20Heros%20video/video%205.mp4",
-    "https://storage.googleapis.com/balcore-web/Web%20Heros%20video/Video%206.mp4",
-    "https://storage.googleapis.com/balcore-web/Web%20Heros%20video/video%207.mp4",
-    "https://storage.googleapis.com/balcore-web/Web%20Heros%20video/video%208.mp4"
+    "https://cdn.balcore.ai/Web%20Heros%20video/video%201.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video/Video%202.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video/video%203.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video/video%204.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video/video%205.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video/Video%206.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video/video%207.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video/video%208.mp4"
   ];
   const TOTAL_DOTS = videos?.length || 0; // adjust to match your video count
 
