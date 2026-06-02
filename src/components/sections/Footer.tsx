@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import balcoreLogo from "@/assets/images/BalcoreLogo.png";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -43,9 +44,10 @@ const Footer = () => {
             href="https://x.com/Balcore_ai"
             target="_blank"
             rel="noreferrer"
-            className={linkCls}
+            className="flex items-center gap-2 text-[12px] tracking-[0.05em] text-white/50 hover:text-white transition-colors"
           >
-            Contact
+            <FaXTwitter className="text-base" />
+            <span>→ @Balcore_ai</span>
           </a>
         </div>
 
