@@ -4,17 +4,6 @@ import balcoreLogo from "@/assets/images/BalcoreLogo.png";
 const Footer = () => {
   const navigate = useNavigate();
 
-  const handleScroll = (id: string) => {
-    if (window.location.pathname !== "/") {
-      navigate("/");
-      setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-    } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   const linkCls =
     "text-[12px] tracking-[0.05em] text-white/50 hover:text-white transition-colors cursor-pointer bg-transparent border-none p-0";
 
@@ -33,21 +22,17 @@ const Footer = () => {
         </button>
 
         <div className="flex flex-wrap items-center gap-x-7 gap-y-3">
-          <button onClick={() => handleScroll("what-we-do")} className={linkCls}>
-            What We Do
-          </button>
-          <button onClick={() => handleScroll("liquidity")} className={linkCls}>
-            Liquidity Engine
-          </button>
-          <button onClick={() => handleScroll("protocol")} className={linkCls}>
-            Protocol
-          </button>
-          <button onClick={() => handleScroll("technology")} className={linkCls}>
-            Technology
-          </button>
           <button onClick={() => navigate("/docs")} className={linkCls}>
             Docs
           </button>
+          <a
+            href="https://cdn.balcore.ai/whitepaper.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className={linkCls}
+          >
+            Whitepaper
+          </a>
           <button onClick={() => navigate("/team")} className={linkCls}>
             Team
           </button>
