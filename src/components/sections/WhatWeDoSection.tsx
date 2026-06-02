@@ -1031,34 +1031,40 @@ const WhatWeDoHero = () => {
 
         {/* STATS */}
         <div className="relative z-10 mx-auto mt-10 max-w-[1200px] md:mt-12 lg:mt-16">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5 lg:gap-6">
-            <div className="rounded-[12px] border border-[#7c3aed]/20 bg-[#7c3aed]/5 p-5 md:p-6 lg:p-7 transition-all hover:border-[#7c3aed]/40 hover:bg-[#7c3aed]/10">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+            <div className="rounded-[12px] border border-[#7c3aed]/20 bg-[#7c3aed]/5 p-5 md:p-6 transition-all hover:border-[#7c3aed]/40 hover:bg-[#7c3aed]/10">
               <div className="font-barlow-condensed text-[42px] font-black leading-none tracking-[-0.02em] text-white">
-                30<span className="text-[22px] text-[#9f5fff]">%</span>
+                24/7
               </div>
-
               <div className="mt-2 text-[12px] uppercase tracking-[0.04em] text-white/55">
-                Target APY — market-neutral strategy
+                Automated rebalancing engine, always on-chain
               </div>
             </div>
 
-            <div className="rounded-[12px] border border-[#7c3aed]/20 bg-[#7c3aed]/5 p-5 md:p-6 lg:p-7 transition-all hover:border-[#7c3aed]/40 hover:bg-[#7c3aed]/10">
+            <div className="rounded-[12px] border border-[#7c3aed]/20 bg-[#7c3aed]/5 p-5 md:p-6 transition-all hover:border-[#7c3aed]/40 hover:bg-[#7c3aed]/10">
               <div className="font-barlow-condensed text-[42px] font-black leading-none tracking-[-0.02em] text-white">
                 3<span className="text-[22px] text-[#9f5fff]">×</span>
               </div>
-
               <div className="mt-2 text-[12px] uppercase tracking-[0.04em] text-white/55">
-                Independent IL Shield protection layer
+                Protection layers against impermanent loss (IL)
               </div>
             </div>
 
-            <div className="rounded-[12px] border border-[#7c3aed]/20 bg-[#7c3aed]/5 p-5 md:p-6 lg:p-7 transition-all hover:border-[#7c3aed]/40 hover:bg-[#7c3aed]/10">
-              <div className="font-barlow-condensed text-[42px] font-black leading-none tracking-[-0.02em] text-white">
-                200<span className="text-[22px] text-[#9f5fff]">+</span>
+            <div className="rounded-[12px] border border-[#7c3aed]/20 bg-[#7c3aed]/5 p-5 md:p-6 transition-all hover:border-[#7c3aed]/40 hover:bg-[#7c3aed]/10">
+              <div className="font-barlow-condensed text-[36px] font-black leading-none tracking-[-0.02em] text-white">
+                Permission<span className="text-[22px] text-[#9f5fff]">less</span>
               </div>
-
               <div className="mt-2 text-[12px] uppercase tracking-[0.04em] text-white/55">
-                Venues & pairs monitored in real time
+                Withdraw on your terms — no approvals, 7-day unlock
+              </div>
+            </div>
+
+            <div className="rounded-[12px] border border-[#7c3aed]/20 bg-[#7c3aed]/5 p-5 md:p-6 transition-all hover:border-[#7c3aed]/40 hover:bg-[#7c3aed]/10">
+              <div className="font-barlow-condensed text-[42px] font-black leading-none tracking-[-0.02em] text-white">
+                Up to 30<span className="text-[22px] text-[#9f5fff]">%</span>
+              </div>
+              <div className="mt-2 text-[12px] uppercase tracking-[0.04em] text-white/55">
+                Target APY, variable with market conditions
               </div>
             </div>
           </div>

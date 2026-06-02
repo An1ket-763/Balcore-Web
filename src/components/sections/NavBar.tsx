@@ -93,11 +93,8 @@ const NavBar = () => {
   }, [location.pathname]);
 
   const navItems = [
-    { sectionId: "top", label: "Home", path: "/" },
     { sectionId: "what-we-do", label: "What We Do", path: "/what-we-do" },
-    { sectionId: "liquidity", label: "Liquidity Engine", path: "/liquidity-engine" },
     { sectionId: "protocol", label: "Protocol", path: "/protocol" },
-    { sectionId: "technology", label: "Technology", path: "/technology" },
   ];
 
   const isDocsPage = location.pathname === "/docs";
@@ -154,17 +151,6 @@ const NavBar = () => {
               transition={{ duration: 0.2 }}
             >
               Docs
-              <motion.span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-            </motion.button>
-            <motion.button
-              onClick={() => navigate("/team")}
-              className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${
-                location.pathname === "/team" ? "text-primary" : ""
-              }`}
-              whileHover={{ y: -2 }}
-              transition={{ duration: 0.2 }}
-            >
-              Team
               <motion.span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
             </motion.button>
             <motion.button
@@ -265,22 +251,6 @@ const NavBar = () => {
               transition={{ delay: navItems.length * 0.1 }}
             >
               Docs
-            </motion.button>
-            <motion.button
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                navigate("/team");
-              }}
-              className={`block transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full ${
-                location.pathname === "/team"
-                  ? "text-primary"
-                  : "text-white/80 hover:text-white/85"
-              }`}
-              initial={{ x: -20, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: (navItems.length + 1) * 0.1 }}
-            >
-              Team
             </motion.button>
             <motion.button
               onClick={() => {
