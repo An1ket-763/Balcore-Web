@@ -31,14 +31,12 @@ const HeroSection = () => {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [activeScene, setActiveScene] = useState(0);
   const videos = [
-    "https://cdn.balcore.ai/Web%20Heros%20video/video%201.mp4",
-    "https://cdn.balcore.ai/Web%20Heros%20video/Video%202.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video/Video%207%20(2).mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video/Video%2023.mp4",
     "https://cdn.balcore.ai/Web%20Heros%20video/video%203.mp4",
-    "https://cdn.balcore.ai/Web%20Heros%20video/video%204.mp4",
-    "https://cdn.balcore.ai/Web%20Heros%20video/video%205.mp4",
     "https://cdn.balcore.ai/Web%20Heros%20video/Video%206.mp4",
-    "https://cdn.balcore.ai/Web%20Heros%20video/video%207.mp4",
-    "https://cdn.balcore.ai/Web%20Heros%20video/video%208.mp4"
+    "https://cdn.balcore.ai/Web%20Heros%20video/video%201.mp4",
+
   ];
   const TOTAL_DOTS = videos?.length || 0; // adjust to match your video count
 
@@ -681,12 +679,12 @@ const HeroSection = () => {
               ))}
             </div>
           </div>
-          <svg
+          {/* <svg
             ref={hexSvgRef}
             className="hex-seam-svg"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
-          />
+          /> */}
         </section>
 
         {/* ── Stats bar (removed) ── */}
