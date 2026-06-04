@@ -34,9 +34,9 @@ const Footer = () => {
           >
             Whitepaper
           </a>
-          <button onClick={() => navigate("/team")} className={linkCls}>
+          {/* <button onClick={() => navigate("/team")} className={linkCls}>
             Team
-          </button>
+          </button> */}
           <button onClick={() => navigate("/join-us")} className={linkCls}>
             Join Balcore
           </button>
