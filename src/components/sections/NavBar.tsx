@@ -71,6 +71,7 @@ const NavBar = () => {
       "/what-we-do": "what-we-do",
       "/liquidity-engine": "liquidity",
       "/protocol": "protocol",
+      "/try-it-yourself": "try-it-yourself",
       "/technology": "technology",
       "/contact": "footer",
     };
