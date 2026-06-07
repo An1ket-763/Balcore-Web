@@ -20,6 +20,7 @@ const Index = () => {
       <VisualStorySection />
       <VisionSection />
       <ProtocolSection />
+      <TryItYourselfSection />
       <TechnologySection />
       <Footer />
     </div>
