@@ -30,33 +30,31 @@ const HeroSection = () => {
   const hexSvgRef = useRef<SVGSVGElement>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [activeScene, setActiveScene] = useState(0);
-const videos = [
-  "https://cdn.balcore.ai/Web%20Heros%20video/video%201.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/Video%202.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/video%203.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/video%204.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/video%205.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/Video%206.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/video%207.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/Video%207%20(2).mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/video%208.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/video%209.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/video%2010.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/video%2011.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/video%2012.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/video%2013.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/vidoe%2014.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/vidoe%2015.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/video%2016.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/video%2017.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/video%2018.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/video%2020.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/video%2021.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/vidoe%2022.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/Video%2023.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/video%2024.mp4",
-  "https://cdn.balcore.ai/Web%20Heros%20video/video%2025.mp4"
-];
+  const videos = [
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%201.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/Video%202.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%203.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%204.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%205.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/Video%206.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%207.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/Video%207%20(2).mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%209.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2011.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2012.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2013.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/vidoe%2014.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/vidoe%2015.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2016.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2017.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2018.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2020.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2021.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/vidoe%2022.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/Video%2023.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2024.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2025.mp4"
+  ];
   const TOTAL_DOTS = videos?.length || 0; // adjust to match your video count
 
   useEffect(() => {
