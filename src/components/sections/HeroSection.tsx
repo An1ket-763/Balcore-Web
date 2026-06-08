@@ -598,7 +598,7 @@ const HeroSection = () => {
             display: block;
             grid-template-columns: none;
             height: auto;
-            min-height: calc(100svh - var(--nav-h));
+            min-height: 0;
             overflow: hidden;
             position: relative;
           }
@@ -611,10 +611,11 @@ const HeroSection = () => {
             padding: 82px 20px 40px;
             position: relative;
             z-index: 20;
-            min-height: calc(100svh - var(--nav-h));
+            min-height: 0;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start;
+            gap: 28px;
             animation: fadeUp .8s ease both;
           }
           .hero-right {
