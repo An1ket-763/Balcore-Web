@@ -2,7 +2,7 @@ import NavBar from "@/components/sections/NavBar";
 import { useEffect } from "react";
 
 const jonyImg = "https://cdn.balcore.ai/Team/Jony%20pfp%20(1).avif";
-const amitImg = "https://cdn.balcore.ai/Team/Amit%20PFP%20(1).jpg";
+// const amitImg = "https://cdn.balcore.ai/Team/Amit%20PFP%20(1).jpg";
 const alpImg = "https://cdn.balcore.ai/Team/Alp%20pfp%20(1).jpg";
 const ranaImg = "https://cdn.balcore.ai/Team/fe5b6243-63c0-464d-9018-848cbbc66be7.png";
 
@@ -312,14 +312,14 @@ const Team = () => {
                     </div>
                     <div className="roster-tag">F-001</div>
                   </a>
-                  <a onClick={() => scrollTo("engineering")} className="roster-row">
+                  {/* <a onClick={() => scrollTo("engineering")} className="roster-row">
                     <div className="roster-avatar"><img src={amitImg} alt="Amit Surve" /></div>
                     <div className="roster-info">
                       <div className="roster-name">Amit Surve</div>
                       <div className="roster-role">Founding Team · Chief Technology Officer</div>
                     </div>
                     <div className="roster-tag">F-002</div>
-                  </a>
+                  </a> */}
                   <a onClick={() => scrollTo("research")} className="roster-row">
                     <div className="roster-avatar"><img src={alpImg} alt="Alp" /></div>
                     <div className="roster-info">
@@ -408,7 +408,7 @@ const Team = () => {
           </div>
         </div>
 
-        {/* AMIT */}
+        {/* AMIT
         <section className="section" id="engineering">
           <div className="section-inner">
             <div className="two-col reverse">
@@ -443,6 +443,7 @@ const Team = () => {
             </div>
           </div>
         </section>
+        */}
 
         {/* ALP */}
         <section className="section" id="research">
