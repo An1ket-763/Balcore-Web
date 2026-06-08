@@ -993,8 +993,25 @@
 
   const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 
+  function scrollToChart(){
+    try{
+      const chartWrap=document.querySelector('.hood-chart-wrap');
+      const frame=window.frameElement;
+      if(chartWrap && frame && frame.ownerDocument && frame.ownerDocument.defaultView){
+        const parentWin=frame.ownerDocument.defaultView;
+        const rectFrame=frame.getBoundingClientRect();
+        const rectChart=chartWrap.getBoundingClientRect();
+        const y=parentWin.scrollY+rectFrame.top+rectChart.top-80;
+        parentWin.scrollTo({top:y,behavior:'smooth'});
+      } else {
+        chartWrap && chartWrap.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    }catch(e){}
+  }
+
   async function runDeploy(){
     if(running)return; running=true;
+    scrollToChart();
     deployBtn.disabled=true; deployBtn.textContent='Deploying…';
     if(deployBtnTop){deployBtnTop.disabled=true;deployBtnTop.textContent='Deploying…';}
     resetHood();
