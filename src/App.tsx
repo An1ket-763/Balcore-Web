@@ -7,7 +7,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import Docs from "./pages/Docs";
 import JoinResearch from "./pages/JoinResearch";
-// import Team from "./pages/Team";
+import Team from "./pages/Team";
 import NotFound from "./pages/NotFound";
 // import WhitePaper from "./pages/WhitePaper";
 
