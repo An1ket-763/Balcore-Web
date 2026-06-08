@@ -321,11 +321,11 @@
 
   /* plain-english caption */
   .hood-caption{
-    text-align:center;font-size:15px;line-height:1.6;color:var(--text-dim);
+    text-align:center;font-size:15px;line-height:1.65;color:var(--text-dim);
     min-height:62px;padding:16px 22px;border-radius:12px;
-    display:flex;align-items:center;justify-content:center;
+    display:block;
     background:rgba(139,92,246,.06);border:1px solid var(--panel-edge);
-    transition:opacity .3s;
+    transition:opacity .3s;text-wrap:pretty;
   }
   .hood-caption b{color:var(--text);font-weight:600}
 
@@ -477,7 +477,7 @@
     .fc-val{font-size:18px}
     .day-axis{font-size:8.5px;letter-spacing:0;padding:6px 2px 0}
     .chart-legend{gap:10px 14px;font-size:10px;margin-top:10px}
-    .hood-caption{font-size:13.5px;padding:12px 14px;min-height:auto}
+    .hood-caption{font-size:13.5px;line-height:1.6;padding:12px 14px;min-height:auto;text-align:left}
 
     .hood-flow{padding:18px 14px;gap:12px}
     .fn-icon{font-size:20px}
