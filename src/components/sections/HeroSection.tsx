@@ -552,14 +552,35 @@ const HeroSection = () => {
           .logo { font-size: 15px; gap: 8px; }
           .btn-launch { padding: 7px 14px; font-size: 12px; }
           .hero-section {
-            display: flex; flex-direction: column;
+            display: block;
             grid-template-columns: none;
             height: auto;
-            min-height: 0;
-            overflow: visible;
+            min-height: calc(100svh - var(--nav-h));
+            overflow: hidden;
+            position: relative;
           }
-          .hero-left { padding: 82px 20px 26px; }
-          .hero-right { width: 100%; height: clamp(260px, 34vh, 340px); min-height: 0; max-height: none; }
+          .hero-left {
+            padding: 82px 20px 40px;
+            position: relative;
+            z-index: 20;
+            min-height: calc(100svh - var(--nav-h));
+            justify-content: space-between;
+          }
+          .hero-right {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            min-height: 0;
+            max-height: none;
+            z-index: 1;
+          }
+          .hero-right .grade {
+            background: linear-gradient(180deg,
+              rgba(8,8,15,.78) 0%,
+              rgba(8,8,15,.55) 45%,
+              rgba(8,8,15,.85) 100%);
+          }
           .badge { font-size: 11px; padding: 6px 14px; }
           .headline { font-size: 36px; margin-top: 18px; line-height: .96; }
           .hero-lower { gap: 16px; margin-top: 28px; }
