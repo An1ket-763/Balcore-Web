@@ -6,7 +6,6 @@ import LiquidityEngineSection from "@/components/sections/LiquidityEngineSection
 import VisualStorySection from "@/components/sections/VisualStorySection";
 import VisionSection from "@/components/sections/VisionSection";
 import ProtocolSection from "@/components/sections/ProtocolSection";
-import TryItYourselfSection from "@/components/sections/TryItYourselfSection";
 import TechnologySection from "@/components/sections/TechnologySection";
 import Footer from "@/components/sections/Footer";
 
@@ -20,7 +19,6 @@ const Index = () => {
       <VisualStorySection />
       <VisionSection />
       <ProtocolSection />
-      <TryItYourselfSection />
       <TechnologySection />
       <Footer />
     </div>

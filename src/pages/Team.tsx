@@ -1,10 +1,9 @@
 import NavBar from "@/components/sections/NavBar";
+import jonyImg from "@/assets/images/Jony_pfp.avif";
+import amitImg from "@/assets/images/Amit_pfp.jpg";
+import alpImg from "@/assets/images/Alp_pfp.jpg";
+import ranaImg from "@/assets/images/Rana_pfp.png";
 import { useEffect } from "react";
-
-const jonyImg = "https://cdn.balcore.ai/Team/Jony%20pfp%20(1).avif";
-const amitImg = "https://cdn.balcore.ai/Team/Amit%20PFP%20(1).jpg";
-const alpImg = "https://cdn.balcore.ai/Team/Alp%20pfp%20(1).jpg";
-const ranaImg = "https://cdn.balcore.ai/Team/fe5b6243-63c0-464d-9018-848cbbc66be7.png";
 
 const styles = `
   .team-root { --bg:#08080f; --bg2:#0d0c1a; --purple:#7c3aed; --p3:#9f5fff;

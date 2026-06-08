@@ -38,7 +38,7 @@ const tokens: Token[] = [
     fd: "4.3s",
     fdd: "0.6s",
     pd: "0.5s",
-    svg: `<img src="https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons@master/svg/color/btc.svg" alt="BTC" style="width:42px;height:42px;" />`,
+    svg: `<svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M11 7h8c3.5 0 5.5 2 5.5 4.5 0 1.8-.9 3-2.4 3.7 2 .7 3.2 2.2 3.2 4.3 0 3-2.2 5-5.8 5H11V7z" fill="none" stroke="#f7931a" stroke-width="2" stroke-linejoin="round"/><path d="M11 17h9" stroke="#f7931a" stroke-width="2"/><path d="M14 7v-2M19 7v-2M14 29v-2M19 29v-2" stroke="#f7931a" stroke-width="2" stroke-linecap="round"/></svg>`,
   },
   {
     id: "TSLA",
@@ -49,7 +49,7 @@ const tokens: Token[] = [
     fd: "4.4s",
     fdd: "1.8s",
     pd: "3s",
-    svg: `<img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Tesla_Motors.svg" alt="Tesla" style="width:42px;height:42px;filter:drop-shadow(0 0 5px #cc222299);" />`,
+    svg: `<svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M3 10 Q3 5 18 5 Q33 5 33 10" fill="none" stroke="#cc0000" stroke-width="2.5" stroke-linecap="round"/><path d="M3 10 Q10 13 18 13" fill="none" stroke="#cc0000" stroke-width="2.5" stroke-linecap="round"/><path d="M33 10 Q26 13 18 13" fill="none" stroke="#cc0000" stroke-width="2.5" stroke-linecap="round"/><path d="M14 5 Q18 2 22 5" fill="none" stroke="#cc0000" stroke-width="2.5" stroke-linecap="round"/><line x1="18" y1="13" x2="18" y2="34" stroke="#cc0000" stroke-width="2.5" stroke-linecap="round"/></svg>`,
   },
   {
     id: "NVDA",
@@ -93,7 +93,7 @@ const tokens: Token[] = [
     fd: "3.6s",
     fdd: "1.1s",
     pd: "1s",
-    svg: `<img src="https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons@master/svg/color/avax.svg" alt="AVAX" style="width:42px;height:42px;" />`,
+    svg: `<svg width="36" height="34" viewBox="0 0 36 34" fill="none"><path d="M18 3 L34 31 Q34 33 32 33 L4 33 Q2 33 2 31 Z" fill="#e84142"/></svg>`,
   },
 ];
 
