@@ -603,6 +603,11 @@ const HeroSection = () => {
             position: relative;
           }
           .hero-left {
+            top: auto;
+            left: auto;
+            transform: none;
+            width: 100%;
+            max-width: none;
             padding: 82px 20px 40px;
             position: relative;
             z-index: 20;
