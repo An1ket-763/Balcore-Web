@@ -994,20 +994,20 @@
   const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 
   function scrollToChart(){
-    try{
-      const chartWrap=document.querySelector('.hood-chart-wrap');
-      const frame=window.frameElement;
-      if(chartWrap && frame && frame.ownerDocument && frame.ownerDocument.defaultView){
-        const parentWin=frame.ownerDocument.defaultView;
-        const rectFrame=frame.getBoundingClientRect();
-        const rectChart=chartWrap.getBoundingClientRect();
-        const y=parentWin.scrollY+rectFrame.top+rectChart.top-80;
-        parentWin.scrollTo({top:y,behavior:'smooth'});
-      } else {
-        chartWrap && chartWrap.scrollIntoView({behavior:'smooth',block:'start'});
-      }
-    }catch(e){}
-  }
+  try{
+    const stepRail=document.querySelector('.step-rail');
+    const frame=window.frameElement;
+    if(stepRail && frame && frame.ownerDocument && frame.ownerDocument.defaultView){
+      const parentWin=frame.ownerDocument.defaultView;
+      const rectFrame=frame.getBoundingClientRect();
+      const rectSteps=stepRail.getBoundingClientRect();
+      const y=parentWin.scrollY+rectFrame.top+rectSteps.top-140;
+      parentWin.scrollTo({top:y,behavior:'smooth'});
+    } else {
+      stepRail && stepRail.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  }catch(e){}
+}
 
   async function runDeploy(){
     if(running)return; running=true;
