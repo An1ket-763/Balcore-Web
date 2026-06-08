@@ -2,7 +2,7 @@ import NavBar from "@/components/sections/NavBar";
 import { useEffect } from "react";
 
 const jonyImg = "https://cdn.balcore.ai/Team/Jony%20pfp%20(1).avif";
-const amitImg = "https://cdn.balcore.ai/Team/Amit%20PFP%20(1).jpg";
+// const amitImg = "https://cdn.balcore.ai/Team/Amit%20PFP%20(1).jpg";
 const alpImg = "https://cdn.balcore.ai/Team/Alp%20pfp%20(1).jpg";
 const ranaImg = "https://cdn.balcore.ai/Team/fe5b6243-63c0-464d-9018-848cbbc66be7.png";
 
@@ -163,13 +163,37 @@ const styles = `
   @keyframes team-blink { 0%,100%{opacity:1} 50%{opacity:.3} }
 
   @media (max-width:900px){
-    .team-root .hero-section{ padding:60px 20px; }
-    .team-root .hero-inner{ grid-template-columns:1fr; gap:48px; }
+    .team-root .page{ padding-top:72px; }
+    .team-root .hero-section{ min-height:auto; padding:60px 20px; }
+    .team-root .hero-inner{ grid-template-columns:1fr; gap:48px; min-width:0; }
+    .team-root .hero-inner > *, .team-root .hero-visual{ min-width:0; }
+    .team-root .hero-title{ font-size:clamp(42px,12vw,58px); max-width:100%; overflow-wrap:normal; }
+    .team-root .hero-desc{ max-width:100%; }
+    .team-root .team-roster{ width:100%; max-width:100%; padding:28px 24px; }
+    .team-root .roster-row{ min-width:0; gap:14px; }
+    .team-root .roster-info{ min-width:0; }
+    .team-root .roster-role{ overflow-wrap:anywhere; }
+    .team-root .roster-footer{ gap:14px; flex-wrap:wrap; }
     .team-root .section{ padding:64px 20px; }
     .team-root .two-col{ grid-template-columns:1fr; gap:48px; }
     .team-root .two-col.reverse{ direction:ltr; }
     .team-root .stats-row{ grid-template-columns:1fr; gap:14px; margin-top:36px; }
     .team-root .quote-section{ padding:64px 20px; }
+  }
+
+  @media (max-width:520px){
+    .team-root .hero-section{ padding:56px 16px; }
+    .team-root .hero-title{ font-size:clamp(38px,11vw,46px); }
+    .team-root .hero-label{ margin-bottom:18px; }
+    .team-root .team-roster{ padding:24px 20px; }
+    .team-root .roster-row{ gap:12px; padding:16px 0; }
+    .team-root .roster-row:hover{ padding-left:0; }
+    .team-root .roster-avatar{ width:44px; height:44px; }
+    .team-root .roster-name{ font-size:16px; }
+    .team-root .roster-role{ font-size:11px; line-height:1.45; }
+    .team-root .roster-tag{ display:none; }
+    .team-root .section{ padding:56px 16px; }
+    .team-root .quote-section{ padding:56px 16px; }
   }
 `;
 
@@ -288,14 +312,14 @@ const Team = () => {
                     </div>
                     <div className="roster-tag">F-001</div>
                   </a>
-                  <a onClick={() => scrollTo("engineering")} className="roster-row">
+                  {/* <a onClick={() => scrollTo("engineering")} className="roster-row">
                     <div className="roster-avatar"><img src={amitImg} alt="Amit Surve" /></div>
                     <div className="roster-info">
                       <div className="roster-name">Amit Surve</div>
                       <div className="roster-role">Founding Team · Chief Technology Officer</div>
                     </div>
                     <div className="roster-tag">F-002</div>
-                  </a>
+                  </a> */}
                   <a onClick={() => scrollTo("research")} className="roster-row">
                     <div className="roster-avatar"><img src={alpImg} alt="Alp" /></div>
                     <div className="roster-info">
@@ -384,7 +408,7 @@ const Team = () => {
           </div>
         </div>
 
-        {/* AMIT */}
+        {/* AMIT
         <section className="section" id="engineering">
           <div className="section-inner">
             <div className="two-col reverse">
@@ -419,6 +443,7 @@ const Team = () => {
             </div>
           </div>
         </section>
+        */}
 
         {/* ALP */}
         <section className="section" id="research">

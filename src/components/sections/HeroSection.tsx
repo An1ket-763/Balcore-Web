@@ -595,26 +595,44 @@ const HeroSection = () => {
           .logo { font-size: 15px; gap: 8px; }
           .btn-launch { padding: 7px 14px; font-size: 12px; }
           .hero-section {
-            display: flex; flex-direction: column;
+            display: block;
             grid-template-columns: none;
             height: auto;
-            min-height: 0;
-            overflow: visible;
+            min-height: calc(100svh - var(--nav-h));
+            overflow: hidden;
+            position: relative;
           }
-          .hero-left { 
-            padding: 82px 20px 26px; 
+          .hero-left {
+            top: auto;
+            left: auto;
+            transform: none;
+            width: 100%;
+            max-width: none;
+            padding: 82px 20px 40px;
+            position: relative;
+            z-index: 20;
+            min-height: calc(100svh - var(--nav-h));
+            display: flex;
+            flex-direction: column;
             justify-content: space-between;
             animation: fadeUp .8s ease both;
-            position: relative; z-index: 20;
-            left: 0px;
           }
-          .grade {
-            position: absolute; inset: 0; z-index: 2; pointer-events: none;
-            background: linear-gradient(135deg,
-              rgba(8,8,20,.5) 0%, rgba(0,0,0,.05) 60%, rgba(8,8,20,.45) 100%);
+          .hero-right {
+            position: absolute !important;
+            inset: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            min-height: 0 !important;
+            max-height: none !important;
+            z-index: 1 !important;
+            overflow: hidden;
           }
-          .hero-right { width: 100%; height: clamp(260px, 34vh, 340px); min-height: 0; max-height: none; }
-          .hero-right { position: relative; overflow: hidden; }
+          .hero-right .grade {
+            background: linear-gradient(180deg,
+              rgba(8,8,15,.78) 0%,
+              rgba(8,8,15,.5) 45%,
+              rgba(8,8,15,.88) 100%);
+          }
           .badge { font-size: 11px; padding: 6px 14px; }
           .headline { font-size: 36px; margin-top: 18px; line-height: .96; }
           .hero-lower { gap: 16px; margin-top: 28px; }
