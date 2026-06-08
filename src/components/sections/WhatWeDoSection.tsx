@@ -173,7 +173,7 @@ const tokens: Token[] = [
     fd: "4.3s",
     fdd: "0.6s",
     pd: "0.5s",
-    role: "Active LP — 10%",
+    role: "Active LP  10%",
     info: "BTC.b concentrated LP bins. Highest fee capture per dollar deployed on-chain.",
   },
   {
@@ -187,8 +187,8 @@ const tokens: Token[] = [
     fd: "4.4s",
     fdd: "1.8s",
     pd: "3s",
-    role: "Reserve — equity",
-    info: "Tokenized Tesla stock. 24/7 on-chain — no NYSE hours.",
+    role: "Reserve  equity",
+    info: "Tokenized Tesla stock. 24/7 on-chain  no NYSE hours.",
   },
   {
     id: "NVDA",
@@ -201,8 +201,8 @@ const tokens: Token[] = [
     fd: "3.9s",
     fdd: "0.9s",
     pd: "2.5s",
-    role: "Reserve — equity",
-    info: "Tokenized NVIDIA equity. AI infrastructure asset — Nasdaq tokenization wave.",
+    role: "Reserve  equity",
+    info: "Tokenized NVIDIA equity. AI infrastructure asset  Nasdaq tokenization wave.",
   },
   {
     id: "ETH",
@@ -215,7 +215,7 @@ const tokens: Token[] = [
     fd: "4.6s",
     fdd: "1.5s",
     pd: "1.5s",
-    role: "Reserve — Benqi",
+    role: "Reserve  Benqi",
     info: "WETH.e in Benqi reserve. Earns lending yield 24/7. Zero IL exposure.",
   },
   {
@@ -229,7 +229,7 @@ const tokens: Token[] = [
     fd: "4.1s",
     fdd: "0.3s",
     pd: "2s",
-    role: "Reserve — RWA",
+    role: "Reserve  RWA",
     info: "Tokenized gold. Real-world asset earning steady Benqi yield.",
   },
   {
@@ -243,7 +243,7 @@ const tokens: Token[] = [
     fd: "3.6s",
     fdd: "1.1s",
     pd: "1s",
-    role: "Active LP — core",
+    role: "Active LP  core",
     info: "Core Avalanche pair. Dynamic rebalancing anchored to VAH.",
   },
 ];
@@ -997,7 +997,7 @@ const WhatWeDoHero = () => {
                 Permission<span className="text-[22px] text-[#9f5fff]">less</span>
               </div>
               <div className="mt-2 text-[12px] uppercase tracking-[0.04em] text-white/55">
-                Withdraw on your terms — no approvals, 7-day unlock
+                Withdraw on your terms  no approvals, 7-day unlock
               </div>
             </div>
 
@@ -1020,7 +1020,7 @@ const WhatWeDoHero = () => {
               className="balcore-tooltip-name"
               style={{ color: tooltip.token.color }}
             >
-              {tooltip.token.id} — {tooltip.token.name}
+              {tooltip.token.id}  {tooltip.token.name}
             </div>
             <div className="balcore-tooltip-role">{tooltip.token.role}</div>
             <div>{tooltip.token.info}</div>

@@ -288,8 +288,8 @@ const Team = () => {
                 Researchers.
               </h1>
               <div className="hero-desc">
-                <p>Balcore is built by a team that has spent decades shipping production systems — from semiconductor fabs and high-volume manufacturing to on-chain protocols and multi-market trading.</p>
-                <p>We turn hard-earned engineering discipline into capital-efficient liquidity infrastructure: continuous balance, adaptive liquidity management, and yield optimization for AMM DEXs — with impermanent loss reduction at the core.</p>
+                <p>Balcore is built by a team that has spent decades shipping production systems  from semiconductor fabs and high-volume manufacturing to on-chain protocols and multi-market trading.</p>
+                <p>We turn hard-earned engineering discipline into capital-efficient liquidity infrastructure: continuous balance, adaptive liquidity management, and yield optimization for AMM DEXs  with impermanent loss reduction at the core.</p>
               </div>
               <div style={{ marginTop: 36, display: "flex", gap: 14, flexWrap: "wrap" }}>
                 <a onClick={() => scrollTo("founder")} className="link-cta">
@@ -372,7 +372,7 @@ const Team = () => {
                 <h2 className="sec-title">Jony Sarker</h2>
                 <div className="sec-role">Founder <span className="sep">/</span> CEO <span className="sep">/</span> Chief Protocol Architect</div>
                 <div className="sec-body">
-                  <p>Jony Sarker is the Founder and CEO of <strong>Balcore, Inc.</strong>, where he is building decentralized infrastructure focused on continuous balance, adaptive liquidity management, and yield optimization for AMM DEXs — with impermanent loss reduction at the core.</p>
+                  <p>Jony Sarker is the Founder and CEO of <strong>Balcore, Inc.</strong>, where he is building decentralized infrastructure focused on continuous balance, adaptive liquidity management, and yield optimization for AMM DEXs  with impermanent loss reduction at the core.</p>
                   <p>With more than <strong>10 years at Intel Corporation</strong> and <strong>8+ years deeply involved in DeFi</strong>, Jony combines expertise from both semiconductor engineering and on-chain liquidity systems. At Intel, he specialized in <em>lithography</em>, <em>process development</em>, <em>yield optimization</em>, and <em>defect reduction</em> across high-volume manufacturing environments.</p>
                   <p>In DeFi, he has been an active operator across major protocols, focusing on concentrated liquidity strategies, on-chain risk analysis, and sustainable yield optimization.</p>
                   <p>Today, those two stacks converge at Balcore. As trillions of dollars in real-world and digital assets move on-chain through tokenization, Jony believes capital-efficient and risk-aware liquidity infrastructure will become foundational to the next generation of financial markets. <strong>Balcore is being built to help power that transition.</strong></p>
@@ -404,7 +404,7 @@ const Team = () => {
         <div className="quote-section">
           <div className="quote-inner reveal">
             <div className="quote-text">"Two decades. Two stacks. <em>One thesis.</em>"</div>
-            <p className="quote-sub">Silicon yield optimization and on-chain liquidity engineering converge at Balcore — applying the same defect-reduction discipline that shipped trillions of transistors to the trillions of dollars now moving on-chain.</p>
+            <p className="quote-sub">Silicon yield optimization and on-chain liquidity engineering converge at Balcore  applying the same defect-reduction discipline that shipped trillions of transistors to the trillions of dollars now moving on-chain.</p>
           </div>
         </div>
 
@@ -419,7 +419,7 @@ const Team = () => {
                 <div className="sec-body">
                   <p>Amit Surve is a backend engineer and protocol architect with <strong>5+ years</strong> of experience across software engineering, Blockchain, DeFi, and AI systems. His expertise spans scalable backend architecture, cloud infrastructure, real-time systems, microservices, automation pipelines, and production-grade platform development.</p>
                   <p>Within Web3 and DeFi, Amit has deep experience in <em>smart contract development</em>, <em>protocol architecture</em>, <em>DEX infrastructure</em>, <em>on-chain analytics</em>, <em>event indexing</em>, and AI-assisted trading automation. He also brings hands-on experience within the <strong>Avalanche ecosystem</strong> and decentralized trading infrastructure.</p>
-                  <p>As a founding team member and CTO of Balcore, Amit leads the protocol's engineering architecture, smart contract systems, and infrastructure development. His expertise plays a key role in building Balcore's <strong>next-generation liquidity orchestration engine</strong> — focused on scalable execution, automated market operations, and intelligent on-chain liquidity management.</p>
+                  <p>As a founding team member and CTO of Balcore, Amit leads the protocol's engineering architecture, smart contract systems, and infrastructure development. His expertise plays a key role in building Balcore's <strong>next-generation liquidity orchestration engine</strong>  focused on scalable execution, automated market operations, and intelligent on-chain liquidity management.</p>
                 </div>
               </div>
               <div className="reveal reveal-delay-1">
@@ -491,9 +491,9 @@ const Team = () => {
                 <div className="sec-role">Strategic Advisor <span className="sep">/</span> Risk &amp; Capital, Balcore</div>
                 <div className="sec-body">
                   <p>With over <strong>42 years</strong> of distinguished experience in corporate finance and advisory, Rana Mukherjee is one of the most seasoned financial minds in the industry. A <strong>Chartered Accountant</strong> by qualification, he brings a rare combination of strategic depth, boardroom acumen, and hands-on financial leadership.</p>
-                  <p>He honed his early expertise at powerhouses like <em>Tata</em> and <em>Flender</em> before rising to <strong>Group CFO</strong> at prestigious organizations including <em>MSPL Limited</em> and the <em>Aditya Birla Group</em> — roles he held with distinction over two decades. Across these tenures, he has steered complex financial ecosystems, driven large-scale corporate strategy, and delivered measurable value through economic cycles and market turbulence alike.</p>
-                  <p>His mastery spans <strong>corporate finance, capital structure, and financial planning</strong> — navigating multi-billion-dollar portfolios, optimizing balance sheets, and architecting the frameworks that have powered some of India's most iconic enterprises.</p>
-                  <p>This is precisely the discipline Balcore is built on. At its core, the protocol does what Rana has done his entire career — <em>allocate capital intelligently, optimize how every asset works, and protect principal through volatility</em>. Decades spent safeguarding large balance sheets through real-world market cycles translate directly into guiding a protocol engineered to keep capital efficient and risk contained. At Balcore, Rana channels that experience into the protocol's <strong>financial strategy, capital structure, and risk framework</strong>, guiding sound, bold, and future-ready decisions. His presence on the core team is not just an asset; it is a <strong>cornerstone of confidence</strong>.</p>
+                  <p>He honed his early expertise at powerhouses like <em>Tata</em> and <em>Flender</em> before rising to <strong>Group CFO</strong> at prestigious organizations including <em>MSPL Limited</em> and the <em>Aditya Birla Group</em>  roles he held with distinction over two decades. Across these tenures, he has steered complex financial ecosystems, driven large-scale corporate strategy, and delivered measurable value through economic cycles and market turbulence alike.</p>
+                  <p>His mastery spans <strong>corporate finance, capital structure, and financial planning</strong>  navigating multi-billion-dollar portfolios, optimizing balance sheets, and architecting the frameworks that have powered some of India's most iconic enterprises.</p>
+                  <p>This is precisely the discipline Balcore is built on. At its core, the protocol does what Rana has done his entire career  <em>allocate capital intelligently, optimize how every asset works, and protect principal through volatility</em>. Decades spent safeguarding large balance sheets through real-world market cycles translate directly into guiding a protocol engineered to keep capital efficient and risk contained. At Balcore, Rana channels that experience into the protocol's <strong>financial strategy, capital structure, and risk framework</strong>, guiding sound, bold, and future-ready decisions. His presence on the core team is not just an asset; it is a <strong>cornerstone of confidence</strong>.</p>
                 </div>
               </div>
               <div className="reveal reveal-delay-1">
@@ -531,7 +531,7 @@ const Team = () => {
                 Want to Build the Balance Layer With Us?
               </h2>
               <p style={{ fontSize: 15, lineHeight: 1.8, color: "var(--muted)", marginBottom: 40 }}>
-                We're looking for engineers, researchers, and operators who want to ship infrastructure that matters. If you've spent years going deep on protocols, markets, or systems — we want to talk.
+                We're looking for engineers, researchers, and operators who want to ship infrastructure that matters. If you've spent years going deep on protocols, markets, or systems  we want to talk.
               </p>
               <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
                 <a href="/join-us" className="btn-launch" style={{ fontSize: 14, padding: "13px 32px" }}>

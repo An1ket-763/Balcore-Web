@@ -90,21 +90,21 @@ const JoinResearch = () => {
       <section className="jr-hero">
         <div className="jr-eyebrow">Research Team</div>
         <h1>Design the next generation of <span className="highlight">on-chain liquidity.</span></h1>
-        <p className="subtitle">Balcore is building the research stack behind structural IL protection — price range structure, CVD, order flow, volatility regimes, and ML-driven rebalancing. If you live and breathe DeFi, we want to hear from you.</p>
+        <p className="subtitle">Balcore is building the research stack behind structural IL protection  price range structure, CVD, order flow, volatility regimes, and ML-driven rebalancing. If you live and breathe DeFi, we want to hear from you.</p>
       </section>
 
       <div className="jr-container">
         <section className="jr-section">
-          <div className="jr-section-label">01 — Who we're looking for</div>
+          <div className="jr-section-label">01  Who we're looking for</div>
           <h2>Builders with conviction.</h2>
-          <p className="lead">You don't need every one of these. You need at least one — and the curiosity to grow into the rest.</p>
+          <p className="lead">You don't need every one of these. You need at least one  and the curiosity to grow into the rest.</p>
           <div className="jr-grid">
             {[
               ["/ 01", "Deep DeFi understanding", "You've LP'd. You know why IL hurts. You've thought hard about AMM design, concentrated liquidity, and MEV."],
-              ["/ 02", "Price range structure", "Weekly ranges, pivot structures, vWAP regimes, Monday Range Theory — you read structure, not candles."],
-              ["/ 03", "CVD & order flow", "Cumulative volume delta, footprint, absorption, aggressive vs. passive flow — you understand what's actually moving price."],
+              ["/ 02", "Price range structure", "Weekly ranges, pivot structures, vWAP regimes, Monday Range Theory  you read structure, not candles."],
+              ["/ 03", "CVD & order flow", "Cumulative volume delta, footprint, absorption, aggressive vs. passive flow  you understand what's actually moving price."],
               ["/ 04", "Quant / ML background", "You've built models for volatility forecasting, market microstructure, regime detection, or capital allocation."],
-              ["/ 05", "On-chain data fluency", "Dune, Flipside, subgraphs, raw node data — you can pull signal out of noise without hand-holding."],
+              ["/ 05", "On-chain data fluency", "Dune, Flipside, subgraphs, raw node data  you can pull signal out of noise without hand-holding."],
               ["/ 06", "Researcher mindset", "You'd rather test 50 hypotheses than defend one. Curiosity over ego, every time."],
             ].map(([num, title, desc]) => (
               <div className="jr-card" key={num}>
@@ -117,22 +117,22 @@ const JoinResearch = () => {
         </section>
 
         <section className="jr-section">
-          <div className="jr-section-label">02 — What you'll work on</div>
+          <div className="jr-section-label">02  What you'll work on</div>
           <h2>Real problems, real capital.</h2>
           <p className="lead">Every block is a new data point. Every trade a signal. You'll ship research to mainnet, not a paper.</p>
           <ul className="jr-work-list">
-            <li><strong>Structural IL models</strong> — designing liquidity provision that minimizes impermanent loss upstream, not reactively.</li>
-            <li><strong>Price structure research</strong> — Monday Range Theory, weekly pivot models, vWAP regimes, and the signals that come after.</li>
-            <li><strong>CVD & order flow integration</strong> — bringing TradFi-grade microstructure analysis into on-chain liquidity decisions.</li>
-            <li><strong>ML on live on-chain data</strong> — back-testing and shipping models that price risk and predict rebalancing windows.</li>
-            <li><strong>Risk engine & circuit breakers</strong> — building the systems that detect Oct-10-type events before they hit positions.</li>
-            <li><strong>Reserve & vault logic</strong> — shaping how protocol revenue funds IL coverage and rainy-day reserves.</li>
-            <li><strong>Public research</strong> — publishing the work that pushes DeFi liquidity forward as a whole.</li>
+            <li><strong>Structural IL models</strong>  designing liquidity provision that minimizes impermanent loss upstream, not reactively.</li>
+            <li><strong>Price structure research</strong>  Monday Range Theory, weekly pivot models, vWAP regimes, and the signals that come after.</li>
+            <li><strong>CVD & order flow integration</strong>  bringing TradFi-grade microstructure analysis into on-chain liquidity decisions.</li>
+            <li><strong>ML on live on-chain data</strong>  back-testing and shipping models that price risk and predict rebalancing windows.</li>
+            <li><strong>Risk engine & circuit breakers</strong>  building the systems that detect Oct-10-type events before they hit positions.</li>
+            <li><strong>Reserve & vault logic</strong>  shaping how protocol revenue funds IL coverage and rainy-day reserves.</li>
+            <li><strong>Public research</strong>  publishing the work that pushes DeFi liquidity forward as a whole.</li>
           </ul>
         </section>
 
         <section className="jr-section">
-          <div className="jr-section-label">03 — Why Balcore</div>
+          <div className="jr-section-label">03  Why Balcore</div>
           <h2>The fastest research lab in finance.</h2>
           <div className="jr-why-grid">
             <div className="jr-why-card"><h4>Rapid feedback loop</h4><p>DeFi is the fastest ML lab in the world. Ideas ship to mainnet, not to a journal.</p></div>
@@ -143,7 +143,7 @@ const JoinResearch = () => {
         </section>
 
         <section className="jr-apply">
-          <div className="jr-section-label">04 — Apply</div>
+          <div className="jr-section-label">04  Apply</div>
           <h2>Tell us how you think.</h2>
           <p style={{ color: "var(--text-dim)", maxWidth: 560, margin: "0 auto" }}>We don't care about polished resumes. We care about how you reason and what you've built.</p>
 
@@ -154,7 +154,7 @@ const JoinResearch = () => {
             </div>
             <div className="jr-apply-step">
               <div className="step-num">2</div>
-              <div className="step-text">Anything you've built, written, or broken — GitHub, Dune dashboards, X threads, papers, LP PnL screenshots, whatever shows how you think.</div>
+              <div className="step-text">Anything you've built, written, or broken  GitHub, Dune dashboards, X threads, papers, LP PnL screenshots, whatever shows how you think.</div>
             </div>
             <div className="jr-apply-step">
               <div className="step-num">3</div>
@@ -165,14 +165,14 @@ const JoinResearch = () => {
           <a href="mailto:research@balcore.xyz" className="jr-cta">Apply to Research Team →</a>
 
           <div className="jr-alt-contact">
-            Or DM us on X — <a href="https://x.com/Balcore_ai" target="_blank" rel="noreferrer">@Balcore_ai</a><br />
+            Or DM us on X  <a href="https://x.com/Balcore_ai" target="_blank" rel="noreferrer">@Balcore_ai</a><br />
             <span style={{ fontSize: 13 }}>We read every application. If there's a fit, you'll hear back within 5 days.</span>
           </div>
         </section>
       </div>
 
       <footer className="jr-footer">
-        © 2026 Balcore — Build the future of on-chain liquidity.
+        © 2026 Balcore  Build the future of on-chain liquidity.
       </footer>
     </div>
     </>

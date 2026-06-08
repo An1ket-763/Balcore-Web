@@ -722,7 +722,7 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right — video / fallback */}
+          {/* Right  video / fallback */}
           <div className="hero-right">
             <div className="vid-wrap">
               {videos?.map((video, index) => (

@@ -43,7 +43,7 @@ const assetData = {
   BTC: {
     layer: "Active layer",
     color: "#F7931A",
-    role: "Concentrated LP bins — highest fee capture per dollar. Paired with USDC at equal value. Part of the active market making layer.",
+    role: "Concentrated LP bins  highest fee capture per dollar. Paired with USDC at equal value. Part of the active market making layer.",
     bars: [100, 0],
   },
   AVAX: {
@@ -61,7 +61,7 @@ const assetData = {
   ETH: {
     layer: "Reserve layer",
     color: "#627EEA",
-    role: "WETH.e in the reserve layer. Earns Benqi lending interest continuously. Zero IL exposure — never in an active trading pool.",
+    role: "WETH.e in the reserve layer. Earns Benqi lending interest continuously. Zero IL exposure  never in an active trading pool.",
     bars: [0, 100],
   },
   GOLD: {
@@ -73,7 +73,7 @@ const assetData = {
   TSLA: {
     layer: "Reserve layer",
     color: "#CC0000",
-    role: "Tokenized Tesla equity on-chain. 24/7 liquidity — no NYSE hours, no settlement delays. The future of equity market making.",
+    role: "Tokenized Tesla equity on-chain. 24/7 liquidity  no NYSE hours, no settlement delays. The future of equity market making.",
     bars: [0, 100],
   },
   NVDA: {
@@ -140,7 +140,7 @@ const VisualStorySection = () => {
   const [reserveStat, setReserveStat] = useState(0);
   const [shieldLayers, setShieldLayers] = useState(0);
   const [rebalances, setRebalances] = useState(0);
-  const [automation, setAutomation] = useState("—");
+  const [automation, setAutomation] = useState("");
   const [rebalanceBadgeVisible, setRebalanceBadgeVisible] = useState(false);
   const [pairLineBoost, setPairLineBoost] = useState(false);
   const [pulseRing, setPulseRing] = useState({ radius: 44, opacity: 0 });
@@ -474,13 +474,13 @@ const VisualStorySection = () => {
           <div className="fy-head">
             <div className="fy-eyebrow"><span>How It Works</span></div>
             <h2 className="fy-h2">The FlowYield Engine</h2>
-            <p className="fy-hdesc">Multi-asset market making, continuous IL mitigation, and dual-layer yield — running automatically, 24/7.</p>
+            <p className="fy-hdesc">Multi-asset market making, continuous IL mitigation, and dual-layer yield  running automatically, 24/7.</p>
           </div>
 
           <div className="fy-card">
             <div className="fy-topbar">
               <div>
-                <div className="fy-title">FlowYield — live rebalancing engine</div>
+                <div className="fy-title">FlowYield  live rebalancing engine</div>
                 <div className="fy-sub">Multi-asset market making · Continuous IL mitigation · Dual-layer yield</div>
               </div>
               <div className="fy-btns" id="flbtns">
@@ -517,7 +517,7 @@ const VisualStorySection = () => {
                 </g>
 
                 <circle id="fres-ring" cx="350" cy="240" r="192" fill="none" stroke="#0EA5E9" strokeWidth="0.5" strokeDasharray="4 7" opacity={layerVisuals.reserveRingOpacity} />
-                <text id="fres-lbl" x="350" y="86" textAnchor="middle" fontSize="11" fill="#0EA5E9" opacity={layerVisuals.reserveLabelOpacity} fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">reserve yield layer — Benqi · zero IL exposure</text>
+                <text id="fres-lbl" x="350" y="86" textAnchor="middle" fontSize="11" fill="#0EA5E9" opacity={layerVisuals.reserveLabelOpacity} fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">reserve yield layer  Benqi · zero IL exposure</text>
 
                 <circle id="fact-ring" cx="350" cy="240" r="122" fill="none" stroke="#a78bfa" strokeWidth="0.5" strokeDasharray="3 5" opacity={layerVisuals.activeRingOpacity} />
                 <text id="fact-lbl" x="350" y="154" textAnchor="middle" fontSize="11" fill="#a78bfa" opacity={layerVisuals.activeLabelOpacity} fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">active market making layer · fee generation</text>
@@ -562,7 +562,7 @@ const VisualStorySection = () => {
                   <circle cx="264" cy="320" r="4" fill="#16A34A" />
                   <circle cx="350" cy="342" r="4" fill="#16A34A" />
                   <circle cx="436" cy="320" r="4" fill="#16A34A" />
-                  <text x="350" y="388" textAnchor="middle" fontSize="10" fill="#16A34A" fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">IL protection — 3 independent layers always active</text>
+                  <text x="350" y="388" textAnchor="middle" fontSize="10" fill="#16A34A" fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">IL protection  3 independent layers always active</text>
                   <text x="264" y="338" textAnchor="middle" fontSize="9" fill="#16A34A" opacity=".8" fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">prevention</text>
                   <text x="350" y="358" textAnchor="middle" fontSize="9" fill="#16A34A" opacity=".8" fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">IL reserve</text>
                   <text x="436" y="338" textAnchor="middle" fontSize="9" fill="#16A34A" opacity=".8" fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">backup vault</text>
@@ -592,7 +592,7 @@ const VisualStorySection = () => {
               {rebalanceBadgeVisible ? <div className="frbadge is-visible">↻ rebalancing positions...</div> : null}
               {selectedAssetInfo ? (
                 <div className="ftoast">
-                  <div className="ftoast-name"><span style={{ color: selectedAssetInfo.color }}>●</span> {selectedAsset} — {selectedAssetInfo.layer}</div>
+                  <div className="ftoast-name"><span style={{ color: selectedAssetInfo.color }}>●</span> {selectedAsset}  {selectedAssetInfo.layer}</div>
                   <div className="ftoast-bar">
                     <div style={{ flex: 1 }}>
                       <div style={{ fontSize: "9px", color: "rgba(255,255,255,.3)", marginBottom: "3px" }}>market making</div>

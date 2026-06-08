@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Balcore — Test It Yourself</title>
+<title>Balcore  Test It Yourself</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Inter+Tight:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -521,7 +521,7 @@
   <header>
     <div class="eyebrow reveal" style="animation-delay:.05s">Try It Yourself</div>
     <h1 class="reveal" style="animation-delay:.12s">See what your capital<br>could <em>have earned</em></h1>
-    <p class="sub reveal" style="animation-delay:.2s">Balcore puts your funds to work as an automated market maker — earning fees every time the market moves. Pick a pair, slide your deposit, and choose how the week went.</p>
+    <p class="sub reveal" style="animation-delay:.2s">Balcore puts your funds to work as an automated market maker  earning fees every time the market moves. Pick a pair, slide your deposit, and choose how the week went.</p>
   </header>
 
   <div class="calc">
@@ -585,7 +585,7 @@
       <div class="annual">
         <div class="lbl">If a year ran at this rate</div>
         <div class="amt" id="annual">$0</div>
-        <small>Your share — illustrative, real returns vary week to week</small>
+        <small>Your share  illustrative, real returns vary week to week</small>
       </div>
     </div>
   </div>
@@ -593,7 +593,7 @@
   <!-- WATERFALL / EXCESS SPLIT -->
   <div class="card excess-card reveal" id="excessCard" style="animation-delay:.5s">
     <h3>Where the excess goes</h3>
-    <p class="excess-intro">Strong weeks generate more yield than the 30% user cap can absorb. That surplus is the protocol's two-sided upside — it splits <b>70% to the Backup Reserve</b> (which funds the IL Shield) and <b>30% to Protocol Revenue</b>.</p>
+    <p class="excess-intro">Strong weeks generate more yield than the 30% user cap can absorb. That surplus is the protocol's two-sided upside  it splits <b>70% to the Backup Reserve</b> (which funds the IL Shield) and <b>30% to Protocol Revenue</b>.</p>
     <div class="excess-grid">
       <div class="ebox">
         <div class="ebox-lbl">Excess yield this week</div>
@@ -625,7 +625,7 @@
 
   <!-- ===== UNDER THE HOOD ===== -->
   <div class="card hood-card reveal" id="hoodCard" style="animation-delay:.55s">
-    <h3>Under the hood — what happens to your deposit</h3>
+    <h3>Under the hood  what happens to your deposit</h3>
     <p class="hood-intro">Once you deposit, capital doesn't just sit in a pool. The strategy places liquidity intelligently around price using the same signals run manually for the past year. Press play to watch one week unfold.</p>
 
     <button class="deploy-btn deploy-btn-top" id="deployBtnTop">▶ Deploy liquidity</button>
@@ -657,7 +657,7 @@
       </div>
 
       <!-- plain-english caption -->
-      <div class="hood-caption" id="hoodCaption">Press <b>Deploy liquidity</b> to watch one week of the strategy unfold — step by step.</div>
+      <div class="hood-caption" id="hoodCaption">Press <b>Deploy liquidity</b> to watch one week of the strategy unfold  step by step.</div>
 
       <!-- flow diagram -->
       <div class="hood-flow" id="hoodFlow">
@@ -690,11 +690,11 @@
     </div>
 
     <button class="deploy-btn" id="deployBtn">▶ Deploy liquidity</button>
-    <div class="hood-note">Illustrative schematic of the strategy logic — representative levels, not live market data.</div>
+    <div class="hood-note">Illustrative schematic of the strategy logic  representative levels, not live market data.</div>
   </div>
 
   <div class="disclaimer reveal" style="animation-delay:.55s">
-    <span class="ic">ⓘ</span> <b>How to read this.</b> The waterfall mirrors the protocol's business model: gross yield is collected, <b>impermanent loss is covered first</b>, a <b>5% protocol fee</b> is taken on the remainder, and users are paid up to a <b>30% APY cap</b>. Anything above that cap is excess, split <b>70% to the Backup Reserve</b> and <b>30% to Protocol Revenue</b>. Figures are illustrative, built from the core strategy run manually with real capital over roughly the past year — a model of expected behaviour, <b>not a guarantee of returns</b>. The protocol is in development; nothing here is investment advice.
+    <span class="ic">ⓘ</span> <b>How to read this.</b> The waterfall mirrors the protocol's business model: gross yield is collected, <b>impermanent loss is covered first</b>, a <b>5% protocol fee</b> is taken on the remainder, and users are paid up to a <b>30% APY cap</b>. Anything above that cap is excess, split <b>70% to the Backup Reserve</b> and <b>30% to Protocol Revenue</b>. Figures are illustrative, built from the core strategy run manually with real capital over roughly the past year  a model of expected behaviour, <b>not a guarantee of returns</b>. The protocol is in development; nothing here is investment advice.
   </div>
 
   <div class="cta-row reveal" style="animation-delay:.6s">
@@ -912,12 +912,12 @@
     const vwapDev=(LV.S1-LV.R1)/2 + 14;
     const vUp=vwapY-vwapDev, vLo=vwapY+vwapDev;
 
-    // target ladder of levels in the break direction — ends AT the outer VWAP band (exhaustion)
+    // target ladder of levels in the break direction  ends AT the outer VWAP band (exhaustion)
     const ladderUp=[LV.P, LV.R1, LV.R2, vUp, vUp];     // step up, finishing at upper band
     const ladderDn=[LV.P, LV.S1, LV.S2, vLo, vLo];     // step down, finishing at lower band
     const ladder = dir===-1 ? ladderUp : ladderDn;
 
-    // explicit Monday range — a clear, visible high/low established on day 1
+    // explicit Monday range  a clear, visible high/low established on day 1
     const monHalf = 30 + (st.w/100)*14;        // half-height of Monday range in px (clearly visible)
     const monReach = monHalf*1.05;             // box edges sit just outside the traced wicks
     const monHi = LV.P - monReach;             // top of range (higher price = smaller Y)
@@ -927,7 +927,7 @@
     for(let i=0;i<n;i++){
       let target;
       if(i<monEnd){
-        // Monday: an active session — several swings that print a clear high and low
+        // Monday: an active session  several swings that print a clear high and low
         const ph = i/Math.max(1,monEnd-1);          // 0..1 across Monday
         // 2.5 oscillations so it visibly trades up and down, reaching the range edges
         const swing = Math.sin(ph*Math.PI*2.5) * (0.7+0.3*Math.sin(ph*Math.PI*5));
@@ -1055,16 +1055,16 @@
 
     // PHASE 1
     setStep(1); setPhase('1 · Capital enters the pool');
-    setCaption(`Your <b>${fmtCap(st.cap)}</b> is deposited into the ${pair} liquidity pool. The principal is recorded and <b>protected</b> — it's not spent, it's put to work.`);
+    setCaption(`Your <b>${fmtCap(st.cap)}</b> is deposited into the ${pair} liquidity pool. The principal is recorded and <b>protected</b>  it's not spent, it's put to work.`);
     lit('fnDeposit'); lit('faPool');
     await sleep(250); lit('fnPool');
     // faint settled baseline
     chart.appendChild(el('line',{x1:padL,y1:baseY,x2:W-padR,y2:baseY,stroke:'rgba(255,255,255,.12)','stroke-width':1,'stroke-dasharray':'2 4'}));
     await sleep(300);
 
-    // PHASE 2 — Monday's session draws first
+    // PHASE 2  Monday's session draws first
     setStep(2); setPhase('2 · Monday trades first');
-    setCaption(`Watch how <b>${pair}</b> opens the week. <b>Monday's</b> session plays out first — its high and low will define the range everything else is built on.`);
+    setCaption(`Watch how <b>${pair}</b> opens the week. <b>Monday's</b> session plays out first  its high and low will define the range everything else is built on.`);
     const floorY=padT+plotH;
     const trendArea=el('path',{fill:'url(#priceFill)',stroke:'none',opacity:.9});
     chart.appendChild(trendArea);
@@ -1091,9 +1091,9 @@
     const ghost=el('path',{d:ghostD,fill:'none',stroke:'rgba(95,214,160,.22)','stroke-width':1.6,'stroke-dasharray':'3 5','stroke-linejoin':'round'});
     chart.appendChild(ghost); fadeIn(ghost);
 
-    // PHASE 3 — Monday complete → the range is now known
+    // PHASE 3  Monday complete → the range is now known
     setStep(3); setPhase('3 · Monday range set');
-    setCaption(`Monday's done. Its high-to-low span is the <b>Monday range</b> — the reference the whole week is built on.`);
+    setCaption(`Monday's done. Its high-to-low span is the <b>Monday range</b>  the reference the whole week is built on.`);
     const monHi=built.monHi, monLo=built.monLo;
     const monW=plotW*(1/7);
     const monBox=el('rect',{x:padL,y:monHi,width:monW,height:(monLo-monHi),fill:'rgba(255,255,255,.10)',stroke:'rgba(255,255,255,.75)','stroke-width':1.4,rx:3,opacity:0});
@@ -1110,9 +1110,9 @@
     chart.appendChild(el('line',{x1:brX-4,y1:monLo,x2:brX+4,y2:monLo,stroke:'rgba(255,255,255,.6)','stroke-width':1}));
     await sleep(650);
 
-    // PHASE 4 — pivots
+    // PHASE 4  pivots
     setStep(4); setPhase('4 · Anchor VWAP bands & pivots');
-    setCaption(`We track the <b>VWAP</b> — the volume-weighted average price — with an <b>upper and lower band</b> around it (one standard deviation). When price stretches all the way to the upper or lower band, the move is <b>statistically exhausted</b> and likely to turn. The blue <b>pivot levels</b> (P, R2/R3, S2/S3) mark the same turning zones.`);
+    setCaption(`We track the <b>VWAP</b>  the volume-weighted average price  with an <b>upper and lower band</b> around it (one standard deviation). When price stretches all the way to the upper or lower band, the move is <b>statistically exhausted</b> and likely to turn. The blue <b>pivot levels</b> (P, R2/R3, S2/S3) mark the same turning zones.`);
     const vwapY=LV.P;                          // VWAP center
     const vwapDev=(LV.S1-LV.R1)/2 + 14;        // ±1σ band offset
     const vUp=vwapY-vwapDev, vLo=vwapY+vwapDev;
@@ -1130,7 +1130,7 @@
     const ubX=isMobile?(W-padR-92):(W-padR-72);
     chart.appendChild(svgText(isMobile?'UPPER':'UPPER BAND', ubX, vUp-6, 'rgba(232,196,121,.85)'));
     chart.appendChild(svgText(isMobile?'LOWER':'LOWER BAND', ubX, vLo+14, 'rgba(232,196,121,.85)'));
-    // pivot levels (blue) — turning zones (R2/R3 above, S2/S3 below)
+    // pivot levels (blue)  turning zones (R2/R3 above, S2/S3 below)
     const pivots=[
       {y:LV.R2,t:'R3',c:'#ff9b8a',w:1},
       {y:LV.R1,t:'R2',c:'#ffb59a',w:1},
@@ -1149,7 +1149,7 @@
 
     // PHASE 4
     setStep(5); setPhase('5 · Place the liquidity band');
-    setCaption(`Instead of spreading capital thin, the strategy <b>concentrates</b> liquidity in a tight band around the current price — between the pivots. Concentrated liquidity earns far more in fees per dollar.`);
+    setCaption(`Instead of spreading capital thin, the strategy <b>concentrates</b> liquidity in a tight band around the current price  between the pivots. Concentrated liquidity earns far more in fees per dollar.`);
     let bandTop=LV.R1, bandBot=LV.S1;
     const band=el('rect',{x:padL,y:baseY,width:plotW,height:1,fill:'url(#bandGrad)',stroke:'rgba(167,139,250,.65)','stroke-width':1.2,rx:4,opacity:0});
     chart.insertBefore(band,chart.firstChild.nextSibling); fadeIn(band);
@@ -1159,13 +1159,13 @@
     chart.appendChild(bandLabel);
     await sleep(600);
 
-    // PHASE 5 — the week plays out with band/pivots in place
+    // PHASE 5  the week plays out with band/pivots in place
     setStep(5); setPhase('5 · The week plays out · fees accrue');
     const upTxt = dir===-1;
     if(broke){
-      setCaption(`Now the week runs forward with everything in place. <b>${pair}</b> breaks ${upTxt?'<b>upward</b>':'<b>downward</b>'} out of Monday's range, and liquidity <b>rides the trend</b> — the band trailing ${upTxt?'up through R2, R3':'down through S2, S3'} — until price reaches the <b>${upTxt?'upper':'lower'} VWAP band</b> and exhausts. Every trade inside the band pays a fee →`);
+      setCaption(`Now the week runs forward with everything in place. <b>${pair}</b> breaks ${upTxt?'<b>upward</b>':'<b>downward</b>'} out of Monday's range, and liquidity <b>rides the trend</b>  the band trailing ${upTxt?'up through R2, R3':'down through S2, S3'}  until price reaches the <b>${upTxt?'upper':'lower'} VWAP band</b> and exhausts. Every trade inside the band pays a fee →`);
     } else {
-      setCaption(`The week runs forward. <b>${pair}</b> never clears Monday's range — it just chops sideways between the VWAP bands. The strategy keeps the band tight and quietly <b>collects fees on the churn</b>, with no directional risk taken →`);
+      setCaption(`The week runs forward. <b>${pair}</b> never clears Monday's range  it just chops sideways between the VWAP bands. The strategy keeps the band tight and quietly <b>collects fees on the churn</b>, with no directional risk taken →`);
     }
     document.getElementById('feeChip').classList.add('show');
     const area=trendArea, path=trendPath;     // continue the same line from Monday
@@ -1209,9 +1209,9 @@
       if(broke && breakoutShown && !exhaustShown && touchedBand && i>built.monEnd+4){
         exhaustShown=true;
         const bandY = upTxt ? vUp : vLo;
-        setCaption(`Price has stretched all the way to the <b>${upTxt?'upper':'lower'} VWAP band</b> — the move is <b>statistically exhausted</b>. The strategy reads this as the signal to stop chasing: it stops trailing and lets price mean-revert back toward VWAP, locking in the fees earned on the way.`);
+        setCaption(`Price has stretched all the way to the <b>${upTxt?'upper':'lower'} VWAP band</b>  the move is <b>statistically exhausted</b>. The strategy reads this as the signal to stop chasing: it stops trailing and lets price mean-revert back toward VWAP, locking in the fees earned on the way.`);
         // mark the band-touch (the exhaustion point)
-        const mk=svgText(isMobile?'● EXHAUSTION':'● VWAP BAND — exhaustion', padL+40, bandY + (upTxt?-7:16), '#f0d79a');
+        const mk=svgText(isMobile?'● EXHAUSTION':'● VWAP BAND  exhaustion', padL+40, bandY + (upTxt?-7:16), '#f0d79a');
         mk.setAttribute('font-size',FS+1); mk.setAttribute('opacity',0);
         chart.appendChild(mk); fadeIn(mk);
         // touch dot + pulse the band line
@@ -1244,7 +1244,7 @@
     const closeDot=el('circle',{cx:closeX,cy:pts[pts.length-1].y,r:5.5,fill:'#5fd6a0',filter:'url(#softGlow)'});
     chart.appendChild(closeDot);
     chart.appendChild(svgText('NEXT MON', Math.min(closeX-4, W-padR-58), padT+12, 'rgba(95,214,160,.9)'));
-    setCaption(`The cycle completes at <b>next Monday</b> — one full Monday-to-Monday week. The fees earned across the week are now ready to be distributed, and the strategy resets to read the new Monday range.`);
+    setCaption(`The cycle completes at <b>next Monday</b>  one full Monday-to-Monday week. The fees earned across the week are now ready to be distributed, and the strategy resets to read the new Monday range.`);
     await sleep(900);
 
     // PHASE 6
@@ -1258,7 +1258,7 @@
 
     steps.forEach(s=>{s.classList.remove('active');s.classList.add('done');});
     setPhase('✓ Principal protected · fees distributed');
-    setCaption(`That's one week. <b>Your principal stayed protected the entire time</b> — you earned fees on top of it, not at risk of it. Repeat every week, across many pairs.`);
+    setCaption(`That's one week. <b>Your principal stayed protected the entire time</b>  you earned fees on top of it, not at risk of it. Repeat every week, across many pairs.`);
     deployBtn.disabled=false; deployBtn.textContent='▶ Replay deployment';
     if(deployBtnTop){deployBtnTop.disabled=false;deployBtnTop.textContent='▶ Replay deployment';}
     running=false;
