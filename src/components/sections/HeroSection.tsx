@@ -31,14 +31,29 @@ const HeroSection = () => {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const [activeScene, setActiveScene] = useState(0);
   const videos = [
-    "https://cdn.balcore.ai/Web%20Heros%20video/video%201.mp4",
-    "https://cdn.balcore.ai/Web%20Heros%20video/Video%202.mp4",
-    "https://cdn.balcore.ai/Web%20Heros%20video/video%203.mp4",
-    "https://cdn.balcore.ai/Web%20Heros%20video/video%204.mp4",
-    "https://cdn.balcore.ai/Web%20Heros%20video/video%205.mp4",
-    "https://cdn.balcore.ai/Web%20Heros%20video/Video%206.mp4",
-    "https://cdn.balcore.ai/Web%20Heros%20video/video%207.mp4",
-    "https://cdn.balcore.ai/Web%20Heros%20video/video%208.mp4"
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%201.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/Video%202.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%203.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%204.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%205.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/Video%206.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%207.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/Video%207%20(2).mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%209.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2011.mp4",
+    "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2012.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2013.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/vidoe%2014.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/vidoe%2015.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2016.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2017.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2018.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2020.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2021.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/vidoe%2022.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/Video%2023.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2024.mp4",
+    // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2025.mp4"
   ];
   const TOTAL_DOTS = videos?.length || 0; // adjust to match your video count
 
@@ -353,22 +368,22 @@ const HeroSection = () => {
         /* ── Hero grid ─────────────────────────────── */
         .hero-section {
           position: relative;
-          z-index: 10;
-          height: calc(100vh - var(--nav-h));
-          height: calc(100svh - var(--nav-h));
-          display: grid;
-          grid-template-columns: 52% 48%;
+          
+         height: 100vh;
           overflow: hidden;
       }
+          
 
         /* ── Left panel ────────────────────────────── */
         .hero-left {
-          display: flex; flex-direction: column;
-          justify-content: space-between;
-          padding: 83px 56px 88px 56px;
-          animation: fadeUp .8s ease both;
-          position: relative; z-index: 20;
+          position: absolute;
+          z-index: 10;
+          top: 50%;
+          left: 80px;
+          transform: translateY(-50%);
+          max-width: 700px;
         }
+ 
         @keyframes fadeUp {
           from { opacity: 0; transform: translateY(22px); }
           to   { opacity: 1; transform: translateY(0); }
@@ -406,7 +421,8 @@ const HeroSection = () => {
         }
         .sub {
           font-size: 14.5px; line-height: 1.72;
-          color: rgba(241,238,255,.54); max-width: 400px;
+          color: rgba(241, 238, 255, 0.68); max-width: 400px;
+          text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
         }
         .btns { display: flex; gap: 12px; align-items: center; }
         .btn-p {
@@ -427,7 +443,12 @@ const HeroSection = () => {
         }
 
         /* ── Right panel ───────────────────────────── */
-        .hero-right { position: relative; overflow: hidden; }
+        .hero-right {  
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+        }
 
         .vid-wrap {
           position: absolute; inset: 0; z-index: 1;
@@ -450,11 +471,22 @@ const HeroSection = () => {
           display: flex; align-items: center; justify-content: center;
         }
 
-        .grade {
-          position: absolute; inset: 0; z-index: 2; pointer-events: none;
-          background: linear-gradient(135deg,
-            rgba(8,8,20,.5) 0%, rgba(0,0,0,.05) 60%, rgba(8,8,20,.45) 100%);
-        }
+         .grade {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            background:
+              linear-gradient(
+                90deg,
+              rgba(0, 0, 0, 0.85) 0%,
+                rgba(0, 0, 0, 0.75) 30%,
+                rgba(0, 0, 0, 0.55) 34%,
+                rgba(0, 0, 0, 0.30) 54%,
+                rgba(0, 0, 0, 0.10) 90%,
+                transparent 100%
+              );
+          }     
         .edge-b {
           position: absolute; left: 0; right: 0; bottom: 0;
           height: 110px; z-index: 4; pointer-events: none;
@@ -531,6 +563,16 @@ const HeroSection = () => {
             padding: 104px 48px 40px;
             align-items: center;
             text-align: center;
+            display: flex; flex-direction: column;
+            justify-content: space-between;
+            padding: 83px 56px 88px 56px;
+            animation: fadeUp .8s ease both;
+            position: relative; z-index: 20;
+          }
+          .grade {
+            position: absolute; inset: 0; z-index: 2; pointer-events: none;
+            background: linear-gradient(135deg,
+              rgba(8,8,20,.5) 0%, rgba(0,0,0,.05) 60%, rgba(8,8,20,.45) 100%);
           }
           .hero-left > div:first-child { display: flex; flex-direction: column; align-items: center; }
           .headline { text-align: center; }
@@ -540,6 +582,7 @@ const HeroSection = () => {
           .sub { max-width: 600px; text-align: center; }
           .btns { justify-content: center; }
           .hero-right { width: 100%; height: clamp(320px, 38vh, 420px); min-height: 0; }
+          .hero-right { position: relative; overflow: hidden; }
           .hex-seam-svg { display: none; }
           .scene-dots { display: none; }
         }
@@ -552,35 +595,26 @@ const HeroSection = () => {
           .logo { font-size: 15px; gap: 8px; }
           .btn-launch { padding: 7px 14px; font-size: 12px; }
           .hero-section {
-            display: block;
+            display: flex; flex-direction: column;
             grid-template-columns: none;
             height: auto;
-            min-height: calc(100svh - var(--nav-h));
-            overflow: hidden;
-            position: relative;
-          }
-          .hero-left {
-            padding: 82px 20px 40px;
-            position: relative;
-            z-index: 20;
-            min-height: calc(100svh - var(--nav-h));
-            justify-content: space-between;
-          }
-          .hero-right {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
             min-height: 0;
-            max-height: none;
-            z-index: 1;
+            overflow: visible;
           }
-          .hero-right .grade {
-            background: linear-gradient(180deg,
-              rgba(8,8,15,.78) 0%,
-              rgba(8,8,15,.55) 45%,
-              rgba(8,8,15,.85) 100%);
+          .hero-left { 
+            padding: 82px 20px 26px; 
+            justify-content: space-between;
+            animation: fadeUp .8s ease both;
+            position: relative; z-index: 20;
+            left: 0px;
           }
+          .grade {
+            position: absolute; inset: 0; z-index: 2; pointer-events: none;
+            background: linear-gradient(135deg,
+              rgba(8,8,20,.5) 0%, rgba(0,0,0,.05) 60%, rgba(8,8,20,.45) 100%);
+          }
+          .hero-right { width: 100%; height: clamp(260px, 34vh, 340px); min-height: 0; max-height: none; }
+          .hero-right { position: relative; overflow: hidden; }
           .badge { font-size: 11px; padding: 6px 14px; }
           .headline { font-size: 36px; margin-top: 18px; line-height: .96; }
           .hero-lower { gap: 16px; margin-top: 28px; }
@@ -702,12 +736,12 @@ const HeroSection = () => {
               ))}
             </div>
           </div>
-          <svg
+          {/* <svg
             ref={hexSvgRef}
             className="hex-seam-svg"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
-          />
+          /> */}
         </section>
 
         {/* ── Stats bar (removed) ── */}
