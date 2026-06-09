@@ -409,7 +409,7 @@ export function initTiy(root: HTMLElement): () => void {
     await sleep(650);
 
     setStep(4); setPhase("4 · Anchor VWAP bands & pivots");
-    setCaption(`We track the <b>VWAP</b>  the volume-weighted average price  with an <b>upper and lower band</b> around it (one standard deviation). When price stretches all the way to the upper or lower band, the move is <b>statistically exhausted</b> and likely to turn. The blue <b>pivot levels</b> (P, R2/R3, S2/S3) mark the same turning zones.`);
+    setCaption(`We track the <b>VWAP</b>  the volume-weighted average price  with an <b>upper and lower band</b> around it (one standard deviation). When price stretches all the way to the upper [...]
     const vwapY = LV.P;
     const vwapDev = (LV.S1 - LV.R1) / 2 + 14;
     const vUp = vwapY - vwapDev, vLo = vwapY + vwapDev;
@@ -441,7 +441,7 @@ export function initTiy(root: HTMLElement): () => void {
     await sleep(450);
 
     setStep(5); setPhase("5 · Place the liquidity band");
-    setCaption(`Instead of spreading capital thin, the strategy <b>concentrates</b> liquidity in a tight band around the current price  between the pivots. Concentrated liquidity earns far more in fees per dollar.`);
+    setCaption(`Instead of spreading capital thin, the strategy <b>concentrates</b> liquidity in a tight band around the current price  between the pivots. Concentrated liquidity earns far more i[...]
     let bandTop = LV.R1, bandBot = LV.S1;
     const band = el("rect", { x: padL, y: baseY, width: plotW, height: 1, fill: "url(#bandGrad)", stroke: "rgba(167,139,250,.65)", "stroke-width": 1.2, rx: 4, opacity: 0 });
     chart.insertBefore(band, chart.firstChild!.nextSibling); fadeIn(band);
@@ -457,9 +457,9 @@ export function initTiy(root: HTMLElement): () => void {
     setStep(5); setPhase("5 · The week plays out · fees accrue");
     const upTxt = dir === -1;
     if (broke) {
-      setCaption(`Now the week runs forward with everything in place. <b>${pair}</b> breaks ${upTxt ? "<b>upward</b>" : "<b>downward</b>"} out of Monday's range, and liquidity <b>rides the trend</b>  the band trailing ${upTxt ? "up through R2, R3" : "down through S2, S3"}  until price reaches the <b>${upTxt ? "upper" : "lower"} VWAP band</b> and exhausts. Every trade inside the band pays a fee →`);
+      setCaption(`Now the week runs forward with everything in place. <b>${pair}</b> breaks ${upTxt ? "<b>upward</b>" : "<b>downward</b>"} out of Monday's range, and liquidity <b>rides the trend<[...]
     } else {
-      setCaption(`The week runs forward. <b>${pair}</b> never clears Monday's range  it just chops sideways between the VWAP bands. The strategy keeps the band tight and quietly <b>collects fees on the churn</b>, with no directional risk taken →`);
+      setCaption(`The week runs forward. <b>${pair}</b> never clears Monday's range  it just chops sideways between the VWAP bands. The strategy keeps the band tight and quietly <b>collects fees [...]
     }
     document.getElementById("feeChip")!.classList.add("show");
     const area = trendArea, path = trendPath;
@@ -499,7 +499,7 @@ export function initTiy(root: HTMLElement): () => void {
       if (broke && breakoutShown && !exhaustShown && touchedBand && i > built.monEnd + 4) {
         exhaustShown = true;
         const bandY = upTxt ? vUp : vLo;
-        setCaption(`Price has stretched all the way to the <b>${upTxt ? "upper" : "lower"} VWAP band</b>  the move is <b>statistically exhausted</b>. The strategy reads this as the signal to stop chasing: it stops trailing and lets price mean-revert back toward VWAP, locking in the fees earned on the way.`);
+        setCaption(`Price has stretched all the way to the <b>${upTxt ? "upper" : "lower"} VWAP band</b>  the move is <b>statistically exhausted</b>. The strategy reads this as the signal to stop[...]
         const mk = svgText(isMobile ? "● EXHAUSTION" : "● VWAP BAND  exhaustion", padL + 40, bandY + (upTxt ? -7 : 16), "#f0d79a");
         mk.setAttribute("font-size", String(FS + 1)); mk.setAttribute("opacity", "0");
         chart.appendChild(mk); fadeIn(mk);
@@ -527,11 +527,11 @@ export function initTiy(root: HTMLElement): () => void {
     const closeDot = el("circle", { cx: closeX, cy: pts[pts.length - 1].y, r: 5.5, fill: "#5fd6a0", filter: "url(#softGlow)" });
     chart.appendChild(closeDot);
     chart.appendChild(svgText("NEXT MON", Math.min(closeX - 4, W - padR - 58), padT + 12, "rgba(95,214,160,.9)"));
-    setCaption(`The cycle completes at <b>next Monday</b>  one full Monday-to-Monday week. The fees earned across the week are now ready to be distributed, and the strategy resets to read the new Monday range.`);
+    setCaption(`The cycle completes at <b>next Monday</b>  one full Monday-to-Monday week. The fees earned across the week are now ready to be distributed, and the strategy resets to read the new[...]
     await sleep(900);
 
     setStep(6); setPhase("6 · Weekly distribution");
-    setCaption(`At week's end the fees are split: <b>you</b> earn up to 30% APY, the <b>IL Shield reserve</b> is topped up to keep your principal safe, and the <b>protocol</b> takes its share. Your deposit is untouched throughout.`);
+    setCaption(`At week's end the fees are split: <b>you</b> earn up to 30% APY, the <b>IL Shield reserve</b> is topped up to keep your principal safe, and the <b>protocol</b> takes its share. Yo[...]
     lit("flowSplit");
     countSplit("snUser", st.userPay, "$");
     countSplit("snReserve", st.reserve, "$");
@@ -577,7 +577,7 @@ export function initTiy(root: HTMLElement): () => void {
   }
 
   function scrollToEl(sel: string, offset?: number) {
-    const e = document.querySelector(sel) as HTMLElement | null;
+    const e = root.querySelector(sel) as HTMLElement | null;
     if (e) {
       const y = e.getBoundingClientRect().top + window.pageYOffset - (offset || 72);
       window.scrollTo({ top: y, behavior: "smooth" });
