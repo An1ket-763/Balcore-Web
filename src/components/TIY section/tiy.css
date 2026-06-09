@@ -109,7 +109,7 @@
   @keyframes reveal{to{opacity:1;transform:none}}
 
   /* ---------- calculator ---------- */
-  .tiy-root .calc{margin:50px 0 22px;display:grid;grid-template-columns:1fr 1.05fr;gap:24px}
+  .tiy-root .calc{margin:50px auto 22px;display:grid;grid-template-columns:1fr 1.05fr;gap:24px;max-width:1200px;padding:0 20px;width:100%}
   @media(max-width:880px){.tiy-root .calc{grid-template-columns:1fr}}
   .tiy-root .card{
     position:relative;
@@ -353,9 +353,9 @@
   @keyframes flowDot{from{left:0}to{left:100%}}
 
   .tiy-root .flow-split{
-    grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px;
-    opacity:.3;transform:translateY(8px);transition:opacity .5s,transform .5s var(--ease);
-  }
+  grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:6px;
+  opacity:.3;transform:translateY(8px);transition:opacity .5s,transform .5s var(--ease);
+ }
   .tiy-root .flow-split.lit{opacity:1;transform:none}
   .tiy-root .split-node{text-align:center;padding:16px 10px;border-radius:12px;border:1px solid var(--panel-edge);position:relative;background:rgba(255,255,255,.02)}
   .tiy-root .split-node::before{content:'';position:absolute;top:-13px;left:50%;width:1px;height:13px;background:var(--panel-edge)}
