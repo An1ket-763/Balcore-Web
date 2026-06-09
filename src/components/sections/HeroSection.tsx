@@ -410,6 +410,7 @@ const HeroSection = () => {
           font-size: clamp(38px, 5vw, 68px);
           line-height: .93; letter-spacing: -.015em;
           text-transform: uppercase; color: #fff;
+          text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
         }
         .headline-ipad { display: none; }
         .headline em { font-style: normal; color: var(--p3); }
@@ -629,15 +630,23 @@ const HeroSection = () => {
             overflow: hidden;
           }
           .hero-right .grade {
-            background: linear-gradient(180deg,
-              rgba(8,8,15,.78) 0%,
-              rgba(8,8,15,.5) 45%,
-              rgba(8,8,15,.88) 100%);
+            background: 
+            linear-gradient(90deg,
+            rgba(0, 0, 0, 0.85) 0%,
+            rgba(0, 0, 0, 0.75) 30%,
+            rgba(0, 0, 0, 0.55) 34%,
+            rgba(0, 0, 0, 0.30) 54%,
+            rgba(0, 0, 0, 0.10) 90%,
+            transparent 100%),
+           linear-gradient(180deg,
+           rgba(8,8,15,.78) 0%,
+           rgba(8,8,15,.5) 45%,
+           rgba(8,8,15,.88) 100%);
           }
           .badge { font-size: 11px; padding: 6px 14px; }
           .headline { font-size: 36px; margin-top: 18px; line-height: .96; }
           .hero-lower { gap: 16px; margin-top: 28px; }
-          .sub { font-size: 14px; max-width: none; line-height: 1.65; }
+          .sub { font-size: 14px; max-width: none; line-height: 1.65; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); }
           .btns { gap: 10px; flex-wrap: wrap; }
           .btn-p, .btn-o { font-size: 13.5px; padding: 12px 22px; }
           .hex-seam-svg { display: none; }

@@ -4,7 +4,7 @@
 export function initTiy(root: HTMLElement): () => void {
   const capEl = document.getElementById("capital") as HTMLInputElement | null;
   const weekEl = document.getElementById("week") as HTMLInputElement | null;
-  if (!capEl || !weekEl) return () => {};
+  if (!capEl || !weekEl) return () => { };
 
   const USER_CAP_APY = 0.3;
   const PROTOCOL_FEE = 0.05;
@@ -306,10 +306,6 @@ export function initTiy(root: HTMLElement): () => void {
   const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
   function scrollToChart() {
-    try {
-      const stepRail = document.querySelector(".step-rail") as HTMLElement | null;
-      stepRail && stepRail.scrollIntoView({ behavior: "smooth", block: "start" });
-    } catch (e) {}
   }
 
   async function runDeploy() {
@@ -583,8 +579,8 @@ export function initTiy(root: HTMLElement): () => void {
       window.scrollTo({ top: y, behavior: "smooth" });
     }
   }
-  function launchTop() { scrollToEl(".hood-chart-wrap", 72); setTimeout(runDeploy, 450); }
-  function launchBottom() { scrollToEl("#hoodCaption", 88); setTimeout(runDeploy, 450); }
+  function launchTop() { scrollToEl(".step-rail", 150); setTimeout(runDeploy, 450); }
+  function launchBottom() { scrollToEl("#hoodCaption", 120); setTimeout(runDeploy, 450); }
   deployBtn.addEventListener("click", launchBottom);
   if (deployBtnTop) deployBtnTop.addEventListener("click", launchTop);
   resetHood();
