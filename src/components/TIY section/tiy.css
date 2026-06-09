@@ -497,3 +497,9 @@
     .tiy-root *{animation:none!important;transition:none!important}
     .tiy-root .reveal{opacity:1!important;transform:none!important}
   }
+
+/* Containment overrides: in the original iframe, position:fixed was scoped to the iframe.
+   Now that we render inline, keep the decorative layers contained within .tiy-root. */
+.tiy-root{position:relative;isolation:isolate;}
+.tiy-root .bg-layer{position:absolute;height:100%;}
+.tiy-root .grain{position:absolute;}
