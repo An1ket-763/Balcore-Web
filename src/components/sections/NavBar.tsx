@@ -124,7 +124,7 @@ const NavBar = () => {
             <motion.img
               src={balcoreLogo}
               alt="Balcore logo"
-              className="h-9 sm:h-10 object-contain"
+              className="h-11 sm:h-12 object-contain"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             />
