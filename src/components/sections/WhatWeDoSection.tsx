@@ -985,7 +985,7 @@ const WhatWeDoHero = () => {
 
             <div className="rounded-[12px] border border-[#7c3aed]/20 bg-[#7c3aed]/5 p-5 md:p-6 transition-all hover:border-[#7c3aed]/40 hover:bg-[#7c3aed]/10">
               <div className="font-barlow-condensed text-[42px] font-black leading-none tracking-[-0.02em] text-white">
-                3<span className="text-[22px] text-[#9f5fff]">×</span>
+                3<span className="text-[34px] text-[#9f5fff]">×</span>
               </div>
               <div className="mt-2 text-[12px] uppercase tracking-[0.04em] text-white/55">
                 Protection layers against impermanent loss (IL)
