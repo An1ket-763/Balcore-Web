@@ -609,7 +609,7 @@ const HeroSection = () => {
             transform: none;
             width: 100%;
             max-width: none;
-            padding: 82px 20px 40px;
+            padding: 82px 20px 40px 32px;
             position: relative;
             z-index: 20;
             min-height: 0;
