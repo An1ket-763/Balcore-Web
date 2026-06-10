@@ -609,7 +609,7 @@ const HeroSection = () => {
             transform: none;
             width: 100%;
             max-width: none;
-            padding: 82px 20px 40px;
+            padding: 82px 20px 40px 32px;
             position: relative;
             z-index: 20;
             min-height: 0;
@@ -660,7 +660,7 @@ const HeroSection = () => {
           .sl { font-size: 9.5px; }
         }
         @media (max-width: 380px) {
-          .hero-left { padding: 78px 16px 22px; }
+          .hero-left { padding: 78px 16px 22px 28px; }
           .headline { font-size: 32px; }
           .btn-p, .btn-o { padding: 11px 18px; font-size: 13px; }
           .stat { padding: 12px 14px; }
