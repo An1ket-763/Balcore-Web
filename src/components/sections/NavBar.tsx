@@ -2,7 +2,8 @@ import { motion, rgba, useScroll, useTransform } from "framer-motion";
 import { ExternalLink, Menu, X, Rocket } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import balcoreLogo from "@/assets/images/BalcoreLogo.png";
+import balcoreMark from "@/assets/images/Blogo.png";
+import balcoreText from "@/assets/images/BalcoreTextLogo.png";
 import {
   Dialog,
   DialogContent,
@@ -117,16 +118,24 @@ const NavBar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 mobile-layout-shell py-3.5 sm:py-4 flex justify-between items-center gap-3">
           <motion.a
             onClick={() => handleNavClick("top", "/")}
-            className="flex items-center gap-3 cursor-pointer"
+            className="flex items-center gap-2 cursor-pointer"
             whileHover={{ scale: 1.02 }}
             role="button"
           >
+            {/* Logo Mark */}
             <motion.img
-              src={balcoreLogo}
-              alt="Balcore logo"
-              className="h-11 sm:h-12 object-contain"
+              src={balcoreMark}
+              alt="Balcore Logo"
+              className="h-14 sm:h-16 w-auto object-contain"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
+            />
+
+            {/* Logo Text */}
+            <motion.img
+              src={balcoreText}
+              alt="Balcore"
+              className="h-6 sm:h-7 w-auto object-contain"
             />
           </motion.a>
 
@@ -146,9 +155,8 @@ const NavBar = () => {
             ))}
             <motion.button
               onClick={() => navigate("/docs")}
-              className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${
-                isDocsPage ? "text-primary" : ""
-              }`}
+              className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${isDocsPage ? "text-primary" : ""
+                }`}
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}
             >
@@ -157,9 +165,8 @@ const NavBar = () => {
             </motion.button>
             <motion.button
               onClick={() => navigate("/join-us")}
-              className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${
-                location.pathname === "/join-us" ? "text-primary" : ""
-              }`}
+              className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${location.pathname === "/join-us" ? "text-primary" : ""
+                }`}
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}
             >
@@ -243,11 +250,10 @@ const NavBar = () => {
                 setIsMobileMenuOpen(false);
                 navigate("/docs");
               }}
-              className={`block transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full ${
-                isDocsPage
-                  ? "text-primary"
-                  : "text-white/80 hover:text-white/85"
-              }`}
+              className={`block transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full ${isDocsPage
+                ? "text-primary"
+                : "text-white/80 hover:text-white/85"
+                }`}
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: navItems.length * 0.1 }}
@@ -259,11 +265,10 @@ const NavBar = () => {
                 setIsMobileMenuOpen(false);
                 navigate("/join-us");
               }}
-              className={`block transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full ${
-                location.pathname === "/join-us"
-                  ? "text-primary"
-                  : "text-white/80 hover:text-white/85"
-              }`}
+              className={`block transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full ${location.pathname === "/join-us"
+                ? "text-primary"
+                : "text-white/80 hover:text-white/85"
+                }`}
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: (navItems.length + 2) * 0.1 }}
