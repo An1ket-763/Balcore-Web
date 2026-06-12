@@ -123,10 +123,11 @@ const NavBar = () => {
             role="button"
           >
             {/* Logo Mark */}
+            {/* Logo Mark */}
             <motion.img
               src={balcoreMark}
               alt="Balcore Logo"
-              className="h-14 sm:h-16 w-auto object-contain"
+              className="h-11 sm:h-13 w-auto object-contain"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             />
@@ -135,7 +136,7 @@ const NavBar = () => {
             <motion.img
               src={balcoreText}
               alt="Balcore"
-              className="h-6 sm:h-7 w-auto object-contain"
+              className="h-8 sm:h-9 w-auto object-contain"
             />
           </motion.a>
 
