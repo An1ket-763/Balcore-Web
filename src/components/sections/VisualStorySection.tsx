@@ -427,45 +427,46 @@ const VisualStorySection = () => {
         .fy-section{padding:2.5rem 0 5rem;background:linear-gradient(180deg,#07080f 0%,#080c1a 50%,#07080f 100%);position:relative}
         .fy-inner{max-width:960px;margin:0 auto;padding:0 1rem;width:100%}
         .fy-head{text-align:center;margin-bottom:3.5rem}
-        .fy-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.28);border-radius:100px;padding:5px 16px;margin-bottom:1.25rem;animation:fadeUp .8s ease both}
+        .fy-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.28);border-radius:100px;padding:5px 16px;margin-bottom:1.25rem}
         .fy-eyebrow span{font-size:10px;font-weight:600;letter-spacing:1.8px;color:#a78bfa;text-transform:uppercase;font-family:"Clash Grotesk", sans-serif}
         .fy-h2{font-family:"Clash Grotesk", sans-serif;font-size:clamp(32px,3.8vw,50px);font-weight:500;letter-spacing:-1px;color:#fff;margin-bottom:.85rem;animation:fadeUp .8s .08s ease both}
         .fy-hdesc{font-size:15px;color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto;line-height:1.75;font-family:"Clash Grotesk", sans-serif;animation:fadeUp .8s .16s ease both}
-        .fy-card{background:rgba(255,255,255,0.022);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:2rem;backdrop-filter:blur(12px);box-shadow:0 0 80px rgba(124,58,237,0.06),0 32px 64px rgba(0,0,0,0.3)}
+        .fy-card{background:rgba(255,255,255,0.022);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:2rem;backdrop-filter:blur(12px);box-shadow:0 0 80px rgba(124,58,237,0.06),0 32px 64px rgba(0,0,0,0.3);max-width:100%;overflow-x:hidden}
         .fy-topbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid rgba(255,255,255,0.06)}
         .fy-title{font-size:16px;font-weight:600;color:#fff;font-family:"Clash Grotesk", sans-serif;letter-spacing:-.2px}
         .fy-sub{font-size:11px;color:rgba(255,255,255,0.38);margin-top:4px;font-family:"Clash Grotesk", sans-serif}
         .fy-btns{display:flex;gap:5px;flex-wrap:wrap}
-        .fy-btn{cursor:pointer;border-radius:7px;border:1px solid rgba(255,255,255,0.11);background:rgba(255,255,255,0.04);padding:6px 14px;font-size:11px;color:rgba(255,255,255,0.45);transition:all .15s;font-family:"Clash Grotesk", sans-serif;letter-spacing:.1px}
+        .fy-btn{cursor:pointer;border-radius:7px;border:1px solid rgba(255,255,255,0.11);background:rgba(255,255,255,0.04);padding:6px 14px;font-size:11px;color:rgba(255,255,255,0.45);transition:all .2s ease;white-space:nowrap}
         .fy-btn:hover:not(.factive){background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7)}
         .fy-btn.factive{background:#7c3aed;color:#fff;border-color:#7c3aed;box-shadow:0 0 16px rgba(124,58,237,0.35)}
         .fy-btn.fpulse{color:rgba(14,165,233,0.85);border-color:rgba(14,165,233,0.3);background:rgba(14,165,233,0.06)}
         .fy-btn.fpulse:hover{background:#0EA5E9;color:#fff;border-color:#0EA5E9}
-        .fvis{position:relative;border-radius:16px;border:1px solid rgba(255,255,255,0.06);background:rgba(0,0,0,0.2);overflow:hidden}
+        .fvis{position:relative;border-radius:16px;border:1px solid rgba(255,255,255,0.06);background:rgba(0,0,0,0.2);overflow:hidden;width:100%;min-height:300px;aspect-ratio:auto 700/480}
         .ftrails{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
-        #fmain-svg{display:block;position:relative;z-index:1}
-        .fapy{position:absolute;bottom:16px;right:16px;background:rgba(7,8,15,0.94);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:8px 14px;text-align:right;z-index:10;backdrop-filter:blur(12px)}
+        #fmain-svg{display:block;position:relative;z-index:1;width:100%;height:auto}
+        .fapy{position:absolute;bottom:16px;right:16px;background:rgba(7,8,15,0.94);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:8px 14px;text-align:right;z-index:10;backdrop-filter:blur(10px);font-size:11px}
         .fapy-label{font-size:9px;color:rgba(255,255,255,0.28);font-family:"Clash Grotesk", sans-serif;letter-spacing:.5px;text-transform:uppercase}
         .fapy-val{font-size:20px;font-weight:700;font-family:"Clash Grotesk", sans-serif;margin-top:2px}
-        .frbadge{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:rgba(124,58,237,0.18);border:1px solid rgba(124,58,237,0.38);border-radius:20px;padding:5px 18px;font-size:10px;color:#a78bfa;z-index:10;font-family:"Clash Grotesk", sans-serif;letter-spacing:.3px;backdrop-filter:blur(8px)}
+        .frbadge{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:rgba(124,58,237,0.18);border:1px solid rgba(124,58,237,0.38);border-radius:20px;padding:5px 18px;font-size:10px;color:rgba(255,255,255,0.7);z-index:9}
         .frbadge.is-visible{animation:rbadgeF 2.2s ease forwards}
-        .ftoast{position:absolute;top:14px;left:14px;background:rgba(7,8,15,0.97);border:1px solid rgba(124,58,237,0.35);border-radius:14px;padding:14px 18px;font-size:12px;max-width:230px;z-index:20;box-shadow:0 8px 32px rgba(0,0,0,.6);backdrop-filter:blur(16px);animation:fadeInUpF .2s ease}
+        .ftoast{position:absolute;top:14px;left:14px;background:rgba(7,8,15,0.97);border:1px solid rgba(124,58,237,0.35);border-radius:14px;padding:14px 18px;font-size:12px;max-width:230px;z-index:20;backdrop-filter:blur(10px)}
         .ftoast-name{font-weight:700;color:#fff;margin-bottom:7px;font-size:13px;font-family:"Clash Grotesk", sans-serif}
         .ftoast-bar{display:flex;gap:8px;align-items:center;margin:7px 0 6px}
         .ftoast-info{color:rgba(255,255,255,0.48);line-height:1.6;font-size:11px;font-family:"Clash Grotesk", sans-serif}
-        .fstats{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:1.25rem}
-        .fst{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:12px 14px;transition:border-color .2s,background .2s}
+        .fstats{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:1.25rem;width:100%}
+        .fst{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:12px 14px;transition:border-color .2s,background .2s;min-width:0}
         .fst:hover{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1)}
         .fst-label{font-size:9px;color:rgba(255,255,255,0.28);margin-bottom:5px;font-family:"Clash Grotesk", sans-serif;letter-spacing:.5px;text-transform:uppercase}
-        .fst-val{font-size:20px;font-weight:700;line-height:1;color:#fff;font-family:"Clash Grotesk", sans-serif}
-        .fst-sub{font-size:9px;color:rgba(255,255,255,0.25);margin-top:4px;font-family:"Clash Grotesk", sans-serif}
+        .fst-val{font-size:20px;font-weight:700;line-height:1;color:#fff;font-family:"Clash Grotesk", sans-serif;word-break:break-word}
+        .fst-sub{font-size:9px;color:rgba(255,255,255,0.25);margin-top:4px;font-family:"Clash Grotesk", sans-serif;word-break:break-word}
         .flegend{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap;font-size:11px;color:rgba(255,255,255,0.32);font-family:"Clash Grotesk", sans-serif;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.05)}
         .fldot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0}
         .fasset{cursor:pointer;transition:filter .2s}
         .fasset:hover{filter:brightness(1.2)}
-        @media(max-width:900px){.fy-inner{padding:0 1.25rem}.fstats{grid-template-columns:repeat(3,1fr)}}
-        @media(max-width:640px){.fy-section{padding:2rem 0 3.5rem}.fy-inner{padding:0 1rem}.fy-head{margin-bottom:2.5rem}.fy-card{padding:1rem}.fy-topbar{align-items:flex-start}.fy-sub{line-height:1.5}.fy-btns{display:flex;flex-wrap:nowrap;gap:6px;width:100%;overflow-x:auto;padding-bottom:2px;-webkit-overflow-scrolling:touch;scrollbar-width:none}.fy-btns::-webkit-scrollbar{display:none}.fy-btn{white-space:nowrap;flex:0 0 auto}.fvis{border-radius:14px}.fapy{position:static;margin:0.75rem 0 0 auto;width:fit-content}.frbadge{bottom:12px;padding:5px 12px;font-size:9px}.ftoast{left:10px;right:10px;top:10px;max-width:none;padding:12px 14px}.fstats{grid-template-columns:repeat(2,1fr)}#fmain-svg text[data-mobile-hide="true"]{display:none}}
-        @media(max-width:480px){.fy-card{padding:.875rem}.fst{padding:10px 12px}.fst-val{font-size:17px}.fstats{gap:6px}}
+        @media(max-width:1200px){.fy-card{padding:1.5rem}}
+        @media(max-width:900px){.fy-inner{padding:0 1.25rem}.fstats{grid-template-columns:repeat(3,1fr)}.fy-card{padding:1.25rem}.fvis{min-height:280px}}
+        @media(max-width:768px){.fy-section{padding:2rem 0 3.5rem}.fy-inner{padding:0 1rem}.fy-head{margin-bottom:2.5rem}.fy-card{padding:1rem}.fy-topbar{align-items:flex-start;flex-direction:column}.fy-title{font-size:14px}.fy-sub{line-height:1.4;font-size:10px}.fy-btns{width:100%;gap:6px}.fy-btn{flex:1;min-width:unset;font-size:9px;padding:5px 8px}.fvis{min-height:240px;aspect-ratio:auto 700/480}.fstats{grid-template-columns:repeat(2,1fr);gap:6px}.fst{padding:9px 10px}.fst-label{font-size:8px}.fst-val{font-size:16px}.fst-sub{font-size:8px}.fapy{bottom:10px;right:10px;padding:6px 10px;font-size:10px}.fapy-val{font-size:16px;margin-top:1px}.flegend{gap:1rem;font-size:10px}.flegend span{font-size:9px}}
+        @media(max-width:480px){.fy-card{padding:.75rem}.fy-section{padding:1.5rem 0 2.5rem}.fy-head{margin-bottom:2rem}.fy-h2{font-size:28px}.fy-hdesc{font-size:13px}.fy-btns{flex-direction:column;gap:4px}.fy-btn{width:100%;font-size:9px;padding:6px 10px}.fvis{min-height:200px;aspect-ratio:auto 700/480}.fstats{grid-template-columns:1fr;gap:5px}.fst{padding:7px 9px}.fst-label{font-size:7px}.fst-val{font-size:13px}.fst-sub{font-size:7px}.fapy{bottom:6px;right:6px;padding:4px 8px;font-size:8px}.fapy-label{font-size:6px}.fapy-val{font-size:12px;margin-top:0}.flegend{gap:0.5rem;font-size:8px;padding-top:1rem;margin-top:1rem}.flegend span{font-size:7px;flex-wrap:wrap}.ftoast{max-width:180px;padding:10px 12px;font-size:10px;top:8px;left:8px}.ftoast-name{font-size:11px;margin-bottom:5px}.ftoast-info{font-size:9px}}
       `}</style>
 
       <section id="visual-story" className="flowyield-section fy-section">
@@ -493,7 +494,7 @@ const VisualStorySection = () => {
 
             <div className="fvis" id="fviswrap" ref={wrapRef}>
               <canvas ref={canvasRef} className="ftrails" />
-              <svg id="fmain-svg" width="100%" viewBox="0 0 700 480">
+              <svg id="fmain-svg" width="100%" viewBox="0 0 700 480" preserveAspectRatio="xMidYMid meet">
                 <defs>
                   <marker id="farw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
                     <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -517,10 +518,10 @@ const VisualStorySection = () => {
                 </g>
 
                 <circle id="fres-ring" cx="350" cy="240" r="192" fill="none" stroke="#0EA5E9" strokeWidth="0.5" strokeDasharray="4 7" opacity={layerVisuals.reserveRingOpacity} />
-                <text id="fres-lbl" x="350" y="86" textAnchor="middle" fontSize="11" fill="#0EA5E9" opacity={layerVisuals.reserveLabelOpacity} fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">reserve yield layer  Benqi · zero IL exposure</text>
+                <text id="fres-lbl" x="350" y="86" textAnchor="middle" fontSize="11" fill="#0EA5E9" opacity={layerVisuals.reserveLabelOpacity} fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">Reserve layer</text>
 
                 <circle id="fact-ring" cx="350" cy="240" r="122" fill="none" stroke="#a78bfa" strokeWidth="0.5" strokeDasharray="3 5" opacity={layerVisuals.activeRingOpacity} />
-                <text id="fact-lbl" x="350" y="154" textAnchor="middle" fontSize="11" fill="#a78bfa" opacity={layerVisuals.activeLabelOpacity} fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">active market making layer · fee generation</text>
+                <text id="fact-lbl" x="350" y="154" textAnchor="middle" fontSize="11" fill="#a78bfa" opacity={layerVisuals.activeLabelOpacity} fontFamily={'"Clash Grotesk", sans-serif'} data-mobile-hide="true">Active layer</text>
 
                 <circle id="fpulse-ring" cx="350" cy="240" r={pulseRing.radius} fill="none" stroke="#7c3aed" strokeWidth="1.5" opacity={pulseRing.opacity} />
 
