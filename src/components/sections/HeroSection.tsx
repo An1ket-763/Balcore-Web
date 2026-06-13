@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 // etc.
 
+import CsModal from "@/components/ui/CsModal";
+
 /* ─── Types ─────────────────────────────────────────────────────────────── */
 interface SceneDot {
   index: number;
@@ -56,6 +58,8 @@ const HeroSection = () => {
     // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2025.mp4"
   ];
   const TOTAL_DOTS = videos?.length || 0; // adjust to match your video count
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const canvas = bgCanvasRef.current;
@@ -715,7 +719,10 @@ const HeroSection = () => {
                 finance.
               </p>
               <div className="btns">
-                <button className="btn-p">
+                <button
+                  className="btn-p"
+                  onClick={() => setIsModalOpen(true)}
+                >
                   <svg
                     width="12"
                     height="12"
@@ -771,6 +778,10 @@ const HeroSection = () => {
             aria-hidden="true"
           /> */}
         </section>
+        <CsModal
+          open={isModalOpen}
+          onOpenChange={setIsModalOpen}
+        />
 
         {/* ── Stats bar (removed) ── */}
         {/* <div className="stats">

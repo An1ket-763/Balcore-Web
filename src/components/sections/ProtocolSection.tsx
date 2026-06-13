@@ -1,6 +1,4 @@
-// src/components/ProtocolSection.tsx
-
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 const protocolCards = [
@@ -27,6 +25,7 @@ const protocolCards = [
 ];
 
 const ProtocolSection = () => {
+  const navigate = useNavigate();
   return (
     <section
       id="protocol"
@@ -90,7 +89,10 @@ const ProtocolSection = () => {
             </p>
           </div>
 
-          <button className="group mt-8 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-purple-400 transition-all hover:gap-5 md:mt-10">
+          <button
+            onClick={() => navigate("/docs")}
+            className="group mt-8 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-purple-400 transition-all hover:gap-5 md:mt-10"
+          >
             Read technical docs
             <ArrowRight
               size={15}
