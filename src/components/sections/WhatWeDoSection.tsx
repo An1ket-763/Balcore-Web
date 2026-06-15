@@ -1,8 +1,7 @@
-// sections/WhatWeDoHero.tsx
-
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import MobileHeroAnimation from "./MobileHeroAnimation";
+import UiView from "../WWD section/UiView";
 
 type Token = {
   id: string;
@@ -970,7 +969,7 @@ const WhatWeDoHero = () => {
             </div>
           )}
         </div>
-
+        <UiView />
         {/* STATS */}
         <div className="relative z-10 mx-auto mt-10 max-w-[1200px] md:mt-12 lg:mt-16">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
