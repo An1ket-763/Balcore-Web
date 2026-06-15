@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import MobileHeroAnimation from "./MobileHeroAnimation";
-import UiView from "../WWD section/UiView";
+import UiView from "../WWD-section/UiView";
 
 type Token = {
   id: string;
