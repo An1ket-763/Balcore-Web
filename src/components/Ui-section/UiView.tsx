@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Rocket } from "lucide-react";
 import CsModal from "@/components/ui/CsModal";
 import UiDeposit from "./UiDeposit";
 import UiWithdraw from "./UiWithdraw";
+import brandLogo from "@/assets/images/Blogo.png";
 import "./UiView.css";
 
-// SVG symbols for coins used in modals
 const CoinSymbols = () => (
     <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true">
         <defs>
@@ -42,10 +42,50 @@ const CoinSymbols = () => (
     </svg>
 );
 
+// Chart data series for different timeframes
+const chartSeries: Record<string, number[]> = {
+    "1D": [126, 125, 127, 124, 123, 125, 122, 121, 123, 120, 122, 119, 121, 118, 120, 117, 119, 116, 118, 115, 117, 116, 114, 113, 115, 112, 114, 111, 113, 110, 112, 111, 109, 110, 108, 109, 107, 106, 108, 105],
+    "1W": [130, 128, 131, 127, 126, 128, 124, 125, 123, 120, 122, 118, 119, 116, 117, 113, 114, 110, 108, 104, 101, 97, 99, 94, 92, 88, 90, 85, 83, 79, 81, 76, 74, 70, 72, 67, 65, 61, 58, 54],
+    "1M": [124, 130, 118, 127, 119, 117, 127, 120, 130, 125, 134, 142, 138, 120, 127, 130, 119, 97, 88, 85, 62, 71, 52, 53, 59, 66, 66, 49, 53, 44, 33, 31, 22, 31, 40, 44, 31, 27, 28, 18],
+    ALL: [148, 145, 140, 138, 133, 136, 128, 130, 122, 118, 120, 110, 108, 98, 96, 86, 90, 78, 80, 68, 64, 58, 60, 50, 46, 40, 42, 34, 30, 24, 28, 20, 22, 16, 18, 12, 14, 10, 11, 8],
+};
+
 const UiView: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isDepositOpen, setIsDepositOpen] = useState(false);
     const [isWithdrawOpen, setIsWithdrawOpen] = useState(false);
+    const [timeframe, setTimeframe] = useState<keyof typeof chartSeries>("1M");
+    const [portfolioValue, setPortfolioValue] = useState(0);
+    const targetPortfolioValue = 45759;
+    const chartRef = useRef<SVGPolygonElement>(null);
+    const lineRef = useRef<SVGPolylineElement>(null);
+
+    // Count-up animation
+    useEffect(() => {
+        let start: number | null = null;
+        const duration = 900;
+        const step = (timestamp: number) => {
+            if (!start) start = timestamp;
+            const elapsed = timestamp - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const ease = 1 - Math.pow(1 - progress, 3);
+            setPortfolioValue(Math.round(targetPortfolioValue * ease));
+            if (progress < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+    }, []);
+
+    // Update chart when timeframe changes
+    useEffect(() => {
+        if (!chartRef.current || !lineRef.current) return;
+        const data = chartSeries[timeframe];
+        const width = 560;
+        const height = 150;
+        const stepX = width / (data.length - 1);
+        const points = data.map((y, i) => `${(i * stepX).toFixed(1)},${y}`).join(" ");
+        lineRef.current.setAttribute("points", points);
+        chartRef.current.setAttribute("points", `0,150 ${points} ${width},150`);
+    }, [timeframe]);
 
     return (
         <>
@@ -55,16 +95,8 @@ const UiView: React.FC = () => {
                     <div className="full-container-box">
                         <div className="top">
                             <div className="brand">
-                                <svg width="26" height="26" viewBox="0 0 32 32" fill="none">
-                                    <circle cx="16" cy="16" r="14" fill="url(#brandGrad)" stroke="#a88cfa" strokeWidth="0.8" />
-                                    <defs>
-                                        <linearGradient id="brandGrad" x1="0" y1="0" x2="32" y2="32">
-                                            <stop offset="0%" stopColor="#7c3aed" />
-                                            <stop offset="100%" stopColor="#a88cfa" />
-                                        </linearGradient>
-                                    </defs>
-                                    <text x="16" y="22" textAnchor="middle" fontSize="12" fontWeight="bold" fill="#fff" fontFamily="'Archivo', sans-serif">B</text>
-                                </svg>
+                                {/* add the image link here */}
+                                <img alt="Balcore" src={brandLogo} style={{ width: 26, height: 26 }} />
                                 <span>BALCORE</span>
                             </div>
                             <div className="search">
@@ -117,7 +149,7 @@ const UiView: React.FC = () => {
                                     <div className="hero">
                                         <div className="heroL">
                                             <div className="lbl">PORTFOLIO VALUE</div>
-                                            <div className="big">$45,759</div>
+                                            <div className="big">${portfolioValue.toLocaleString()}</div>
                                             <div className="row2">
                                                 <div>
                                                     <div className="k">NET APY</div>
@@ -134,10 +166,15 @@ const UiView: React.FC = () => {
                                             </div>
                                             <div className="chartwrap">
                                                 <div className="tfrow">
-                                                    <span className="tf">1D</span>
-                                                    <span className="tf">1W</span>
-                                                    <span className="tf on">1M</span>
-                                                    <span className="tf">ALL</span>
+                                                    {(["1D", "1W", "1M", "ALL"] as const).map((tf) => (
+                                                        <span
+                                                            key={tf}
+                                                            className={`tf ${timeframe === tf ? "on" : ""}`}
+                                                            onClick={() => setTimeframe(tf)}
+                                                        >
+                                                            {tf}
+                                                        </span>
+                                                    ))}
                                                 </div>
                                                 <svg width="100%" height="60" viewBox="0 0 560 150" preserveAspectRatio="none">
                                                     <defs>
@@ -146,8 +183,8 @@ const UiView: React.FC = () => {
                                                             <stop offset="1" stopColor="#7c3aed" stopOpacity="0" />
                                                         </linearGradient>
                                                     </defs>
-                                                    <polygon points="0,150 0,124 72,118 144,119 216,97 288,62 360,66 432,49 504,44 560,31 560,150" fill="url(#chartGrad)" />
-                                                    <polyline points="0,124 72,118 144,119 216,97 288,62 360,66 432,49 504,44 560,31" fill="none" stroke="#a88cfa" strokeWidth="2" />
+                                                    <polygon ref={chartRef} fill="url(#chartGrad)" />
+                                                    <polyline ref={lineRef} fill="none" stroke="#a88cfa" strokeWidth="2" />
                                                 </svg>
                                             </div>
                                         </div>
@@ -155,7 +192,19 @@ const UiView: React.FC = () => {
                                             <div className="scard">
                                                 <div className="cap">☷ ACTIVE POSITIONS</div>
                                                 <div className="val">3 pools</div>
-                                                <div className="d">BTC/USDC · TSLA/USDC · GOLD/USDT</div>
+                                                <div className="d">
+                                                    <svg className="coin c1" width="30" height="30" viewBox="0 0 32 32">
+                                                        <circle cx="16" cy="16" r="16" fill="#f7931a" />
+                                                        <path d="M21.6 14c.3-1.9-1.2-2.9-3.2-3.6l.6-2.5-1.5-.4-.6 2.5c-.4-.1-.8-.2-1.2-.3l.6-2.5-1.5-.4-.7 2.5c-.3-.1-.7-.2-1-.2l-2.1-.5-.4 1.6s1.1.3 1.1.3c.6.2.7.6.7 1l-1.7 6.7c-.1.2-.3.4-.6.3 0 0-1.1-.3-1.1-.3l-.8 1.8 2 .5c.4.1.7.2 1.1.3l-.6 2.5 1.5.4.6-2.5c.4.1.8.2 1.2.3l-.6 2.5 1.5.4.6-2.5c2.6.5 4.6.3 5.4-2.1.7-1.9 0-3-1.4-3.7 1-.2 1.8-.9 2-2.4zm-3.6 4.9c-.5 1.9-3.6.9-4.6.6l.8-3.3c1 .3 4.3.8 3.8 2.7zm.5-5c-.4 1.8-3 .8-3.9.6l.7-3c.9.3 3.7.7 3.2 2.4z" fill="#fff" />
+                                                    </svg>
+                                                    {" / "}
+                                                    <svg className="coin c2" width="30" height="30" viewBox="0 0 32 32">
+                                                        <circle cx="16" cy="16" r="16" fill="#2775ca" />
+                                                        <circle cx="16" cy="16" r="10.5" fill="none" stroke="#fff" strokeWidth="1.6" />
+                                                        <path d="M15.1 21.7c-1.9-.3-3.3-1.9-3.3-3.8h1.7c0 1.1.8 2 1.9 2.2v-3.3c-1.9-.4-3.4-1-3.4-2.9 0-1.6 1.3-2.8 3.1-3v-1.1h1.1v1.1c1.8.2 3 1.5 3 3.2h-1.7c0-.9-.6-1.6-1.5-1.8v3c1.9.4 3.5 1 3.5 3 0 1.7-1.3 2.9-3.2 3.1v1.1h-1.1v-1.1zm.1-6.6v-2.8c-.9.2-1.4.7-1.4 1.4 0 .8.6 1.1 1.4 1.4zm1 2v2.9c.9-.2 1.5-.7 1.5-1.5 0-.8-.7-1.1-1.5-1.4z" fill="#fff" />
+                                                    </svg>
+                                                    {" · +2 more"}
+                                                </div>
                                             </div>
                                             <div className="scard acc">
                                                 <div className="cap">🛡️ RESERVE BACKING</div>
@@ -166,6 +215,7 @@ const UiView: React.FC = () => {
                                     </div>
 
                                     <div className="sectitle">Your positions</div>
+                                    {/* Position rows – identical to original but with tooltips */}
                                     <div className="posrow active">
                                         <div className="pl">
                                             <div className="pair">
@@ -188,7 +238,12 @@ const UiView: React.FC = () => {
                                             <div className="pcol"><div className="k">VALUE</div><div className="v">$25,000</div></div>
                                             <div className="pcol"><div className="k">YOUR APY</div><div className="v p">30.0%</div></div>
                                             <div className="pcol"><div className="k">EARNED 7D</div><div className="v t">+$144</div></div>
-                                            <div className="pcol"><div className="k">STATUS</div><div className="v t tip" data-tip="Price is within your active range — earning fees"><span className="dot"></span> In range</div></div>
+                                            <div className="pcol">
+                                                <div className="k">STATUS</div>
+                                                <div className="v t tip" data-tip="Price is within your active range — earning fees">
+                                                    <span className="dot"></span> In range
+                                                </div>
+                                            </div>
                                             <span className="manage">Manage</span>
                                         </div>
                                     </div>
@@ -214,7 +269,12 @@ const UiView: React.FC = () => {
                                             <div className="pcol"><div className="k">VALUE</div><div className="v">$12,400</div></div>
                                             <div className="pcol"><div className="k">YOUR APY</div><div className="v p">25.5%</div></div>
                                             <div className="pcol"><div className="k">EARNED 7D</div><div className="v t">+$61</div></div>
-                                            <div className="pcol"><div className="k">STATUS</div><div className="v t tip" data-tip="Price is within your active range — earning fees"><span className="dot"></span> In range</div></div>
+                                            <div className="pcol">
+                                                <div className="k">STATUS</div>
+                                                <div className="v t tip" data-tip="Price is within your active range — earning fees">
+                                                    <span className="dot"></span> In range
+                                                </div>
+                                            </div>
                                             <span className="manage">Manage</span>
                                         </div>
                                     </div>
@@ -241,9 +301,13 @@ const UiView: React.FC = () => {
                                             <div className="pcol"><div className="k">VALUE</div><div className="v">$8,200</div></div>
                                             <div className="pcol"><div className="k">YOUR APY</div><div className="v p">28.4%</div></div>
                                             <div className="pcol"><div className="k">EARNED 7D</div><div className="v t">+$44</div></div>
-                                            <div className="pcol"><div className="k">STATUS</div><div className="v tip" data-tip="Auto-recentering liquidity around current price" style={{ color: "var(--purple-soft)" }}>
-                                                <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "var(--purple-soft)", display: "inline-block", marginRight: "4px" }}></span>Rebalancing
-                                            </div></div>
+                                            <div className="pcol">
+                                                <div className="k">STATUS</div>
+                                                <div className="v tip" data-tip="Auto-recentering liquidity around current price" style={{ color: "var(--purple-soft)" }}>
+                                                    <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "var(--purple-soft)", display: "inline-block", marginRight: "4px" }}></span>
+                                                    Rebalancing
+                                                </div>
+                                            </div>
                                             <span className="manage">Manage</span>
                                         </div>
                                     </div>
@@ -254,33 +318,52 @@ const UiView: React.FC = () => {
                                         <div className="pcard acc"><div className="pcap">🛡️ RESERVE VAULT</div><div className="pval">$1.84M</div><div className="pdelta">Yield above 30% cap</div></div>
                                         <div className="pcard"><div className="pcap">YOUR SHARE OF TVL</div><div className="pval">0.19%</div><div className="pdelta">$45.8K of $24.6M</div></div>
                                     </div>
-                                </div>
-                                <div className="sharecard">
-                                    <span className="sht">Your share of the BTC / USDC pool</span>
-                                    <div className="sharebar"><div className="sharefill" style={{ width: "2.4%" }}></div></div>
-                                    <span className="shline"><b>2.4%</b> · $25,000 of $1.02M</span>
-                                </div>
 
-                                <div className="ui-marketing-hero">
-                                    <div className="ui-marketing-hero-inner">
-                                        <div className="ui-marketing-left">
-                                            <h2>Liquidity that<br />works the market.</h2>
-                                            <p>
-                                                From blue-chip crypto like BTC, ETH and AVAX to tokenized equities such as NVIDIA,
-                                                Tesla and SpaceX, your capital actively makes markets and captures on-chain swap
-                                                fees — <span className="highlight">with yield capped at 30% and an IL Shield protecting every position.</span>
-                                            </p>
+                                    <div className="sharecard">
+                                        <span className="sht">Your share of the BTC / USDC pool</span>
+                                        <div className="sharebar"><div className="sharefill" style={{ width: "2.4%" }}></div></div>
+                                        <span className="shline"><b>2.4%</b> · $25,000 of $1.02M</span>
+                                    </div>
+
+                                    {/* Marketing Hero Section */}
+                                    <div className="ui-marketing-hero">
+                                        <div className="ui-marketing-hero-inner">
+                                            <div className="ui-marketing-left">
+                                                <h2>Liquidity that<br />works the market.</h2>
+                                                <p>
+                                                    From blue-chip crypto like BTC, ETH and AVAX to tokenized equities such as NVIDIA,
+                                                    Tesla and SpaceX, your capital actively makes markets and captures on-chain swap
+                                                    fees — <span className="highlight">with yield capped at 30% and an IL Shield protecting every position.</span>
+                                                </p>
+                                            </div>
+                                            <div className="ui-marketing-right">
+                                                <button className="ui-launch-btn" onClick={() => setIsModalOpen(true)}>
+                                                    <Rocket className="launch-icon" />
+                                                    Launch app
+                                                    <span className="arrow">→</span>
+                                                </button>
+                                                <div className="ui-note">NON-CUSTODIAL · AUDITED<br />LIVE ON AVALANCHE C-CHAIN</div>
+                                            </div>
                                         </div>
-                                        <div className="ui-marketing-right">
-                                            <button
-                                                className="ui-launch-btn"
-                                                onClick={() => setIsModalOpen(true)}
-                                            >
-                                                <Rocket className="launch-icon" />
-                                                Launch app
-                                                <span className="arrow">→</span>
-                                            </button>
-                                            <div className="ui-note">NON-CUSTODIAL · AUDITED<br />LIVE ON AVALANCHE C-CHAIN</div>
+                                    </div>
+
+                                    {/* New Stats Grid – added from HTML */}
+                                    <div className="stats">
+                                        <div className="sc">
+                                            <div className="snum">24/7</div>
+                                            <div className="sd">Automated rebalancing engine, always on-chain</div>
+                                        </div>
+                                        <div className="sc">
+                                            <div className="snum">3<span className="su">×</span></div>
+                                            <div className="sd">Protection layers against impermanent loss (IL)</div>
+                                        </div>
+                                        <div className="sc">
+                                            <div className="snum">Permission<span className="su">less</span></div>
+                                            <div className="sd">Withdraw on your terms — no approvals, 7-day unlock</div>
+                                        </div>
+                                        <div className="sc">
+                                            <div className="snum">Up to 30<span className="su">%</span></div>
+                                            <div className="sd">Target APY, variable with market conditions</div>
                                         </div>
                                     </div>
                                 </div>
