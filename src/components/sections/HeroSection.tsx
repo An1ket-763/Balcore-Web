@@ -515,30 +515,8 @@ const HeroSection = () => {
           box-shadow: 0 0 8px rgba(159,95,255,.7);
         }
 
-        /* ── Stats bar ─────────────────────────────── */
-        .stats {
-          position: fixed; bottom: 0; left: 0; right: 0;
-          z-index: 200; display: flex;
-          background: rgba(8,8,15,.92);
-          backdrop-filter: blur(12px);
-          border-top: .5px solid rgba(124,58,237,.18);
-        }
-        .stat {
-          flex: 1; padding: 16px 44px;
-          border-right: .5px solid rgba(124,58,237,.12);
-        }
-        .stat:last-child { border-right: none; }
-        .sv {
-          display: block;
-          font-family: 'Barlow Condensed', sans-serif;
-          font-weight: 700; font-size: 24px;
-          color: #fff; letter-spacing: -.01em;
-        }
-        .sl {
-          display: block; font-size: 10.5px;
-          color: var(--muted); letter-spacing: .06em;
-          text-transform: uppercase; margin-top: 1px;
-        }
+        /* ── Stats bar (removed; JSX no longer used) ── */
+
 
         /* ── Hex seam SVG overlay ──────────────────── */
         .hex-seam-svg {
