@@ -295,7 +295,7 @@
 .ui-view-wrapper .tip::after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%) translateY(4px);background:#16121f;color:#cfcfca;border:.5px solid rgba(212,181,114,.35);font-family:'Inter',sans-serif;font-size:11px;font-weight:400;letter-spacing:.2px;padding:6px 10px;border-radius:7px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:20;text-transform:none}
 .ui-view-wrapper .tip:hover::after{opacity:1;transform:translateX(-50%) translateY(0)}
 /* ---- count-up + entrance ---- */
-@keyframes riseIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}.ui-view-wrapper }
+@keyframes riseIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .hero, .ui-view-wrapper .posrow, .ui-view-wrapper .protogrid, .ui-view-wrapper .sharecard{animation:riseIn .5s cubic-bezier(.2,.7,.2,1) both}
 .ui-view-wrapper .posrow:nth-of-type(2){animation-delay:.06s}
 .ui-view-wrapper .posrow:nth-of-type(3){animation-delay:.12s}
@@ -352,13 +352,13 @@
 
 /* responsive refinement for the new hero composition */
 @media (max-width:920px){
-  .lhero{flex-direction:column;align-items:flex-start;gap:28px;margin-top:60px}
+  .ui-view-wrapper .lhero{flex-direction:column;align-items:flex-start;gap:28px;margin-top:60px}
   .ui-view-wrapper .ctawrap{align-items:flex-start}
   .ui-view-wrapper .ctawrap .note{text-align:left}
   .ui-view-wrapper .stats{grid-template-columns:repeat(2,1fr)}
   .ui-view-wrapper .snum{font-size:30px}
-.ui-view-wrapper }
+}
 @media (max-width:560px){
-  .stats{grid-template-columns:1fr}
+  .ui-view-wrapper .stats{grid-template-columns:1fr}
 }
 
