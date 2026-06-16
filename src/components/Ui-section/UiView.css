@@ -192,14 +192,14 @@
 @keyframes shimmer{0%{transform:translateX(-100%)}60%,100%{transform:translateX(220%)}}
 
 /* respect reduced motion */
-@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}.ui-view-wrapper }
+@media (prefers-reduced-motion: reduce){.ui-view-wrapper *{animation:none!important;transition:none!important}}
 
 /* responsive: graceful stacking on narrow screens */
 @media (max-width:920px){
-  .stats{grid-template-columns:repeat(2,1fr)}
+  .ui-view-wrapper .stats{grid-template-columns:repeat(2,1fr)}
   .ui-view-wrapper .lhero{flex-direction:column;align-items:flex-start;gap:22px}
   .ui-view-wrapper .lhero h2{font-size:38px}
-.ui-view-wrapper }
+}
 
 /* ============ INSTITUTIONAL / WALL-STREET GRADE LAYER ============ */
 :root{
