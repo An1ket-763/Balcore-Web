@@ -60,6 +60,7 @@ const UiView: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDepositOpen, setIsDepositOpen] = useState(false);
   const [isWithdrawOpen, setIsWithdrawOpen] = useState(false);
+  const [isSideOpen, setIsSideOpen] = useState(false);
   const [timeframe, setTimeframe] = useState<keyof typeof chartSeries>("1M");
   const [portfolioValue, setPortfolioValue] = useState(0);
   const targetPortfolioValue = 45759;
@@ -105,6 +106,13 @@ const UiView: React.FC = () => {
             <div className="appclip">
               <div className="shell">
                 <div className="top">
+                  <button
+                    className="hamburger"
+                    aria-label="Toggle sidebar"
+                    onClick={() => setIsSideOpen((v) => !v)}
+                  >
+                    <span></span><span></span><span></span>
+                  </button>
                   <div className="brand">
                     <img alt="Balcore" src={brandLogo} />
                     <span>BALCORE</span>
@@ -121,7 +129,8 @@ const UiView: React.FC = () => {
                   </div>
                 </div>
                 <div className="main">
-                  <div className="side">
+                  {isSideOpen && <div className="side-overlay" onClick={() => setIsSideOpen(false)} />}
+                  <div className={`side ${isSideOpen ? "open" : ""}`} onClick={() => setIsSideOpen(false)}>
                     <div className="nav on"><span className="ic">☷</span>Dashboard</div>
                     <div className="nav"><span className="ic">⏣</span>Activity</div>
                     <div className="sec">EXPLORE</div>
