@@ -634,13 +634,8 @@ const HeroSection = () => {
           .hex-seam-svg { display: none; }
           .scene-dots { display: none; }
           .edge-b { height: 70px; }
-          .stats { position: relative; flex-wrap: wrap; }
-          .stat { flex: 1 1 50%; padding: 14px 18px; }
-          .stat:nth-child(2n) { border-right: none; }
-          .stat:nth-child(n+3) { border-top: .5px solid rgba(124,58,237,.12); }
-          .sv { font-size: 21px; }
-          .sl { font-size: 9.5px; }
         }
+
         @media (max-width: 380px) {
           .hero-left { padding: 78px 16px 22px 35px; }
           .headline { font-size: 32px; }
