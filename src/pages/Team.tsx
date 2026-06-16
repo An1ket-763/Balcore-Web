@@ -2,7 +2,7 @@ import NavBar from "@/components/sections/NavBar";
 import { useEffect } from "react";
 
 const jonyImg = "https://cdn.balcore.ai/Team/Jony%20pfp%20(1).avif";
-// const amitImg = "https://cdn.balcore.ai/Team/Amit%20PFP%20(1).jpg";
+const austinImg = "https://cdn.balcore.ai/Team/WhatsApp%20Image%202026-06-16%20at%2013.02.52.jpeg";
 const alpImg = "https://cdn.balcore.ai/Team/Alp%20pfp%20(1).jpg";
 const ranaImg = "https://cdn.balcore.ai/Team/fe5b6243-63c0-464d-9018-848cbbc66be7.png";
 
@@ -312,14 +312,14 @@ const Team = () => {
                     </div>
                     <div className="roster-tag">F-001</div>
                   </a>
-                  {/* <a onClick={() => scrollTo("engineering")} className="roster-row">
-                    <div className="roster-avatar"><img src={amitImg} alt="Amit Surve" /></div>
+                  <a onClick={() => scrollTo("engineering")} className="roster-row">
+                    <div className="roster-avatar"><img src={austinImg} alt="Austin Reed" /></div>
                     <div className="roster-info">
-                      <div className="roster-name">Amit Surve</div>
+                      <div className="roster-name">Austin Reed</div>
                       <div className="roster-role">Founding Team · Chief Technology Officer</div>
                     </div>
                     <div className="roster-tag">F-002</div>
-                  </a> */}
+                  </a>
                   <a onClick={() => scrollTo("research")} className="roster-row">
                     <div className="roster-avatar"><img src={alpImg} alt="Alp" /></div>
                     <div className="roster-info">
@@ -408,26 +408,26 @@ const Team = () => {
           </div>
         </div>
 
-        {/* AMIT
+        {/* AUSTIN */}
         <section className="section" id="engineering">
           <div className="section-inner">
             <div className="two-col reverse">
               <div className="reveal">
                 <div className="sec-label">Engineering / CTO</div>
-                <h2 className="sec-title">Amit Surve</h2>
+                <h2 className="sec-title">Austin Reed</h2>
                 <div className="sec-role">Founding Team Member <span className="sep">/</span> Chief Technology Officer</div>
                 <div className="sec-body">
-                  <p>Amit Surve is a backend engineer and protocol architect with <strong>5+ years</strong> of experience across software engineering, Blockchain, DeFi, and AI systems. His expertise spans scalable backend architecture, cloud infrastructure, real-time systems, microservices, automation pipelines, and production-grade platform development.</p>
-                  <p>Within Web3 and DeFi, Amit has deep experience in <em>smart contract development</em>, <em>protocol architecture</em>, <em>DEX infrastructure</em>, <em>on-chain analytics</em>, <em>event indexing</em>, and AI-assisted trading automation. He also brings hands-on experience within the <strong>Avalanche ecosystem</strong> and decentralized trading infrastructure.</p>
-                  <p>As a founding team member and CTO of Balcore, Amit leads the protocol's engineering architecture, smart contract systems, and infrastructure development. His expertise plays a key role in building Balcore's <strong>next-generation liquidity orchestration engine</strong>  focused on scalable execution, automated market operations, and intelligent on-chain liquidity management.</p>
+                  <p>Austin Reed is a backend engineer and protocol architect with <strong>5+ years</strong> of experience across software engineering, Blockchain, DeFi, and AI systems. His expertise spans scalable backend architecture, cloud infrastructure, real-time systems, microservices, automation pipelines, and production-grade platform development.</p>
+                  <p>Within Web3 and DeFi, Austin has deep experience in <em>smart contract development</em>, <em>protocol architecture</em>, <em>DEX infrastructure</em>, <em>on-chain analytics</em>, <em>event indexing</em>, and AI-assisted trading automation. He also brings hands-on experience within the <strong>Avalanche ecosystem</strong> and decentralized trading infrastructure.</p>
+                  <p>As a founding team member and CTO of Balcore, Austin leads the protocol's engineering architecture, smart contract systems, and infrastructure development. His expertise plays a key role in building Balcore's <strong>next-generation liquidity orchestration engine</strong>  focused on scalable execution, automated market operations, and intelligent on-chain liquidity management.</p>
                 </div>
               </div>
               <div className="reveal reveal-delay-1">
                 <div className="visual-box" style={{ maxWidth: 440 }}>
-                  <div className="portrait-frame"><img src={amitImg} alt="Amit Surve" /></div>
+                  <div className="portrait-frame"><img src={austinImg} alt="Austin Reed" /></div>
                   <div className="portrait-meta">
                     <div className="portrait-name-wrap">
-                      <div className="portrait-name">Amit Surve</div>
+                      <div className="portrait-name">Austin Reed</div>
                       <div className="portrait-role-mini">Chief Technology Officer</div>
                     </div>
                     <div className="portrait-id">F-002</div>
@@ -443,7 +443,6 @@ const Team = () => {
             </div>
           </div>
         </section>
-        */}
 
         {/* ALP */}
         <section className="section" id="research">

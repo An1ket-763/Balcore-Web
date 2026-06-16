@@ -1,61 +1,38 @@
 import { useEffect, useRef } from "react";
+import "../TIY-section/tiy.css";
+import BgLayer from "../TIY-section/BgLayer";
+import TiyHero from "../TIY-section/TiyHero";
+import InputsCard from "../TIY-section/InputsCard";
+import ResultsCard from "../TIY-section/ResultsCard";
+import ExcessCard from "../TIY-section/ExcessCard";
+import UnderTheHoodCard from "../TIY-section/UnderTheHoodCard";
+import Disclaimer from "../TIY-section/Disclaimer";
+import CtaRow from "../TIY-section/CtaRow";
+import { initTiy } from "../TIY-section/useTiyLogic";
 
 const TryItYourselfSection = () => {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const iframe = iframeRef.current;
-    if (!iframe) return;
-
-    const resize = () => {
-      try {
-        const doc = iframe.contentDocument;
-        if (!doc) return;
-        const h = Math.max(
-          doc.body.scrollHeight,
-          doc.documentElement.scrollHeight,
-        );
-        iframe.style.height = h + "px";
-      } catch (e) {
-        // ignore
-      }
-    };
-
-    const onLoad = () => {
-      resize();
-      try {
-        const doc = iframe.contentDocument;
-        if (!doc) return;
-        const ro = new ResizeObserver(resize);
-        ro.observe(doc.body);
-      } catch (e) {
-        // ignore
-      }
-      // safety re-checks
-      [200, 600, 1500, 3000].forEach((t) => setTimeout(resize, t));
-    };
-
-    iframe.addEventListener("load", onLoad);
-    window.addEventListener("resize", resize);
-    return () => {
-      iframe.removeEventListener("load", onLoad);
-      window.removeEventListener("resize", resize);
-    };
+    if (!rootRef.current) return;
+    const cleanup = initTiy(rootRef.current);
+    return cleanup;
   }, []);
 
   return (
-    <section
-      id="try-it-yourself"
-      className="relative border-b border-purple-500/10"
-    >
-      <iframe
-        ref={iframeRef}
-        src="/try-it-yourself.html"
-        title="Try It Yourself - Balcore Interactive Demo"
-        className="w-full block"
-        style={{ border: 0, background: "transparent", minHeight: "100vh" }}
-        scrolling="no"
-      />
+    <section id="try-it-yourself" className="tiy-root" ref={rootRef}>
+      <BgLayer />
+      <div className="wrap">
+        <TiyHero />
+        <div className="calc">
+          <InputsCard />
+          <ResultsCard />
+        </div>
+        <ExcessCard />
+        <UnderTheHoodCard />
+        <Disclaimer />
+        <CtaRow />
+      </div>
     </section>
   );
 };

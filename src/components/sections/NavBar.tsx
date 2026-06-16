@@ -2,7 +2,8 @@ import { motion, rgba, useScroll, useTransform } from "framer-motion";
 import { ExternalLink, Menu, X, Rocket } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import balcoreLogo from "@/assets/images/BalcoreLogo.png";
+import balcoreMark from "@/assets/images/Blogo.png";
+import balcoreText from "@/assets/images/BalcoreTextLogo.png";
 import {
   Dialog,
   DialogContent,
@@ -10,6 +11,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import CsModal from "@/components/ui/CsModal";
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -117,16 +119,25 @@ const NavBar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 mobile-layout-shell py-3.5 sm:py-4 flex justify-between items-center gap-3">
           <motion.a
             onClick={() => handleNavClick("top", "/")}
-            className="flex items-center gap-3 cursor-pointer"
+            className="flex items-center gap-2 cursor-pointer"
             whileHover={{ scale: 1.02 }}
             role="button"
           >
+            {/* Logo Mark */}
+            {/* Logo Mark */}
             <motion.img
-              src={balcoreLogo}
-              alt="Balcore logo"
-              className="h-9 sm:h-10 object-contain"
+              src={balcoreMark}
+              alt="Balcore Logo"
+              className="h-11 sm:h-13 w-auto object-contain"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
+            />
+
+            {/* Logo Text */}
+            <motion.img
+              src={balcoreText}
+              alt="Balcore"
+              className="h-8 sm:h-9 w-auto object-contain"
             />
           </motion.a>
 
@@ -146,9 +157,8 @@ const NavBar = () => {
             ))}
             <motion.button
               onClick={() => navigate("/docs")}
-              className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${
-                isDocsPage ? "text-primary" : ""
-              }`}
+              className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${isDocsPage ? "text-primary" : ""
+                }`}
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}
             >
@@ -157,9 +167,8 @@ const NavBar = () => {
             </motion.button>
             <motion.button
               onClick={() => navigate("/join-us")}
-              className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${
-                location.pathname === "/join-us" ? "text-primary" : ""
-              }`}
+              className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${location.pathname === "/join-us" ? "text-primary" : ""
+                }`}
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}
             >
@@ -243,11 +252,10 @@ const NavBar = () => {
                 setIsMobileMenuOpen(false);
                 navigate("/docs");
               }}
-              className={`block transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full ${
-                isDocsPage
-                  ? "text-primary"
-                  : "text-white/80 hover:text-white/85"
-              }`}
+              className={`block transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full ${isDocsPage
+                ? "text-primary"
+                : "text-white/80 hover:text-white/85"
+                }`}
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: navItems.length * 0.1 }}
@@ -259,11 +267,10 @@ const NavBar = () => {
                 setIsMobileMenuOpen(false);
                 navigate("/join-us");
               }}
-              className={`block transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full ${
-                location.pathname === "/join-us"
-                  ? "text-primary"
-                  : "text-white/80 hover:text-white/85"
-              }`}
+              className={`block transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full ${location.pathname === "/join-us"
+                ? "text-primary"
+                : "text-white/80 hover:text-white/85"
+                }`}
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: (navItems.length + 2) * 0.1 }}
@@ -310,66 +317,10 @@ const NavBar = () => {
       </motion.header>
 
       {/* Coming Soon Modal */}
-      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="bg-background/95 backdrop-blur-xl border-border sm:max-w-md">
-          <DialogHeader className="text-center sm:text-center">
-            <motion.div
-              className="mx-auto mb-4 w-16 h-16 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center"
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            >
-              <motion.div
-                animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                <Rocket className="w-8 h-8 text-color" />
-              </motion.div>
-            </motion.div>
-            <DialogTitle className="text-2xl font-bold">
-              <span className="gradient-text">Coming Soon</span>
-            </DialogTitle>
-            <DialogDescription className="text-white/80 mt-2">
-              We're working hard to bring you the next generation of DeFi
-              liquidity infrastructure. Stay tuned!
-            </DialogDescription>
-          </DialogHeader>
-
-          <motion.div
-            className="mt-6 flex flex-col gap-3"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            <motion.a
-              href="https://x.com/Balcore_ai"
-              target="_blank"
-              rel="noreferrer"
-              className="btn-primary w-full justify-center flex items-center gap-2"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <svg
-                className="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-              Follow for Updates
-            </motion.a>
-            <motion.button
-              onClick={() => setIsModalOpen(false)}
-              className="w-full py-2.5 px-4 rounded-lg border border-border text-white/80 hover:text-white hover:border-primary/50 transition-all duration-300"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Close
-            </motion.button>
-          </motion.div>
-        </DialogContent>
-      </Dialog>
+      <CsModal
+        open={isModalOpen}
+        onOpenChange={setIsModalOpen}
+      />
 
       {/* Spacer for fixed navbar */}
       <div className="h-0" />

@@ -1,7 +1,8 @@
 // src/components/TechnologySection.tsx
-
-import React from "react";
+import CsModal from "@/components/ui/CsModal";
+import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
 
 const signals = [
   {
@@ -37,6 +38,9 @@ const signals = [
 ];
 
 const TechnologySection = () => {
+  const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section
       id="technology"
@@ -86,7 +90,10 @@ const TechnologySection = () => {
             </p>
           </div>
 
-          <button className="group mt-8 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-purple-400 transition-all hover:gap-5 md:mt-10">
+          <button
+            onClick={() => navigate("/join-us")}
+            className="flex items-center border-[0.5px] border-white/10 gap-2 rounded-md px-8 py-3 text-[14px] font-medium text-white transition-all hover:border hover:border-white/30"
+          >
             Join the research team
             <ArrowRight
               size={15}
@@ -155,20 +162,30 @@ const TechnologySection = () => {
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4 md:mt-10">
-          <button className="flex items-center gap-2 rounded-md bg-[#7c3aed] px-8 py-3 text-[14px] font-medium text-white transition-all hover:bg-[#9f5fff]">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="flex items-center gap-2 rounded-md bg-[#7c3aed] px-8 py-3 text-[14px] font-medium text-white transition-all hover:bg-[#9f5fff]"
+          >
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
               <path d="M8 5v14l11-7z" />
             </svg>
             Get Started
           </button>
 
-          <button className="flex items-center border-[0.5px] border-white/10 gap-2 rounded-md px-8 py-3 text-[14px] font-medium text-white transition-all hover:border hover:border-white/30">
+          <button
+            onClick={() => navigate("/docs")}
+            className="flex items-center border-[0.5px] border-white/10 gap-2 rounded-md px-8 py-3 text-[14px] font-medium text-white transition-all hover:border hover:border-white/30"
+          >
             Read the Docs
             <svg width="13" height="13" viewBox="0 0 24 24" fill="white">
               <path d="M8 5v14l11-7z" />
             </svg>
           </button>
         </div>
+        <CsModal
+          open={isModalOpen}
+          onOpenChange={setIsModalOpen}
+        />
       </div>
     </section>
   );

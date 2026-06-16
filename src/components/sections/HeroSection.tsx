@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 // etc.
 
+import CsModal from "@/components/ui/CsModal";
+
 /* ─── Types ─────────────────────────────────────────────────────────────── */
 interface SceneDot {
   index: number;
@@ -56,6 +58,8 @@ const HeroSection = () => {
     // "https://cdn.balcore.ai/Web%20Heros%20video%20optimized/video%2025.mp4"
   ];
   const TOTAL_DOTS = videos?.length || 0; // adjust to match your video count
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const canvas = bgCanvasRef.current;
@@ -410,6 +414,7 @@ const HeroSection = () => {
           font-size: clamp(38px, 5vw, 68px);
           line-height: .93; letter-spacing: -.015em;
           text-transform: uppercase; color: #fff;
+          text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
         }
         .headline-ipad { display: none; }
         .headline em { font-style: normal; color: var(--p3); }
@@ -510,30 +515,8 @@ const HeroSection = () => {
           box-shadow: 0 0 8px rgba(159,95,255,.7);
         }
 
-        /* ── Stats bar ─────────────────────────────── */
-        .stats {
-          position: fixed; bottom: 0; left: 0; right: 0;
-          z-index: 200; display: flex;
-          background: rgba(8,8,15,.92);
-          backdrop-filter: blur(12px);
-          border-top: .5px solid rgba(124,58,237,.18);
-        }
-        .stat {
-          flex: 1; padding: 16px 44px;
-          border-right: .5px solid rgba(124,58,237,.12);
-        }
-        .stat:last-child { border-right: none; }
-        .sv {
-          display: block;
-          font-family: 'Barlow Condensed', sans-serif;
-          font-weight: 700; font-size: 24px;
-          color: #fff; letter-spacing: -.01em;
-        }
-        .sl {
-          display: block; font-size: 10.5px;
-          color: var(--muted); letter-spacing: .06em;
-          text-transform: uppercase; margin-top: 1px;
-        }
+        /* ── Stats bar (removed; JSX no longer used) ── */
+
 
         /* ── Hex seam SVG overlay ──────────────────── */
         .hex-seam-svg {
@@ -608,7 +591,7 @@ const HeroSection = () => {
             transform: none;
             width: 100%;
             max-width: none;
-            padding: 82px 20px 40px;
+            padding: 82px 20px 40px 45px;
             position: relative;
             z-index: 20;
             min-height: 0;
@@ -629,34 +612,36 @@ const HeroSection = () => {
             overflow: hidden;
           }
           .hero-right .grade {
-            background: linear-gradient(180deg,
-              rgba(8,8,15,.78) 0%,
-              rgba(8,8,15,.5) 45%,
-              rgba(8,8,15,.88) 100%);
+            background: 
+            linear-gradient(90deg,
+            rgba(0, 0, 0, 0.85) 0%,
+            rgba(0, 0, 0, 0.75) 30%,
+            rgba(0, 0, 0, 0.55) 34%,
+            rgba(0, 0, 0, 0.30) 54%,
+            rgba(0, 0, 0, 0.10) 90%,
+            transparent 100%),
+           linear-gradient(180deg,
+           rgba(8,8,15,.78) 0%,
+           rgba(8,8,15,.5) 45%,
+           rgba(8,8,15,.88) 100%);
           }
           .badge { font-size: 11px; padding: 6px 14px; }
           .headline { font-size: 36px; margin-top: 18px; line-height: .96; }
           .hero-lower { gap: 16px; margin-top: 28px; }
-          .sub { font-size: 14px; max-width: none; line-height: 1.65; }
+          .sub { font-size: 14px; max-width: none; line-height: 1.65; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); }
           .btns { gap: 10px; flex-wrap: wrap; }
           .btn-p, .btn-o { font-size: 13.5px; padding: 12px 22px; }
           .hex-seam-svg { display: none; }
           .scene-dots { display: none; }
           .edge-b { height: 70px; }
-          .stats { position: relative; flex-wrap: wrap; }
-          .stat { flex: 1 1 50%; padding: 14px 18px; }
-          .stat:nth-child(2n) { border-right: none; }
-          .stat:nth-child(n+3) { border-top: .5px solid rgba(124,58,237,.12); }
-          .sv { font-size: 21px; }
-          .sl { font-size: 9.5px; }
         }
+
         @media (max-width: 380px) {
-          .hero-left { padding: 78px 16px 22px; }
+          .hero-left { padding: 78px 16px 22px 35px; }
           .headline { font-size: 32px; }
           .btn-p, .btn-o { padding: 11px 18px; font-size: 13px; }
-          .stat { padding: 12px 14px; }
-          .sv { font-size: 19px; }
         }
+
       `}</style>
 
       <div className="hero-root">
@@ -706,7 +691,10 @@ const HeroSection = () => {
                 finance.
               </p>
               <div className="btns">
-                <button className="btn-p">
+                <button
+                  className="btn-p"
+                  onClick={() => setIsModalOpen(true)}
+                >
                   <svg
                     width="12"
                     height="12"
@@ -762,6 +750,10 @@ const HeroSection = () => {
             aria-hidden="true"
           /> */}
         </section>
+        <CsModal
+          open={isModalOpen}
+          onOpenChange={setIsModalOpen}
+        />
 
         {/* ── Stats bar (removed) ── */}
         {/* <div className="stats">
