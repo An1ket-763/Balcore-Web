@@ -362,3 +362,43 @@
   .ui-view-wrapper .stats{grid-template-columns:1fr}
 }
 
+/* ============ HAMBURGER + MOBILE LAYOUT ============ */
+.ui-view-wrapper .hamburger{display:none;flex-direction:column;justify-content:center;gap:4px;width:32px;height:32px;padding:6px;background:rgba(255,255,255,.04);border:.5px solid rgba(255,255,255,.1);border-radius:8px;cursor:pointer;flex-shrink:0}
+.ui-view-wrapper .hamburger span{display:block;height:2px;width:100%;background:var(--ink,#f4f4f2);border-radius:2px}
+.ui-view-wrapper .side-overlay{display:none}
+
+@media (max-width:760px){
+  .ui-view-wrapper .page{padding:24px 14px 60px}
+  .ui-view-wrapper .hamburger{display:flex}
+  .ui-view-wrapper .top{padding:14px 16px;gap:12px}
+  .ui-view-wrapper .search{display:none}
+  .ui-view-wrapper .topright{gap:6px}
+  .ui-view-wrapper .topright .pill:not(.ghost){display:none}
+  .ui-view-wrapper .brand{width:auto}
+  .ui-view-wrapper .brand span{font-size:14px;letter-spacing:1.5px}
+  .ui-view-wrapper .main{padding:16px;gap:0;position:relative}
+
+  .ui-view-wrapper .side{position:fixed;top:0;left:0;bottom:0;width:240px;z-index:1000;background:#0a0a10;border-right:.5px solid rgba(255,255,255,.08);padding:24px 16px;transform:translateX(-100%);transition:transform .25s ease;overflow-y:auto}
+  .ui-view-wrapper .side.open{transform:translateX(0)}
+  .ui-view-wrapper .side-overlay{display:block;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:999}
+
+  .ui-view-wrapper .h1{font-size:22px}
+  .ui-view-wrapper .hero{flex-direction:column}
+  .ui-view-wrapper .heroL,.ui-view-wrapper .heroR{flex:1 1 auto;width:100%}
+  .ui-view-wrapper .heroL .row2{flex-wrap:wrap;gap:16px}
+  .ui-view-wrapper .heroL .big{font-size:24px}
+
+  .ui-view-wrapper .posrow{flex-direction:column;align-items:flex-start;gap:14px;padding:14px}
+  .ui-view-wrapper .pcols{flex-wrap:wrap;gap:18px;width:100%;justify-content:space-between}
+  .ui-view-wrapper .pcol{text-align:left}
+  .ui-view-wrapper .manage{align-self:flex-end}
+
+  .ui-view-wrapper .protogrid{grid-template-columns:1fr;gap:12px}
+
+  .ui-view-wrapper .sharecard{flex-direction:column;align-items:flex-start;gap:10px}
+  .ui-view-wrapper .sharebar{width:100%}
+
+  .ui-view-wrapper .stats{grid-template-columns:1fr;gap:12px}
+}
+
+
