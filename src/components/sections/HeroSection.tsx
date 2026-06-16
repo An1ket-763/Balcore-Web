@@ -640,9 +640,8 @@ const HeroSection = () => {
           .hero-left { padding: 78px 16px 22px 35px; }
           .headline { font-size: 32px; }
           .btn-p, .btn-o { padding: 11px 18px; font-size: 13px; }
-          .stat { padding: 12px 14px; }
-          .sv { font-size: 19px; }
         }
+
       `}</style>
 
       <div className="hero-root">
