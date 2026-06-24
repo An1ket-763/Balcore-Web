@@ -1,10 +1,13 @@
 import NavBar from "@/components/sections/NavBar";
 import { useEffect } from "react";
+import jasonAsset from "@/assets/Jason_pfp.png.asset.json";
 
 const jonyImg = "https://cdn.balcore.ai/Team/Jony%20pfp%20(1).avif";
 const austinImg = "https://cdn.balcore.ai/Team/WhatsApp%20Image%202026-06-16%20at%2013.02.52.jpeg";
 const alpImg = "https://cdn.balcore.ai/Team/Alp%20pfp%20(1).jpg";
 const ranaImg = "https://cdn.balcore.ai/Team/fe5b6243-63c0-464d-9018-848cbbc66be7.png";
+const jasonImg = jasonAsset.url;
+
 
 const styles = `
   .team-root { --bg:#08080f; --bg2:#0d0c1a; --purple:#7c3aed; --p3:#9f5fff;
