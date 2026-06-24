@@ -6,7 +6,7 @@ const jonyImg = "https://cdn.balcore.ai/Team/Jony%20pfp%20(1).avif";
 const austinImg = "https://cdn.balcore.ai/Team/WhatsApp%20Image%202026-06-16%20at%2013.02.52.jpeg";
 const alpImg = "https://cdn.balcore.ai/Team/Alp%20pfp%20(1).jpg";
 const ranaImg = "https://cdn.balcore.ai/Team/fe5b6243-63c0-464d-9018-848cbbc66be7.png";
-const jasonImg = jasonAsset.url;
+const jasonImg = "https://cdn.balcore.ai/Team/Jason_pfp.png";
 
 
 const styles = `
