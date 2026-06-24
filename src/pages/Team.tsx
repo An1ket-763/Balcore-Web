@@ -1,10 +1,13 @@
 import NavBar from "@/components/sections/NavBar";
 import { useEffect } from "react";
+import jasonAsset from "@/assets/Jason_pfp.png.asset.json";
 
 const jonyImg = "https://cdn.balcore.ai/Team/Jony%20pfp%20(1).avif";
 const austinImg = "https://cdn.balcore.ai/Team/WhatsApp%20Image%202026-06-16%20at%2013.02.52.jpeg";
 const alpImg = "https://cdn.balcore.ai/Team/Alp%20pfp%20(1).jpg";
 const ranaImg = "https://cdn.balcore.ai/Team/fe5b6243-63c0-464d-9018-848cbbc66be7.png";
+const jasonImg = jasonAsset.url;
+
 
 const styles = `
   .team-root { --bg:#08080f; --bg2:#0d0c1a; --purple:#7c3aed; --p3:#9f5fff;
@@ -336,11 +339,20 @@ const Team = () => {
                     </div>
                     <div className="roster-tag">F-004</div>
                   </a>
+                  <a onClick={() => scrollTo("ecosystem")} className="roster-row">
+                    <div className="roster-avatar"><img src={jasonImg} alt="Jason Desimone" /></div>
+                    <div className="roster-info">
+                      <div className="roster-name">Jason Desimone</div>
+                      <div className="roster-role">Strategic Advisor · Ecosystem &amp; Growth</div>
+                    </div>
+                    <div className="roster-tag">F-005</div>
+                  </a>
                 </div>
                 <div className="roster-footer">
-                  <span>4 Core Members · 1 Protocol</span>
+                  <span>5 Core Members · 1 Protocol</span>
                   <span className="live">Shipping</span>
                 </div>
+
               </div>
             </div>
           </div>
@@ -518,7 +530,45 @@ const Team = () => {
           </div>
         </section>
 
+        {/* JASON */}
+        <section className="section" id="ecosystem">
+          <div className="section-inner">
+            <div className="two-col">
+              <div className="reveal">
+                <div className="sec-label">Strategic Advisor / Ecosystem &amp; Growth</div>
+                <h2 className="sec-title">Jason Desimone</h2>
+                <div className="sec-role">Strategic Advisor <span className="sep">/</span> Ecosystem &amp; Growth, Balcore</div>
+                <div className="sec-body">
+                  <p>Jason Desimone is a <strong>first-of-its-kind founder</strong> with a rare track record: taking projects the market had written off and rebuilding them into category leaders. As <strong>CEO of The Arena</strong>, he acquired a near-collapsed SocialFi platform and rebuilt it from the ground up  onboarding more than <strong>200,000 users</strong> on-chain, paying out millions in <em>AVAX</em> to creators, and establishing The Arena not just as the leading SocialFi app on <strong>Avalanche</strong>, but as one of the most successful SocialFi platforms in the <em>entire crypto industry</em>  across every chain.</p>
+                  <p>He is also the founder of <em>Rove</em>, a Web3 platform connecting brands and artists with their audiences, and a <strong>founding member of the NYC Blockchain Center</strong>. Across his career he has built and operated at the frontier of consumer crypto, with the on-the-ground relationships to match  spanning <em>Ava Labs</em>, the <em>Blizzard Fund</em>, and leading Avalanche builders.</p>
+                  <p>Growth in DeFi is won the same way Jason has won it before  <em>earning trust, building relationships, and turning early users into a community</em>. At Balcore, that network goes to work on three fronts: <strong>opening doors to investors and strategic partners</strong>, helping secure <strong>top-tier audits and security partnerships</strong> for the critical infrastructure Balcore is building, and growing the <strong>ecosystem relationships that drive adoption and TVL</strong>. We spent years building the technology  the next phase is building the ecosystem around it, and Jason's experience and reach make him a key force behind it.</p>
+                </div>
+              </div>
+              <div className="reveal reveal-delay-1">
+                <div className="visual-box" style={{ maxWidth: 440, marginLeft: "auto" }}>
+                  <div className="portrait-frame"><img src={jasonImg} alt="Jason Desimone" /></div>
+                  <div className="portrait-meta">
+                    <div className="portrait-name-wrap">
+                      <div className="portrait-name">Jason Desimone</div>
+                      <div className="portrait-role-mini">Strategic Advisor, Ecosystem &amp; Growth</div>
+                    </div>
+                    <div className="portrait-id">F-005</div>
+                  </div>
+                  <div className="portrait-stats">
+                    <div className="pstat-row"><span className="pstat-label">Role</span><span className="pstat-val">CEO · The Arena</span></div>
+                    <div className="pstat-row"><span className="pstat-label">Built</span><span className="pstat-val"><span className="gold">$10M+</span> paid to creators</span></div>
+                    <div className="pstat-row"><span className="pstat-label">Background</span><span className="pstat-val">Founder · Rove · NYC Blockchain Ctr</span></div>
+                    <div className="pstat-row"><span className="pstat-label">Focus</span><span className="pstat-val">Ecosystem · Capital · Security</span></div>
+                    <div className="pstat-row"><span className="pstat-label">Status</span><span className="pstat-val pstat-status"><span className="pstat-dot" />Advising</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CLOSING */}
+
         <section className="section" style={{ borderBottom: "none" }}>
           <div className="section-inner">
             <div style={{ maxWidth: 720, margin: "0 auto", textAlign: "center" }} className="reveal">
