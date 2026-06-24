@@ -339,11 +339,20 @@ const Team = () => {
                     </div>
                     <div className="roster-tag">F-004</div>
                   </a>
+                  <a onClick={() => scrollTo("ecosystem")} className="roster-row">
+                    <div className="roster-avatar"><img src={jasonImg} alt="Jason Desimone" /></div>
+                    <div className="roster-info">
+                      <div className="roster-name">Jason Desimone</div>
+                      <div className="roster-role">Strategic Advisor · Ecosystem &amp; Growth</div>
+                    </div>
+                    <div className="roster-tag">F-005</div>
+                  </a>
                 </div>
                 <div className="roster-footer">
-                  <span>4 Core Members · 1 Protocol</span>
+                  <span>5 Core Members · 1 Protocol</span>
                   <span className="live">Shipping</span>
                 </div>
+
               </div>
             </div>
           </div>
