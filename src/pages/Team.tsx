@@ -2,7 +2,7 @@ import NavBar from "@/components/sections/NavBar";
 import { useEffect } from "react";
 import jasonAsset from "@/assets/Jason_pfp.png.asset.json";
 
-const jonyImg = "https://cdn.balcore.ai/Team/Jony%20pfp%20(1).avif";
+const jonyImg = "https://cdn.balcore.ai/Team/Jony%20PFP.png";
 const austinImg = "https://cdn.balcore.ai/Team/WhatsApp%20Image%202026-06-16%20at%2013.02.52.jpeg";
 const alpImg = "https://cdn.balcore.ai/Team/Alp%20pfp%20(1).jpg";
 const ranaImg = "https://cdn.balcore.ai/Team/fe5b6243-63c0-464d-9018-848cbbc66be7.png";
@@ -384,10 +384,12 @@ const Team = () => {
                 <h2 className="sec-title">Jony Sarker</h2>
                 <div className="sec-role">Founder <span className="sep">/</span> CEO <span className="sep">/</span> Chief Protocol Architect</div>
                 <div className="sec-body">
-                  <p>Jony Sarker is the Founder and CEO of <strong>Balcore, Inc.</strong>, where he is building decentralized infrastructure focused on continuous balance, adaptive liquidity management, and yield optimization for AMM DEXs  with impermanent loss reduction at the core.</p>
+                  <p>Jony Sarker is the Founder and CEO of <strong>Balcore, Inc.</strong>, where he is building decentralized infrastructure focused on continuous balance, adaptive liquidity management, and yield optimization for AMM DEXs — with impermanent loss reduction at the core.</p>
                   <p>With more than <strong>10 years at Intel Corporation</strong> and <strong>8+ years deeply involved in DeFi</strong>, Jony combines expertise from both semiconductor engineering and on-chain liquidity systems. At Intel, he specialized in <em>lithography</em>, <em>process development</em>, <em>yield optimization</em>, and <em>defect reduction</em> across high-volume manufacturing environments.</p>
                   <p>In DeFi, he has been an active operator across major protocols, focusing on concentrated liquidity strategies, on-chain risk analysis, and sustainable yield optimization.</p>
-                  <p>Today, those two stacks converge at Balcore. As trillions of dollars in real-world and digital assets move on-chain through tokenization, Jony believes capital-efficient and risk-aware liquidity infrastructure will become foundational to the next generation of financial markets. <strong>Balcore is being built to help power that transition.</strong></p>
+                  <p>Those two stacks converge in a single conviction: <strong>you don't control the wafer — you control the process.</strong> In a fab you can't stop temperature from drifting or particles from landing, so you set tight rules, hold your tolerances, and engineer a system that responds the same way every time conditions shift. You're never betting on a single wafer — you're engineering a process where the probabilities work in your favor across thousands of them.</p>
+                  <p>Balcore applies that exact discipline to markets. It doesn't predict price — nobody can, and any protocol claiming otherwise is selling a fantasy. Instead it runs a <strong>deterministic, rules-based process on top of probabilistic edges:</strong> patterns measured against years of data, with known hit rates and known failure rates. Same conditions, same response, every time — no discretion, no emotion, no <em>"this time is different."</em></p>
+                  <p>As trillions in real-world and digital assets move on-chain, Jony believes capital-efficient, risk-aware liquidity will be foundational infrastructure for the next generation of financial markets. <strong>Balcore is being built to power that transition.</strong></p>
                 </div>
               </div>
               <div className="reveal reveal-delay-1">
