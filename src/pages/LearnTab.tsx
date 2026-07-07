@@ -3,31 +3,59 @@ import learnStyles from "./LearnTab.css?inline";
 import learnBody from "@/assets/learn/body.html?raw";
 import learnScript from "@/assets/learn/script.js?raw";
 
-/**
- * Renders the standalone "Balcore — Learn" page.
- *
- * The original page ships as a single-file HTML document containing its own
- * <style> and <script>. To keep it working exactly as designed without
- * bleeding styles into the rest of the app, we mount its CSS and JS only
- * while this route is active and tear them down on unmount.
- */
+// Bundle every video file in src/assets/videos so Vite hashes & serves them.
+const videoUrls = import.meta.glob("@/assets/videos/*.mp4", {
+  eager: true,
+  query: "?url",
+  import: "default",
+}) as Record<string, string>;
+
+// Map a REELS slug -> filename basename (without extension) in src/assets/videos.
+// Edit these mappings if a slug should point to a different file.
+const SLUG_TO_FILE: Record<string, string> = {
+  "01-the-locked-door": "Balcore_Ad",
+  "02-cool-under-fire": "Balcore_CoolUnderFire_final",
+  "03-same-assets-different-outcome": "balcore_v2_fixed",
+  "04-fixing-day-one": "Balcore_IL_explained_branded_310",
+  "05-go-touch-the-grass": "Balcore Weekend ad",
+  "06-the-lemonade-stand": "Balcore_IL_explained_branded_310",
+  "07-passing-through": "Passing_Through_branded",
+  "08-two-kinds-of-people": "Market Making Explained",
+  "09-the-currency-booth": "Balcore_Runway_endcard_31s",
+  "10-walkthrough-44s": "balcore_walkthrough_final",
+};
+
+// Build slug -> resolved bundled URL
+const buildVideoMap = (): Record<string, string> => {
+  const byBasename: Record<string, string> = {};
+  for (const [path, url] of Object.entries(videoUrls)) {
+    const base = path.split("/").pop()?.replace(/\.mp4$/i, "") ?? "";
+    byBasename[base] = url;
+  }
+  const map: Record<string, string> = {};
+  for (const [slug, base] of Object.entries(SLUG_TO_FILE)) {
+    if (byBasename[base]) map[slug] = byBasename[base];
+  }
+  return map;
+};
+
 const LearnTab = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Inject page-scoped stylesheet
+    // Expose video URL map before the page script runs.
+    (window as any).__LEARN_VIDEOS = buildVideoMap();
+
     const styleEl = document.createElement("style");
     styleEl.setAttribute("data-learn-tab", "");
     styleEl.textContent = learnStyles;
     document.head.appendChild(styleEl);
 
-    // Inject page script after the DOM is set
     const scriptEl = document.createElement("script");
     scriptEl.setAttribute("data-learn-tab", "");
     scriptEl.textContent = learnScript;
     document.body.appendChild(scriptEl);
 
-    // Preserve the original document title
     const prevTitle = document.title;
     document.title = "Balcore — Learn";
 
@@ -35,6 +63,7 @@ const LearnTab = () => {
       styleEl.remove();
       scriptEl.remove();
       document.title = prevTitle;
+      delete (window as any).__LEARN_VIDEOS;
     };
   }, []);
 
