@@ -1,6 +1,6 @@
 import NavBar from "@/components/sections/NavBar";
 import { useEffect } from "react";
-import jasonAsset from "@/assets/Jason_pfp.png.asset.json";
+import jasonAsset from "@/assets/images/Jason_pfp.png.asset.json";
 
 const jonyImg = "https://cdn.balcore.ai/Team/Jony%20PFP.png";
 const austinImg = "https://cdn.balcore.ai/Team/WhatsApp%20Image%202026-06-16%20at%2013.02.52.jpeg";
