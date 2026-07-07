@@ -13,16 +13,16 @@ const videoUrls = import.meta.glob("@/assets/videos/*.mp4", {
 // Map a REELS slug -> filename basename (without extension) in src/assets/videos.
 // Edit these mappings if a slug should point to a different file.
 const SLUG_TO_FILE: Record<string, string> = {
-  "01-the-locked-door": "Balcore_Ad",
-  "02-cool-under-fire": "Balcore_CoolUnderFire_final",
-  "03-same-assets-different-outcome": "balcore_v2_fixed",
-  "04-fixing-day-one": "Balcore_IL_explained_branded_310",
-  "05-go-touch-the-grass": "Balcore Weekend ad",
-  "06-the-lemonade-stand": "Balcore_IL_explained_branded_310",
-  "07-passing-through": "Passing_Through_branded",
-  "08-two-kinds-of-people": "Market Making Explained",
-  "09-the-currency-booth": "Balcore_Runway_endcard_31s",
-  "10-walkthrough-44s": "balcore_walkthrough_final",
+  "01-the-locked-door": "The_Locked_Door",
+  "02-cool-under-fire": "Cool_Under_Fire",
+  "03-same-assets-different-outcome": "Same_Assets_Different_Outcome",
+  "04-fixing-day-one": "Fixing_Day_One",
+  "05-go-touch-the-grass": "Go_Touch_The_Grass",
+  "06-the-lemonade-stand": "The_Lemonade_Stand",
+  "07-passing-through": "Passing_Through",
+  "08-two-kinds-of-people": "Two_Kindsof_People",
+  "09-the-currency-booth": "The_Currency_Booth",
+  "10-walkthrough-44s": "The_Engine",
 };
 
 // Build slug -> resolved bundled URL
