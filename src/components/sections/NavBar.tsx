@@ -156,6 +156,16 @@ const NavBar = () => {
               </motion.button>
             ))}
             <motion.button
+              onClick={() => navigate("/learn")}
+              className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${location.pathname === "/learn" ? "text-primary" : ""
+                }`}
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.2 }}
+            >
+              Learn
+              <motion.span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+            </motion.button>
+            <motion.button
               onClick={() => navigate("/docs")}
               className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${isDocsPage ? "text-primary" : ""
                 }`}
@@ -247,6 +257,21 @@ const NavBar = () => {
                 {item.label}
               </motion.button>
             ))}
+            <motion.button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                navigate("/learn");
+              }}
+              className={`block transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full ${location.pathname === "/learn"
+                ? "text-primary"
+                : "text-white/80 hover:text-white/85"
+                }`}
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: navItems.length * 0.1 }}
+            >
+              Learn
+            </motion.button>
             <motion.button
               onClick={() => {
                 setIsMobileMenuOpen(false);
