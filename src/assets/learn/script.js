@@ -151,8 +151,14 @@ function specHTML(r, i){
 function load(i, autoplay){
   const r = REELS[i];
   active = i;
-  video.src = `videos/${r.slug}.mp4`;
-  document.getElementById("vhint").hidden = true;
+  const videoMap = (window.__LEARN_VIDEOS) || {};
+  const src = videoMap[r.slug];
+  if (src) {
+    video.src = src;
+  } else {
+    video.removeAttribute("src");
+    video.load();
+  }
   video.poster = POSTERS[r.slug];
   railSpec.innerHTML = specHTML(r, i);
   railTitle.textContent = r.title;
@@ -160,7 +166,7 @@ function load(i, autoplay){
   railStory.innerHTML = r.storyHTML || r.story.map(p => `<p>${p}</p>`).join("");
   railDetails.open = false;
   document.querySelectorAll(".card").forEach((c, idx) => c.classList.toggle("is-active", idx === i));
-  if (autoplay) video.play().catch(()=>{});
+  if (autoplay && src) video.play().catch(()=>{});
 }
 
 REELS.forEach((r, i) => {
