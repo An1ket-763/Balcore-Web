@@ -196,5 +196,5 @@ const SEP = `<img class="tick-logo" src="data:image/png;base64,iVBORw0KGgoAAAANS
 const phrase = `Be the Market Maker ${SEP} One engine. Every market. ${SEP} `;
 document.getElementById("ticker").innerHTML = phrase.repeat(8);
 
-video.addEventListener("error", () => { document.getElementById("vhint").hidden = false; });
+
 load(active, false);
