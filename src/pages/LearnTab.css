@@ -1,0 +1,113 @@
+.balcore-learn{}.balcore-learn --bg:#0a0c0f;
+    --panel:#11141a;
+    --panel-2:#0d1015;
+    --line:#232830;
+    --ink:#ece9e1;
+    --mute:#8b929c;
+    --brand:#7329d3;
+    --brand-hi:#a06bff;
+    --brand-dim:rgba(115, .balcore-learn 41, .balcore-learn 211, .balcore-learn .16);
+    --disp:"Barlow Condensed", .balcore-learn sans-serif;
+    --mono:"IBM Plex Mono", .balcore-learn monospace;
+  
+  *{}.balcore-learn margin:0;padding:0;box-sizing:border-box
+  html{}.balcore-learn scroll-behavior:smooth
+  @media (prefers-reduced-motion: reduce){.balcore-learn{}.balcore-learn scroll-behavior:auto
+    *, .balcore-learn *::before, .balcore-learn *::after{}}.balcore-learn animation:none!important;transition:none!important
+  
+  body{}.balcore-learn background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:15px;line-height:1.65
+  a{}.balcore-learn color:inherit
+  ::selection{}.balcore-learn background:var(--brand);color:#fff
+  :focus-visible{}.balcore-learn outline:2px solid var(--brand-hi);outline-offset:3px
+
+  .wrap{}.balcore-learn max-width:1240px;margin:0 auto;padding:0 28px
+
+  /* ---------- header ---------- */
+  header{}.balcore-learn border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(10, .balcore-learn 12, .balcore-learn 15, .balcore-learn .92);backdrop-filter:blur(8px);z-index:50
+  .hd{}.balcore-learn display:flex;align-items:center;justify-content:space-between;height:64px
+  .mark{}.balcore-learn display:flex;align-items:center;gap:12px;text-decoration:none
+  .tri{}.balcore-learn color:var(--brand-hi);font-size:15px;line-height:1
+  .logo{}.balcore-learn height:26px;width:auto;display:block
+  .logo-ft{}.balcore-learn height:22px;width:auto;display:block
+  .word{}.balcore-learn font-family:var(--disp);font-weight:700;font-size:24px;letter-spacing:.14em;text-transform:uppercase
+  .word span{}.balcore-learn color:var(--mute);font-weight:500;margin-left:10px;letter-spacing:.22em;font-size:15px
+  .hd-tag{}.balcore-learn font-size:11px;letter-spacing:.12em;color:var(--mute);text-transform:uppercase
+  .hd-tag b{}.balcore-learn color:var(--ink);font-weight:500
+  @media(max-width:680px){.balcore-learn .hd-tag{}}.balcore-learn display:none
+
+  /* ---------- intro ---------- */
+  .intro{}.balcore-learn padding:56px 0 40px;border-bottom:1px solid var(--line)
+  .eyebrow{}.balcore-learn font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--brand-hi);margin-bottom:14px
+  h1{}.balcore-learn font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:clamp(44px, .balcore-learn 7vw, .balcore-learn 84px);line-height:.95;letter-spacing:.01em;max-width:900px
+  h1 em{}.balcore-learn font-style:normal;color:var(--mute)
+  .intro p{}.balcore-learn max-width:620px;color:var(--mute);margin-top:22px
+  .intro p b{}.balcore-learn color:var(--ink);font-weight:500
+
+  /* ---------- player ---------- */
+  .player{}.balcore-learn padding:44px 0 52px;border-bottom:1px solid var(--line)
+  .player-grid{}.balcore-learn display:grid;grid-template-columns:1.55fr 1fr;gap:40px;align-items:start
+  @media(max-width:920px){.balcore-learn .player-grid{}}.balcore-learn grid-template-columns:1fr
+  .screen{}.balcore-learn position:relative;border:1px solid var(--line);background:#000
+  .screen::before{}.balcore-learn content:"";position:absolute;inset:-1px;border-top:2px solid var(--brand);pointer-events:none
+  .screen video{}.balcore-learn display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000
+  .vhint{}.balcore-learn position:absolute;left:0;right:0;bottom:0;background:rgba(10, .balcore-learn 12, .balcore-learn 15, .balcore-learn .92);border-top:1px solid var(--brand);padding:12px 16px;font-size:12px;color:var(--mute);line-height:1.5
+  .vhint code{}.balcore-learn color:var(--brand-hi);background:rgba(115, .balcore-learn 41, .balcore-learn 211, .balcore-learn .14);padding:1px 5px
+  .spec{}.balcore-learn display:flex;flex-wrap:wrap;gap:0 26px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:18px
+  .spec b{}.balcore-learn color:var(--brand-hi);font-weight:600;margin-right:6px
+  .rail h2{}.balcore-learn font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:clamp(30px, .balcore-learn 3.4vw, .balcore-learn 42px);line-height:1;letter-spacing:.01em;margin-bottom:14px
+  .rail .hook{}.balcore-learn color:var(--mute);margin-bottom:22px
+  details{}.balcore-learn border-top:1px solid var(--line)
+  summary{}.balcore-learn cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;padding:14px 0;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)
+  summary::-webkit-details-marker{}.balcore-learn display:none
+  summary::after{}.balcore-learn content:"+";color:var(--brand-hi);font-size:16px
+  details[open] summary::after{}.balcore-learn content:"–"
+  .story{}.balcore-learn padding:4px 0 22px;color:var(--mute);font-size:14px;max-height:420px;overflow-y:auto;scrollbar-width:thin
+  .story p{}.balcore-learn margin-bottom:14px
+  .story p:last-child{}.balcore-learn margin-bottom:0;color:var(--ink)
+  .story ul{}.balcore-learn margin:0 0 14px 0;list-style:none
+  .story li{}.balcore-learn padding:8px 0 8px 18px;position:relative;border-bottom:1px solid var(--line)
+  .story li:last-child{}.balcore-learn border-bottom:none
+  .story li::before{}.balcore-learn content:"▸";position:absolute;left:0;color:var(--brand-hi)
+  .story b{}.balcore-learn color:var(--ink);font-weight:500
+  .rail-cta{}.balcore-learn margin-top:20px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--mute)
+  .rail-cta a{}.balcore-learn color:var(--ink);text-decoration:none;border-bottom:1px solid var(--brand)
+  .rail-cta a:hover{}.balcore-learn color:var(--brand-hi)
+
+  /* ---------- ticker ---------- */
+  .ticker{}.balcore-learn border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:10px 0;background:var(--panel-2)
+  .ticker-track{}.balcore-learn display:inline-block;animation:slide 36s linear infinite;font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.24em;font-size:14px;color:var(--mute)
+  .ticker-track i{}.balcore-learn font-style:normal;color:var(--brand-hi);margin:0 22px
+  .ticker-track .tick-logo{}.balcore-learn height:.92em;width:auto;margin:0 20px;vertical-align:-.08em;display:inline-block;opacity:.95
+  @keyframes slide{from{}transform:translateX(0)to{}}.balcore-learn transform:translateX(-50%)
+
+  /* ---------- index ---------- */
+  .index{}.balcore-learn padding:52px 0 20px
+  .index-hd{}.balcore-learn display:flex;align-items:baseline;justify-content:space-between;margin-bottom:30px
+  .index-hd h3{}.balcore-learn font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:clamp(26px, .balcore-learn 3vw, .balcore-learn 36px);letter-spacing:.02em
+  .index-hd span{}.balcore-learn font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)
+  .grid{}.balcore-learn display:grid;grid-template-columns:repeat(auto-fill, .balcore-learn minmax(290px, .balcore-learn 1fr));gap:26px;padding-bottom:60px
+  .card{}.balcore-learn background:var(--panel);border:1px solid var(--line);text-align:left;cursor:pointer;color:var(--ink);font:inherit;padding:0;display:flex;flex-direction:column;transition:border-color .18s ease, .balcore-learn transform .18s ease
+  .card:hover{}.balcore-learn border-color:var(--brand);transform:translateY(-3px)
+  .card.is-active{}.balcore-learn border-color:var(--brand)
+  .card.is-active .thumb::after{}.balcore-learn content:"NOW PLAYING";position:absolute;top:10px;left:10px;background:var(--brand);color:#fff;font-size:10px;letter-spacing:.18em;padding:4px 8px
+  .thumb{}.balcore-learn position:relative;aspect-ratio:16/9;overflow:hidden;background:#000
+  .thumb img{}.balcore-learn width:100%;height:100%;object-fit:cover;display:block;opacity:.85;transition:opacity .18s ease
+  .card:hover .thumb img{}.balcore-learn opacity:1
+  .play{}.balcore-learn position:absolute;right:12px;bottom:12px;width:36px;height:36px;background:rgba(10, .balcore-learn 12, .balcore-learn 15, .balcore-learn .82);border:1px solid var(--line);display:grid;place-items:center;color:var(--brand-hi);font-size:13px
+  .rt{}.balcore-learn position:absolute;left:12px;bottom:12px;background:rgba(10, .balcore-learn 12, .balcore-learn 15, .balcore-learn .82);border:1px solid var(--line);font-size:11px;letter-spacing:.1em;padding:3px 8px;color:var(--ink)
+  .card-body{}.balcore-learn padding:16px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1
+  .card-spec{}.balcore-learn font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)
+  .card-spec b{}.balcore-learn color:var(--brand-hi);font-weight:600
+  .card h4{}.balcore-learn font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:24px;line-height:1.02;letter-spacing:.01em
+  .card p{}.balcore-learn font-size:12.5px;color:var(--mute);line-height:1.6
+
+  /* ---------- footer ---------- */
+  footer{}.balcore-learn border-top:1px solid var(--line);padding:34px 0 46px
+  .ft{}.balcore-learn display:flex;flex-wrap:wrap;gap:16px 40px;align-items:center;justify-content:space-between
+  .ft-left{}.balcore-learn display:flex;align-items:center;gap:12px;font-family:var(--disp);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:18px
+  .ft-right{}.balcore-learn font-size:12px;color:var(--mute)
+  .ft-right a{}.balcore-learn text-decoration:none;border-bottom:1px solid var(--brand)
+  .ft-right a:hover{}.balcore-learn color:var(--brand-hi)
+  .ft-tag{}.balcore-learn width:100%;margin-top:18px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute)
+  .ft-tag i{}.balcore-learn font-style:normal;color:var(--brand-hi)
+  .ft-tag .ft-logo-sep{}
