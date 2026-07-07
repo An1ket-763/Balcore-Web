@@ -260,6 +260,21 @@ const NavBar = () => {
             <motion.button
               onClick={() => {
                 setIsMobileMenuOpen(false);
+                navigate("/learn");
+              }}
+              className={`block transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full ${location.pathname === "/learn"
+                ? "text-primary"
+                : "text-white/80 hover:text-white/85"
+                }`}
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: navItems.length * 0.1 }}
+            >
+              Learn
+            </motion.button>
+            <motion.button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
                 navigate("/docs");
               }}
               className={`block transition-colors py-2 bg-transparent border-none cursor-pointer text-left w-full ${isDocsPage
