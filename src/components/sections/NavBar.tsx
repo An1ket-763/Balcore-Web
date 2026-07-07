@@ -156,6 +156,16 @@ const NavBar = () => {
               </motion.button>
             ))}
             <motion.button
+              onClick={() => navigate("/learn")}
+              className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${location.pathname === "/learn" ? "text-primary" : ""
+                }`}
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.2 }}
+            >
+              Learn
+              <motion.span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+            </motion.button>
+            <motion.button
               onClick={() => navigate("/docs")}
               className={`nav-link flex items-center gap-1 relative group bg-transparent border-none cursor-pointer ${isDocsPage ? "text-primary" : ""
                 }`}
