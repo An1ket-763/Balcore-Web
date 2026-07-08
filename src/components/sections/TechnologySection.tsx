@@ -1,5 +1,5 @@
 // src/components/sections/TechnologySection.tsx
-import horizonBg from "@/assets/horizon-bg.jpg";
+import horizonBg from "@/assets/images/horizon-bg.jpg";
 
 const TechnologySection = () => {
   return (
