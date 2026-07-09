@@ -626,7 +626,7 @@ const HeroSection = () => {
            rgba(8,8,15,.88) 100%);
           }
           .badge { font-size: 11px; padding: 6px 14px; }
-          .headline { font-size: 36px; margin-top: 18px; line-height: .96; }
+          .headline { font-size: 32px; margin-top: 18px; line-height: .98; }
           .hero-lower { gap: 16px; margin-top: 28px; }
           .sub { font-size: 14px; max-width: none; line-height: 1.65; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); }
           .btns { gap: 10px; flex-wrap: wrap; }
@@ -638,7 +638,7 @@ const HeroSection = () => {
 
         @media (max-width: 380px) {
           .hero-left { padding: 78px 16px 22px 35px; }
-          .headline { font-size: 32px; }
+          .headline { font-size: 28px; }
           .btn-p, .btn-o { padding: 11px 18px; font-size: 13px; }
         }
 
