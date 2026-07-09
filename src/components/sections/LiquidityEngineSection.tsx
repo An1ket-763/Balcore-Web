@@ -54,7 +54,7 @@ const WhatWeDoSection = () => {
             </span>
           </div>
 
-          <h2 className="mb-6 font-condensed text-5xl font-black uppercase leading-none text-white md:mb-8 md:text-6xl">
+          <h2 className="mb-6 font-condensed text-4xl font-black uppercase leading-none text-white md:mb-8 md:text-5xl lg:text-6xl">
             The Liquidity Engine
           </h2>
 

@@ -943,3 +943,11 @@
     margin: 0 auto;
   }
 }
+
+/* Mobile section title sizing */
+@media (max-width: 640px) {
+  .section-title {
+    font-size: 1.5rem !important;
+    line-height: 1.2;
+  }
+}

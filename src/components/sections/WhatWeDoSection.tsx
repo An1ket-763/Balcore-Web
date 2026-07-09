@@ -750,7 +750,7 @@ const WhatWeDoHero = () => {
             </div>
 
             {/* Heading */}
-            <h1 className="font-barlow-condensed text-[clamp(44px,10vw,72px)] lg:text-[clamp(52px,7vw,96px)] font-black uppercase leading-[0.9] tracking-[-0.02em] text-white">
+            <h1 className="font-barlow-condensed text-[clamp(36px,10vw,72px)] lg:text-[clamp(52px,7vw,96px)] font-black uppercase leading-[0.9] tracking-[-0.02em] text-white">
               Liquidity.
               <br />
               <span className="text-[#9f5fff]">Yield.</span>

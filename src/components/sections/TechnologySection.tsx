@@ -79,6 +79,11 @@ const TechnologySection = () => {
           .horizon .copy{max-width:none;text-align:left}
           .horizon .body{max-width:none}
         }
+        @media (max-width:640px){
+          .horizon .lead{font-size:clamp(28px,9vw,38px)}
+          .horizon .closer{font-size:clamp(20px,6vw,28px)}
+          .horizon .signoff{font-size:clamp(13px,4vw,17px)}
+        }
         @media (prefers-reduced-motion: reduce){.horizon *{transition:none!important}}
       `}</style>
 
