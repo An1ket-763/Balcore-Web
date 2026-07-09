@@ -37,6 +37,8 @@ body{background:#08080f;overflow-x:hidden}
   .vision-section{padding:96px 32px 72px;min-height:auto}
   .vision-section::before{background:linear-gradient(180deg,rgba(8,8,15,.85),rgba(8,8,15,.92))}
   .vision-body{max-width:100%}
+  .vision-title{font-size:clamp(26px,8vw,34px)}
+  .vision-quote{font-size:clamp(17px,5vw,22px)}
 }
 .brand-mark{display:block;filter:drop-shadow(0 0 10px rgba(124,58,237,.45));transition:transform .35s ease,filter .35s ease;background-image:var(--logo);background-size:contain;background-repeat:no-repeat;background-position:center}
 .brand-mark-lg{width:30px;height:30px}
