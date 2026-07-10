@@ -69,20 +69,37 @@ const TechnologySection = () => {
           margin-top:12px;
         }
         @media (max-width:820px){
-          .horizon{min-height:600px;background-position:center 26%}
+          .horizon{
+            min-height:100vh;
+            align-items:flex-start;
+            background-position:65% center;
+            background-size:cover;
+            padding-top:96px;
+          }
           .horizon::before{
             background:linear-gradient(180deg,
-              rgba(5,5,9,.72) 0%,
-              rgba(5,5,9,.82) 100%);
+              rgba(5,5,9,.92) 0%,
+              rgba(5,5,9,.72) 42%,
+              rgba(5,5,9,.35) 62%,
+              rgba(5,5,9,.12) 100%);
+          }
+          .horizon::after{
+            background:linear-gradient(180deg,
+              rgba(5,5,9,.6) 0%,
+              rgba(5,5,9,0) 30%,
+              rgba(5,5,9,0) 70%,
+              rgba(5,5,9,.85) 100%);
           }
           .horizon .inner{padding:0 24px}
           .horizon .copy{max-width:none;text-align:left}
           .horizon .body{max-width:none}
         }
         @media (max-width:640px){
-          .horizon .lead{font-size:clamp(26px,8vw,34px)}
-          .horizon .closer{font-size:clamp(18px,5.5vw,26px)}
-          .horizon .signoff{font-size:clamp(12px,3.8vw,16px)}
+          .horizon .eyebrow{font-size:11px;letter-spacing:.24em;margin-bottom:20px}
+          .horizon .lead{font-size:clamp(30px,9.5vw,42px);line-height:1;margin-bottom:22px}
+          .horizon .body{font-size:15px;margin-bottom:22px}
+          .horizon .closer{font-size:clamp(14px,4.2vw,18px);margin-top:16px}
+          .horizon .signoff{font-size:clamp(13px,4vw,16px)}
         }
         @media (prefers-reduced-motion: reduce){.horizon *{transition:none!important}}
       `}</style>
@@ -90,7 +107,7 @@ const TechnologySection = () => {
       <section id="technology" className="horizon" aria-label="The view ahead">
         <div className="inner">
           <div className="copy">
-            <div className="eyebrow">The view from here</div>
+            <div className="eyebrow">The Balcore Advantage</div>
             <h2 className="lead">The future of liquidity orchestration looks clear from up here.</h2>
             <p className="body">Sit back. Let <strong>Balcore</strong> do the heavy lifting.</p>
             <div className="closer">Watch the horizon expand.</div>
