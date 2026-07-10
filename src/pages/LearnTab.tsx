@@ -1,6 +1,14 @@
 import { useEffect, useRef } from "react";
-import NavBar from "@/components/sections/NavBar";
+import { Link } from "react-router-dom";
+import balcoreMark from "@/assets/images/Blogo.png";
 import learnStyles from "./LearnTab.css?inline";
+
+declare global {
+  interface Window {
+    __LEARN_VIDEOS?: Record<string, string>;
+  }
+}
+
 const learnBody = `
 
 <section class="intro wrap">
@@ -291,7 +299,7 @@ const LearnTab = () => {
 
   useEffect(() => {
     // Expose video URL map before the page script runs.
-    (window as any).__LEARN_VIDEOS = buildVideoMap();
+    window.__LEARN_VIDEOS = buildVideoMap();
 
     const styleEl = document.createElement("style");
     styleEl.setAttribute("data-learn-tab", "");
@@ -310,17 +318,33 @@ const LearnTab = () => {
       styleEl.remove();
       scriptEl.remove();
       document.title = prevTitle;
-      delete (window as any).__LEARN_VIDEOS;
+      delete window.__LEARN_VIDEOS;
     };
   }, []);
 
   return (
     <div className="balcore-learn-page" style={{ background: "#0a0c0f", minHeight: "100vh" }}>
-      <NavBar />
+      <header className="learn-page-nav" aria-label="Learn page navigation">
+        <div className="learn-page-nav__inner">
+          <Link to="/" className="learn-page-nav__brand" aria-label="Balcore home">
+            <img src={balcoreMark} alt="" className="learn-page-nav__mark" />
+            <span className="learn-page-nav__word">Balcore</span>
+            <span className="learn-page-nav__section">Learn</span>
+          </Link>
+          <nav className="learn-page-nav__links" aria-label="Primary navigation">
+            <Link to="/#what-we-do">What We Do</Link>
+            <Link to="/#protocol">Protocol</Link>
+            <Link to="/#try-it-yourself">Try It Yourself</Link>
+            <Link to="/learn" className="is-active" aria-current="page">Learn</Link>
+            <Link to="/docs">Docs</Link>
+            <Link to="/join-research">Join Us</Link>
+          </nav>
+          <div className="learn-page-nav__tag">Be the market maker.</div>
+        </div>
+      </header>
       <div
         ref={containerRef}
         className="balcore-learn"
-        style={{ paddingTop: 72 }}
         dangerouslySetInnerHTML={{ __html: learnBody }}
       />
     </div>
