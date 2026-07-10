@@ -72,8 +72,8 @@ const TechnologySection = () => {
           .horizon{
             min-height:calc(100svh - 72px);
             align-items:flex-start;
-            background-position:58% center;
-            background-size:auto 100%;
+            background-position:29% top;
+            background-size:auto 118%;
             padding-top:84px;
           }
           .horizon::before{
@@ -90,14 +90,14 @@ const TechnologySection = () => {
               rgba(5,5,9,0) 70%,
               rgba(5,5,9,.85) 100%);
           }
-          .horizon .inner{padding:0 34px}
-          .horizon .copy{max-width:360px;text-align:left}
-          .horizon .body{max-width:270px}
+          .horizon .inner{padding:0 44px}
+          .horizon .copy{max-width:310px;text-align:left}
+          .horizon .body{max-width:250px}
         }
         @media (max-width:640px){
           .horizon .eyebrow{font-size:11px;letter-spacing:.24em;margin-bottom:20px}
-          .horizon .lead{font-size:clamp(42px,11.2vw,58px);line-height:.98;margin-bottom:24px}
-          .horizon .body{font-size:20px;line-height:1.35;margin-bottom:28px}
+          .horizon .lead{font-size:clamp(34px,9.2vw,46px);line-height:1;margin-bottom:22px}
+          .horizon .body{font-size:17px;line-height:1.45;margin-bottom:28px}
           .horizon .closer{font-size:clamp(14px,4.2vw,18px);margin-top:16px}
           .horizon .signoff{font-size:clamp(13px,4vw,16px)}
         }
