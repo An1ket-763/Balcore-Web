@@ -315,11 +315,14 @@ const LearnTab = () => {
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="balcore-learn"
-      dangerouslySetInnerHTML={{ __html: learnBody }}
-    />
+    <div className="balcore-learn-page">
+      <NavBar />
+      <div
+        ref={containerRef}
+        className="balcore-learn"
+        dangerouslySetInnerHTML={{ __html: learnBody }}
+      />
+    </div>
   );
 };
 
