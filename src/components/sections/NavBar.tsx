@@ -97,7 +97,6 @@ const NavBar = () => {
 
   const navItems = [
     { sectionId: "what-we-do", label: "What We Do", path: "/what-we-do" },
-    { sectionId: "protocol", label: "Protocol", path: "/protocol" },
     { sectionId: "try-it-yourself", label: "Try it Yourself", path: "/try-it-yourself" },
   ];
 
