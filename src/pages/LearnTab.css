@@ -8,8 +8,8 @@
     --brand:#7329d3;
     --brand-hi:#a06bff;
     --brand-dim:rgba(115,41,211,.16);
-    --disp:"Barlow Condensed",sans-serif;
-    --mono:"IBM Plex Mono",monospace;
+    --disp:"Clash Grotesk",sans-serif;
+    --mono:"Clash Grotesk",sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -44,7 +44,7 @@
   .balcore-learn-page .learn-page-nav__mark{height:24px;width:auto;display:block}
   .balcore-learn-page .learn-page-nav__word{font-family:var(--disp);font-weight:700;font-size:23px;letter-spacing:.03em}
   .balcore-learn-page .learn-page-nav__section{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mute);margin-left:2px}
-  .balcore-learn-page .learn-page-nav__links{display:flex;align-items:center;justify-content:center;gap:34px;font-family:var(--disp);font-weight:700;font-size:16px;letter-spacing:.01em}
+  .balcore-learn-page .learn-page-nav__links{display:flex;align-items:center;justify-content:center;gap:34px;font-family:var(--disp);font-weight:500;font-size:16px;letter-spacing:.01em}
   .balcore-learn-page .learn-page-nav__links a{text-decoration:none;color:var(--ink);transition:color .18s ease}
   .balcore-learn-page .learn-page-nav__links a:hover,.balcore-learn-page .learn-page-nav__links a.is-active{color:var(--brand-hi)}
   .balcore-learn-page .learn-page-nav__tag{font-family:var(--mono);font-weight:700;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);white-space:nowrap}

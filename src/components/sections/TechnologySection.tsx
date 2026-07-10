@@ -1,5 +1,6 @@
 // src/components/sections/TechnologySection.tsx
 import horizonBg from "@/assets/images/horizon-bg.jpg";
+import horizonBgMobile from "@/assets/images/horizon-bg-mobile.jpg";
 
 const TechnologySection = () => {
   return (
@@ -68,32 +69,34 @@ const TechnologySection = () => {
           font-size:clamp(15px,1.4vw,19px);color:var(--brand-hi);
           margin-top:12px;
         }
-        @media (max-width:820px){
-          .horizon{
-            min-height:calc(100svh - 72px);
-            align-items:flex-start;
-            background-position:29% top;
-            background-size:auto 118%;
-            padding-top:84px;
-          }
-          .horizon::before{
-            background:linear-gradient(90deg,
-              rgba(5,5,9,.82) 0%,
-              rgba(5,5,9,.55) 44%,
-              rgba(5,5,9,.18) 72%,
-              rgba(5,5,9,0) 100%);
-          }
-          .horizon::after{
-            background:linear-gradient(180deg,
-              rgba(5,5,9,.6) 0%,
-              rgba(5,5,9,0) 30%,
-              rgba(5,5,9,0) 70%,
-              rgba(5,5,9,.85) 100%);
-          }
-          .horizon .inner{padding:0 44px}
-          .horizon .copy{max-width:310px;text-align:left}
-          .horizon .body{max-width:250px}
-        }
+      @media (max-width:820px){
+  .horizon{
+    min-height:calc(100svh - 72px);
+    align-items:flex-start;
+    justify-content:flex-start;
+    background-image:url(${horizonBgMobile});
+    background-size:cover;
+    background-position:75% center;
+    padding-top:40px;
+  }
+  .horizon::before{
+    background:linear-gradient(90deg,
+      rgba(5,5,9,.82) 0%,
+      rgba(5,5,9,.55) 44%,
+      rgba(5,5,9,.18) 72%,
+      rgba(5,5,9,0) 100%);
+  }
+  .horizon::after{
+    background:linear-gradient(180deg,
+      rgba(5,5,9,.6) 0%,
+      rgba(5,5,9,0) 30%,
+      rgba(5,5,9,0) 70%,
+      rgba(5,5,9,.85) 100%);
+  }
+  .horizon .inner{margin:0;padding:0 20px;max-width:100%}
+  .horizon .copy{max-width:260px;text-align:left}
+  .horizon .body{max-width:230px}
+}
         @media (max-width:640px){
           .horizon .eyebrow{font-size:11px;letter-spacing:.24em;margin-bottom:20px}
           .horizon .lead{font-size:clamp(34px,9.2vw,46px);line-height:1;margin-bottom:22px}
@@ -107,7 +110,7 @@ const TechnologySection = () => {
       <section id="technology" className="horizon" aria-label="The view ahead">
         <div className="inner">
           <div className="copy">
-            <div className="eyebrow">The Balcore Advantage</div>
+            <div className="eyebrow">The View from here</div>
             <h2 className="lead">The future of liquidity orchestration looks clear from up here.</h2>
             <p className="body">Sit back. Let <strong>Balcore</strong> do the heavy lifting.</p>
             <div className="closer">Watch the horizon expand.</div>

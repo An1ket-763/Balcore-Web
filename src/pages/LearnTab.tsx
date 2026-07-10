@@ -333,7 +333,6 @@ const LearnTab = () => {
           </Link>
           <nav className="learn-page-nav__links" aria-label="Primary navigation">
             <Link to="/#what-we-do">What We Do</Link>
-            <Link to="/#protocol">Protocol</Link>
             <Link to="/#try-it-yourself">Try It Yourself</Link>
             <Link to="/learn" className="is-active" aria-current="page">Learn</Link>
             <Link to="/docs">Docs</Link>
