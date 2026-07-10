@@ -8,6 +8,7 @@ import TryItYourselfSection from "@/components/sections/TryItYourselfSection";
 import TechnologySection from "@/components/sections/TechnologySection";
 import GrowingSection from "@/components/sections/GrowingSection";
 import Footer from "@/components/sections/Footer";
+import UiView from "@/components/Ui-section/UiView";
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
       <NavBar />
       <HeroSection />
       <WhatWeDoSection />
+      <UiView />
       <TryItYourselfSection />
       <VisualStorySection />
       <VisionSection />

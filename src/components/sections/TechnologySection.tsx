@@ -75,9 +75,9 @@ const TechnologySection = () => {
     align-items:flex-start;
     justify-content:flex-start;
     background-image:url(${horizonBgMobile});
-    background-size:cover;
-    background-position:75% center;
-    padding-top:40px;
+    background-size:145%;
+    background-position:85% 62%;
+    padding-top:56px;
   }
   .horizon::before{
     background:linear-gradient(90deg,
