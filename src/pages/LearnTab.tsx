@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import NavBar from "@/components/sections/NavBar";
 import learnStyles from "./LearnTab.css?inline";
 const learnBody = `
 
