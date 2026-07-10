@@ -47,12 +47,6 @@ const WhatWeDoSection = () => {
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 md:gap-12 lg:grid-cols-2 lg:gap-20">
         {/* LEFT */}
         <div>
-          <div className="mb-4 flex items-center gap-3">
-            <div className="h-[1px] w-8 bg-purple-400" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-purple-400">
-              At the heart of DeFi
-            </span>
-          </div>
 
           <h2 className="mb-6 font-condensed text-4xl font-black uppercase leading-none text-white md:mb-8 md:text-5xl lg:text-6xl">
             The Liquidity Engine
