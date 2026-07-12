@@ -12,7 +12,7 @@ declare global {
 const learnBody = `
 
 <section class="intro wrap">
-  <h1>Stop being the trader.<br/><em>Be the Market Maker.</em></h1>
+  <h1><span class="line">Stop being the trader.</span><span class="line"><em>Be the Market Maker.</em></span></h1>
   <p>For a century the most reliable seat in finance belonged to institutions. These films show what the seat is, why <b>impermanent loss</b> kept everyday people out of it on-chain, and how the <b>Balcore engine</b> puts you on the other side of the counter — rules set once, running always.</p>
 </section>
 
