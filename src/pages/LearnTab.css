@@ -41,9 +41,14 @@
   .intro{padding:56px 0 40px;border-bottom:1px solid var(--line)}
   .eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--brand-hi);margin-bottom:14px}
   h1{font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:clamp(44px,7vw,84px);line-height:.95;letter-spacing:.01em;max-width:900px}
+  h1 .line{display:block;white-space:nowrap}
   h1 em{font-style:normal;color:var(--mute)}
   .intro p{max-width:620px;color:var(--mute);margin-top:22px}
   .intro p b{color:var(--ink);font-weight:500}
+  @media(max-width:640px){
+    .wrap{padding:0 20px}
+    h1{font-size:clamp(26px,8.2vw,40px)}
+  }
 
   /* ---------- player ---------- */
   .player{padding:44px 0 52px;border-bottom:1px solid var(--line)}
