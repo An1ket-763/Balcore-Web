@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-// etc.
+import { useNavigate } from "react-router-dom";
 
 import CsModal from "@/components/ui/CsModal";
 
@@ -28,6 +28,7 @@ const HEX_OFFSETS: [number, number][] = [
    HeroSection
    ═══════════════════════════════════════════════════════════════════════ */
 const HeroSection = () => {
+  const navigate = useNavigate();
   const bgCanvasRef = useRef<HTMLCanvasElement>(null);
   const hexSvgRef = useRef<SVGSVGElement>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
@@ -706,7 +707,15 @@ const HeroSection = () => {
                   </svg>
                   Get Started
                 </button>
-                <button className="btn-o">Learn More →</button>
+                <button
+                  className="btn-o"
+                  onClick={() => {
+                    navigate("/learn");
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                >
+                  Learn More →
+                </button>
               </div>
             </div>
           </div>
