@@ -6,13 +6,14 @@ const TechnologySection = () => {
   return (
     <>
       <style>{`
-        .horizon{
+       .horizon{
           position:relative;
           min-height:660px;
+          height:clamp(660px, 46vw, 920px);
           display:flex;align-items:center;
           background-image:url(${horizonBg});
           background-size:cover;
-          background-position:center 30%;
+          background-position:center 38%;
           overflow:hidden;
           isolation:isolate;
           --bg:#050509;
