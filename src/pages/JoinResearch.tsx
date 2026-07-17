@@ -162,7 +162,7 @@ const JoinResearch = () => {
             </div>
           </div>
 
-          <a href="mailto:research@balcore.xyz" className="jr-cta">Apply to Research Team →</a>
+          <a href="mailto:support@balcore.org" className="jr-cta">Apply to Research Team →</a>
 
           <div className="jr-alt-contact">
             Or DM us on X  <a href="https://x.com/Balcore_ai" target="_blank" rel="noreferrer">@Balcore_ai</a><br />
