@@ -371,8 +371,9 @@ const BusinessPerspective = () => {
           </article>
         </div>
       </main>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
