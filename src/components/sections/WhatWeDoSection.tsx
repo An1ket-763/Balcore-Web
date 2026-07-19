@@ -409,6 +409,9 @@ const WhatWeDoSection = () => {
           .bd-inner{grid-template-columns:1fr;gap:44px;}
           .bd-title{font-size:clamp(2rem,9vw,3rem);}
           .bd-hub-wrap{max-width:min(88vw,440px);}
+          .bd-cta{gap:clamp(8px,2.2vw,14px);}
+          .bd-link{font-size:clamp(8px,2.2vw,11px);letter-spacing:.08em;}
+          .bd-link svg{width:10px;height:10px;}
         }
       `}</style>
 
