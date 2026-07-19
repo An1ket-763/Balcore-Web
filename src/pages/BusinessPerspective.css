@@ -11,8 +11,8 @@
   --bp-dim: hsl(250 12% 56%);
   --bp-accent: hsl(270 80% 65%);
   --bp-accent2: hsl(270 80% 68%);
-  --bp-red: hsl(0 78% 70%);
-  --bp-amber: hsl(38 85% 60%);
+  --bp-red: hsl(270 80% 65%);
+  --bp-amber: hsl(0 0% 100%);
   --bp-green: hsl(150 60% 55%);
   --bp-shadow: 0 22px 70px rgba(0, 0, 0, 0.32);
   background:
