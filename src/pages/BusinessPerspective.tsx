@@ -29,8 +29,9 @@ const BusinessPerspective = () => {
   };
 
   return (
-    <div className="bp-root">
+    <>
       <NavBar />
+      <div className="bp-root">
       <div className="bp-progress" id="bp-progress" aria-hidden="true"></div>
 
       <main className="bp-shell" id="main">
@@ -371,8 +372,9 @@ const BusinessPerspective = () => {
           </article>
         </div>
       </main>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
