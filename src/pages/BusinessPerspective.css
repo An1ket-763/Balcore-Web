@@ -9,14 +9,14 @@
   --bp-txt: hsl(240 20% 96%);
   --bp-mut: hsl(250 15% 74%);
   --bp-dim: hsl(250 12% 56%);
-  --bp-accent: hsl(75 85% 55%); /* site primary lime */
+  --bp-accent: hsl(270 80% 65%);
   --bp-accent2: hsl(270 80% 68%);
   --bp-red: hsl(0 78% 70%);
   --bp-amber: hsl(38 85% 60%);
   --bp-green: hsl(150 60% 55%);
   --bp-shadow: 0 22px 70px rgba(0, 0, 0, 0.32);
   background:
-    radial-gradient(circle at 15% 0%, hsla(75, 85%, 55%, 0.08), transparent 28rem),
+    radial-gradient(circle at 15% 0%, hsla(270, 80%, 65%, 0.08), transparent 28rem),
     radial-gradient(circle at 90% 18%, hsla(270, 80%, 68%, 0.08), transparent 25rem),
     var(--bp-bg);
   color: var(--bp-txt);
@@ -98,7 +98,7 @@
 .bp-root h1 span {
   display: block;
   color: var(--bp-accent);
-  text-shadow: 0 0 45px hsla(75, 85%, 55%, 0.25);
+  text-shadow: 0 0 45px hsla(270, 80%, 65%, 0.25);
 }
 
 .bp-deck {
@@ -319,7 +319,7 @@
   grid-template-columns: 1fr auto;
   gap: 20px;
   align-items: center;
-  background: linear-gradient(135deg, hsla(75, 85%, 55%, 0.1), hsla(270, 80%, 68%, 0.08));
+  background: linear-gradient(135deg, hsla(270, 80%, 65%, 0.1), hsla(270, 80%, 68%, 0.08));
   border: 1px solid hsl(258 30% 30%);
   border-radius: 16px;
   padding: 22px 24px;
@@ -360,7 +360,7 @@
   width: 260px;
   height: 260px;
   border-radius: 50%;
-  background: hsla(75, 85%, 55%, 0.15);
+  background: hsla(270, 80%, 65%, 0.15);
   filter: blur(20px);
   right: -110px;
   top: -130px;
