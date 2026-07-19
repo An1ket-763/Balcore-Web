@@ -181,6 +181,9 @@ const WhatWeDoSection = () => {
       });
     };
     positionNodes();
+    requestAnimationFrame(positionNodes);
+    const ro = new ResizeObserver(positionNodes);
+    ro.observe(hubWrap);
     window.addEventListener("resize", positionNodes);
 
     const ctx = canvas.getContext("2d")!;
