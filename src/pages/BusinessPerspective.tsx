@@ -341,7 +341,7 @@ const BusinessPerspective = () => {
                   <br />
                   Throw your own market at it.
                 </strong>
-                <a href="/try-it-yourself">
+                <a href="/simulator">
                   Open the Simulator <span aria-hidden="true">→</span>
                 </a>
               </div>
