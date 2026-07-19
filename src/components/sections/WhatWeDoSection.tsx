@@ -362,14 +362,14 @@ const WhatWeDoSection = () => {
         }
         .bd-desc{margin-top:clamp(20px,3vh,32px);font-size:clamp(.9rem,1.02vw,1rem);line-height:1.7;color:var(--muted);max-width:480px;}
         .bd-desc p+p{margin-top:14px}
-        .bd-cta{display:flex;align-items:center;gap:clamp(22px,3vw,44px);flex-wrap:wrap;margin-top:clamp(22px,3.2vh,34px);}
+        .bd-cta{display:flex;align-items:center;gap:clamp(10px,1.6vw,24px);flex-wrap:nowrap;margin-top:clamp(22px,3.2vh,34px);}
         .bd-link{
-          display:inline-flex;align-items:center;gap:8px;
-          font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-          text-decoration:none;transition:gap .2s;cursor:pointer;
+          display:inline-flex;align-items:center;gap:6px;
+          font-family:'IBM Plex Mono',monospace;font-size:clamp(9px,1vw,12px);font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+          text-decoration:none;transition:gap .2s;cursor:pointer;white-space:nowrap;
         }
-        .bd-link svg{transition:transform .2s}
-        .bd-link:hover{gap:14px}
+        .bd-link svg{transition:transform .2s;width:12px;height:12px;flex-shrink:0}
+        .bd-link:hover{gap:10px}
         .bd-link:hover svg{transform:translateX(4px)}
         .bd-visual{position:relative;}
         .bd-hub-wrap{
