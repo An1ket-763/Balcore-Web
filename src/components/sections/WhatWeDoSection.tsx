@@ -455,6 +455,12 @@ const WhatWeDoSection = () => {
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </a>
+                <a href="#business-perspective" className="bd-link" style={{ color: "var(--muted)" }}>
+                  Business perspective
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
               </div>
             </div>
             <div className="bd-visual">
