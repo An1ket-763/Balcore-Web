@@ -319,6 +319,7 @@ const WhatWeDoSection = () => {
 
     return () => {
       cancelAnimationFrame(raf);
+      ro.disconnect();
       window.removeEventListener("resize", positionNodes);
     };
   }, []);
