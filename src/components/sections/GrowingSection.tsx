@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CsModal from "@/components/ui/CsModal";
 
 const GrowingSection = () => {
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section
       id="growing"
@@ -31,10 +35,7 @@ const GrowingSection = () => {
 
         <div className="flex flex-wrap items-center justify-center gap-3">
           <button
-            onClick={() => {
-              const el = document.getElementById("try-it-yourself");
-              if (el) el.scrollIntoView({ behavior: "smooth" });
-            }}
+            onClick={() => setIsModalOpen(true)}
             className="inline-flex items-center gap-2 rounded-lg bg-[#7c3aed] px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-[#6d28d9] hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(124,58,237,0.4)]"
           >
             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
@@ -53,6 +54,8 @@ const GrowingSection = () => {
           </button>
         </div>
       </div>
+
+      <CsModal open={isModalOpen} onOpenChange={setIsModalOpen} />
     </section>
   );
 };
