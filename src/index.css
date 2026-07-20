@@ -90,6 +90,11 @@
     text-rendering: optimizeLegibility;
   }
 
+  /* Force Clash Grotesk sitewide — override any legacy per-component font-family declarations */
+  html, body, button, input, select, textarea, h1, h2, h3, h4, h5, h6, p, span, a, div, li, td, th, label {
+    font-family: 'Clash Grotesk', sans-serif !important;
+  }
+
   #root {
     min-height: 100%;
     overflow-x: clip;
