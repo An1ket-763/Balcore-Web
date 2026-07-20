@@ -1,17 +1,12 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import NavBar from "@/components/sections/NavBar";
 import Footer from "@/components/sections/Footer";
 import "./BalcoreSimulator.css";
-import bodyHtml from "./_bsim_body.html?raw";
-import simScript from "./_bsim_script.js?raw";
+import BsimBody from "./_bsim_body.jsx";
+import simScript from "./_bsim_script.jsx";
 
 const BalcoreSimulator = () => {
-  const rootRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    if (!rootRef.current) return;
-    // Execute simulator script scoped to this mount. It references DOM by IDs
-    // which live inside rootRef after dangerouslySetInnerHTML.
     const script = document.createElement("script");
     script.textContent = simScript;
     document.body.appendChild(script);
@@ -28,11 +23,9 @@ const BalcoreSimulator = () => {
     <>
       <NavBar />
       <div style={{ height: 72 }} />
-      <div
-        ref={rootRef}
-        className="bsim-root"
-        dangerouslySetInnerHTML={{ __html: bodyHtml }}
-      />
+      <div className="bsim-root">
+        <BsimBody />
+      </div>
       <Footer />
     </>
   );

@@ -1,4 +1,6 @@
-
+// Simulator script kept as a string so it runs in the global (non-strict) scope
+// via a <script> tag. Behavior is unchanged from the original _bsim_script.js.
+const simScript = `
 // Balcore public floor model. The production engine's placement, weekly map,
 // signals and safeguard calibrations are proprietary and are NOT in this file.
 let seed=7;
@@ -226,9 +228,9 @@ function seatsHTML(r){
   const mx=seats[0][1];
   document.getElementById('seats').innerHTML=seats.map(s=>{
     const pc=(s[1]/initialCapital-1)*100;
-    return `<div class="seat"><div class="lab">${s[0]}</div>
-    <div style="display:flex;align-items:center"><div class="bar" style="width:${78*s[1]/mx}%;background:${s[2]}"></div>
-    <span class="num" style="color:${s[2]}">${moneyShort(s[1])} ${pc>=0?'+':''}${pc.toFixed(0)}%</span></div></div>`;}).join('');
+    return \`<div class="seat"><div class="lab">\${s[0]}</div>
+    <div style="display:flex;align-items:center"><div class="bar" style="width:\${78*s[1]/mx}%;background:\${s[2]}"></div>
+    <span class="num" style="color:\${s[2]}">\${moneyShort(s[1])} \${pc>=0?'+':''}\${pc.toFixed(0)}%</span></div></div>\`;}).join('');
 }
 let preset='study';
 document.querySelectorAll('#assets button').forEach(b=>b.onclick=()=>{
@@ -245,9 +247,9 @@ document.querySelectorAll('#presets button').forEach(b=>b.onclick=()=>{
 (function(){
   const box=document.getElementById('bldSliders');
   const names=['Month 6','Month 12','Month 18','Month 24 (end)'];
-  box.innerHTML=names.map((n,k)=>`<label style="display:block;font-size:11px;color:var(--mut)">${n}
-    <b id="bsv${k}" style="color:var(--teal)">${Math.round(customPct[k+1])}%</b><br>
-    <input id="bs${k}" type="range" min="-95" max="300" value="${Math.round(customPct[k+1])}" style="width:100%"></label>`).join('');
+  box.innerHTML=names.map((n,k)=>\`<label style="display:block;font-size:11px;color:var(--mut)">\${n}
+    <b id="bsv\${k}" style="color:var(--teal)">\${Math.round(customPct[k+1])}%</b><br>
+    <input id="bs\${k}" type="range" min="-95" max="300" value="\${Math.round(customPct[k+1])}" style="width:100%"></label>\`).join('');
   for(let k=0;k<4;k++){
     const el=document.getElementById('bs'+k);
     el.oninput=()=>{customPct[k+1]=+el.value;
@@ -284,11 +286,11 @@ function splitCSVLine(line,delimiter){
   cells.push(cell.trim());return cells;
 }
 function parseUploadedPrices(raw){
-  const lines=String(raw).split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+  const lines=String(raw).split(/\\r?\\n/).map(x=>x.trim()).filter(Boolean);
   if(!lines.length)return [];
   const delimiter=(lines[0].match(/,/g)||[]).length>=(lines[0].match(/;/g)||[]).length?',':';';
   const rows=lines.map(line=>splitCSVLine(line,delimiter));
-  const clean=s=>String(s??'').replace(/[\$,%\s]/g,'').replace(/^\((.*)\)$/,'-$1');
+  const clean=s=>String(s??'').replace(/[\\$,%\\s]/g,'').replace(/^\\((.*)\\)$/,'-$1');
   const value=s=>{const n=Number(clean(s));return Number.isFinite(n)&&n>0?n:null;};
   const headers=rows[0].map(x=>x.toLowerCase().replace(/[^a-z0-9]/g,''));
   const preferred=['adjclose','adjustedclose','close','closingprice','price','last','value'];
@@ -305,12 +307,12 @@ function parseUploadedPrices(raw){
     col=best;
   }
   let nums=data.map(r=>value(r[col])).filter(v=>v!==null);
-  if(nums.length<2)nums=String(raw).split(/[\s,;]+/).map(value).filter(v=>v!==null);
+  if(nums.length<2)nums=String(raw).split(/[\\s,;]+/).map(value).filter(v=>v!==null);
   return nums;
 }
 document.getElementById('pasteLoad').onclick=()=>{
   const raw=document.getElementById('pasteBox').value;
-  ingestSeries(raw.split(/[\s,;]+/).map(Number),'Pasted data');
+  ingestSeries(raw.split(/[\\s,;]+/).map(Number),'Pasted data');
 };
 document.getElementById('csvFile').onchange=e=>{
   const f=e.target.files&&e.target.files[0];if(!f)return;
@@ -322,7 +324,7 @@ document.getElementById('csvFile').onchange=e=>{
 };
 vol.oninput=()=>{const m=+vol.value/100,base=ASSETS[asset].vol,v=Math.round(base*m);
   const tag=m<1?'Calm':m===1?'Realistic':m<=1.5?'Rough':'Wild';
-  volv.textContent='\u00d7'+m.toFixed(2).replace(/\.?0+$/,'')+' ('+tag+') \u00b7 ~'+v+'%/yr \u00b7 week \u00b1'+Math.round(v*0.14)+'% \u2014 wilder = higher fee tiers AND bigger IL bills';};
+  volv.textContent='\\u00d7'+m.toFixed(2).replace(/\\.?0+$/,'')+' ('+tag+') \\u00b7 ~'+v+'%/yr \\u00b7 week \\u00b1'+Math.round(v*0.14)+'% \\u2014 wilder = higher fee tiers AND bigger IL bills';};
 reroll.onclick=()=>{seed=Math.floor(Math.random()*99990)+7;seedv.textContent=seed;if(preset==='future')rollFuture();if(preset==='rand')rollRandom();markDirty();};
 
 capital.onchange=()=>{initialCapital=+capital.value;markDirty();};
@@ -350,7 +352,7 @@ document.getElementById('export').onclick=()=>{
     ['ending Balcore value',r.total],['hold 50/50',r.hold55],['hold asset',r.holdA],['fees',r.fees],['impermanent loss',r.il],['protocol fee',r.proto],['user distributions',r.paid],['surplus vault',r.surV],[],['month','fees','IL bill']
   ];
   r.mF.forEach((v,i)=>rows.push([i+1,v,r.mB[i]]));
-  const csv=rows.map(row=>row.map(v=>'"'+String(v??'').replaceAll('"','""')+'"').join(',')).join('\n');
+  const csv=rows.map(row=>row.map(v=>'"'+String(v??'').replaceAll('"','""')+'"').join(',')).join('\\n');
   const blob=new Blob([csv],{type:'text/csv;charset=utf-8'}),a=document.createElement('a');
   a.href=URL.createObjectURL(blob);a.download='balcore-'+asset.toLowerCase()+'-'+preset+'-scenario-'+seed+'.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500);toast('CSV exported');
 };
@@ -407,26 +409,26 @@ function runCore(){
   const r=simulate(px,ASSETS[asset].apr/350*feeMultiplier);
   lastResult=r;lastPx=px;
   drawEq(r,px);drawMo(r);seatsHTML(r);updateKPIs(r);
-  const PN={rand:'Random market',paste:'Your data',future:'Next 24 months (randomized future)',study:'Our study tape',crash:'Crash \u221250%',bear:'Bear \u221220%',chop:'Sideways chop',melt:'Melt-up +120%',round:'Boom & bust',rand:'Random',custom:'Custom market'};
+  const PN={rand:'Random market',paste:'Your data',future:'Next 24 months (randomized future)',study:'Our study tape',crash:'Crash \\u221250%',bear:'Bear \\u221220%',chop:'Sideways chop',melt:'Melt-up +120%',round:'Boom & bust',rand:'Random',custom:'Custom market'};
   const mv=(r.pe/r.p0-1)*100;
-  document.getElementById('ctx').innerHTML='<b style="color:#EEF2F7">'+ASSETS[asset].sym+' / USD</b> \u00b7 '+(PN[preset]||preset)+(preset==='paste'&&userSeries?' ('+userSeries.length+' pts)':'')+' \u00b7 asset '+(mv>=0?'+':'')+mv.toFixed(0)+'% \u00b7 Scenario #'+s0+' \u00b7 fees '+feeMultiplier.toFixed(1)+'\u00d7';
+  document.getElementById('ctx').innerHTML='<b style="color:#EEF2F7">'+ASSETS[asset].sym+' / USD</b> \\u00b7 '+(PN[preset]||preset)+(preset==='paste'&&userSeries?' ('+userSeries.length+' pts)':'')+' \\u00b7 asset '+(mv>=0?'+':'')+mv.toFixed(0)+'% \\u00b7 Scenario #'+s0+' \\u00b7 fees '+feeMultiplier.toFixed(1)+'\\u00d7';
   document.getElementById('capitalTitle').textContent=moneyShort(initialCapital);
   document.querySelector('#tokA').parentElement.firstElementChild.textContent=ASSETS[asset].sym;
   const fA=v=>v<1000?v.toFixed(2):Math.round(v).toLocaleString();
-  tokA.textContent=fA(r.A0)+' \u2192 '+fA(r.A);
+  tokA.textContent=fA(r.A0)+' \\u2192 '+fA(r.A);
   tokA.className=Math.abs(r.A-r.A0)<r.A0*0.01?'pos':'amb';
-  tokU.textContent=fmt(r.U0)+' \u2192 '+fmt(r.U);
+  tokU.textContent=fmt(r.U0)+' \\u2192 '+fmt(r.U);
   tokU.className=r.U>=r.U0*0.99?'pos':'amb';
   const whole=(Math.abs(r.A-r.A0)<r.A0*0.005&&r.U>=r.U0*0.995);
   tokNote.textContent=whole?
-    'restored to the deposit \u2014 payouts only ever come from income above whole counts':
-    'still restoring \u2014 payouts pause until both counts are whole; every retained dollar goes to the refill first';
+    'restored to the deposit \\u2014 payouts only ever come from income above whole counts':
+    'still restoring \\u2014 payouts pause until both counts are whole; every retained dollar goes to the refill first';
   tokNote.style.color=whole?'':'var(--amber)';
-  wFee.textContent=fmt(r.fees);wIL.textContent='\u2212'+fmt(r.il).slice(1);
-  wProto.textContent='\u2212'+fmt(r.proto).slice(1);
+  wFee.textContent=fmt(r.fees);wIL.textContent='\\u2212'+fmt(r.il).slice(1);
+  wProto.textContent='\\u2212'+fmt(r.proto).slice(1);
   wVal.textContent=(r.fees-r.il-r.proto>=0?'+':'')+fmt(r.fees-r.il-r.proto);
   wVal.className=r.fees-r.il-r.proto>=0?'pos':'neg';
-  wPay.textContent=fmt(r.paid)+' \u00b7 '+(r.paid/initialCapital/2*100).toFixed(1)+'%/yr';
+  wPay.textContent=fmt(r.paid)+' \\u00b7 '+(r.paid/initialCapital/2*100).toFixed(1)+'%/yr';
   wSur.textContent=fmt(r.surV);
   const nM=r.mF.length,cw=r.mF.filter((f,i)=>f>=r.mB[i]).length;
   cov.textContent=cw+' / '+nM; paused.textContent=r.pausedW+' / '+r.eq.length;
@@ -468,9 +470,9 @@ function playFX(px,done){
     g.fillStyle='rgba(143,146,181,.9)';g.font='10px monospace';
     g.fillText('SIMULATION — PUBLIC FLOOR MODEL',20,16);
     if(Math.random()<.05){g.fillStyle='#F0B03F';g.font='bold 11px monospace';
-      g.fillText(Math.random()<.5?'\u26A0 VELOCITY GUARD':'\u26A0 BREAKER — PARKED TO MONDAY',W-230,16);}
-    document.getElementById('simhud').textContent='\u25b8 '+HUD[Math.min(HUD.length-1,Math.floor(f*HUD.length))];
-    document.getElementById('simwk').textContent='WEEK '+String(Math.min(104,Math.ceil(f*104))).padStart(3,'0')+' / 104   \u00b7   '+ASSETS[asset].sym+'/USD';
+      g.fillText(Math.random()<.5?'\\u26A0 VELOCITY GUARD':'\\u26A0 BREAKER — PARKED TO MONDAY',W-230,16);}
+    document.getElementById('simhud').textContent='\\u25b8 '+HUD[Math.min(HUD.length-1,Math.floor(f*HUD.length))];
+    document.getElementById('simwk').textContent='WEEK '+String(Math.min(104,Math.ceil(f*104))).padStart(3,'0')+' / 104   \\u00b7   '+ASSETS[asset].sym+'/USD';
     if(f<1)requestAnimationFrame(frame);
     else{clearTimeout(guard);finish();}
    }catch(_){clearTimeout(guard);finish();}
@@ -494,4 +496,7 @@ function run(){
 }
 loadScenarioFromURL();
 runCore();
-(function(){const j=document.getElementById('jsok');if(j){j.textContent='engine: ready \u2713';j.style.color='var(--green)';}})();
+(function(){const j=document.getElementById('jsok');if(j){j.textContent='engine: ready \\u2713';j.style.color='var(--green)';}})();
+`;
+
+export default simScript;
