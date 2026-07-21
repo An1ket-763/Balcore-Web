@@ -544,16 +544,14 @@ const HeroSection = () => {
             overflow: visible;
           }
           .hero-left {
-            position: relative;
-            top: auto; left: auto; transform: none;
-            max-width: none; width: 100%;
+            padding: 104px 48px 40px;
             align-items: center;
             text-align: center;
             display: flex; flex-direction: column;
-            justify-content: flex-start;
-            padding: 104px 56px 72px 56px;
+            justify-content: space-between;
+            padding: 83px 56px 88px 56px;
             animation: fadeUp .8s ease both;
-            z-index: 20;
+            position: relative; z-index: 20;
           }
           .grade {
             position: absolute; inset: 0; z-index: 2; pointer-events: none;
