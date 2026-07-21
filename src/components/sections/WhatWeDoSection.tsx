@@ -405,10 +405,11 @@ const WhatWeDoSection = () => {
           .bd-core-outer,.bd-core-outer2{animation:none}
         }
         @media (max-width:820px){
-          .bd-hero{padding:64px 24px 56px;}
+          .bd-hero{padding:64px 16px 56px;}
           .bd-inner{grid-template-columns:1fr;gap:44px;}
           .bd-title{font-size:clamp(2rem,9vw,3rem);}
-          .bd-hub-wrap{max-width:min(88vw,440px);}
+          .bd-visual{display:flex;justify-content:center;align-items:center;width:100%;}
+          .bd-hub-wrap{max-width:min(70vw,340px);margin:0 auto;}
           .bd-cta{gap:clamp(8px,2.2vw,14px);}
           .bd-link{font-size:clamp(8px,2.2vw,11px);letter-spacing:.08em;}
           .bd-link svg{width:10px;height:10px;}
