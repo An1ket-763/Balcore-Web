@@ -1,4 +1,4 @@
-import { useReveal } from "./useReveal";
+import { useReveal } from "./hooks/useReveal";
 
 const CloserSection = () => {
   const { ref, revealed } = useReveal<HTMLElement>();

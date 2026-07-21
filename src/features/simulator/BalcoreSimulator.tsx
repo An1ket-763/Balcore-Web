@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import NavBar from "@/components/sections/NavBar";
 import Footer from "@/components/sections/Footer";
 import "./BalcoreSimulator.css";
-import BsimBody from "./_bsim_body.jsx";
-import simScript from "./_bsim_script.jsx";
+import SimulatorBody from "./SimulatorBody.jsx";
+import simScript from "./simulatorScript.jsx";
 
 const BalcoreSimulator = () => {
   useEffect(() => {
@@ -24,7 +24,7 @@ const BalcoreSimulator = () => {
       <NavBar />
       <div style={{ height: 72 }} />
       <div className="bsim-root">
-        <BsimBody />
+        <SimulatorBody />
       </div>
       <Footer />
     </>

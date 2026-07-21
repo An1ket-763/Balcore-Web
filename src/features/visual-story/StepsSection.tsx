@@ -1,4 +1,4 @@
-import { useReveal } from "./useReveal";
+import { useReveal } from "./hooks/useReveal";
 
 type Step = {
   num: string;
