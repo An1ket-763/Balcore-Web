@@ -536,27 +536,29 @@ const HeroSection = () => {
         @media (min-width: 768px) and (max-width: 1024px) {
           .hero-root { min-height: 0; }
           .hero-section {
-            display: flex;
-            flex-direction: column;
+            display: block;
             grid-template-columns: none;
             height: auto;
             min-height: 0;
-            overflow: visible;
+            overflow: hidden;
+            position: relative;
           }
           .hero-left {
-            padding: 104px 48px 40px;
+            position: relative;
+            z-index: 20;
+            top: auto; left: auto; transform: none;
+            width: 100%; max-width: none;
+            padding: 120px 56px 88px;
             align-items: center;
             text-align: center;
             display: flex; flex-direction: column;
-            justify-content: space-between;
-            padding: 83px 56px 88px 56px;
+            justify-content: flex-start;
+            gap: 28px;
             animation: fadeUp .8s ease both;
-            position: relative; z-index: 20;
           }
           .grade {
-            position: absolute; inset: 0; z-index: 2; pointer-events: none;
-            background: linear-gradient(135deg,
-              rgba(8,8,20,.5) 0%, rgba(0,0,0,.05) 60%, rgba(8,8,20,.45) 100%);
+            background: linear-gradient(180deg,
+              rgba(8,8,15,.72) 0%, rgba(8,8,15,.45) 50%, rgba(8,8,15,.85) 100%);
           }
           .hero-left > div:first-child { display: flex; flex-direction: column; align-items: center; }
           .headline { text-align: center; }
@@ -565,8 +567,15 @@ const HeroSection = () => {
           .hero-lower { align-items: center; margin-top: 24px; }
           .sub { max-width: 600px; text-align: center; }
           .btns { justify-content: center; }
-          .hero-right { width: 100%; height: clamp(320px, 38vh, 420px); min-height: 0; }
-          .hero-right { position: relative; overflow: hidden; }
+          .hero-right {
+            position: absolute !important;
+            inset: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            min-height: 0 !important;
+            z-index: 1 !important;
+            overflow: hidden;
+          }
           .hex-seam-svg { display: none; }
           .scene-dots { display: none; }
         }

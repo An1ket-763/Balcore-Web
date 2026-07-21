@@ -406,10 +406,12 @@ const WhatWeDoSection = () => {
         }
         @media (max-width:820px){
           .bd-hero{padding:64px 16px 56px;}
-          .bd-inner{grid-template-columns:1fr;gap:44px;}
+          .bd-inner{grid-template-columns:minmax(0,1fr);gap:44px;}
+          .bd-copy{min-width:0;}
           .bd-title{font-size:clamp(2rem,9vw,3rem);}
-          .bd-visual{display:flex;justify-content:center;align-items:center;width:100%;}
-          .bd-hub-wrap{max-width:min(70vw,340px);margin:0 auto;}
+          .bd-visual{display:flex;justify-content:center;align-items:center;width:100%;min-width:0;max-width:100%;}
+          .bd-hub-wrap{width:100%;max-width:min(70vw,340px);margin:0 auto;}
+          .bd-hero-canvas{max-width:100%;}
           .bd-cta{gap:clamp(8px,2.2vw,14px);}
           .bd-link{font-size:clamp(8px,2.2vw,11px);letter-spacing:.08em;}
           .bd-link svg{width:10px;height:10px;}
