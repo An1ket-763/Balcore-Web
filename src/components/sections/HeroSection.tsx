@@ -636,7 +636,7 @@ const HeroSection = () => {
            rgba(8,8,15,.88) 100%);
           }
           .badge { font-size: 11px; padding: 6px 14px; }
-          .headline { font-size: 32px; margin-top: 18px; line-height: .98; }
+          .headline { font-size: 26px; margin-top: 18px; line-height: .98; }
           .hero-lower { gap: 16px; margin-top: 28px; }
           .sub { font-size: 14px; max-width: none; line-height: 1.65; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); }
           .btns { gap: 10px; flex-wrap: wrap; }
