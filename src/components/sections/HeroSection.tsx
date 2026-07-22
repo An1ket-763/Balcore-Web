@@ -412,7 +412,7 @@ const HeroSection = () => {
         .headline {
           font-family: 'Barlow Condensed', sans-serif;
           font-weight: 900;
-          font-size: clamp(38px, 5vw, 68px);
+          font-size: clamp(32px, 4.2vw, 56px);
           line-height: .93; letter-spacing: -.015em;
           text-transform: uppercase; color: #fff;
           text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
