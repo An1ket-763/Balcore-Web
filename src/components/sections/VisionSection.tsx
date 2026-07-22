@@ -21,9 +21,9 @@ body{background:#08080f;overflow-x:hidden}
 .vision-copy{max-width:620px}
 .vision-eyebrow{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#cda349;margin-bottom:20px;display:flex;align-items:center;gap:12px}
 .vision-eyebrow::before{content:'';width:34px;height:1px;background:linear-gradient(90deg,#cda349,transparent)}
-.vision-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(36px,4.6vw,64px);line-height:.94;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:28px;text-shadow:0 2px 30px rgba(0,0,0,.6)}
+.vision-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(30px,3.9vw,52px);line-height:.94;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin-bottom:28px;text-shadow:0 2px 30px rgba(0,0,0,.6)}
 .vision-title em{font-style:normal;background:linear-gradient(120deg,#e9c873,#a87c2e 60%,#f3dd9a);-webkit-background-clip:text;background-clip:text;color:transparent}
-.vision-quote{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(21px,2.4vw,30px);line-height:1.24;color:#f1eeff;border-left:2px solid #cda349;padding-left:24px;margin-bottom:26px;max-width:560px;text-shadow:0 2px 20px rgba(0,0,0,.5)}
+.vision-quote{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(18px,2.1vw,26px);line-height:1.24;color:#f1eeff;border-left:2px solid #cda349;padding-left:24px;margin-bottom:26px;max-width:560px;text-shadow:0 2px 20px rgba(0,0,0,.5)}
 .vision-quote span{color:#cda349}
 .vision-body{font-size:15px;line-height:1.85;color:rgba(241,238,255,.7);max-width:480px}
 .vision-tags{display:flex;flex-wrap:wrap;gap:11px;margin-top:34px}
