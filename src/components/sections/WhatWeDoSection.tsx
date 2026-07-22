@@ -408,9 +408,11 @@ const WhatWeDoSection = () => {
           .bd-hero{padding:64px 16px 56px;}
           .bd-inner{grid-template-columns:minmax(0,1fr);gap:44px;}
           .bd-copy{min-width:0;}
-          .bd-title{font-size:clamp(2rem,9vw,3rem);}
+          .bd-title{font-size:clamp(1.55rem,7.5vw,2.4rem);}
           .bd-visual{display:flex;justify-content:center;align-items:center;width:100%;min-width:0;max-width:100%;}
-          .bd-hub-wrap{width:100%;max-width:min(70vw,340px);margin:0 auto;}
+          .bd-hub-wrap{width:100%;max-width:min(94vw,440px);margin:0 auto;}
+          .bd-tok-ring{width:clamp(56px,15vw,78px);height:clamp(56px,15vw,78px);}
+          .bd-tok-label{font-size:clamp(9px,2.6vw,11px);}
           .bd-hero-canvas{max-width:100%;}
           .bd-cta{gap:clamp(8px,2.2vw,14px);}
           .bd-link{font-size:clamp(8px,2.2vw,11px);letter-spacing:.08em;}
