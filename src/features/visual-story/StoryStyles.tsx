@@ -38,7 +38,7 @@ const StoryStyles = () => (
     .mm-hero h1{
       font-weight:800;text-transform:uppercase;
       line-height:.98;letter-spacing:.01em;margin:12px 0 0;white-space:nowrap;
-      font-size:clamp(1.5rem,4vw,3rem);
+      font-size:clamp(1.3rem,3.4vw,2.5rem);
     }
     .mm-hero h1 .mm-g{
       background:linear-gradient(180deg,#a78bfa 0%,#7c3aed 100%);
