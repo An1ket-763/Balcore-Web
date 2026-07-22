@@ -352,7 +352,7 @@ const WhatWeDoSection = () => {
         .bd-label::before{content:'';width:32px;height:1px;background:var(--p3);box-shadow:0 0 8px rgba(139,92,246,.7);}
         .bd-title{
           font-family:'Barlow Condensed',sans-serif;font-weight:900;line-height:.9;letter-spacing:.005em;text-transform:uppercase;
-          font-size:clamp(2.1rem,5.5vw,5rem);
+          font-size:clamp(1.7rem,4.4vw,4rem);
         }
         .bd-title .lead{color:#fff;display:block;}
         .bd-title span.grad{
