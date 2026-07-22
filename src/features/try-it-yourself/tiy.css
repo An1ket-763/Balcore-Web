@@ -504,3 +504,12 @@
 .tiy-root{position:relative;isolation:isolate;}
 .tiy-root .bg-layer{position:absolute;height:100%;}
 .tiy-root .grain{position:absolute;}
+
+/* Prevent horizontal overflow on mobile */
+.tiy-root{overflow-x:hidden;max-width:100vw}
+@media(max-width:620px){
+  .tiy-root .calc{grid-template-columns:1fr!important;padding:0 4px}
+  .tiy-root .hood-flow{grid-template-columns:1fr!important}
+  .tiy-root .flow-split{grid-template-columns:1fr!important}
+  .tiy-root .breakdown{grid-template-columns:1fr!important}
+}
