@@ -2,8 +2,8 @@
 // import { ChevronRight } from "lucide-react";
 // import { useNavigate } from "react-router-dom";
 // import NavBar from "@/components/sections/NavBar";
-// import ReactMarkdownRenderer from "@/docs/MarkdownRenderer";
-// import { whitePaperSection } from "@/docs/white-paper";
+// import ReactMarkdownRenderer from "@/content/MarkdownRenderer";
+// import { whitePaperSection } from "@/content/white-paper";
 
 // const WhitePaper = () => {
 //   const navigate = useNavigate();

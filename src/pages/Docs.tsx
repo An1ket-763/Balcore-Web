@@ -3,8 +3,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronRight, BookOpen } from "lucide-react";
 import NavBar from "@/components/sections/NavBar";
-import { docsContent } from "@/docs";
-import ReactMarkdownRenderer from "@/docs/MarkdownRenderer";
+import { docsContent } from "@/content";
+import ReactMarkdownRenderer from "@/content/MarkdownRenderer";
 
 const Docs = () => {
   const navigate = useNavigate();

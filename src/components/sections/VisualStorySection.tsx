@@ -1,7 +1,7 @@
-import HeroPlayer from "@/components/visualstory-section/HeroPlayer";
-import StepsSection from "@/components/visualstory-section/StepsSection";
-import CloserSection from "@/components/visualstory-section/CloserSection";
-import StoryStyles from "@/components/visualstory-section/StoryStyles";
+import HeroPlayer from "@/features/visual-story/HeroPlayer";
+import StepsSection from "@/features/visual-story/StepsSection";
+import CloserSection from "@/features/visual-story/CloserSection";
+import StoryStyles from "@/features/visual-story/StoryStyles";
 
 const VisualStorySection = () => {
   return (
