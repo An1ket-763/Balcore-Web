@@ -132,7 +132,7 @@ const StoryStyles = () => (
     /* ---------------- STEPS ---------------- */
     .mm-steps-sec{padding:clamp(56px,9vh,96px) 0 clamp(20px,4vh,36px)}
     .mm-steps-head{text-align:center;margin-bottom:clamp(34px,5vh,52px)}
-    .mm-steps-head h2{font-weight:800;text-transform:uppercase;font-size:clamp(1.8rem,4vw,2.7rem);letter-spacing:.01em}
+    .mm-steps-head h2{font-weight:800;text-transform:uppercase;font-size:clamp(1.5rem,3.4vw,2.3rem);letter-spacing:.01em}
     .mm-steps-head p{color:var(--muted);margin-top:10px;font-size:1.02rem}
     .mm-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
     .mm-step{
@@ -153,7 +153,7 @@ const StoryStyles = () => (
     }
     .mm-closer .mm-line{
       display:inline-block;font-weight:800;
-      text-transform:uppercase;letter-spacing:.02em;font-size:clamp(1.6rem,4vw,2.6rem);
+      text-transform:uppercase;letter-spacing:.02em;font-size:clamp(1.4rem,3.4vw,2.2rem);
     }
     .mm-closer .mm-line .mm-g{background:linear-gradient(180deg,#a78bfa,#7c3aed);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--p)}
     .mm-closer .mm-cta{
@@ -169,7 +169,7 @@ const StoryStyles = () => (
 
     @media(max-width:820px){
       .mm-steps{grid-template-columns:1fr}
-      .mm-hero h1{white-space:normal;font-size:clamp(2rem,9vw,3rem)}
+      .mm-hero h1{white-space:normal;font-size:clamp(1.6rem,7vw,2.4rem)}
       .mm-hero p{white-space:normal}
       .mm-hero{min-height:auto}
     }

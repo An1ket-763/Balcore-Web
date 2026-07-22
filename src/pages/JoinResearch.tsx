@@ -25,13 +25,13 @@ const styles = `
   .jr-root * { box-sizing: border-box; }
   .jr-hero { padding: 100px 48px 60px; max-width: 1100px; margin: 0 auto; text-align: center; }
   .jr-eyebrow { color: var(--accent); font-size: 13px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; font-weight: 500; }
-  .jr-hero h1 { font-size: clamp(40px, 6vw, 72px); font-weight: 800; line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 24px; }
+  .jr-hero h1 { font-size: clamp(30px, 5vw, 58px); font-weight: 800; line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 24px; }
   .jr-hero h1 .highlight { color: var(--accent); }
   .jr-hero .subtitle { font-size: 20px; color: var(--text-dim); max-width: 720px; margin: 0 auto; }
   .jr-container { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
   .jr-section { padding: 60px 0; }
   .jr-section-label { color: var(--accent); font-size: 12px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-  .jr-section h2 { font-size: 36px; font-weight: 700; margin-bottom: 16px; letter-spacing: -0.5px; }
+  .jr-section h2 { font-size: clamp(24px, 3.6vw, 30px); font-weight: 700; margin-bottom: 16px; letter-spacing: -0.5px; }
   .jr-section .lead { font-size: 17px; color: var(--text-dim); margin-bottom: 40px; max-width: 720px; }
   .jr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
   .jr-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; transition: all 0.25s ease; }
@@ -48,7 +48,7 @@ const styles = `
   .jr-why-card h4 { color: var(--accent-bright); font-size: 15px; font-weight: 600; margin-bottom: 8px; }
   .jr-why-card p { font-size: 14px; color: var(--text-dim); }
   .jr-apply { background: linear-gradient(135deg, rgba(163, 116, 255, 0.08) 0%, rgba(62, 224, 200, 0.04) 100%); border: 1px solid var(--border); border-radius: 16px; padding: 48px; margin: 40px 0 80px; text-align: center; }
-  .jr-apply h2 { font-size: 32px; margin-bottom: 16px; }
+  .jr-apply h2 { font-size: clamp(22px, 3.4vw, 28px); margin-bottom: 16px; }
   .jr-apply-steps { text-align: left; max-width: 600px; margin: 32px auto; display: grid; gap: 16px; }
   .jr-apply-step { display: flex; gap: 16px; align-items: flex-start; }
   .jr-apply-step .step-num { background: var(--accent); color: var(--bg); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
