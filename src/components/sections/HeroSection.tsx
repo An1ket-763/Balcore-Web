@@ -412,7 +412,7 @@ const HeroSection = () => {
         .headline {
           font-family: 'Barlow Condensed', sans-serif;
           font-weight: 900;
-          font-size: clamp(38px, 5vw, 68px);
+          font-size: clamp(32px, 4.2vw, 56px);
           line-height: .93; letter-spacing: -.015em;
           text-transform: uppercase; color: #fff;
           text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
@@ -636,7 +636,7 @@ const HeroSection = () => {
            rgba(8,8,15,.88) 100%);
           }
           .badge { font-size: 11px; padding: 6px 14px; }
-          .headline { font-size: 32px; margin-top: 18px; line-height: .98; }
+          .headline { font-size: 26px; margin-top: 18px; line-height: .98; }
           .hero-lower { gap: 16px; margin-top: 28px; }
           .sub { font-size: 14px; max-width: none; line-height: 1.65; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); }
           .btns { gap: 10px; flex-wrap: wrap; }
@@ -648,7 +648,7 @@ const HeroSection = () => {
 
         @media (max-width: 380px) {
           .hero-left { padding: 78px 16px 22px 35px; }
-          .headline { font-size: 28px; }
+          .headline { font-size: 23px; }
           .btn-p, .btn-o { padding: 11px 18px; font-size: 13px; }
         }
 

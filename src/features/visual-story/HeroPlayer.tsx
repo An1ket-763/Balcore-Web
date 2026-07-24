@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import explainerVideo from "@/assets/videos/market-making-explained.mp4";
 import explainerPoster from "@/assets/images/market-making-explained-poster.jpg";
-import { useReveal } from "./useReveal";
+import { useReveal } from "./hooks/useReveal";
 
 function formatTime(seconds: number) {
   const s = Number.isFinite(seconds) ? seconds : 0;
